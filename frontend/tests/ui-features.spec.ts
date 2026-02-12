@@ -459,8 +459,8 @@ test.describe('Conversations', () => {
     // Dropdown should show with "Conversations" header
     await expect(page.locator('text=CONVERSATIONS').or(page.locator('text=Conversations'))).toBeVisible()
 
-    // Should show "New conversation" button
-    await expect(page.locator('text=New conversation')).toBeVisible()
+    // Should show "New conversation" button (use exact match to avoid ambiguity with list items)
+    await expect(page.getByRole('button', { name: 'New conversation', exact: true })).toBeVisible()
   })
 
   test('can create a new conversation', async ({ page }) => {
@@ -468,8 +468,8 @@ test.describe('Conversations', () => {
     const switcher = page.locator('button').filter({ hasText: 'Discussion' })
     await switcher.click()
 
-    // Click "New conversation"
-    await page.locator('text=New conversation').click()
+    // Click "New conversation" button (the one with plus icon at bottom)
+    await page.getByRole('button', { name: 'New conversation', exact: true }).click()
 
     // Dropdown should close
     await page.waitForTimeout(200)
@@ -486,7 +486,7 @@ test.describe('Conversations', () => {
     // Create a second conversation first
     const switcher = page.locator('button').filter({ hasText: 'Discussion' })
     await switcher.click()
-    await page.locator('text=New conversation').click()
+    await page.getByRole('button', { name: 'New conversation', exact: true }).click()
     await page.waitForTimeout(200)
 
     // Open switcher again
@@ -531,15 +531,15 @@ test.describe('Conversations', () => {
     await page.waitForTimeout(200)
     await switcher.click()
 
-    // Should see the new name
-    await expect(page.locator('text=My Custom Name')).toBeVisible()
+    // Should see the new name in the conversation list
+    await expect(page.getByTitle('My Custom Name')).toBeVisible()
   })
 
   test('can delete a conversation', async ({ page }) => {
     // Create a second conversation first (so we can delete one)
     const switcher = page.locator('button').filter({ hasText: 'Discussion' })
     await switcher.click()
-    await page.locator('text=New conversation').click()
+    await page.getByRole('button', { name: 'New conversation', exact: true }).click()
     await page.waitForTimeout(200)
 
     // Reopen switcher
@@ -590,7 +590,7 @@ test.describe('Conversations', () => {
     // Create a second conversation with a custom name
     const switcher = page.locator('button').filter({ hasText: 'Discussion' })
     await switcher.click()
-    await page.locator('text=New conversation').click()
+    await page.getByRole('button', { name: 'New conversation', exact: true }).click()
     await page.waitForTimeout(200)
 
     // Verify localStorage has conversation index
