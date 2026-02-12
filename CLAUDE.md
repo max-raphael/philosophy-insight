@@ -59,6 +59,7 @@ curl -X POST http://localhost:8000/reload-texts
       useDarkMode.ts      # Theme preference with system detection + localStorage
       useKeyboardShortcuts.ts  # Global keyboard shortcut handler
       useMediaQuery.ts    # Responsive breakpoint detection
+      useTextSelection.ts # Unified mouse/touch text selection
     utils/
       formatText.tsx      # Text formatting utilities
     data/
@@ -75,8 +76,11 @@ curl -X POST http://localhost:8000/reload-texts
       TableOfContents.tsx # Sidebar TOC navigation
       ReadingControls.tsx # Font size, font family, theme, fullscreen
       KeyboardShortcutsModal.tsx  # Help modal showing shortcuts
+      MobileReaderLayout.tsx  # Mobile-specific full-screen reader
+      MobileBottomSheet.tsx   # Draggable bottom sheet with snap points
+      MobileHeader.tsx        # Compact mobile header
   tests/
-    ui-features.spec.ts   # Playwright E2E tests (47 tests)
+    ui-features.spec.ts   # Playwright E2E tests (48 tests)
   playwright.config.ts    # Playwright configuration
 ```
 
@@ -140,13 +144,24 @@ CSS custom properties enable dark mode theming.
 4. **Browse by Philosopher** - Horizontal scroll of top authors
 5. **Full Library** - Filterable/sortable grid of all texts
 
-### Reader Features
+### Reader Features (Desktop)
 - **Table of Contents** - Sidebar showing book structure (`Cmd+\` to toggle)
 - **Reading Controls** - Font size (S/M/L), font family (Serif/Sans), theme
 - **Fullscreen Mode** - Press `f` to toggle
 - **Zen Mode** - Hide chat panel for distraction-free reading (button in header)
 - **Progress Tracking** - Percentage and book number shown in header
 - **Keyboard Navigation** - See shortcuts below
+
+### Mobile Experience (≤768px)
+Mobile gets a completely different layout optimized for touch:
+- **Full-screen reader** - No cramped split view, maximizes reading space
+- **Bottom sheet chat** - Slide-up sheet with drag gestures and 3 snap points (closed/half/full)
+- **Touch text selection** - Uses `selectionchange` event; "Discuss" button appears below selection (avoids Chrome's native menu)
+- **Floating action button** - Quick access to open chat when sheet is closed
+- **Compact header** - Back, TOC, settings, search, and chat toggle
+- **iOS safe areas** - Respects notch and home indicator
+
+**Architecture:** `Reader.tsx` branches on `useIsMobile()` hook - mobile renders `MobileReaderLayout`, desktop renders the panel-based layout. All shared logic (conversations, API, localStorage) is reused.
 
 ## Keyboard Shortcuts
 
@@ -165,7 +180,7 @@ CSS custom properties enable dark mode theming.
 Run Playwright E2E tests:
 ```bash
 cd frontend
-npm test              # Run all 47 tests headless
+npm test              # Run all 48 tests headless
 npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
