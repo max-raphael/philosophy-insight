@@ -127,7 +127,7 @@ CSS custom properties enable dark mode theming.
 - CSS variables in `index.css` control all colors for seamless theming
 
 ### Command Palette (Search)
-- Open with `Cmd+K` or `/` from anywhere
+- Open with `Cmd+K`
 - Fuzzy search across titles, authors, descriptions
 - Click an author to see all their texts
 - Recent searches shown when empty
@@ -152,11 +152,13 @@ CSS custom properties enable dark mode theming.
 
 | Shortcut | Action |
 |----------|--------|
-| `Cmd+K` or `/` | Open search |
+| `Cmd+K` | Open search |
 | `Esc` | Close modal/exit fullscreen |
 | `f` | Toggle fullscreen (Reader) |
+| `Cmd+.` | Toggle zen mode (Reader) |
 | `Cmd+\` | Toggle table of contents (Reader) |
-| `Shift+/` (?) | Show keyboard shortcuts (Reader) |
+| `Cmd+/` | Focus chat input (Reader) |
+| `?` | Show keyboard shortcuts (Reader) |
 
 ## Testing
 
