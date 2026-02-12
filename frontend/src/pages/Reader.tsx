@@ -76,6 +76,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const handleSelectText = useCallback((selectedText: string, location: ParagraphLocation) => {
     setPendingQuote(selectedText)
     setActiveParagraph(location)
+    setIsZenMode(false) // Exit zen mode to show the chat panel
   }, [])
 
   const handleQuoteUsed = useCallback(() => {
