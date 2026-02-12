@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Configure dark mode to use class strategy (for .dark class on root) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ========================================
    CSS Custom Properties (Theme Variables)
    ======================================== */
