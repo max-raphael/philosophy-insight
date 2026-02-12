@@ -212,7 +212,7 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
       </AnimatePresence>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto reader-content">
         {Array.from(sectionsByBook.entries()).map(([book, bookSections], bookIndex) => {
           // Compute the starting global index for this book
           let globalIndexStart = 0
