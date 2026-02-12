@@ -31,6 +31,22 @@ test.describe('Home Page', () => {
     await expect(page.locator('text=Browse by Philosopher')).toBeVisible()
   })
 
+  test('clicking philosopher opens search filtered to their texts', async ({ page }) => {
+    // Find and click on Plato in the Browse by Philosopher section
+    const philosopherSection = page.locator('text=Browse by Philosopher').locator('..')
+    const platoButton = philosopherSection.locator('button', { hasText: 'Plato' })
+    await platoButton.click()
+
+    // Wait for command palette to appear
+    await page.waitForTimeout(300)
+
+    // Should show "Works by Plato" header
+    await expect(page.getByText('Works by Plato')).toBeVisible({ timeout: 5000 })
+
+    // Should show Plato's works (Republic is one of them)
+    await expect(page.locator('text=Republic').first()).toBeVisible()
+  })
+
   test('displays Full Library section', async ({ page }) => {
     const library = page.locator('#library')
     await expect(library).toBeVisible()

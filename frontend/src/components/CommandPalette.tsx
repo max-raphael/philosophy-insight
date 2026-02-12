@@ -25,13 +25,6 @@ const MAX_RECENT = 5
 export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }: CommandPaletteProps) {
   const [query, setQuery] = useState('')
   const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null)
-
-  // Set initial author when provided
-  useEffect(() => {
-    if (isOpen && initialAuthor) {
-      setSelectedAuthor(initialAuthor)
-    }
-  }, [isOpen, initialAuthor])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [recentSearches, setRecentSearches] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
@@ -149,11 +142,12 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
   useEffect(() => {
     if (isOpen) {
       setQuery('')
-      setSelectedAuthor(null)
+      // Only reset selectedAuthor if no initialAuthor is provided
+      setSelectedAuthor(initialAuthor || null)
       setSelectedIndex(0)
       setTimeout(() => inputRef.current?.focus(), 50)
     }
-  }, [isOpen])
+  }, [isOpen, initialAuthor])
 
   // Scroll selected item into view
   useEffect(() => {
