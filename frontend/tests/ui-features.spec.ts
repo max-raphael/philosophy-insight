@@ -295,10 +295,8 @@ test.describe('Keyboard Shortcuts', () => {
     await page.locator('body').click()
     await page.waitForTimeout(100)
 
-    // Press Shift+/ which produces ?
-    await page.keyboard.down('Shift')
-    await page.keyboard.press('/')
-    await page.keyboard.up('Shift')
+    // Press Shift+? to open shortcuts modal
+    await page.keyboard.press('Shift+?')
 
     // Keyboard shortcuts modal should be visible
     await expect(page.locator('h2').filter({ hasText: 'Keyboard Shortcuts' })).toBeVisible({ timeout: 3000 })

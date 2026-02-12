@@ -129,7 +129,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
       setShowShortcuts(false)
     }},
     { key: '\\', metaKey: true, handler: () => setShowTOC(prev => !prev) },
-    { key: '/', shiftKey: true, handler: () => setShowShortcuts(prev => !prev) },
+    { key: '?', shiftKey: true, handler: () => setShowShortcuts(prev => !prev) },
   ], true)
 
   // Restore reading position on load
