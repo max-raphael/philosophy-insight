@@ -24,8 +24,8 @@ export function useKeyboardShortcuts(shortcuts: Shortcut[], enabled = true) {
 
     for (const shortcut of shortcuts) {
       const keyMatches = e.key.toLowerCase() === shortcut.key.toLowerCase()
-      const metaMatches = shortcut.metaKey ? (e.metaKey || e.ctrlKey) : true
-      const ctrlMatches = shortcut.ctrlKey ? e.ctrlKey : true
+      const metaMatches = shortcut.metaKey ? (e.metaKey || e.ctrlKey) : !e.metaKey
+      const ctrlMatches = shortcut.ctrlKey ? e.ctrlKey : !e.ctrlKey
       const shiftMatches = shortcut.shiftKey ? e.shiftKey : !e.shiftKey
 
       // Special handling for Cmd+K - require meta or ctrl
