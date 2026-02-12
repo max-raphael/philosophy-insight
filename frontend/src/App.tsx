@@ -42,7 +42,6 @@ function AppContent() {
   // Global keyboard shortcuts
   useKeyboardShortcuts([
     { key: 'k', metaKey: true, handler: openCommandPalette },
-    { key: '/', handler: openCommandPalette },
   ], !commandPaletteOpen)
 
   return (

@@ -149,12 +149,7 @@ test.describe('Command Palette', () => {
     await expect(page.locator('.command-palette-backdrop')).toBeVisible()
   })
 
-  test('opens with / keyboard shortcut', async ({ page }) => {
-    await page.keyboard.press('/')
-    // Command palette should be visible
-    await expect(page.locator('.command-palette-backdrop')).toBeVisible()
-  })
-
+  
   test('opens when clicking search bar on home page', async ({ page }) => {
     // Click the search button (it's styled as a button that looks like a search bar)
     await page.locator('button').filter({ hasText: 'Search texts' }).click()
@@ -467,16 +462,28 @@ test.describe('Chat Focus Shortcut', () => {
     await expect(chatInput).toBeFocused()
   })
 
-  test('/ alone opens search', async ({ page }) => {
+  test('Cmd+. toggles zen mode', async ({ page }) => {
+    // Chat panel visible initially
+    const chatPanelIndicator = page.locator('button').filter({ hasText: 'Discussion' })
+    await expect(chatPanelIndicator).toBeVisible()
+
     // Click somewhere to ensure focus is on page
     await page.locator('.reader-page').click()
     await page.waitForTimeout(100)
 
-    // Press / alone
-    await page.keyboard.press('/')
+    // Press Cmd+. to enter zen mode
+    await page.keyboard.press('Meta+.')
 
-    // Search should be open
-    await expect(page.locator('.command-palette-backdrop')).toBeVisible()
+    // Chat should be hidden
+    await page.waitForTimeout(100)
+    await expect(chatPanelIndicator).not.toBeVisible()
+
+    // Press Cmd+. again to exit zen mode
+    await page.keyboard.press('Meta+.')
+
+    // Chat should be visible again
+    await page.waitForTimeout(100)
+    await expect(chatPanelIndicator).toBeVisible()
   })
 })
 
@@ -503,7 +510,7 @@ test.describe('Zen Mode', () => {
     await expect(chatPanelIndicator).not.toBeVisible()
 
     // Button title should change
-    await expect(page.locator('button[title="Exit zen mode"]')).toBeVisible()
+    await expect(page.locator('button[title="Exit zen mode (⌘.)"]')).toBeVisible()
 
     // Click again to exit
     await zenButton.click()

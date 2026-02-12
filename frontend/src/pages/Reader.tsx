@@ -130,6 +130,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
     }},
     { key: '\\', metaKey: true, handler: () => setShowTOC(prev => !prev) },
     { key: '?', shiftKey: true, handler: () => setShowShortcuts(prev => !prev) },
+    { key: '.', metaKey: true, handler: () => setIsZenMode(prev => !prev) },
   ], true)
 
   // Restore reading position on load
@@ -243,7 +244,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
                   ? 'text-[var(--accent-primary)] bg-[var(--accent-bg)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
               }`}
-              title={isZenMode ? 'Exit zen mode' : 'Enter zen mode'}
+              title={isZenMode ? 'Exit zen mode (⌘.)' : 'Enter zen mode (⌘.)'}
             >
               {isZenMode ? (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

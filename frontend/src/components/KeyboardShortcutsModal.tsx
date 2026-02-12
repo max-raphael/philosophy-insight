@@ -8,14 +8,12 @@ interface KeyboardShortcutsModalProps {
 const shortcuts = [
   { category: 'Navigation', items: [
     { keys: ['⌘', 'K'], description: 'Open search' },
-    { keys: ['/'], description: 'Open search (alternative)' },
-    { keys: ['j'], description: 'Next section' },
-    { keys: ['k'], description: 'Previous section' },
   ]},
   { category: 'Reading', items: [
     { keys: ['f'], description: 'Toggle fullscreen' },
-    { keys: ['Esc'], description: 'Exit fullscreen' },
+    { keys: ['⌘', '.'], description: 'Toggle zen mode' },
     { keys: ['⌘', '\\'], description: 'Toggle table of contents' },
+    { keys: ['Esc'], description: 'Exit fullscreen / close modals' },
   ]},
   { category: 'Discussion', items: [
     { keys: ['⌘', '/'], description: 'Focus chat input' },
