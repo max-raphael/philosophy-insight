@@ -63,10 +63,10 @@ export default function MobileReaderLayout({
   const { clearSelection } = useTextSelection({
     containerRef: readerContainerRef,
     onSelect: (data) => {
-      // Position popup above the selection
+      // Position popup BELOW the selection (Chrome's menu appears above)
       setSelectionPosition({
         x: data.rect.left + data.rect.width / 2,
-        y: data.rect.top - 10,
+        y: data.rect.bottom + 10,
       })
       setSelectedText(data.text)
       setShowSelectionPopup(true)
@@ -209,17 +209,21 @@ export default function MobileReaderLayout({
         />
       </div>
 
-      {/* Selection popup */}
+      {/* Selection popup - positioned BELOW selection to avoid Chrome's menu */}
       <AnimatePresence>
         {showSelectionPopup && (
           <motion.div
-            initial={{ opacity: 0, y: 5, scale: 0.95 }}
+            initial={{ opacity: 0, y: -5, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 5, scale: 0.95 }}
+            exit={{ opacity: 0, y: -5, scale: 0.95 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="selection-popup fixed z-50 transform -translate-x-1/2 -translate-y-full"
+            className="selection-popup fixed z-50 transform -translate-x-1/2"
             style={{ left: selectionPosition.x, top: selectionPosition.y }}
           >
+            {/* Arrow pointing up */}
+            <div className="absolute left-1/2 -translate-x-1/2 -top-2">
+              <div className="border-8 border-transparent" style={{ borderBottomColor: 'var(--text-primary)' }} />
+            </div>
             <button
               onClick={handleDiscuss}
               className="bg-[var(--text-primary)] text-[var(--text-inverted)] px-5 py-3 rounded-xl text-sm font-medium shadow-xl hover:opacity-90 active:opacity-80 transition-opacity flex items-center gap-2 touch-target"
@@ -229,9 +233,6 @@ export default function MobileReaderLayout({
               </svg>
               Discuss
             </button>
-            <div className="absolute left-1/2 -translate-x-1/2 top-full">
-              <div className="border-8 border-transparent" style={{ borderTopColor: 'var(--text-primary)' }} />
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
