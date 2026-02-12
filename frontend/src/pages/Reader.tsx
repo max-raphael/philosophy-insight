@@ -42,6 +42,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const [showControls, setShowControls] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const [isZenMode, setIsZenMode] = useState(false)
   const readerRef = useRef<ReaderHandle>(null)
   const isMobile = useIsMobile()
 
@@ -233,6 +234,27 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               </svg>
             </button>
 
+            {/* Zen mode button */}
+            <button
+              onClick={() => setIsZenMode(prev => !prev)}
+              className={`p-2 rounded-lg transition-colors ${
+                isZenMode
+                  ? 'text-[var(--accent-primary)] bg-[var(--accent-bg)]'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
+              }`}
+              title={isZenMode ? 'Exit zen mode' : 'Enter zen mode'}
+            >
+              {isZenMode ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                </svg>
+              )}
+            </button>
+
             {/* Reading controls button */}
             <div className="relative">
               <button
@@ -318,25 +340,29 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
           </div>
         </Panel>
 
-        <Separator className={
-          isMobile
-            ? 'h-2 bg-[var(--border-primary)] hover:bg-[var(--border-secondary)] active:bg-[var(--text-muted)] transition-colors cursor-row-resize'
-            : 'w-1 bg-[var(--border-primary)] hover:bg-[var(--border-secondary)] active:bg-[var(--text-muted)] transition-colors cursor-col-resize'
-        } />
+        {!isZenMode && (
+          <>
+            <Separator className={
+              isMobile
+                ? 'h-2 bg-[var(--border-primary)] hover:bg-[var(--border-secondary)] active:bg-[var(--text-muted)] transition-colors cursor-row-resize'
+                : 'w-1 bg-[var(--border-primary)] hover:bg-[var(--border-secondary)] active:bg-[var(--text-muted)] transition-colors cursor-col-resize'
+            } />
 
-        <Panel defaultSize={isMobile ? 40 : 50} minSize={20}>
-          <div className="h-full bg-[var(--bg-secondary)] shadow-lg">
-            <DiscussionPanel
-              textId={text.id}
-              textTitle={text.title}
-              textAuthor={text.author}
-              textCategory={text.category}
-              activeParagraph={activeParagraph}
-              pendingQuote={pendingQuote}
-              onQuoteUsed={handleQuoteUsed}
-            />
-          </div>
-        </Panel>
+            <Panel defaultSize={isMobile ? 40 : 50} minSize={20}>
+              <div className="h-full bg-[var(--bg-secondary)] shadow-lg">
+                <DiscussionPanel
+                  textId={text.id}
+                  textTitle={text.title}
+                  textAuthor={text.author}
+                  textCategory={text.category}
+                  activeParagraph={activeParagraph}
+                  pendingQuote={pendingQuote}
+                  onQuoteUsed={handleQuoteUsed}
+                />
+              </div>
+            </Panel>
+          </>
+        )}
       </Group>
 
       {/* Table of Contents sidebar */}

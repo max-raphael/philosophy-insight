@@ -446,6 +446,40 @@ test.describe('Navigation', () => {
   })
 })
 
+test.describe('Zen Mode', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/texts/categories')
+    await page.waitForSelector('.reader-page', { timeout: 15000 })
+  })
+
+  test('zen mode button toggles zen mode', async ({ page }) => {
+    // Find zen mode button by its title
+    const zenButton = page.locator('button[title*="zen mode"]')
+    await expect(zenButton).toBeVisible()
+
+    // Chat panel visible initially (use the conversation switcher button as indicator)
+    const chatPanelIndicator = page.locator('button').filter({ hasText: 'Discussion' })
+    await expect(chatPanelIndicator).toBeVisible()
+
+    // Click to enter zen mode
+    await zenButton.click()
+
+    // Chat should be hidden
+    await page.waitForTimeout(100)
+    await expect(chatPanelIndicator).not.toBeVisible()
+
+    // Button title should change
+    await expect(page.locator('button[title="Exit zen mode"]')).toBeVisible()
+
+    // Click again to exit
+    await zenButton.click()
+
+    // Chat should be visible again
+    await page.waitForTimeout(100)
+    await expect(chatPanelIndicator).toBeVisible()
+  })
+})
+
 test.describe('Conversations', () => {
   test.beforeEach(async ({ page }) => {
     // Clear localStorage to start fresh
