@@ -289,7 +289,8 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Search texts, authors, or topics..."
-                    className="flex-1 py-4 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none text-base"
+                    className="flex-1 py-4 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none ring-0 border-none text-base"
+                    style={{ outline: 'none' }}
                   />
                 )}
                 <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs text-[var(--text-muted)] bg-[var(--bg-tertiary)] rounded">
