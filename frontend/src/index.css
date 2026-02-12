@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+/* ========================================
+   CSS Custom Properties (Theme Variables)
+   ======================================== */
+
+:root {
+  /* Background colors */
+  --bg-primary: #fafaf9;      /* stone-50 */
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f4;     /* stone-100 */
+  --bg-elevated: #ffffff;
+  --bg-muted: #e7e5e4;        /* stone-200 */
+
+  /* Text colors */
+  --text-primary: #1c1917;    /* stone-900 */
+  --text-secondary: #44403c;  /* stone-700 */
+  --text-tertiary: #78716c;   /* stone-500 */
+  --text-muted: #a8a29e;      /* stone-400 */
+  --text-inverted: #ffffff;
+
+  /* Border colors */
+  --border-primary: #e7e5e4;  /* stone-200 */
+  --border-secondary: #d6d3d1; /* stone-300 */
+  --border-focus: #78716c;    /* stone-500 */
+
+  /* Accent colors */
+  --accent-primary: #d97706;  /* amber-600 */
+  --accent-primary-hover: #b45309; /* amber-700 */
+  --accent-bg: #fef3c7;       /* amber-100 */
+  --accent-bg-subtle: #fffbeb; /* amber-50 */
+
+  /* Category colors */
+  --category-ancient-bg: #fef3c7;
+  --category-ancient-text: #b45309;
+  --category-medieval-bg: #e7e5e4;
+  --category-medieval-text: #57534e;
+  --category-enlightenment-bg: #d1fae5;
+  --category-enlightenment-text: #047857;
+  --category-modern-bg: #dbeafe;
+  --category-modern-text: #1d4ed8;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Scrollbar */
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #d4d4d4;
+  --scrollbar-thumb-hover: #a3a3a3;
+
+  /* Selection */
+  --selection-bg: #fef3c7;
+}
+
+.dark {
+  /* Background colors */
+  --bg-primary: #1c1917;      /* stone-900 */
+  --bg-secondary: #292524;    /* stone-800 */
+  --bg-tertiary: #1c1917;     /* stone-900 */
+  --bg-elevated: #44403c;     /* stone-700 */
+  --bg-muted: #44403c;        /* stone-700 */
+
+  /* Text colors */
+  --text-primary: #fafaf9;    /* stone-50 */
+  --text-secondary: #d6d3d1;  /* stone-300 */
+  --text-tertiary: #a8a29e;   /* stone-400 */
+  --text-muted: #78716c;      /* stone-500 */
+  --text-inverted: #1c1917;
+
+  /* Border colors */
+  --border-primary: #44403c;  /* stone-700 */
+  --border-secondary: #57534e; /* stone-600 */
+  --border-focus: #a8a29e;    /* stone-400 */
+
+  /* Accent colors */
+  --accent-primary: #fbbf24;  /* amber-400 */
+  --accent-primary-hover: #f59e0b; /* amber-500 */
+  --accent-bg: #451a03;       /* amber-950 */
+  --accent-bg-subtle: #292524;
+
+  /* Category colors - muted for dark mode */
+  --category-ancient-bg: #451a03;
+  --category-ancient-text: #fcd34d;
+  --category-medieval-bg: #44403c;
+  --category-medieval-text: #d6d3d1;
+  --category-enlightenment-bg: #064e3b;
+  --category-enlightenment-text: #6ee7b7;
+  --category-modern-bg: #1e3a8a;
+  --category-modern-text: #93c5fd;
+
+  /* Shadows - subtle in dark mode */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+
+  /* Scrollbar */
+  --scrollbar-thumb: #57534e;
+  --scrollbar-thumb-hover: #78716c;
+
+  /* Selection */
+  --selection-bg: #451a03;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Prevent scroll on reader page */
+body:has(.reader-page) {
+  overflow: hidden;
+}
+
+/* Serif font for philosophy text */
+.font-serif {
+  font-family: 'Libre Baskerville', Georgia, serif;
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ========================================
+   Selection
+   ======================================== */
+
+::selection {
+  background: var(--selection-bg);
+  color: inherit;
+}
+
+/* ========================================
+   Focus States
+   ======================================== */
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Panel Resize Handle
+   ======================================== */
+
+.resize-handle {
+  transition: background-color 0.15s ease;
+}
+
+.resize-handle:hover {
+  background-color: var(--bg-muted);
+}
+
+.resize-handle:active {
+  background-color: var(--border-secondary);
+}
+
+/* ========================================
+   Prose Styling (Markdown)
+   ======================================== */
+
+.prose-custom p {
+  margin: 0.5em 0;
+}
+
+.prose-custom ul, .prose-custom ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.prose-custom li {
+  margin: 0.25em 0;
+}
+
+.prose-custom strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prose-custom em {
+  font-style: italic;
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid var(--border-secondary);
+  padding-left: 1em;
+  margin: 0.5em 0;
+  color: var(--text-tertiary);
+}
+
+.prose-custom code {
+  background: var(--bg-tertiary);
+  padding: 0.125em 0.375em;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Theme-aware background utilities */
+.bg-theme-primary { background-color: var(--bg-primary); }
+.bg-theme-secondary { background-color: var(--bg-secondary); }
+.bg-theme-tertiary { background-color: var(--bg-tertiary); }
+.bg-theme-elevated { background-color: var(--bg-elevated); }
+
+/* Theme-aware text utilities */
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-tertiary { color: var(--text-tertiary); }
+.text-theme-muted { color: var(--text-muted); }
+
+/* Theme-aware border utilities */
+.border-theme-primary { border-color: var(--border-primary); }
+.border-theme-secondary { border-color: var(--border-secondary); }
+
+/* ========================================
+   Command Palette Backdrop
+   ======================================== */
+
+.command-palette-backdrop {
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dark .command-palette-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================
+   Skeleton Loading Animation
+   ======================================== */
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background: var(--bg-muted);
+  border-radius: 0.375rem;
+}

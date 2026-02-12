@@ -1,0 +1,216 @@
+{
+  "id": "enquiry",
+  "title": "An Enquiry Concerning Human Understanding",
+  "author": "David Hume",
+  "translator": null,
+  "year": "1748",
+  "description": "Hume's accessible introduction to his empiricist epistemology, challenging rationalist assumptions about knowledge, causation, and the limits of human understanding.",
+  "category": "enlightenment",
+  "sections": [
+    {
+      "book": 1,
+      "number": 1,
+      "content": "Moral philosophy, or the science of human nature, may be treated after two different manners; each of which has its peculiar merit, and may contribute to the entertainment, instruction, and reformation of mankind."
+    },
+    {
+      "book": 1,
+      "number": 2,
+      "content": "The one considers man chiefly as born for action; and as influenced in his measures by taste and sentiment; pursuing one object, and avoiding another, according to the value which these objects seem to possess, and according to the light in which they present themselves."
+    },
+    {
+      "book": 1,
+      "number": 3,
+      "content": "As virtue, of all objects, is allowed to be the most valuable, this species of philosophers paint her in the most amiable colours; borrowing all helps from poetry and eloquence, and treating their subject in an easy and obvious manner, and such as is best fitted to please the imagination, and engage the affections."
+    },
+    {
+      "book": 1,
+      "number": 4,
+      "content": "They select the most striking observations and instances from common life; place opposite characters in a proper contrast; and alluring us into the paths of virtue by the views of glory and happiness, direct our steps in these paths by the soundest precepts and most illustrious examples."
+    },
+    {
+      "book": 1,
+      "number": 5,
+      "content": "They make us feel the difference between vice and virtue; they excite and regulate our sentiments; and so they can but bend our hearts to the love of probity and true honour, they think, that they have fully attained the end of all their labours."
+    },
+    {
+      "book": 1,
+      "number": 6,
+      "content": "The other species of philosophers consider man in the light of a reasonable rather than an active being, and endeavour to form his understanding more than cultivate his manners. They regard human nature as a subject of speculation; and with a narrow scrutiny examine it, in order to find those principles, which regulate our understanding, excite our sentiments, and make us approve or blame any particular object, action, or behaviour."
+    },
+    {
+      "book": 1,
+      "number": 7,
+      "content": "They think it a reproach to all literature, that philosophy should not yet have fixed, beyond controversy, the foundation of morals, reasoning, and criticism; and should for ever talk of truth and falsehood, vice and virtue, beauty and deformity, without being able to determine the source of these distinctions."
+    },
+    {
+      "book": 1,
+      "number": 8,
+      "content": "While they attempt this arduous task, they are deterred by no difficulties; but proceeding from particular instances to general principles, they still push on their enquiries to principles more general, and rest not satisfied till they arrive at those original principles, by which, in every science, all human curiosity must be bounded."
+    },
+    {
+      "book": 2,
+      "number": 1,
+      "content": "Every one will readily allow, that there is a considerable difference between the perceptions of the mind, when a man feels the pain of excessive heat, or the pleasure of moderate warmth, and when he afterwards recalls to his memory this sensation, or anticipates it by his imagination."
+    },
+    {
+      "book": 2,
+      "number": 2,
+      "content": "These faculties may mimic or copy the perceptions of the senses; but they never can entirely reach the force and vivacity of the original sentiment. The utmost we say of them, even when they operate with greatest vigour, is, that they represent their object in so lively a manner, that we could almost say we feel or see it."
+    },
+    {
+      "book": 2,
+      "number": 3,
+      "content": "But, except the mind be disordered by disease or madness, they never can arrive at such a pitch of vivacity, as to render these perceptions altogether undistinguishable. All the colours of poetry, however splendid, can never paint natural objects in such a manner as to make the description be taken for a real landskip."
+    },
+    {
+      "book": 2,
+      "number": 4,
+      "content": "The most lively thought is still inferior to the dullest sensation. We may observe a like distinction to run through all the other perceptions of the mind. A man in a fit of anger, is actuated in a very different manner from one who only thinks of that emotion."
+    },
+    {
+      "book": 2,
+      "number": 5,
+      "content": "Here therefore we may divide all the perceptions of the mind into two classes or species, which are distinguished by their different degrees of force and vivacity. The less forcible and lively are commonly denominated Thoughts or Ideas. The other species want a name in our language, and in most others; I suppose, because it was not requisite for any, but philosophical purposes, to rank them under a general term or appellation."
+    },
+    {
+      "book": 2,
+      "number": 6,
+      "content": "Let us, therefore, use a little freedom, and call them Impressions; employing that word in a sense somewhat different from the usual. By the term impression, then, I mean all our more lively perceptions, when we hear, or see, or feel, or love, or hate, or desire, or will."
+    },
+    {
+      "book": 2,
+      "number": 7,
+      "content": "And impressions are distinguished from ideas, which are the less lively perceptions, of which we are conscious, when we reflect on any of those sensations or movements above mentioned."
+    },
+    {
+      "book": 4,
+      "number": 1,
+      "content": "All the objects of human reason or enquiry may naturally be divided into two kinds, to wit, Relations of Ideas, and Matters of Fact. Of the first kind are the sciences of Geometry, Algebra, and Arithmetic; and in short, every affirmation which is either intuitively or demonstratively certain."
+    },
+    {
+      "book": 4,
+      "number": 2,
+      "content": "That the square of the hypothenuse is equal to the square of the two sides, is a proposition which expresses a relation between these figures. That three times five is equal to the half of thirty, expresses a relation between these numbers. Propositions of this kind are discoverable by the mere operation of thought, without dependence on what is anywhere existent in the universe."
+    },
+    {
+      "book": 4,
+      "number": 3,
+      "content": "Though there never were a circle or triangle in nature, the truths demonstrated by Euclid would for ever retain their certainty and evidence."
+    },
+    {
+      "book": 4,
+      "number": 4,
+      "content": "Matters of fact, which are the second objects of human reason, are not ascertained in the same manner; nor is our evidence of their truth, however great, of a like nature with the foregoing. The contrary of every matter of fact is still possible; because it can never imply a contradiction, and is conceived by the mind with the same facility and distinctness, as if ever so conformable to reality."
+    },
+    {
+      "book": 4,
+      "number": 5,
+      "content": "That the sun will not rise to-morrow is no less intelligible a proposition, and implies no more contradiction than the affirmation, that it will rise. We should in vain, therefore, attempt to demonstrate its falsehood. Were it demonstratively false, it would imply a contradiction, and could never be distinctly conceived by the mind."
+    },
+    {
+      "book": 4,
+      "number": 6,
+      "content": "It may, therefore, be a subject worthy of curiosity, to enquire what is the nature of that evidence which assures us of any real existence and matter of fact, beyond the present testimony of our senses, or the records of our memory."
+    },
+    {
+      "book": 4,
+      "number": 7,
+      "content": "All reasonings concerning matter of fact seem to be founded on the relation of Cause and Effect. By means of that relation alone we can go beyond the evidence of our memory and senses. If you were to ask a man, why he believes any matter of fact, which is absent; for instance, that his friend is in the country, or in France; he would give you a reason; and this reason would be some other fact."
+    },
+    {
+      "book": 4,
+      "number": 8,
+      "content": "As connected with it by a chain of reasoning. If he tells you that his friend received a letter from him, in which he acknowledged his intention of travelling; the letter is a fact, which determines his belief. And that fact is connected with the other, his friend's being in France."
+    },
+    {
+      "book": 4,
+      "number": 9,
+      "content": "All our reasonings concerning fact are of the same nature. And here it is constantly supposed that there is a connexion between the present fact and that which is inferred from it. Were there nothing to bind them together, the inference would be entirely precarious."
+    },
+    {
+      "book": 4,
+      "number": 10,
+      "content": "If we would satisfy ourselves, therefore, concerning the nature of that evidence, which assures us of matters of fact, we must enquire how we arrive at the knowledge of cause and effect."
+    },
+    {
+      "book": 4,
+      "number": 11,
+      "content": "I shall venture to affirm, as a general proposition, which admits of no exception, that the knowledge of this relation is not, in any instance, attained by reasonings a priori; but arises entirely from experience, when we find that any particular objects are constantly conjoined with each other."
+    },
+    {
+      "book": 5,
+      "number": 1,
+      "content": "But though our thought seems to possess this unbounded liberty, we shall find, upon a nearer examination, that it is really confined within very narrow limits, and that all this creative power of the mind amounts to no more than the faculty of compounding, transposing, augmenting, or diminishing the materials afforded us by the senses and experience."
+    },
+    {
+      "book": 5,
+      "number": 2,
+      "content": "When we think of a golden mountain, we only join two consistent ideas, gold, and mountain, with which we were formerly acquainted. A virtuous horse we can conceive; because, from our own feeling, we can conceive virtue; and this we may unite to the figure and shape of a horse, which is an animal familiar to us."
+    },
+    {
+      "book": 5,
+      "number": 3,
+      "content": "In short, all the materials of thinking are derived either from our outward or inward sentiment: the mixture and composition of these belongs alone to the mind and will. Or, to express myself in philosophical language, all our ideas or more feeble perceptions are copies of our impressions or more lively ones."
+    },
+    {
+      "book": 5,
+      "number": 4,
+      "content": "To prove this, the two following arguments will, I hope, be sufficient. First, when we analyze our thoughts or ideas, however compounded or sublime, we always find that they resolve themselves into such simple ideas as were copied from a precedent feeling or sentiment."
+    },
+    {
+      "book": 5,
+      "number": 5,
+      "content": "Even those ideas, which, at first view, seem the most wide of this origin, are found, upon a nearer scrutiny, to be derived from it. The idea of God, as meaning an infinitely intelligent, wise, and good Being, arises from reflecting on the operations of our own mind, and augmenting, without limit, those qualities of goodness and wisdom."
+    },
+    {
+      "book": 7,
+      "number": 1,
+      "content": "But to hasten to a conclusion of this argument, which is already drawn out to too great a length: We have sought in vain for an idea of power or necessary connexion in all the sources from which we could suppose it to be derived."
+    },
+    {
+      "book": 7,
+      "number": 2,
+      "content": "It appears that, in single instances of the operation of bodies, we never can, by our utmost scrutiny, discover any thing but one event following another, without being able to comprehend any force or power by which the cause operates, or any connexion between it and its supposed effect."
+    },
+    {
+      "book": 7,
+      "number": 3,
+      "content": "The same difficulty occurs in contemplating the operations of mind on body—where we observe the motion of the latter to follow upon the volition of the former, but are not able to observe or conceive the tie which binds together the motion and volition, or the energy by which the mind produces this effect."
+    },
+    {
+      "book": 7,
+      "number": 4,
+      "content": "The authority of the will over its own faculties and ideas is not a whit more comprehensible: So that, upon the whole, there appears not, throughout all nature, any one instance of connexion which is conceivable by us. All events seem entirely loose and separate."
+    },
+    {
+      "book": 7,
+      "number": 5,
+      "content": "One event follows another; but we never can observe any tie between them. They seem conjoined, but never connected. And as we can have no idea of any thing which never appeared to our outward sense or inward sentiment, the necessary conclusion seems to be that we have no idea of connexion or power at all, and that these words are absolutely without any meaning, when employed either in philosophical reasonings or common life."
+    },
+    {
+      "book": 7,
+      "number": 6,
+      "content": "But there still remains one method of avoiding this conclusion, and one source which we have not yet examined. When any natural object or event is presented, it is impossible for us, by any sagacity or penetration, to discover, or even conjecture, without experience, what event will result from it, or to carry our foresight beyond that object which is immediately present to the memory and senses."
+    },
+    {
+      "book": 7,
+      "number": 7,
+      "content": "Even after one instance or experiment where we have observed a particular event to follow upon another, we are not entitled to form a general rule, or foretell what will happen in like cases; it being justly esteemed an unpardonable temerity to judge of the whole course of nature from one single experiment, however accurate or certain."
+    },
+    {
+      "book": 7,
+      "number": 8,
+      "content": "But when one particular species of event has always, in all instances, been conjoined with another, we make no longer any scruple of foretelling one upon the appearance of the other, and of employing that reasoning, which can alone assure us of any matter of fact or existence. We then call the one object, Cause; the other, Effect."
+    },
+    {
+      "book": 7,
+      "number": 9,
+      "content": "We suppose that there is some connexion between them; some power in the one, by which it infallibly produces the other, and operates with the greatest certainty and strongest necessity."
+    },
+    {
+      "book": 7,
+      "number": 10,
+      "content": "It appears, then, that this idea of a necessary connexion among events arises from a number of similar instances which occur of the constant conjunction of these events; nor can that idea ever be suggested by any one of these instances, surveyed in all possible lights and positions."
+    }
+  ]
+}
