@@ -19,6 +19,7 @@ interface TextInfo {
 function AppContent() {
   const [texts, setTexts] = useState<TextInfo[]>([])
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false)
+  const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null)
 
   // Fetch texts for search
   useEffect(() => {
@@ -28,12 +29,14 @@ function AppContent() {
       .catch(console.error)
   }, [])
 
-  const openCommandPalette = useCallback(() => {
+  const openCommandPalette = useCallback((author?: string) => {
+    setSelectedAuthor(author || null)
     setCommandPaletteOpen(true)
   }, [])
 
   const closeCommandPalette = useCallback(() => {
     setCommandPaletteOpen(false)
+    setSelectedAuthor(null)
   }, [])
 
   // Global keyboard shortcuts
@@ -52,6 +55,7 @@ function AppContent() {
         isOpen={commandPaletteOpen}
         onClose={closeCommandPalette}
         texts={texts}
+        initialAuthor={selectedAuthor}
       />
     </BrowserRouter>
   )

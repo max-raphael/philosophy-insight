@@ -16,14 +16,22 @@ interface CommandPaletteProps {
   isOpen: boolean
   onClose: () => void
   texts: TextInfo[]
+  initialAuthor?: string | null
 }
 
 const RECENT_SEARCHES_KEY = 'philosophy-insight-recent-searches'
 const MAX_RECENT = 5
 
-export default function CommandPalette({ isOpen, onClose, texts }: CommandPaletteProps) {
+export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }: CommandPaletteProps) {
   const [query, setQuery] = useState('')
   const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null)
+
+  // Set initial author when provided
+  useEffect(() => {
+    if (isOpen && initialAuthor) {
+      setSelectedAuthor(initialAuthor)
+    }
+  }, [isOpen, initialAuthor])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [recentSearches, setRecentSearches] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)

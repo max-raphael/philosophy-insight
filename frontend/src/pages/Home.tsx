@@ -15,7 +15,7 @@ interface TextInfo {
 
 interface HomeProps {
   texts: TextInfo[]
-  onOpenSearch: () => void
+  onOpenSearch: (author?: string) => void
 }
 
 interface ReadingProgress {
@@ -191,7 +191,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
 
             {/* Search Bar */}
             <button
-              onClick={onOpenSearch}
+              onClick={() => onOpenSearch()}
               className="w-full max-w-lg mx-auto flex items-center gap-3 px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded-xl hover:border-[var(--border-secondary)] hover:shadow-md transition-all group"
             >
               <svg className="w-5 h-5 text-[var(--text-muted)] group-hover:text-[var(--text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -345,7 +345,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
             {philosophers.map((philosopher) => (
               <button
                 key={philosopher.name}
-                onClick={() => onOpenSearch()}
+                onClick={() => onOpenSearch(philosopher.name)}
                 className="shrink-0 p-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-primary)] hover:border-[var(--border-secondary)] hover:shadow-md transition-all min-w-[160px]"
               >
                 <div className="w-10 h-10 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center mb-3">

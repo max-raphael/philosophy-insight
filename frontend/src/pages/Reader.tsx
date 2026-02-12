@@ -25,7 +25,7 @@ interface TextData {
 }
 
 interface ReaderPageProps {
-  onOpenSearch: () => void
+  onOpenSearch: (author?: string) => void
 }
 
 export default function Reader({ onOpenSearch }: ReaderPageProps) {
@@ -224,7 +224,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
           <div className="flex items-center gap-2 md:gap-3 shrink-0">
             {/* Search button */}
             <button
-              onClick={onOpenSearch}
+              onClick={() => onOpenSearch()}
               className="p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
               title="Search (⌘K)"
             >
