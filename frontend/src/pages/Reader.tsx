@@ -8,6 +8,7 @@ import ReadingControls from '../components/ReadingControls'
 import KeyboardShortcutsModal from '../components/KeyboardShortcutsModal'
 import { useIsMobile } from '../hooks/useMediaQuery'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
+import { API_URL } from '../config'
 
 interface Section {
   book: number
@@ -26,8 +27,6 @@ interface TextData {
 interface ReaderPageProps {
   onOpenSearch: () => void
 }
-
-const API_URL = 'http://localhost:8000'
 
 export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const { textId } = useParams<{ textId: string }>()

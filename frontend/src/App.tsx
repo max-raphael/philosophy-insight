@@ -5,6 +5,7 @@ import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 import CommandPalette from './components/CommandPalette'
 import Home from './pages/Home'
 import Reader from './pages/Reader'
+import { API_URL } from './config'
 
 interface TextInfo {
   id: string
@@ -14,8 +15,6 @@ interface TextInfo {
   year?: string
   category?: string
 }
-
-const API_URL = 'http://localhost:8000'
 
 function AppContent() {
   const [texts, setTexts] = useState<TextInfo[]>([])

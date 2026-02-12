@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import { useConversations } from '../hooks/useConversations'
 import ConversationSwitcher from './ConversationSwitcher'
+import { API_URL } from '../config'
 
 interface Section {
   book: number
@@ -41,8 +42,6 @@ const generateSuggestions = (author: string, category?: string): string[] => {
     schoolByCategory[category || 'ancient'] || "What are the key themes?",
   ]
 }
-
-const API_URL = 'http://localhost:8000'
 
 export default function DiscussionPanel({
   textId,
