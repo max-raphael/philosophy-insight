@@ -14,6 +14,7 @@ interface ReadingControlsProps {
   onClose: () => void
   onFullscreen: () => void
   isFullscreen: boolean
+  isMobile?: boolean
 }
 
 const SETTINGS_KEY = 'philosophy-insight-reading-settings'
@@ -58,10 +59,117 @@ export default function ReadingControls({
   onClose,
   onFullscreen,
   isFullscreen,
+  isMobile = false,
 }: ReadingControlsProps) {
   const { theme, setTheme } = useTheme()
   const { settings, updateSettings } = useReadingSettings()
 
+  // Mobile renders just the content (wrapper handled by parent)
+  if (isMobile) {
+    return (
+      <div className="space-y-4">
+        {/* Font Size */}
+        <div>
+          <label className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-2 block">
+            Font Size
+          </label>
+          <div className="flex gap-1 bg-[var(--bg-tertiary)] p-1 rounded-lg">
+            {(['small', 'medium', 'large'] as FontSize[]).map((size) => (
+              <button
+                key={size}
+                onClick={() => updateSettings({ fontSize: size })}
+                className={`flex-1 py-3 text-sm rounded-md transition-colors touch-target ${
+                  settings.fontSize === size
+                    ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                <span className={size === 'small' ? 'text-xs' : size === 'large' ? 'text-base' : 'text-sm'}>
+                  Aa
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Font Family */}
+        <div>
+          <label className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-2 block">
+            Font Style
+          </label>
+          <div className="flex gap-1 bg-[var(--bg-tertiary)] p-1 rounded-lg">
+            <button
+              onClick={() => updateSettings({ fontFamily: 'serif' })}
+              className={`flex-1 py-3 text-sm rounded-md transition-colors touch-target ${
+                settings.fontFamily === 'serif'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+            >
+              <span className="font-serif">Serif</span>
+            </button>
+            <button
+              onClick={() => updateSettings({ fontFamily: 'sans' })}
+              className={`flex-1 py-3 text-sm rounded-md transition-colors touch-target ${
+                settings.fontFamily === 'sans'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+            >
+              <span className="font-sans">Sans</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Theme */}
+        <div>
+          <label className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-2 block">
+            Theme
+          </label>
+          <div className="flex gap-1 bg-[var(--bg-tertiary)] p-1 rounded-lg">
+            <button
+              onClick={() => setTheme('light')}
+              className={`flex-1 py-3 text-sm rounded-md transition-colors flex items-center justify-center gap-1.5 touch-target ${
+                theme === 'light'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setTheme('dark')}
+              className={`flex-1 py-3 text-sm rounded-md transition-colors flex items-center justify-center gap-1.5 touch-target ${
+                theme === 'dark'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setTheme('system')}
+              className={`flex-1 py-3 text-sm rounded-md transition-colors flex items-center justify-center gap-1.5 touch-target ${
+                theme === 'system'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Desktop rendering with backdrop and positioning
   return (
     <AnimatePresence>
       {isOpen && (

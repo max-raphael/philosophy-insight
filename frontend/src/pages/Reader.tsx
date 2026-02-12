@@ -6,6 +6,7 @@ import DiscussionPanel from '../components/DiscussionPanel'
 import TableOfContents from '../components/TableOfContents'
 import ReadingControls from '../components/ReadingControls'
 import KeyboardShortcutsModal from '../components/KeyboardShortcutsModal'
+import MobileReaderLayout from '../components/MobileReaderLayout'
 import { useIsMobile } from '../hooks/useMediaQuery'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import { API_URL } from '../config'
@@ -192,6 +193,21 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
 
   if (!text) return null
 
+  // Mobile gets a completely different layout
+  if (isMobile) {
+    return (
+      <MobileReaderLayout
+        textId={text.id}
+        title={text.title}
+        author={text.author}
+        category={text.category}
+        sections={text.sections}
+        onOpenSearch={onOpenSearch}
+      />
+    )
+  }
+
+  // Desktop layout
   return (
     <div className="reader-page h-full bg-[var(--bg-primary)] flex flex-col">
       {/* Header */}
