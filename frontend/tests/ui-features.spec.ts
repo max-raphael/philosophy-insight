@@ -446,6 +446,42 @@ test.describe('Navigation', () => {
   })
 })
 
+test.describe('Chat Focus Shortcut', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/texts/categories')
+    await page.waitForSelector('.reader-page', { timeout: 15000 })
+  })
+
+  test('Cmd+/ focuses chat input without opening search', async ({ page }) => {
+    // Click somewhere to ensure focus is on page
+    await page.locator('.reader-page').click()
+    await page.waitForTimeout(100)
+
+    // Press Cmd+/
+    await page.keyboard.press('Meta+/')
+
+    // Search should NOT be open
+    await page.waitForTimeout(100)
+    await expect(page.locator('.command-palette-backdrop')).not.toBeVisible()
+
+    // Chat input should be focused
+    const chatInput = page.locator('textarea[placeholder*="Ask"]')
+    await expect(chatInput).toBeFocused()
+  })
+
+  test('/ alone opens search', async ({ page }) => {
+    // Click somewhere to ensure focus is on page
+    await page.locator('.reader-page').click()
+    await page.waitForTimeout(100)
+
+    // Press / alone
+    await page.keyboard.press('/')
+
+    // Search should be open
+    await expect(page.locator('.command-palette-backdrop')).toBeVisible()
+  })
+})
+
 test.describe('Zen Mode', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/texts/categories')
