@@ -198,7 +198,7 @@ export default function MobileReaderLayout({
       {/* Reader content */}
       <div
         ref={readerContainerRef}
-        className="flex-1 overflow-y-auto no-overscroll"
+        className="flex-1 overflow-hidden"
       >
         <ReaderComponent
           ref={readerRef}
