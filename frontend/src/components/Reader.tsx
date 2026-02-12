@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useImperativeHandle, forwardRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { formatText } from '../utils/formatText'
 
 interface Section {
   book: number
@@ -252,7 +253,7 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
                       <span className="text-[var(--text-muted)] text-sm font-sans mr-3 select-none">
                         {section.number}
                       </span>
-                      {section.content}
+                      {formatText(section.content)}
                     </p>
                   )
                 })}
