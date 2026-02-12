@@ -40,7 +40,7 @@ curl -X POST http://localhost:8000/reload-texts
 ```
 /backend
   main.py           # FastAPI app - all routes, OpenAI integration, conversation storage
-  texts/*.json      # Philosophy texts as JSON (136 texts currently)
+  texts/*.json      # Philosophy texts as JSON (187 texts currently)
   scripts/
     import_gutenberg.py   # Generic Gutenberg parser with auto-structure detection
     text_manifest.py      # Manifest of all texts to import (TextConfig definitions)
@@ -51,6 +51,7 @@ curl -X POST http://localhost:8000/reload-texts
 /frontend
   src/
     App.tsx               # Router setup, ThemeProvider, CommandPalette, global shortcuts
+    config.ts             # API URL configuration
     contexts/
       ThemeContext.tsx    # Dark mode state management
     hooks/
@@ -58,11 +59,13 @@ curl -X POST http://localhost:8000/reload-texts
       useDarkMode.ts      # Theme preference with system detection + localStorage
       useKeyboardShortcuts.ts  # Global keyboard shortcut handler
       useMediaQuery.ts    # Responsive breakpoint detection
+    utils/
+      formatText.tsx      # Text formatting utilities
     data/
       collections.ts      # Curated text collections ("Start Here", eras, themes)
     pages/
       Home.tsx            # Curated discovery experience with sections
-      Reader.tsx          # Reading view with TOC, controls, keyboard nav
+      Reader.tsx          # Reading view with TOC, controls, keyboard nav, zen mode
     components/
       Reader.tsx          # Text display with selection popup
       DiscussionPanel.tsx # Chat with streaming responses
@@ -73,7 +76,7 @@ curl -X POST http://localhost:8000/reload-texts
       ReadingControls.tsx # Font size, font family, theme, fullscreen
       KeyboardShortcutsModal.tsx  # Help modal showing shortcuts
   tests/
-    ui-features.spec.ts   # Playwright E2E tests (45 tests)
+    ui-features.spec.ts   # Playwright E2E tests (47 tests)
   playwright.config.ts    # Playwright configuration
 ```
 
@@ -110,7 +113,11 @@ curl -X POST http://localhost:8000/reload-texts
 - Reading settings persist in localStorage (`philosophy-insight-reading-settings`)
 - Reading position persists per text (`reading-position-{textId}`)
 
-**Styling:** Tailwind CSS v4, Libre Baskerville for text, Inter for UI. Category colors: amber (ancient), emerald (enlightenment), blue (modern), stone (medieval). CSS custom properties enable dark mode theming.
+**Styling:** Tailwind CSS v4, Libre Baskerville for text, Inter for UI. Category colors defined via CSS custom properties:
+- Western: amber (ancient), stone (medieval), emerald (enlightenment), blue (modern)
+- Eastern: red (chinese), orange (indian), yellow (buddhist), purple (sufi)
+
+CSS custom properties enable dark mode theming.
 
 ## UI Features
 
@@ -129,7 +136,7 @@ curl -X POST http://localhost:8000/reload-texts
 ### Home Page Sections
 1. **Continue Reading** - Texts with saved reading progress
 2. **Start Here** - 8 curated essential texts for beginners
-3. **Browse by Era** - Ancient, Medieval, Enlightenment, Modern
+3. **Browse by Era** - Western (Ancient, Medieval, Enlightenment, Modern) + Eastern (Chinese, Indian, Buddhist, Sufi)
 4. **Browse by Philosopher** - Horizontal scroll of top authors
 5. **Full Library** - Filterable/sortable grid of all texts
 
@@ -137,6 +144,7 @@ curl -X POST http://localhost:8000/reload-texts
 - **Table of Contents** - Sidebar showing book structure (`Cmd+\` to toggle)
 - **Reading Controls** - Font size (S/M/L), font family (Serif/Sans), theme
 - **Fullscreen Mode** - Press `f` to toggle
+- **Zen Mode** - Hide chat panel for distraction-free reading (button in header)
 - **Progress Tracking** - Percentage and book number shown in header
 - **Keyboard Navigation** - See shortcuts below
 
@@ -155,25 +163,33 @@ curl -X POST http://localhost:8000/reload-texts
 Run Playwright E2E tests:
 ```bash
 cd frontend
-npm test              # Run all 37 tests headless
+npm test              # Run all 47 tests headless
 npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
 
-Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, and responsive design.
+Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, and conversations.
 
 ## Text Import System
 
 ### Current State
-- **136 texts** imported from Project Gutenberg
-- Target was ~150 texts for complete philosophy canon (Ancient through 19th century)
+- **187 texts** imported from Project Gutenberg and other public domain sources
+- Covers Western philosophy (Ancient through 19th century) plus Eastern philosophy traditions
 - 20th century texts are mostly under copyright and unavailable
 
-**Coverage by era:**
+**Coverage by tradition:**
+
+Western (136 texts):
 - Ancient: 50 texts (Plato, Aristotle, Stoics, Epicureans, Neoplatonists)
 - Medieval: 5 texts (Augustine, Aquinas, Boethius, Maimonides)
-- Enlightenment: 34 texts (Bacon, Descartes, Spinoza, Locke, Hume, Kant, Rousseau)
-- Modern (19th c.): 45 texts (Hegel, Nietzsche, Mill, Marx, James, Dewey)
+- Enlightenment: 35 texts (Bacon, Descartes, Spinoza, Locke, Hume, Kant, Rousseau)
+- Modern (19th c.): 46 texts (Hegel, Nietzsche, Mill, Marx, James, Dewey)
+
+Eastern (51 texts):
+- Chinese: 9 texts (Confucius, Laozi, Zhuangzi, Mencius)
+- Indian: 22 texts (Upanishads, Bhagavad Gita, Patanjali, Shankara)
+- Buddhist: 10 texts (Dhammapada, Heart Sutra, Zen texts)
+- Sufi: 10 texts (Rumi, Hafiz, Attar, Ibn Arabi)
 
 ### How to Add More Texts
 
@@ -187,7 +203,8 @@ TextConfig(
     translator='Translator',  # Optional
     year='1800',
     description='One sentence description.',
-    category='enlightenment', # ancient, medieval, enlightenment, modern
+    category='enlightenment', # Western: ancient, medieval, enlightenment, modern
+                              # Eastern: chinese, indian, buddhist, sufi
 )
 ```
 
@@ -220,3 +237,9 @@ curl -X POST http://localhost:8000/reload-texts
 - Falls back to paragraph chunking (~600 char sections) for unstructured texts
 - Filters out table-of-contents entries automatically
 - Some texts may need manual review if structure detection fails
+
+## Claude Code Slash Commands
+
+Custom commands in `.claude/commands/`:
+- `/acp` - Add, commit, and push all changes to git
+- `/ceo` - Evaluate product status and suggest next priorities

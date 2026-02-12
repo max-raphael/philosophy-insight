@@ -42,3 +42,5 @@ test-results/
 
 # Claude Code internal state
 .claude/
+WORKING.md
+NORTH_STAR.md
