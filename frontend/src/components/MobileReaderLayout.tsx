@@ -165,7 +165,7 @@ export default function MobileReaderLayout({
         }
       }
     }
-  }, [textId, sections.length, books])
+  }, [textId, sections.length, books.length])
 
   // Add/remove body class when sheet is open
   useEffect(() => {
