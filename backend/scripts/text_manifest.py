@@ -743,6 +743,320 @@ AMERICAN_PHILOSOPHY = [
 ]
 
 # =============================================================================
+# CHINESE PHILOSOPHY
+# =============================================================================
+
+TAOIST = [
+    TextConfig(
+        gutenberg_id=216, id='tao-te-ching', title='Tao Te Ching', author='Lao Tzu',
+        translator='James Legge', year='c. 6th century BCE', category='chinese',
+        description="The foundational text of Taoism on the Way (Tao), virtue, and living in harmony with nature's flow."
+    ),
+    TextConfig(
+        gutenberg_id=59709, id='chuang-tzu', title='Chuang Tzu: Mystic, Moralist, and Social Reformer', author='Zhuangzi',
+        translator='Herbert Giles', year='c. 3rd century BCE', category='chinese',
+        description="Parables and philosophy of the great Taoist sage, exploring freedom, spontaneity, and the relativity of perspectives."
+    ),
+]
+
+CONFUCIAN = [
+    TextConfig(
+        gutenberg_id=3330, id='analects', title='The Analects', author='Confucius',
+        translator='James Legge', year='c. 5th century BCE', category='chinese',
+        description="The collected sayings of Confucius on virtue, ritual, governance, and the cultivation of moral character."
+    ),
+    TextConfig(
+        gutenberg_id=46389, id='sayings-of-confucius', title='The Sayings of Confucius', author='Confucius',
+        translator='Leonard A. Lyall', year='c. 5th century BCE', category='chinese',
+        description="An accessible translation of Confucius's teachings on ethics, learning, and social harmony."
+    ),
+    TextConfig(
+        gutenberg_id=33815, id='wisdom-of-confucius', title='The Wisdom of Confucius', author='Confucius',
+        translator='Lin Yutang', year='c. 5th century BCE', category='chinese',
+        description="Lin Yutang's compilation presenting Confucius's philosophy on the art of living and moral cultivation."
+    ),
+    TextConfig(
+        gutenberg_id=75878, id='book-of-filial-duty', title='The Book of Filial Duty', author='Zengzi',
+        translator='Ivan Chen', year='c. 4th century BCE', category='chinese',
+        description="The Classic of Filial Piety, a foundational Confucian text on the virtue of respect for parents and ancestors."
+    ),
+    TextConfig(
+        gutenberg_id=3100, id='chinese-classics', title='The Chinese Classics', author='Various',
+        translator='James Legge', year='various', category='chinese',
+        description="Legge's comprehensive translation of the Four Books and Five Classics of Confucian philosophy."
+    ),
+]
+
+CHINESE_MILITARY = [
+    TextConfig(
+        gutenberg_id=132, id='art-of-war', title='The Art of War', author='Sun Tzu',
+        translator='Lionel Giles', year='c. 5th century BCE', category='chinese',
+        description="The ancient Chinese treatise on military strategy, widely applied to business, politics, and personal conflict."
+    ),
+    TextConfig(
+        gutenberg_id=44024, id='book-of-war', title='The Book of War', author='Sun Tzu and Wu Chi',
+        translator='E. F. Calthrop', year='c. 5th century BCE', category='chinese',
+        description="The military classics of the Far East, combining Sun Tzu's Art of War with Wu Chi's complementary treatise."
+    ),
+]
+
+# =============================================================================
+# INDIAN PHILOSOPHY
+# =============================================================================
+
+HINDU_CLASSICAL = [
+    TextConfig(
+        gutenberg_id=2388, id='bhagavad-gita', title='The Bhagavad Gita', author='Vyasa',
+        translator='Edwin Arnold', year='c. 2nd century BCE', category='indian',
+        description="The 'Song of God' from the Mahabharata: Krishna's teachings on duty, devotion, knowledge, and action."
+    ),
+    TextConfig(
+        gutenberg_id=3283, id='upanishads', title='The Upanishads', author='Various',
+        translator='Max Müller', year='c. 800-200 BCE', category='indian',
+        description="The philosophical culmination of the Vedas, exploring Brahman, Atman, and the nature of ultimate reality."
+    ),
+    TextConfig(
+        gutenberg_id=16295, id='vedanta-sutras-shankara', title='Vedanta-Sutras with Shankara\'s Commentary', author='Badarayana',
+        translator='George Thibaut', year='c. 2nd century BCE', category='indian',
+        description="The foundational text of Vedanta with Shankara's Advaita (non-dual) commentary on Brahman and liberation."
+    ),
+    TextConfig(
+        gutenberg_id=7297, id='vedanta-sutras-ramanuja', title='Vedanta-Sutras with Ramanuja\'s Commentary', author='Badarayana',
+        translator='George Thibaut', year='c. 2nd century BCE', category='indian',
+        description="The Vedanta-Sutras with Ramanuja's Vishishtadvaita (qualified non-dualism) interpretation."
+    ),
+    TextConfig(
+        gutenberg_id=2526, id='yoga-sutras', title='The Yoga Sutras of Patanjali', author='Patanjali',
+        translator='Charles Johnston', year='c. 2nd century BCE', category='indian',
+        description="The classical text of yoga philosophy, outlining the eight limbs of yoga and the path to liberation."
+    ),
+]
+
+INDIAN_EPICS = [
+    TextConfig(
+        gutenberg_id=24869, id='ramayana', title='The Ramayana', author='Valmiki',
+        translator='Ralph T. H. Griffith', year='c. 5th century BCE', category='indian',
+        description="The epic tale of Rama's journey, exploring dharma, devotion, and the triumph of good over evil."
+    ),
+    TextConfig(
+        gutenberg_id=15474, id='mahabharata-vol-1', title='The Mahabharata, Volume 1', author='Vyasa',
+        translator='Kisari Mohan Ganguli', year='c. 4th century BCE', category='indian',
+        description="The first volume of the world's longest epic poem, encompassing philosophy, mythology, and the Bhagavad Gita."
+    ),
+    TextConfig(
+        gutenberg_id=15475, id='mahabharata-vol-2', title='The Mahabharata, Volume 2', author='Vyasa',
+        translator='Kisari Mohan Ganguli', year='c. 4th century BCE', category='indian',
+        description="The second volume of the Mahabharata, continuing the saga of the Pandavas and Kauravas."
+    ),
+    TextConfig(
+        gutenberg_id=15476, id='mahabharata-vol-3', title='The Mahabharata, Volume 3', author='Vyasa',
+        translator='Kisari Mohan Ganguli', year='c. 4th century BCE', category='indian',
+        description="The third volume of the Mahabharata, including the great battle of Kurukshetra."
+    ),
+    TextConfig(
+        gutenberg_id=15477, id='mahabharata-vol-4', title='The Mahabharata, Volume 4', author='Vyasa',
+        translator='Kisari Mohan Ganguli', year='c. 4th century BCE', category='indian',
+        description="The fourth volume of the Mahabharata, concluding the epic with reflections on dharma and moksha."
+    ),
+]
+
+INDIAN_MODERN = [
+    TextConfig(
+        gutenberg_id=72368, id='jnana-yoga', title='Jnana Yoga', author='Swami Vivekananda',
+        translator=None, year='1899', category='indian',
+        description="Vivekananda's lectures on the path of knowledge, exploring Vedanta philosophy and the nature of the Self."
+    ),
+    TextConfig(
+        gutenberg_id=6842, id='sadhana', title='Sadhana: The Realisation of Life', author='Rabindranath Tagore',
+        translator=None, year='1913', category='indian',
+        description="The Nobel laureate's philosophical essays on the soul, nature, and the realization of the infinite in daily life."
+    ),
+    TextConfig(
+        gutenberg_id=7164, id='gitanjali', title='Gitanjali', author='Rabindranath Tagore',
+        translator=None, year='1912', category='indian',
+        description="'Song Offerings' - Tagore's Nobel Prize-winning collection of devotional poetry on the divine presence."
+    ),
+    TextConfig(
+        gutenberg_id=23136, id='creative-unity', title='Creative Unity', author='Rabindranath Tagore',
+        translator=None, year='1922', category='indian',
+        description="Tagore's essays on the unity underlying creation, art, and human civilization."
+    ),
+    TextConfig(
+        gutenberg_id=40766, id='nationalism', title='Nationalism', author='Rabindranath Tagore',
+        translator=None, year='1917', category='indian',
+        description="Tagore's critique of aggressive nationalism and vision of universal humanity transcending borders."
+    ),
+    TextConfig(
+        gutenberg_id=40461, id='hind-swaraj', title='Hind Swaraj (Indian Home Rule)', author='Mahatma Gandhi',
+        translator=None, year='1909', category='indian',
+        description="Gandhi's foundational text on Indian self-rule, non-violence, and the critique of modern civilization."
+    ),
+    TextConfig(
+        gutenberg_id=10366, id='freedoms-battle', title='Freedom\'s Battle', author='Mahatma Gandhi',
+        translator=None, year='1922', category='indian',
+        description="Gandhi's essays on non-violent resistance, swaraj, and the struggle for Indian independence."
+    ),
+    TextConfig(
+        gutenberg_id=6519, id='songs-of-kabir', title='Songs of Kabir', author='Kabir',
+        translator='Rabindranath Tagore', year='c. 15th century', category='indian',
+        description="The mystical poetry of Kabir, weaving Hindu and Islamic devotion into songs of divine love and inner truth."
+    ),
+    TextConfig(
+        gutenberg_id=12956, id='history-indian-philosophy', title='A History of Indian Philosophy, Vol. 1', author='Surendranath Dasgupta',
+        translator=None, year='1922', category='indian',
+        description="A comprehensive scholarly survey of Indian philosophical systems from the Vedas to the classical schools."
+    ),
+]
+
+INDIAN_LITERATURE = [
+    TextConfig(
+        gutenberg_id=16659, id='shakuntala', title='Shakuntala and Other Works', author='Kalidasa',
+        translator='Arthur W. Ryder', year='c. 4th century CE', category='indian',
+        description="The masterworks of Sanskrit's greatest poet, including the famous drama Shakuntala on love and fate."
+    ),
+    TextConfig(
+        gutenberg_id=31968, id='birth-of-war-god', title='The Birth of the War-God', author='Kalidasa',
+        translator='Ralph T. H. Griffith', year='c. 4th century CE', category='indian',
+        description="Kalidasa's epic poem Kumarasambhava on the divine marriage of Shiva and Parvati."
+    ),
+]
+
+# =============================================================================
+# BUDDHIST PHILOSOPHY
+# =============================================================================
+
+BUDDHIST_THERAVADA = [
+    TextConfig(
+        gutenberg_id=2017, id='dhammapada', title='The Dhammapada', author='Buddha',
+        translator='Max Müller', year='c. 3rd century BCE', category='buddhist',
+        description="The most famous collection of Buddha's sayings in verse: the path of truth and the cultivation of mindfulness."
+    ),
+    TextConfig(
+        gutenberg_id=35185, id='buddhas-path-of-virtue', title='The Buddha\'s Path of Virtue', author='Buddha',
+        translator='F. L. Woodward', year='c. 3rd century BCE', category='buddhist',
+        description="An alternative translation of the Dhammapada emphasizing practical wisdom for ethical living."
+    ),
+    TextConfig(
+        gutenberg_id=51880, id='jataka-tales', title='Buddhist Birth Stories (Jataka Tales)', author='Various',
+        translator='T. W. Rhys Davids', year='c. 3rd century BCE', category='buddhist',
+        description="Stories of Buddha's previous lives, teaching moral lessons through engaging narratives."
+    ),
+    TextConfig(
+        gutenberg_id=46984, id='jatakamala', title='The Jatakamala', author='Aryasura',
+        translator='J. S. Speyer', year='c. 4th century CE', category='buddhist',
+        description="The Garland of Birth Stories - elegant Sanskrit retellings of Buddha's previous lives."
+    ),
+]
+
+BUDDHIST_ZEN = [
+    TextConfig(
+        gutenberg_id=71157, id='essays-in-zen-buddhism', title='Essays in Zen Buddhism: First Series', author='D. T. Suzuki',
+        translator=None, year='1927', category='buddhist',
+        description="The foundational introduction to Zen Buddhism for the West, exploring satori, koans, and enlightenment."
+    ),
+    TextConfig(
+        gutenberg_id=5173, id='religion-of-the-samurai', title='The Religion of the Samurai', author='Kaiten Nukariya',
+        translator=None, year='1913', category='buddhist',
+        description="Zen Buddhism's influence on Japanese warrior culture, exploring meditation, discipline, and enlightenment."
+    ),
+    TextConfig(
+        gutenberg_id=34325, id='zen-experience', title='The Zen Experience', author='Thomas Hoover',
+        translator=None, year='1980', category='buddhist',
+        description="A comprehensive introduction to Zen history, practice, and philosophy from China to Japan."
+    ),
+    TextConfig(
+        gutenberg_id=43273, id='zen-and-art', title='Zen Buddhism and Its Relation to Art', author='Arthur Waley',
+        translator=None, year='1922', category='buddhist',
+        description="Explores how Zen principles shaped Japanese aesthetics in painting, poetry, and tea ceremony."
+    ),
+    TextConfig(
+        gutenberg_id=7015, id='buddhist-psalms', title='Buddhist Psalms', author='Shinran Shonin',
+        translator='S. Yamabe and L. Adams Beck', year='c. 13th century', category='buddhist',
+        description="Devotional poems from the founder of Pure Land Buddhism, expressing faith in Amida Buddha's compassion."
+    ),
+]
+
+BUDDHIST_STUDIES = [
+    TextConfig(
+        gutenberg_id=55681, id='gleanings-in-buddha-fields', title='Gleanings in Buddha-Fields', author='Lafcadio Hearn',
+        translator=None, year='1897', category='buddhist',
+        description="Hearn's observations on Buddhist culture in Japan: temples, beliefs, and the spiritual landscape."
+    ),
+]
+
+# =============================================================================
+# PERSIAN / SUFI PHILOSOPHY
+# =============================================================================
+
+SUFI = [
+    TextConfig(
+        gutenberg_id=246, id='rubaiyat', title='The Rubaiyat of Omar Khayyam', author='Omar Khayyam',
+        translator='Edward FitzGerald', year='c. 11th century', category='sufi',
+        description="The beloved quatrains on mortality, wine, and cosmic mystery that captivated the Victorian world."
+    ),
+    TextConfig(
+        gutenberg_id=38511, id='sufistic-quatrains', title='The Sufistic Quatrains of Omar Khayyam', author='Omar Khayyam',
+        translator='Robert Arnot', year='c. 11th century', category='sufi',
+        description="A translation emphasizing the mystical Sufi dimensions of Khayyam's poetry."
+    ),
+    TextConfig(
+        gutenberg_id=50619, id='sufism-of-rubaiyat', title='The Sufism of the Rubaiyat', author='Omar Khayyam',
+        translator='Paramahansa Yogananda', year='c. 11th century', category='sufi',
+        description="Yogananda's spiritual commentary revealing the esoteric meaning hidden in Khayyam's verses."
+    ),
+    TextConfig(
+        gutenberg_id=45159, id='persian-mystics-rumi', title='The Persian Mystics: Rumi', author='Jalal al-Din Rumi',
+        translator='F. Hadland Davis', year='c. 13th century', category='sufi',
+        description="Selected poems and teachings of the great Sufi master on divine love and spiritual union."
+    ),
+    TextConfig(
+        gutenberg_id=57068, id='festival-of-spring', title='The Festival of Spring', author='Jalal al-Din Rumi',
+        translator='Richard Jeffrey Newman', year='c. 13th century', category='sufi',
+        description="Poems from Rumi's Divan celebrating spiritual awakening, love, and the dance of the soul."
+    ),
+    TextConfig(
+        gutenberg_id=74883, id='poems-from-divan-of-hafiz', title='Poems from the Divan of Hafiz', author='Hafiz',
+        translator='Gertrude Bell', year='c. 14th century', category='sufi',
+        description="The lyrical poetry of Persia's most beloved poet on love, wine, and the spiritual tavern."
+    ),
+    TextConfig(
+        gutenberg_id=77453, id='songs-of-hafiz', title='Songs of Hafiz', author='Hafiz',
+        translator='Various', year='c. 14th century', category='sufi',
+        description="Hafiz's ghazals on divine intoxication, the beloved, and the Sufi path of the heart."
+    ),
+    TextConfig(
+        gutenberg_id=10315, id='persian-literature-vol-1', title='Persian Literature, Volume 1', author='Various',
+        translator='Various', year='various', category='sufi',
+        description="Anthology including the Shah Nameh, Rubaiyat, Divan, and Gulistan - treasures of Persian wisdom."
+    ),
+    TextConfig(
+        gutenberg_id=13060, id='persian-literature-vol-2', title='Persian Literature, Volume 2', author='Various',
+        translator='Various', year='various', category='sufi',
+        description="Continuation of Persian classics including Saadi's Gulistan on practical wisdom and ethics."
+    ),
+]
+
+ISLAMIC_PHILOSOPHY = [
+    TextConfig(
+        gutenberg_id=58186, id='compendium-on-soul-avicenna', title='A Compendium on the Soul', author='Avicenna (Ibn Sina)',
+        translator='Edward Abbott van Dyck', year='c. 11th century', category='sufi',
+        description="The great Islamic philosopher's treatise on psychology, consciousness, and the nature of the soul."
+    ),
+]
+
+# =============================================================================
+# COMPARATIVE / ANTHOLOGY
+# =============================================================================
+
+EASTERN_COMPARATIVE = [
+    TextConfig(
+        gutenberg_id=12894, id='sacred-books-of-east', title='Sacred Books of the East', author='Various',
+        translator='Max Müller (ed.)', year='various', category='indian',
+        description="Müller's landmark anthology of Eastern religious and philosophical texts from multiple traditions."
+    ),
+]
+
+# =============================================================================
 # COMBINED LIST
 # =============================================================================
 
@@ -763,7 +1077,21 @@ ALL_TEXTS = (
     NIETZSCHE +
     BRITISH_PHILOSOPHY +
     POLITICAL_ECONOMIC +
-    AMERICAN_PHILOSOPHY
+    AMERICAN_PHILOSOPHY +
+    # Eastern Philosophy
+    TAOIST +
+    CONFUCIAN +
+    CHINESE_MILITARY +
+    HINDU_CLASSICAL +
+    INDIAN_EPICS +
+    INDIAN_MODERN +
+    INDIAN_LITERATURE +
+    BUDDHIST_THERAVADA +
+    BUDDHIST_ZEN +
+    BUDDHIST_STUDIES +
+    SUFI +
+    ISLAMIC_PHILOSOPHY +
+    EASTERN_COMPARATIVE
 )
 
 # Texts we already have (don't reimport)

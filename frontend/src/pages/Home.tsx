@@ -25,17 +25,29 @@ interface ReadingProgress {
 }
 
 const categoryColors: Record<string, string> = {
+  // Western
   ancient: 'bg-[var(--category-ancient-bg)] text-[var(--category-ancient-text)]',
   medieval: 'bg-[var(--category-medieval-bg)] text-[var(--category-medieval-text)]',
   enlightenment: 'bg-[var(--category-enlightenment-bg)] text-[var(--category-enlightenment-text)]',
   modern: 'bg-[var(--category-modern-bg)] text-[var(--category-modern-text)]',
+  // Eastern
+  chinese: 'bg-[var(--category-chinese-bg)] text-[var(--category-chinese-text)]',
+  indian: 'bg-[var(--category-indian-bg)] text-[var(--category-indian-text)]',
+  buddhist: 'bg-[var(--category-buddhist-bg)] text-[var(--category-buddhist-text)]',
+  sufi: 'bg-[var(--category-sufi-bg)] text-[var(--category-sufi-text)]',
 }
 
 const eraColors: Record<string, { bg: string; border: string; text: string }> = {
+  // Western
   ancient: { bg: 'bg-amber-50 dark:bg-amber-950/30', border: 'border-amber-200 dark:border-amber-800', text: 'text-amber-700 dark:text-amber-300' },
   medieval: { bg: 'bg-stone-100 dark:bg-stone-800/50', border: 'border-stone-300 dark:border-stone-600', text: 'text-stone-700 dark:text-stone-300' },
   enlightenment: { bg: 'bg-emerald-50 dark:bg-emerald-950/30', border: 'border-emerald-200 dark:border-emerald-800', text: 'text-emerald-700 dark:text-emerald-300' },
   modern: { bg: 'bg-blue-50 dark:bg-blue-950/30', border: 'border-blue-200 dark:border-blue-800', text: 'text-blue-700 dark:text-blue-300' },
+  // Eastern
+  chinese: { bg: 'bg-red-50 dark:bg-red-950/30', border: 'border-red-200 dark:border-red-800', text: 'text-red-700 dark:text-red-300' },
+  indian: { bg: 'bg-orange-50 dark:bg-orange-950/30', border: 'border-orange-200 dark:border-orange-800', text: 'text-orange-700 dark:text-orange-300' },
+  buddhist: { bg: 'bg-yellow-50 dark:bg-yellow-950/30', border: 'border-yellow-200 dark:border-yellow-800', text: 'text-yellow-700 dark:text-yellow-300' },
+  sufi: { bg: 'bg-purple-50 dark:bg-purple-950/30', border: 'border-purple-200 dark:border-purple-800', text: 'text-purple-700 dark:text-purple-300' },
 }
 
 type SortOption = 'title' | 'author' | 'era'

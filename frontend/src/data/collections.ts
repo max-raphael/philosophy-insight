@@ -59,6 +59,7 @@ export const thematicCollections: Collection[] = [
 
 // Era metadata for browsing
 export const eras = [
+  // Western Philosophy
   {
     id: 'ancient',
     name: 'Ancient',
@@ -86,6 +87,35 @@ export const eras = [
     years: '1800 - 1950',
     description: 'The birth of contemporary thought',
     color: 'blue',
+  },
+  // Eastern Philosophy
+  {
+    id: 'chinese',
+    name: 'Chinese',
+    years: '600 BCE - present',
+    description: 'Taoism, Confucianism, and the art of living',
+    color: 'red',
+  },
+  {
+    id: 'indian',
+    name: 'Indian',
+    years: '800 BCE - present',
+    description: 'Vedanta, Yoga, and the paths to liberation',
+    color: 'orange',
+  },
+  {
+    id: 'buddhist',
+    name: 'Buddhist',
+    years: '500 BCE - present',
+    description: 'The Middle Way and the end of suffering',
+    color: 'yellow',
+  },
+  {
+    id: 'sufi',
+    name: 'Sufi & Persian',
+    years: '800 - 1500 CE',
+    description: 'Mystical poetry and the path of the heart',
+    color: 'purple',
   },
 ] as const
 

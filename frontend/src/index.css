@@ -30,7 +30,7 @@
   --accent-bg: #fef3c7;       /* amber-100 */
   --accent-bg-subtle: #fffbeb; /* amber-50 */
 
-  /* Category colors */
+  /* Category colors - Western */
   --category-ancient-bg: #fef3c7;
   --category-ancient-text: #b45309;
   --category-medieval-bg: #e7e5e4;
@@ -39,6 +39,15 @@
   --category-enlightenment-text: #047857;
   --category-modern-bg: #dbeafe;
   --category-modern-text: #1d4ed8;
+  /* Category colors - Eastern */
+  --category-chinese-bg: #fee2e2;
+  --category-chinese-text: #dc2626;
+  --category-indian-bg: #ffedd5;
+  --category-indian-text: #ea580c;
+  --category-buddhist-bg: #fef9c3;
+  --category-buddhist-text: #ca8a04;
+  --category-sufi-bg: #f3e8ff;
+  --category-sufi-text: #9333ea;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -80,7 +89,7 @@
   --accent-bg: #451a03;       /* amber-950 */
   --accent-bg-subtle: #292524;
 
-  /* Category colors - muted for dark mode */
+  /* Category colors - Western (muted for dark mode) */
   --category-ancient-bg: #451a03;
   --category-ancient-text: #fcd34d;
   --category-medieval-bg: #44403c;
@@ -89,6 +98,15 @@
   --category-enlightenment-text: #6ee7b7;
   --category-modern-bg: #1e3a8a;
   --category-modern-text: #93c5fd;
+  /* Category colors - Eastern (muted for dark mode) */
+  --category-chinese-bg: #7f1d1d;
+  --category-chinese-text: #fca5a5;
+  --category-indian-bg: #7c2d12;
+  --category-indian-text: #fdba74;
+  --category-buddhist-bg: #713f12;
+  --category-buddhist-text: #fde047;
+  --category-sufi-bg: #581c87;
+  --category-sufi-text: #d8b4fe;
 
   /* Shadows - subtle in dark mode */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
