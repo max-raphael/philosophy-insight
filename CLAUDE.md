@@ -54,6 +54,7 @@ curl -X POST http://localhost:8000/reload-texts
     contexts/
       ThemeContext.tsx    # Dark mode state management
     hooks/
+      useConversations.ts # Multi-conversation CRUD, localStorage, migration
       useDarkMode.ts      # Theme preference with system detection + localStorage
       useKeyboardShortcuts.ts  # Global keyboard shortcut handler
       useMediaQuery.ts    # Responsive breakpoint detection
@@ -65,13 +66,14 @@ curl -X POST http://localhost:8000/reload-texts
     components/
       Reader.tsx          # Text display with selection popup
       DiscussionPanel.tsx # Chat with streaming responses
+      ConversationSwitcher.tsx  # Dropdown for managing multiple conversations
       CommandPalette.tsx  # Spotlight-style search (Cmd+K)
       ThemeToggle.tsx     # Light/Dark/System theme switcher
       TableOfContents.tsx # Sidebar TOC navigation
       ReadingControls.tsx # Font size, font family, theme, fullscreen
       KeyboardShortcutsModal.tsx  # Help modal showing shortcuts
   tests/
-    ui-features.spec.ts   # Playwright E2E tests (37 tests)
+    ui-features.spec.ts   # Playwright E2E tests (45 tests)
   playwright.config.ts    # Playwright configuration
 ```
 
@@ -95,10 +97,13 @@ curl -X POST http://localhost:8000/reload-texts
 - `GET /texts` - List all texts (metadata only)
 - `GET /texts/{id}` - Full text with sections
 - `POST /chat/stream` - SSE streaming chat response
+- `POST /generate-title` - Generate conversation title from first exchange (uses gpt-4o-mini)
 - `DELETE /conversations/{id}` - Clear conversation
 
 **Frontend State:**
-- Conversations persist in localStorage per text
+- Multiple conversations per text with localStorage persistence:
+  - Index: `philosophy-insight-conversations-index-{textId}` (metadata for all conversations)
+  - Messages: `philosophy-insight-conversation-{textId}-{conversationId}` (actual messages)
 - `pendingQuote` state flows: Reader selection → App → DiscussionPanel input
 - Streaming responses use SSE with `data: {content}` / `data: {done: true}` format
 - Theme preference persists in localStorage (`philosophy-insight-theme`)

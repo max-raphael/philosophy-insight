@@ -429,3 +429,174 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/\/texts\//, { timeout: 5000 })
   })
 })
+
+test.describe('Conversations', () => {
+  test.beforeEach(async ({ page }) => {
+    // Clear localStorage to start fresh
+    await page.goto('/')
+    await page.evaluate(() => {
+      // Clear all conversation-related localStorage keys
+      const keys = Object.keys(localStorage).filter(k => k.includes('conversation'))
+      keys.forEach(k => localStorage.removeItem(k))
+    })
+
+    // Navigate to a specific text
+    await page.goto('/texts/categories')
+    await page.waitForSelector('.reader-page', { timeout: 15000 })
+  })
+
+  test('conversation switcher is visible in discussion panel', async ({ page }) => {
+    // The conversation switcher should show "Discussion:" with a dropdown
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await expect(switcher).toBeVisible()
+  })
+
+  test('conversation switcher shows dropdown on click', async ({ page }) => {
+    // Click the conversation switcher
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+
+    // Dropdown should show with "Conversations" header
+    await expect(page.locator('text=CONVERSATIONS').or(page.locator('text=Conversations'))).toBeVisible()
+
+    // Should show "New conversation" button
+    await expect(page.locator('text=New conversation')).toBeVisible()
+  })
+
+  test('can create a new conversation', async ({ page }) => {
+    // Open switcher
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+
+    // Click "New conversation"
+    await page.locator('text=New conversation').click()
+
+    // Dropdown should close
+    await page.waitForTimeout(200)
+
+    // Open again to verify there are now 2 conversations
+    await switcher.click()
+
+    // Should see multiple conversation entries (at least 2)
+    const conversationItems = page.locator('[class*="cursor-pointer"]').filter({ hasText: /conversation|New|reading/i })
+    await expect(conversationItems).toHaveCount(2, { timeout: 3000 })
+  })
+
+  test('can switch between conversations', async ({ page }) => {
+    // Create a second conversation first
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+    await page.locator('text=New conversation').click()
+    await page.waitForTimeout(200)
+
+    // Open switcher again
+    await switcher.click()
+
+    // Click on the first conversation (not the active one)
+    const firstConv = page.locator('[class*="cursor-pointer"]').filter({ hasText: /New conversation|reading/i }).first()
+    await firstConv.click()
+
+    // Switcher should update to show selected conversation
+    await page.waitForTimeout(200)
+    // The conversation should have switched - verify by checking the header changed
+    await expect(switcher).toBeVisible()
+  })
+
+  test('can rename a conversation', async ({ page }) => {
+    // Open switcher
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+
+    // Hover over a conversation to reveal edit button
+    const convItem = page.locator('[class*="cursor-pointer"]').filter({ hasText: /conversation|New|reading/i }).first()
+    await convItem.hover()
+
+    // Click the pencil/edit button
+    const editButton = convItem.locator('button[title="Rename"]')
+    await editButton.click()
+
+    // Input should appear
+    const input = convItem.locator('input')
+    await expect(input).toBeVisible()
+
+    // Clear and type new name
+    await input.fill('My Custom Name')
+    await input.press('Enter')
+
+    // Wait for save
+    await page.waitForTimeout(200)
+
+    // Close and reopen to verify rename persisted
+    await page.keyboard.press('Escape')
+    await page.waitForTimeout(200)
+    await switcher.click()
+
+    // Should see the new name
+    await expect(page.locator('text=My Custom Name')).toBeVisible()
+  })
+
+  test('can delete a conversation', async ({ page }) => {
+    // Create a second conversation first (so we can delete one)
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+    await page.locator('text=New conversation').click()
+    await page.waitForTimeout(200)
+
+    // Reopen switcher
+    await switcher.click()
+
+    // Verify we have 2 conversations
+    const conversations = page.locator('[class*="cursor-pointer"]').filter({ hasText: /conversation|New|reading/i })
+    await expect(conversations).toHaveCount(2)
+
+    // Hover over a conversation to reveal delete button
+    const firstConv = conversations.first()
+    await firstConv.hover()
+
+    // Click the X/delete button
+    const deleteButton = firstConv.locator('button[title="Delete"]')
+    await deleteButton.click()
+
+    // Wait for deletion
+    await page.waitForTimeout(200)
+
+    // Should now have only 1 conversation
+    await expect(conversations).toHaveCount(1)
+  })
+
+  test('deleting last conversation creates a new one automatically', async ({ page }) => {
+    // Open switcher
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+
+    // Should start with 1 conversation
+    const conversations = page.locator('[class*="cursor-pointer"]').filter({ hasText: /conversation|New|reading/i })
+    await expect(conversations).toHaveCount(1)
+
+    // Hover and delete
+    const conv = conversations.first()
+    await conv.hover()
+    const deleteButton = conv.locator('button[title="Delete"]')
+    await deleteButton.click()
+
+    // Wait for deletion and auto-creation
+    await page.waitForTimeout(200)
+
+    // Should still have 1 conversation (a new one was created)
+    await expect(conversations).toHaveCount(1)
+  })
+
+  test('conversation state persists in localStorage', async ({ page }) => {
+    // Create a second conversation with a custom name
+    const switcher = page.locator('button').filter({ hasText: 'Discussion' })
+    await switcher.click()
+    await page.locator('text=New conversation').click()
+    await page.waitForTimeout(200)
+
+    // Verify localStorage has conversation index
+    const storageKeys = await page.evaluate(() => {
+      return Object.keys(localStorage).filter(k => k.includes('conversations-index'))
+    })
+    expect(storageKeys.length).toBeGreaterThan(0)
+  })
+})

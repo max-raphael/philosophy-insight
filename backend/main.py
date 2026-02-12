@@ -264,6 +264,40 @@ def clear_conversation(conversation_id: str):
     return {"status": "cleared"}
 
 
+class TitleRequest(BaseModel):
+    text_title: str
+    text_author: str
+    first_user_message: str
+    first_assistant_message: str
+
+
+@app.post("/generate-title")
+def generate_title(request: TitleRequest):
+    """Generate a short title for a conversation based on the first exchange."""
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # Use smaller model for speed/cost
+            max_tokens=20,
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Generate a concise 3-5 word title for this philosophy discussion. No quotes, no punctuation. Just the title words."
+                },
+                {
+                    "role": "user",
+                    "content": f"Text: {request.text_title} by {request.text_author}\n\nUser asked: {request.first_user_message[:200]}\n\nTutor replied about: {request.first_assistant_message[:300]}"
+                }
+            ]
+        )
+        title = response.choices[0].message.content.strip()
+        # Clean up any quotes or extra punctuation
+        title = title.strip('"\'')
+        return {"title": title}
+    except Exception as e:
+        # Return a fallback if generation fails
+        return {"title": "New discussion", "error": str(e)}
+
+
 # Reload texts on startup and provide a reload endpoint for development
 @app.post("/reload-texts")
 def reload_texts():

@@ -1,11 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
-
-interface Message {
-  role: 'user' | 'assistant'
-  content: string
-}
+import { useConversations } from '../hooks/useConversations'
+import ConversationSwitcher from './ConversationSwitcher'
 
 interface Section {
   book: number
@@ -47,8 +44,6 @@ const generateSuggestions = (author: string, category?: string): string[] => {
 
 const API_URL = 'http://localhost:8000'
 
-const getStorageKey = (textId: string) => `philosophy-insight-conversation-${textId}`
-
 export default function DiscussionPanel({
   textId,
   textTitle,
@@ -59,32 +54,24 @@ export default function DiscussionPanel({
   pendingQuote,
   onQuoteUsed,
 }: DiscussionPanelProps) {
-  const [messages, setMessages] = useState<Message[]>([])
+  const {
+    index,
+    activeConversation,
+    messages,
+    setMessages,
+    backendConversationId,
+    createConversation,
+    renameConversation,
+    deleteConversation,
+    switchConversation,
+    clearMessages,
+  } = useConversations(textId)
+
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [streamingContent, setStreamingContent] = useState('')
-  const conversationId = `${textId}-persistent`
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
-
-  // Load conversation from localStorage
-  useEffect(() => {
-    const stored = localStorage.getItem(getStorageKey(textId))
-    if (stored) {
-      try {
-        setMessages(JSON.parse(stored))
-      } catch (e) {
-        console.error('Failed to load conversation:', e)
-      }
-    }
-  }, [textId])
-
-  // Save conversation to localStorage
-  useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem(getStorageKey(textId), JSON.stringify(messages))
-    }
-  }, [messages, textId])
 
   // Scroll to bottom
   useEffect(() => {
@@ -127,10 +114,39 @@ export default function DiscussionPanel({
     }
   }, [activeParagraph, sections])
 
+  // Generate a title for the conversation after first exchange
+  const generateTitle = useCallback(async (userMsg: string, assistantMsg: string) => {
+    if (!activeConversation) return
+
+    try {
+      const response = await fetch(`${API_URL}/generate-title`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text_title: textTitle,
+          text_author: textAuthor,
+          first_user_message: userMsg,
+          first_assistant_message: assistantMsg,
+        }),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        if (data.title && activeConversation) {
+          renameConversation(activeConversation.id, data.title)
+        }
+      }
+    } catch (e) {
+      // Silently fail - title generation is not critical
+      console.error('Failed to generate title:', e)
+    }
+  }, [activeConversation, textTitle, textAuthor, renameConversation])
+
   const sendMessage = useCallback(async () => {
     if (!input.trim() || loading) return
 
     const userMessage = input.trim()
+    const isFirstExchange = messages.length === 0
     setInput('')
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
     setLoading(true)
@@ -143,7 +159,7 @@ export default function DiscussionPanel({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          conversation_id: conversationId,
+          conversation_id: backendConversationId,
           text_id: textId,
           user_message: userMessage,
           // Spatial context
@@ -181,6 +197,10 @@ export default function DiscussionPanel({
                 } else if (data.done) {
                   setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
                   setStreamingContent('')
+                  // Generate title after first exchange
+                  if (isFirstExchange) {
+                    generateTitle(userMessage, fullResponse)
+                  }
                 } else if (data.error) {
                   throw new Error(data.error)
                 }
@@ -198,7 +218,7 @@ export default function DiscussionPanel({
     } finally {
       setLoading(false)
     }
-  }, [input, loading, conversationId, textId, activeParagraph, getSurroundingContext])
+  }, [input, loading, backendConversationId, textId, activeParagraph, getSurroundingContext, setMessages, messages.length, generateTitle])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -208,9 +228,8 @@ export default function DiscussionPanel({
   }
 
   const clearConversation = () => {
-    setMessages([])
-    localStorage.removeItem(getStorageKey(textId))
-    fetch(`${API_URL}/conversations/${conversationId}`, { method: 'DELETE' })
+    clearMessages()
+    fetch(`${API_URL}/conversations/${backendConversationId}`, { method: 'DELETE' })
   }
 
   const exportConversation = () => {
@@ -222,8 +241,11 @@ export default function DiscussionPanel({
       day: 'numeric',
     })
 
+    const conversationTitle = activeConversation?.title || 'Discussion'
+
     let markdown = `# Discussion: ${textTitle}\n`
     markdown += `**Author:** ${textAuthor}\n`
+    markdown += `**Conversation:** ${conversationTitle}\n`
     markdown += `**Exported:** ${timestamp}\n\n`
     markdown += `---\n\n`
 
@@ -260,11 +282,22 @@ export default function DiscussionPanel({
       {/* Header */}
       <div className="px-5 py-4 border-b border-[var(--border-primary)] flex items-center justify-between shrink-0 bg-[var(--bg-secondary)]">
         <div>
-          <h3 className="font-semibold text-[var(--text-primary)]">Discussion</h3>
+          {index && activeConversation ? (
+            <ConversationSwitcher
+              index={index}
+              activeConversation={activeConversation}
+              onSwitch={switchConversation}
+              onCreate={createConversation}
+              onRename={renameConversation}
+              onDelete={deleteConversation}
+            />
+          ) : (
+            <h3 className="font-semibold text-[var(--text-primary)]">Discussion</h3>
+          )}
           <p className="text-xs text-[var(--text-muted)] mt-0.5">
             {messages.length === 0
               ? 'Highlight text to discuss'
-              : `${messages.length} messages`
+              : `${messages.length} message${messages.length === 1 ? '' : 's'}`
             }
           </p>
         </div>

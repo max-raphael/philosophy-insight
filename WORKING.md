@@ -6,9 +6,9 @@
 
 ## Current Status
 
-**Phase:** 3 - Reading Experience Polish ← COMPLETE
-**Focus:** UI/UX redesign for delightful discovery experience
-**Started:** 2026-02-10
+**Phase:** 4 - Memory and Continuity ← IN PROGRESS
+**Focus:** Multiple conversations per text
+**Started:** 2026-02-11
 
 ---
 
@@ -96,9 +96,10 @@ Current texts are incomplete snippets. Users need full works to actually "read p
 
 **Done when:** Someone can read for an hour comfortably. **→ DONE!**
 
-### Phase 4: Memory and Continuity
-- [ ] Multiple conversations per text (tabs or dropdown to switch)
-- [ ] Name/title conversations for easy reference
+### Phase 4: Memory and Continuity ← IN PROGRESS
+- [x] Multiple conversations per text (dropdown switcher)
+- [x] Name/title conversations for easy reference (inline rename)
+- [x] Create, switch, rename, delete conversations
 - [ ] Conversation history tied to specific passages
 - [ ] Show prior discussions when clicking previously-discussed paragraphs
 - [ ] AI references prior discussions in prompts
@@ -151,6 +152,27 @@ Current texts are incomplete snippets. Users need full works to actually "read p
 ---
 
 ## Session Log
+
+### 2026-02-11 (Session 8) - Multiple Conversations Feature
+- **Implemented Phase 4 (partial):** Multiple conversations per text
+- **New files created:**
+  - `src/hooks/useConversations.ts` - Custom hook for conversation CRUD, localStorage, migration
+  - `src/components/ConversationSwitcher.tsx` - Dropdown UI for conversation management
+- **Refactored:** `DiscussionPanel.tsx` to use new hook and switcher component
+- **Features:**
+  - Dropdown in Discussion header: "Discussion: [conversation name] ▼"
+  - Create new conversations
+  - Rename conversations (inline edit on hover)
+  - Delete conversations (auto-creates new if deleting last)
+  - Switch between conversations with separate message histories
+  - Migration from old localStorage format (single conversation → index + separate messages)
+  - **Auto-naming:** After first exchange, AI generates a 3-5 word title (like ChatGPT)
+- **Backend:** Added `/generate-title` endpoint using gpt-4o-mini for fast/cheap title generation
+- **localStorage schema:**
+  - Index: `philosophy-insight-conversations-index-${textId}`
+  - Messages: `philosophy-insight-conversation-${textId}-${conversationId}`
+- **E2E tests added:** 8 new tests for conversation features
+- **Initialized git** and pushed to GitHub: https://github.com/max-raphael/philosophy-insight
 
 ### 2026-02-11 (Session 7) - Major UI/UX Redesign
 - **Complete UI/UX redesign** implementing full vision from plan
@@ -285,10 +307,11 @@ When starting a new session:
 3. Check current phase and uncompleted tasks
 4. Continue where left off
 
-**Current priority:** Phase 4 (Memory & Continuity) - Multiple conversations per text, conversation history tied to passages
+**Current priority:** Phase 4 (Memory & Continuity) - Conversation history tied to passages, AI references prior discussions
 
 **Completed phases:**
 - ✅ Phase 1: Spatial Grounding
 - ✅ Phase 2: Full Texts & Navigation (136 texts)
 - ✅ Phase 3: Reading Experience Polish (full UI/UX redesign)
 - ✅ Phase 5: Library Depth (136 texts with curated collections)
+- 🔄 Phase 4: Memory & Continuity (multiple conversations done, passage-linking next)
