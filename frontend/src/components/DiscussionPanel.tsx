@@ -5,12 +5,6 @@ import { useConversations } from '../hooks/useConversations'
 import ConversationSwitcher from './ConversationSwitcher'
 import { API_URL } from '../config'
 
-interface Section {
-  book: number
-  number: number
-  content: string
-}
-
 interface ParagraphLocation {
   book: number
   section: number
@@ -23,10 +17,74 @@ interface DiscussionPanelProps {
   textTitle: string
   textAuthor: string
   textCategory?: string
-  sections: Section[]
   activeParagraph: ParagraphLocation | null
   pendingQuote: string | null
   onQuoteUsed: () => void
+}
+
+// Parse context from a formatted user message for display
+interface ParsedMessage {
+  location: { book: number; section: number } | null
+  quote: string | null
+  content: string
+}
+
+function parseMessageContext(content: string): ParsedMessage {
+  let location = null
+  let quote = null
+  let remaining = content
+
+  // Parse [Book X, Section Y]
+  const locationMatch = remaining.match(/^\[Book (\d+), Section (\d+)\]\n/)
+  if (locationMatch) {
+    location = { book: parseInt(locationMatch[1]), section: parseInt(locationMatch[2]) }
+    remaining = remaining.slice(locationMatch[0].length)
+  }
+
+  // Parse quoted passage (lines starting with >)
+  const lines = remaining.split('\n')
+  const quoteLines: string[] = []
+  let i = 0
+  while (i < lines.length && lines[i].startsWith('> ')) {
+    quoteLines.push(lines[i].slice(2))
+    i++
+  }
+  if (quoteLines.length > 0) {
+    quote = quoteLines.join('\n')
+    // Skip blank line after quote
+    if (lines[i] === '') i++
+    remaining = lines.slice(i).join('\n')
+  }
+
+  return { location, quote, content: remaining }
+}
+
+// Format a user message with embedded context for the API
+function formatMessageWithContext(
+  userText: string,
+  location: { book: number; section: number } | null,
+  passage: string | null,
+  quote: string | null
+): string {
+  let formatted = ''
+
+  // Add location if available
+  if (location) {
+    formatted += `[Book ${location.book}, Section ${location.section}]\n`
+  }
+
+  // Add passage context - prefer explicit quote over ambient passage
+  const contextText = quote || passage
+  if (contextText) {
+    // Truncate long passages, format as quote
+    const truncated = contextText.length > 300
+      ? contextText.slice(0, 300) + '...'
+      : contextText
+    formatted += `> ${truncated.split('\n').join('\n> ')}\n\n`
+  }
+
+  formatted += userText
+  return formatted
 }
 
 // Generate contextual suggestions based on the text being read
@@ -48,7 +106,6 @@ export default function DiscussionPanel({
   textTitle,
   textAuthor,
   textCategory,
-  sections,
   activeParagraph,
   pendingQuote,
   onQuoteUsed,
@@ -103,16 +160,6 @@ export default function DiscussionPanel({
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  // Get surrounding context for the active paragraph
-  const getSurroundingContext = useCallback(() => {
-    if (!activeParagraph) return { prev: null, next: null }
-    const { index } = activeParagraph
-    return {
-      prev: index > 0 ? sections[index - 1]?.content : null,
-      next: index < sections.length - 1 ? sections[index + 1]?.content : null,
-    }
-  }, [activeParagraph, sections])
-
   // Generate a title for the conversation after first exchange
   const generateTitle = useCallback(async (userMsg: string, assistantMsg: string) => {
     if (!activeConversation) return
@@ -144,14 +191,31 @@ export default function DiscussionPanel({
   const sendMessage = useCallback(async () => {
     if (!input.trim() || loading) return
 
-    const userMessage = input.trim()
+    const rawInput = input.trim()
     const isFirstExchange = messages.length === 0
     setInput('')
-    setMessages(prev => [...prev, { role: 'user', content: userMessage }])
+
+    // Extract any inline quote from the input (added via text highlighting)
+    // Format: "quoted text"\n\nuser question
+    let explicitQuote: string | null = null
+    let userText = rawInput
+    const quoteMatch = rawInput.match(/^"(.+?)"\n\n(.*)$/s)
+    if (quoteMatch) {
+      explicitQuote = quoteMatch[1]
+      userText = quoteMatch[2]
+    }
+
+    // Format the message with embedded context
+    const formattedMessage = formatMessageWithContext(
+      userText,
+      activeParagraph ? { book: activeParagraph.book, section: activeParagraph.section } : null,
+      activeParagraph?.content || null,
+      explicitQuote
+    )
+
+    setMessages(prev => [...prev, { role: 'user', content: formattedMessage }])
     setLoading(true)
     setStreamingContent('')
-
-    const surrounding = getSurroundingContext()
 
     try {
       const response = await fetch(`${API_URL}/chat/stream`, {
@@ -160,13 +224,7 @@ export default function DiscussionPanel({
         body: JSON.stringify({
           conversation_id: backendConversationId,
           text_id: textId,
-          user_message: userMessage,
-          // Spatial context
-          book: activeParagraph?.book ?? null,
-          section: activeParagraph?.section ?? null,
-          paragraph_content: activeParagraph?.content ?? null,
-          prev_paragraph: surrounding.prev,
-          next_paragraph: surrounding.next,
+          user_message: formattedMessage,
         }),
       })
 
@@ -198,7 +256,7 @@ export default function DiscussionPanel({
                   setStreamingContent('')
                   // Generate title after first exchange
                   if (isFirstExchange) {
-                    generateTitle(userMessage, fullResponse)
+                    generateTitle(userText, fullResponse)
                   }
                 } else if (data.error) {
                   throw new Error(data.error)
@@ -217,7 +275,7 @@ export default function DiscussionPanel({
     } finally {
       setLoading(false)
     }
-  }, [input, loading, backendConversationId, textId, activeParagraph, getSurroundingContext, setMessages, messages.length, generateTitle])
+  }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -365,9 +423,9 @@ export default function DiscussionPanel({
             </motion.div>
           )}
 
-          {messages.map((message, index) => (
+          {messages.map((message, idx) => (
             <motion.div
-              key={index}
+              key={idx}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
@@ -381,7 +439,24 @@ export default function DiscussionPanel({
                 }`}
               >
                 {message.role === 'user' ? (
-                  <p className="whitespace-pre-wrap text-sm leading-relaxed">{message.content}</p>
+                  (() => {
+                    const parsed = parseMessageContext(message.content)
+                    return (
+                      <div className="text-sm leading-relaxed">
+                        {parsed.location && (
+                          <span className="text-xs opacity-60 mb-1.5 block">
+                            Book {parsed.location.book}, Section {parsed.location.section}
+                          </span>
+                        )}
+                        {parsed.quote && (
+                          <blockquote className="border-l-2 border-current/30 pl-3 mb-2 opacity-80 italic text-[13px]">
+                            {parsed.quote}
+                          </blockquote>
+                        )}
+                        <p className="whitespace-pre-wrap">{parsed.content}</p>
+                      </div>
+                    )
+                  })()
                 ) : (
                   <div className="text-sm leading-relaxed prose-custom">
                     <ReactMarkdown>{message.content}</ReactMarkdown>

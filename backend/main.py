@@ -45,13 +45,7 @@ class TextInfo(BaseModel):
 class ChatRequest(BaseModel):
     conversation_id: str
     text_id: str
-    user_message: str
-    # Spatial context - where the reader is in the text
-    book: int | None = None
-    section: int | None = None
-    paragraph_content: str | None = None
-    prev_paragraph: str | None = None
-    next_paragraph: str | None = None
+    user_message: str  # Contains embedded context (location + passage)
 
 
 class ChatResponse(BaseModel):
@@ -77,58 +71,27 @@ def load_texts() -> dict[str, TextInfo]:
 TEXTS = load_texts()
 
 
-def get_system_prompt(request: ChatRequest) -> str:
-    """Build the system prompt for the AI tutor with spatial context."""
-    text_info = TEXTS.get(request.text_id)
+def get_system_prompt(text_id: str) -> str:
+    """Build the system prompt for the AI tutor."""
+    text_info = TEXTS.get(text_id)
     text_title = text_info.title if text_info else "this philosophical text"
     text_author = text_info.author if text_info else "the author"
 
-    # Build spatial context section
-    spatial_context = ""
-    if request.paragraph_content:
-        spatial_context = f"""
-The reader is currently focused on Book {request.book}, Section {request.section}.
+    return f"""You are an expert guide to {text_title} by {text_author}.
 
-The paragraph they are reading:
----
-{request.paragraph_content}
----
-"""
-        if request.prev_paragraph:
-            spatial_context += f"""
-Previous paragraph (for context):
----
-{request.prev_paragraph[:500]}{"..." if len(request.prev_paragraph) > 500 else ""}
----
-"""
-        if request.next_paragraph:
-            spatial_context += f"""
-Next paragraph (for context):
----
-{request.next_paragraph[:500]}{"..." if len(request.next_paragraph) > 500 else ""}
----
-"""
-    else:
-        spatial_context = """
-The reader has not focused on a specific paragraph yet. They may be asking general questions about the text.
-"""
+The reader's messages include context showing where they are in the text:
+- [Book X, Section Y] indicates their location
+- Quoted text (>) shows the passage they're reading or text they highlighted
 
-    return f"""You are a thoughtful philosophy tutor helping someone read and understand {text_title} by {text_author}.
+When they refer to "this" or ask "what does this mean", look at the quoted passage in their message. When context changes between messages (different book/section), they've moved to a new part of the text.
 
-{spatial_context}
+Your approach:
+- Explain concepts and arguments with precision and depth
+- Connect ideas to the broader work and philosophical tradition
+- Ask probing questions to deepen understanding when appropriate
+- Be direct and substantive - engage as an intellectual equal, not a simplifier
 
-Your role is to:
-1. Help them understand the passage they are focused on
-2. Explain concepts, terminology, and arguments clearly
-3. Connect ideas to the broader context of the work and philosophical tradition
-4. Ask guiding questions when appropriate to deepen their understanding
-5. Be patient with confusion - philosophy is hard!
-
-Keep responses focused and conversational. Don't lecture - engage in dialogue. If they ask a simple question, give a clear answer. If they seem confused, help them work through it step by step.
-
-When they ask about "this" or "this passage" or "what does this mean", they are referring to the paragraph they are focused on.
-
-You have deep knowledge of this text, its historical context, and the philosophical tradition it belongs to. Draw on this knowledge naturally in your responses."""
+You have comprehensive knowledge of this text, its historical context, and the philosophical tradition. Draw on this expertise naturally."""
 
 
 @app.get("/")
@@ -177,7 +140,7 @@ async def chat_stream(request: ChatRequest):
         "content": request.user_message
     })
 
-    system_prompt = get_system_prompt(request)
+    system_prompt = get_system_prompt(request.text_id)
     messages = [{"role": "system", "content": system_prompt}] + conversation
 
     async def generate():
@@ -233,7 +196,7 @@ def chat(request: ChatRequest):
         "content": request.user_message
     })
 
-    system_prompt = get_system_prompt(request)
+    system_prompt = get_system_prompt(request.text_id)
     messages = [{"role": "system", "content": system_prompt}] + conversation
 
     try:

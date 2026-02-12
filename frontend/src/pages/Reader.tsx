@@ -331,7 +331,6 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               textTitle={text.title}
               textAuthor={text.author}
               textCategory={text.category}
-              sections={text.sections}
               activeParagraph={activeParagraph}
               pendingQuote={pendingQuote}
               onQuoteUsed={handleQuoteUsed}
