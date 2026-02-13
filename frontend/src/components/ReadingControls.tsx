@@ -151,18 +151,6 @@ export default function ReadingControls({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             </button>
-            <button
-              onClick={() => setTheme('system')}
-              className={`flex-1 py-3 text-sm rounded-md transition-colors flex items-center justify-center gap-1.5 touch-target ${
-                theme === 'system'
-                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
-                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
-              }`}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -273,18 +261,6 @@ export default function ReadingControls({
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={() => setTheme('system')}
-                    className={`flex-1 py-2 text-sm rounded-md transition-colors flex items-center justify-center gap-1.5 ${
-                      theme === 'system'
-                        ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] font-medium shadow-sm'
-                        : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
-                    }`}
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </button>
                 </div>

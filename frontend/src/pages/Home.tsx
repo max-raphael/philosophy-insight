@@ -57,16 +57,16 @@ const philosopherImages: Record<string, string> = {
   'Omar Khayyam': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Hakim_Omar_Khayam_-_panoramio.jpg/440px-Hakim_Omar_Khayam_-_panoramio.jpg',
 }
 
-// Category color mapping
+// Category color mapping using CSS variables for proper light/dark mode support
 const categoryStyles: Record<string, { bg: string; text: string; accent: string }> = {
-  ancient: { bg: 'bg-amber-950/20', text: 'text-amber-200', accent: 'border-amber-600/40' },
-  medieval: { bg: 'bg-stone-800/30', text: 'text-stone-300', accent: 'border-stone-500/40' },
-  enlightenment: { bg: 'bg-emerald-950/20', text: 'text-emerald-200', accent: 'border-emerald-600/40' },
-  modern: { bg: 'bg-blue-950/20', text: 'text-blue-200', accent: 'border-blue-600/40' },
-  chinese: { bg: 'bg-red-950/20', text: 'text-red-200', accent: 'border-red-600/40' },
-  indian: { bg: 'bg-orange-950/20', text: 'text-orange-200', accent: 'border-orange-600/40' },
-  buddhist: { bg: 'bg-yellow-950/20', text: 'text-yellow-200', accent: 'border-yellow-600/40' },
-  sufi: { bg: 'bg-purple-950/20', text: 'text-purple-200', accent: 'border-purple-600/40' },
+  ancient: { bg: 'bg-[var(--category-ancient-bg)]', text: 'text-[var(--category-ancient-text)]', accent: 'border-[var(--category-ancient-text)]/40' },
+  medieval: { bg: 'bg-[var(--category-medieval-bg)]', text: 'text-[var(--category-medieval-text)]', accent: 'border-[var(--category-medieval-text)]/40' },
+  enlightenment: { bg: 'bg-[var(--category-enlightenment-bg)]', text: 'text-[var(--category-enlightenment-text)]', accent: 'border-[var(--category-enlightenment-text)]/40' },
+  modern: { bg: 'bg-[var(--category-modern-bg)]', text: 'text-[var(--category-modern-text)]', accent: 'border-[var(--category-modern-text)]/40' },
+  chinese: { bg: 'bg-[var(--category-chinese-bg)]', text: 'text-[var(--category-chinese-text)]', accent: 'border-[var(--category-chinese-text)]/40' },
+  indian: { bg: 'bg-[var(--category-indian-bg)]', text: 'text-[var(--category-indian-text)]', accent: 'border-[var(--category-indian-text)]/40' },
+  buddhist: { bg: 'bg-[var(--category-buddhist-bg)]', text: 'text-[var(--category-buddhist-text)]', accent: 'border-[var(--category-buddhist-text)]/40' },
+  sufi: { bg: 'bg-[var(--category-sufi-bg)]', text: 'text-[var(--category-sufi-text)]', accent: 'border-[var(--category-sufi-text)]/40' },
 }
 
 type SortOption = 'title' | 'author' | 'era'

@@ -1,32 +1,20 @@
 import { useState, useEffect, useCallback } from 'react'
 
-type Theme = 'light' | 'dark' | 'system'
+type Theme = 'light' | 'dark'
 
 const STORAGE_KEY = 'philosophy-insight-theme'
 
 export function useDarkMode() {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'system'
-    const stored = localStorage.getItem(STORAGE_KEY) as Theme | null
-    return stored || 'system'
+    if (typeof window === 'undefined') return 'dark'
+    const stored = localStorage.getItem(STORAGE_KEY)
+    // Migrate old 'system' preference to 'dark'
+    if (stored === 'light') return 'light'
+    return 'dark'
   })
-
-  const [systemPrefersDark, setSystemPrefersDark] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
-
-  // Listen for system preference changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    const handler = (e: MediaQueryListEvent) => setSystemPrefersDark(e.matches)
-
-    mediaQuery.addEventListener('change', handler)
-    return () => mediaQuery.removeEventListener('change', handler)
-  }, [])
 
   // Determine if dark mode is active
-  const isDark = theme === 'dark' || (theme === 'system' && systemPrefersDark)
+  const isDark = theme === 'dark'
 
   // Apply dark class to document
   useEffect(() => {
@@ -44,14 +32,9 @@ export function useDarkMode() {
     localStorage.setItem(STORAGE_KEY, newTheme)
   }, [])
 
-  // Cycle through themes: light -> dark -> system
+  // Toggle between light and dark
   const toggleTheme = useCallback(() => {
-    const nextTheme: Record<Theme, Theme> = {
-      light: 'dark',
-      dark: 'system',
-      system: 'light',
-    }
-    setTheme(nextTheme[theme])
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }, [theme, setTheme])
 
   return {
