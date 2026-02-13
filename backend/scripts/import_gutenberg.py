@@ -21,9 +21,11 @@ class TextConfig:
     author: str
     year: str
     description: str
-    category: str  # ancient, medieval, enlightenment, modern
+    category: str  # ancient, medieval, enlightenment, modern, chinese, indian, buddhist, sufi
     translator: Optional[str] = None
     structure_hint: Optional[str] = None  # 'book', 'chapter', 'part', 'section', 'paragraph'
+    structure_depth: int = 1  # How many nested levels to parse (2 = BOOK > CHAPTER)
+    strip_end_markers: bool = False  # Remove "HERE ENDETH CHAPTER" patterns
 
 
 def fetch_text(gutenberg_id: int) -> str:
@@ -90,6 +92,35 @@ def word_to_int(word: str) -> Optional[int]:
     return words.get(word.upper())
 
 
+def is_header_line(line: str, match_end: int) -> bool:
+    """
+    Check if a line is truly a header vs a sentence that starts with BOOK/CHAPTER.
+    A header line either:
+    - Ends shortly after the match (possibly with title)
+    - Doesn't continue into a sentence (lowercase text following)
+    """
+    remainder = line[match_end:].strip()
+
+    # If nothing after, it's a header
+    if not remainder:
+        return True
+
+    # If very short remainder, it's likely a header with title
+    if len(remainder) < 50:
+        return True
+
+    # If remainder starts with lowercase, it's a sentence, not a header
+    if remainder and remainder[0].islower():
+        return False
+
+    # If remainder has sentence-like structure (lowercase after first word), not a header
+    words = remainder.split()
+    if len(words) > 2 and any(w[0].islower() for w in words[1:4] if w):
+        return False
+
+    return True
+
+
 def detect_structure(text: str) -> dict:
     """
     Detect the structural pattern of the text.
@@ -99,24 +130,32 @@ def detect_structure(text: str) -> dict:
     text_length = len(text)
 
     # Structure patterns to detect (in priority order)
+    # These patterns are stricter - they end with [\.\:]? to allow optional punctuation
+    # but we separately verify the line is a header (not a sentence)
     patterns = [
-        # "BOOK I", "BOOK ONE", "THE FIRST BOOK", "BOOK 1" (optionally with title after)
-        (r'^\s*(THE\s+)?(\w+\s+)?BOOK\s*([IVXLC]+|\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|ELEVEN|TWELVE)[\.\:\s]', 'book'),
-        # "CHAPTER I", "CHAPTER 1", "CHAPTER ONE" (optionally with title after)
-        (r'^\s*CHAPTER\s+([IVXLC]+|\d+|\w+)[\.\:\s]', 'chapter'),
-        # "PART I", "PART ONE", "PART 1" (optionally with title after)
-        (r'^\s*PART\s+([IVXLC]+|\d+|\w+)[\.\:\s]', 'part'),
+        # "BOOK I", "BOOK ONE", "THE FIRST BOOK", "BOOK 1"
+        # The optional word before BOOK must be an ordinal (FIRST, SECOND, etc.), not arbitrary words
+        (r'^\s*(THE\s+)?(FIRST|SECOND|THIRD|FOURTH|FIFTH|SIXTH|SEVENTH|EIGHTH|NINTH|TENTH|ELEVENTH|TWELFTH)?\s*BOOK\s*([IVXLC]+|\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|ELEVEN|TWELVE)?[\.\:]?\s*', 'book'),
+        # "CHAPTER I", "CHAPTER 1", "CHAPTER ONE"
+        (r'^\s*CHAPTER\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'chapter'),
+        # "PART I", "PART ONE", "PART 1"
+        (r'^\s*PART\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'part'),
         # "SECTION I", "SECTION 1"
-        (r'^\s*SECTION\s+([IVXLC]+|\d+)[\.\:\s]', 'section'),
+        (r'^\s*SECTION\s+([IVXLC]+|\d+)[\.\:]?\s*', 'section'),
     ]
 
     markers = []
     detected_type = None
 
     for i, line in enumerate(lines):
+        stripped = line.strip()
         for pattern, struct_type in patterns:
-            match = re.match(pattern, line.strip(), re.IGNORECASE)
+            match = re.match(pattern, stripped, re.IGNORECASE)
             if match:
+                # Verify this is actually a header, not a sentence
+                if not is_header_line(stripped, match.end()):
+                    continue
+
                 # Extract the number/identifier
                 groups = match.groups()
                 num_str = groups[-1] if groups else None
@@ -136,7 +175,7 @@ def detect_structure(text: str) -> dict:
                         'line': i,
                         'type': struct_type,
                         'number': num,
-                        'raw': line.strip()
+                        'raw': stripped
                     })
                     if detected_type is None:
                         detected_type = struct_type
@@ -180,8 +219,16 @@ def detect_structure(text: str) -> dict:
     }
 
 
-def parse_by_markers(text: str, markers: list, structure_type: str) -> list:
-    """Parse text into sections based on detected markers."""
+def parse_by_markers(text: str, markers: list, structure_type: str, depth: int = 1) -> list:
+    """
+    Parse text into sections based on detected markers.
+
+    Args:
+        text: The text to parse
+        markers: List of detected structure markers
+        structure_type: Type of structure ('book', 'chapter', 'part', 'section')
+        depth: How many nested levels to parse (2 = parse CHAPTER within BOOK)
+    """
     lines = text.split('\n')
     sections = []
 
@@ -207,6 +254,24 @@ def parse_by_markers(text: str, markers: list, structure_type: str) -> list:
         section_lines = lines[start_line:section_end]
         section_text = '\n'.join(section_lines)
 
+        # For book/chapter/part structures with depth > 1, try to detect nested structure
+        if structure_type in ('book', 'chapter', 'part') and depth > 1:
+            nested_structure = detect_structure(section_text)
+            if nested_structure['markers'] and len(nested_structure['markers']) >= 2:
+                # Found nested structure (e.g., CHAPTERs within a BOOK)
+                # Recursively parse with reduced depth
+                nested_sections = parse_by_markers(
+                    section_text,
+                    nested_structure['markers'],
+                    nested_structure['type'],
+                    depth - 1
+                )
+                # Update book numbers to reflect the parent marker
+                for s in nested_sections:
+                    s['book'] = marker['number']
+                sections.extend(nested_sections)
+                continue
+
         # For book/chapter/part structures, split further into subsections
         if structure_type in ('book', 'chapter', 'part'):
             subsections = split_into_subsections(section_text, marker['number'])
@@ -224,45 +289,93 @@ def parse_by_markers(text: str, markers: list, structure_type: str) -> list:
     return sections
 
 
+def try_split_by_pattern(text: str, book_num: int, pattern: str, num_extractor) -> list:
+    """
+    Try to split text by a regex pattern.
+    Returns list of sections if successful (>= 2 sections), empty list otherwise.
+
+    Args:
+        text: The text to split
+        book_num: Book number for the sections
+        pattern: Regex pattern with a capture group for the section number
+        num_extractor: Function to convert captured string to int
+    """
+    sections = []
+    parts = re.split(pattern, '\n' + text)
+
+    if len(parts) > 3:  # At least 2 sections found (intro, num1, content1, num2, content2...)
+        # Handle any content before the first marker
+        intro = clean_content(parts[0])
+        if intro and len(intro) >= 50:
+            # There's substantial content before the first marker - include it
+            sections.append({
+                'book': book_num,
+                'number': 0,
+                'content': intro
+            })
+
+        i = 1
+        while i < len(parts) - 1:
+            num_str = parts[i]
+            content_str = parts[i + 1]
+
+            num = num_extractor(num_str)
+            content = clean_content(content_str)
+
+            if num and content and len(content) >= 20:
+                sections.append({
+                    'book': book_num,
+                    'number': num,
+                    'content': content
+                })
+            i += 2
+
+        # Only return if we found meaningful sections
+        if len(sections) >= 2:
+            return sections
+
+    return []
+
+
 def split_into_subsections(text: str, book_num: int) -> list:
     """
     Split a book/chapter into subsections.
-    First try to detect numbered subsections, then fall back to paragraphs.
+    Tries multiple patterns in order of specificity, then falls back to paragraphs.
     """
     sections = []
 
-    # Try to find numbered subsections within the book (1. 2. 3. or I. II. III.)
-    # Roman numeral pattern
-    roman_parts = re.split(r'\n([IVXLC]+)\.\s+', '\n' + text)
-    if len(roman_parts) > 3:  # At least 2 sections found
-        i = 1
-        while i < len(roman_parts) - 1:
-            num = roman_to_int(roman_parts[i])
-            content = clean_content(roman_parts[i + 1])
-            if content and len(content) >= 20:
-                sections.append({
-                    'book': book_num,
-                    'number': num,
-                    'content': content
-                })
-            i += 2
-        return sections
+    # Pattern definitions: (regex_pattern, number_extractor_function, description)
+    # Patterns are tried in order - more specific patterns first
+    # Note: \s* after \n allows for indented markers (common in Gutenberg texts)
+    split_patterns = [
+        # § symbol patterns (common in academic texts)
+        # Matches: § 1. , §1. , § 1 , §1 (followed by space/text)
+        (r'\n\s*§\s*(\d+)\.?\s+', lambda s: int(s), '§ arabic'),
+        (r'\n\s*§\s*([IVXLC]+)\.?\s+', roman_to_int, '§ roman'),
 
-    # Try Arabic numeral pattern
-    arabic_parts = re.split(r'\n(\d+)\.\s+', '\n' + text)
-    if len(arabic_parts) > 3:
-        i = 1
-        while i < len(arabic_parts) - 1:
-            num = int(arabic_parts[i])
-            content = clean_content(arabic_parts[i + 1])
-            if content and len(content) >= 20:
-                sections.append({
-                    'book': book_num,
-                    'number': num,
-                    'content': content
-                })
-            i += 2
-        return sections
+        # CHAPTER/CHAP patterns (may be indented)
+        # Matches: CHAPTER I. , CHAPTER 1. , CHAP. I. , CHAP. 1. , CHAP I. , CHAP 1.
+        (r'\n\s*CHAPTER\s+([IVXLC]+)\.?[\s\-—:]', roman_to_int, 'CHAPTER roman'),
+        (r'\n\s*CHAPTER\s+(\d+)\.?[\s\-—:]', lambda s: int(s), 'CHAPTER arabic'),
+        (r'\n\s*CHAP\.?\s+([IVXLC]+)\.?\s+', roman_to_int, 'CHAP roman'),
+        (r'\n\s*CHAP\.?\s+(\d+)\.?\s+', lambda s: int(s), 'CHAP arabic'),
+
+        # SECTION patterns
+        (r'\n\s*SECTION\s+([IVXLC]+)\.?\s+', roman_to_int, 'SECTION roman'),
+        (r'\n\s*SECTION\s+(\d+)\.?\s+', lambda s: int(s), 'SECTION arabic'),
+
+        # Simple Roman numeral at start of line (existing pattern, but more restrictive)
+        # Must be followed by period and space to avoid matching mid-word
+        (r'\n\s*([IVXLC]+)\.\s+', roman_to_int, 'roman numeral'),
+
+        # Simple Arabic numeral at start of line
+        (r'\n\s*(\d+)\.\s+', lambda s: int(s), 'arabic numeral'),
+    ]
+
+    for pattern, extractor, desc in split_patterns:
+        sections = try_split_by_pattern(text, book_num, pattern, extractor)
+        if sections:
+            return sections
 
     # Fall back to paragraph chunking
     paragraphs = re.split(r'\n\s*\n', text)
@@ -304,7 +417,16 @@ def split_into_subsections(text: str, book_num: int) -> list:
 
 
 def parse_by_paragraphs(text: str, target_size: int = 600) -> list:
-    """Fall back parser: split by paragraphs and chunk to target size."""
+    """
+    Fall back parser: first try pattern-based splitting, then chunk by paragraphs.
+    This is used when no top-level structure (BOOK/CHAPTER/PART) is detected.
+    """
+    # First, try to split by subsection patterns (§, CHAPTER, etc.)
+    sections = split_into_subsections(text, book_num=1)
+    if sections:
+        return sections
+
+    # If no patterns found, fall back to paragraph chunking
     paragraphs = re.split(r'\n\s*\n', text)
     sections = []
 
@@ -350,6 +472,43 @@ def clean_content(text: str) -> str:
     return text
 
 
+def strip_end_marker_content(content: str) -> str:
+    """
+    Remove "HERE ENDETH CHAPTER" and similar end-of-chapter markers.
+    These are traditional markers found in texts like Bhagavad Gita.
+    """
+    # Pattern matches: HERE ENDETH CHAPTER I., HERE ENDS CHAPTER XII., etc.
+    # Also matches the title that often follows: "Entitled 'Arjun-Vishad'"
+    pattern = r'\s*HERE\s+END(?:ETH|S)\s+(?:CHAPTER|BOOK|SECTION)\s+[IVXLC\d]+\.?[^.]*(?:\.|$)'
+    return re.sub(pattern, '', content, flags=re.IGNORECASE).strip()
+
+
+def is_table_of_contents(content: str) -> bool:
+    """
+    Detect if content is a table of contents.
+    TOC sections have many chapter/section references in a small space.
+    """
+    # Count chapter-like references
+    chapter_refs = re.findall(r'Chapter\s+[IVXLC\d]+', content, re.IGNORECASE)
+    part_refs = re.findall(r'Part\s+[IVXLC\d]+', content, re.IGNORECASE)
+    section_refs = re.findall(r'Section\s+[IVXLC\d]+', content, re.IGNORECASE)
+
+    total_refs = len(chapter_refs) + len(part_refs) + len(section_refs)
+
+    # High density of structure references = likely TOC
+    # More than 5 refs in less than 3000 chars is suspicious
+    if total_refs >= 5 and len(content) < 3000:
+        return True
+
+    # Or just check for very high density
+    if len(content) > 0:
+        density = total_refs / len(content) * 1000  # refs per 1000 chars
+        if density > 3:  # more than 3 refs per 1000 chars
+            return True
+
+    return False
+
+
 def import_text(config: TextConfig) -> dict:
     """
     Import a text from Gutenberg using auto-detection.
@@ -378,9 +537,25 @@ def import_text(config: TextConfig) -> dict:
 
     # Parse
     if structure['markers']:
-        sections = parse_by_markers(text, structure['markers'], structure['type'])
+        sections = parse_by_markers(
+            text,
+            structure['markers'],
+            structure['type'],
+            depth=config.structure_depth
+        )
     else:
         sections = parse_by_paragraphs(text)
+
+    # Apply end marker stripping if configured
+    if config.strip_end_markers:
+        for section in sections:
+            section['content'] = strip_end_marker_content(section['content'])
+
+    # Filter out table of contents sections
+    original_count = len(sections)
+    sections = [s for s in sections if not is_table_of_contents(s['content'])]
+    if len(sections) < original_count:
+        print(f"  Filtered {original_count - len(sections)} TOC sections")
 
     print(f"  Parsed {len(sections)} sections")
 

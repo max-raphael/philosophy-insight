@@ -8,6 +8,11 @@
   "sections": [
     {
       "book": 1,
+      "number": 0,
+      "content": "[Ts’ao Kung, in defining the meaning of the Chinese for the title of this chapter, says it refers to the deliberations in the temple selected by the general for his temporary use, or as we should say, in his tent. See. § 26.]"
+    },
+    {
+      "book": 1,
       "number": 1,
       "content": "Sun Tzŭ said: The art of war is of vital importance to the State."
     },
@@ -208,11 +213,6 @@
     },
     {
       "book": 2,
-      "number": 19,
-      "content": "In war, then, let your great object be victory, not lengthy campaigns. [As Ho Shih remarks: \"War is not a thing to be trifled with.\" Sun Tzŭ here reiterates the main lesson which this chapter is intended to enforce.\"]"
-    },
-    {
-      "book": 2,
       "number": 20,
       "content": "Thus it may be known that the leader of armies is the arbiter of the people’s fate, the man on whom it depends whether the nation shall be in peace or in peril."
     },
@@ -305,6 +305,11 @@
       "book": 3,
       "number": 18,
       "content": "Hence the saying: If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. [Li Ch’uan cites the case of Fu Chien, prince of Ch’in, who in 383 A.D. marched with a vast army against the Chin Emperor. When warned not to despise an enemy who could command the services of such men as Hsieh An and Huan Ch’ung, he boastfully replied: \"I have the population of eight provinces at my back, infantry and horsemen to the number of one million; why, they could dam up the Yangtsze River itself by merely throwing their whips into the stream. What danger have I to fear?\" Nevertheless, his forces were soon after disastrously routed at the Fei River, and he was obliged to beat a hasty retreat.] If you know neither the enemy nor yourself, you will succumb in every battle. [Chang Yu said: \"Knowing the enemy enables you to take the offensive, knowing yourself enables you to stand on the defensive.\" He adds: \"Attack is the secret of defence; defence is the planning of an attack.\" It would be hard to find a better epitome of the root-principle of war.]"
+    },
+    {
+      "book": 4,
+      "number": 0,
+      "content": "[Ts’ao Kung explains the Chinese meaning of the words for the title of this chapter: \"marching and countermarching on the part of the two armies with a view to discovering each other’s condition.\" Tu Mu says: \"It is through the dispositions of an army that its condition may be discovered. Conceal your dispositions, and your condition will remain secret, which leads to victory; show your dispositions, and your condition will become patent, which leads to defeat.\" Wang Hsi remarks that the good general can \"secure success by modifying his tactics to meet those of the enemy.\"]"
     },
     {
       "book": 4,
@@ -873,6 +878,11 @@
     },
     {
       "book": 8,
+      "number": 0,
+      "content": "[The heading means literally \"The Nine Variations,\" but as Sun Tzŭ does not appear to enumerate these, and as, indeed, he has already told us (V §§ 6-11) that such deflections from the ordinary course are practically innumerable, we have little option but to follow Wang Hsi, who says that \"Nine\" stands for an indefinitely large number. \"All it means is that in warfare we ought to vary our tactics to the utmost degree…. I do not know what Ts’ao Kung makes these Nine Variations out to be, but it has been suggested that they are connected with the Nine Situations\" - of chapt. XI. This is the view adopted by Chang Yu. The only other alternative is to suppose that something has been lost—a supposition to which the unusual shortness of the chapter lends some weight.]"
+    },
+    {
+      "book": 8,
       "number": 1,
       "content": "Sun Tzŭ said: In war, the general receives his commands from the sovereign, collects his army and concentrates his forces. [Repeated from VII. § 1, where it is certainly more in place. It may have been interpolated here merely in order to supply a beginning to the chapter.]"
     },
@@ -940,6 +950,11 @@
       "book": 8,
       "number": 14,
       "content": "When an army is overthrown and its leader slain, the cause will surely be found among these five dangerous faults. Let them be a subject of meditation. [1] \"Marshal Turenne,\" p. 50."
+    },
+    {
+      "book": 9,
+      "number": 0,
+      "content": "[The contents of this interesting chapter are better indicated in § 1 than by this heading.]"
     },
     {
       "book": 9,
@@ -1660,6 +1675,11 @@
       "book": 11,
       "number": 68,
       "content": "At first, then, exhibit the coyness of a maiden, until the enemy gives you an opening; afterwards emulate the rapidity of a running hare, and it will be too late for the enemy to oppose you. [As the hare is noted for its extreme timidity, the comparison hardly appears felicitous. But of course Sun Tzŭ was thinking only of its speed. The words have been taken to mean: You must flee from the enemy as quickly as an escaping hare; but this is rightly rejected by Tu Mu.] [1] Giles’ Biographical Dictionary, no. 399. [2] \"The Science of War,\" p. 333. [3] \"Stonewall Jackson,\" vol. I, p. 421."
+    },
+    {
+      "book": 12,
+      "number": 0,
+      "content": "[Rather more than half the chapter (§§ 1-13) is devoted to the subject of fire, after which the author branches off into other topics.]"
     },
     {
       "book": 12,

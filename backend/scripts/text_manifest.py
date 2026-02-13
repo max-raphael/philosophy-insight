@@ -367,7 +367,8 @@ EMPIRICISTS = [
     TextConfig(
         gutenberg_id=4705, id='treatise-of-human-nature', title='A Treatise of Human Nature', author='David Hume',
         translator=None, year='1739', category='enlightenment',
-        description="Hume's ambitious attempt to introduce experimental method into moral subjects, examining understanding, passions, and morals."
+        description="Hume's ambitious attempt to introduce experimental method into moral subjects, examining understanding, passions, and morals.",
+        structure_depth=2  # Parse PART/SECTION within BOOK
     ),
     TextConfig(
         gutenberg_id=9662, id='enquiry-concerning-human-understanding', title='An Enquiry Concerning Human Understanding', author='David Hume',
@@ -390,7 +391,8 @@ KANT = [
     TextConfig(
         gutenberg_id=4280, id='critique-of-pure-reason', title='Critique of Pure Reason', author='Immanuel Kant',
         translator='J. M. D. Meiklejohn', year='1781', category='enlightenment',
-        description="Kant's revolutionary examination of the limits and possibilities of human knowledge, establishing transcendental idealism."
+        description="Kant's revolutionary examination of the limits and possibilities of human knowledge, establishing transcendental idealism.",
+        structure_depth=2  # Parse CHAPTER/SECTION within BOOK
     ),
     TextConfig(
         gutenberg_id=5683, id='critique-of-practical-reason', title='Critique of Practical Reason', author='Immanuel Kant',
@@ -481,7 +483,8 @@ OTHER_ENLIGHTENMENT = [
     TextConfig(
         gutenberg_id=67363, id='theory-of-moral-sentiments', title='The Theory of Moral Sentiments', author='Adam Smith',
         translator=None, year='1759', category='enlightenment',
-        description="Adam Smith's moral philosophy grounding ethics in sympathy and the impartial spectator, foundational to his economic theory."
+        description="Adam Smith's moral philosophy grounding ethics in sympathy and the impartial spectator, foundational to his economic theory.",
+        structure_depth=2  # Parse SECTION/CHAPTER within PART
     ),
     TextConfig(
         gutenberg_id=3600, id='essays-montaigne', title='Essays', author='Michel de Montaigne',
@@ -529,7 +532,8 @@ NIETZSCHE = [
     TextConfig(
         gutenberg_id=1998, id='thus-spoke-zarathustra', title='Thus Spoke Zarathustra', author='Friedrich Nietzsche',
         translator='Thomas Common', year='1885', category='modern',
-        description="Nietzsche's philosophical novel introducing the Übermensch, eternal recurrence, and the death of God."
+        description="Nietzsche's philosophical novel introducing the Übermensch, eternal recurrence, and the death of God.",
+        structure_depth=2  # Parse CHAPTER within PART
     ),
     TextConfig(
         gutenberg_id=52319, id='genealogy-of-morals', title='On the Genealogy of Morals', author='Friedrich Nietzsche',
@@ -592,7 +596,8 @@ BRITISH_PHILOSOPHY = [
     TextConfig(
         gutenberg_id=27942, id='system-of-logic', title='A System of Logic', author='John Stuart Mill',
         translator=None, year='1843', category='modern',
-        description="Mill's comprehensive treatise on inductive reasoning, scientific method, and the logic of the moral sciences."
+        description="Mill's comprehensive treatise on inductive reasoning, scientific method, and the logic of the moral sciences.",
+        structure_depth=2  # Parse CHAPTER within BOOK
     ),
     TextConfig(
         gutenberg_id=10378, id='autobiography-mill', title='Autobiography', author='John Stuart Mill',
@@ -645,7 +650,8 @@ POLITICAL_ECONOMIC = [
     TextConfig(
         gutenberg_id=815, id='democracy-in-america', title='Democracy in America', author='Alexis de Tocqueville',
         translator='Henry Reeve', year='1835', category='modern',
-        description="Tocqueville's classic analysis of American democracy, equality, and the dangers of democratic tyranny."
+        description="Tocqueville's classic analysis of American democracy, equality, and the dangers of democratic tyranny.",
+        structure_depth=2  # Parse CHAPTER within BOOK
     ),
     TextConfig(
         gutenberg_id=39257, id='socialism-utopian-scientific', title='Socialism: Utopian and Scientific', author='Friedrich Engels',
@@ -808,7 +814,8 @@ HINDU_CLASSICAL = [
     TextConfig(
         gutenberg_id=2388, id='bhagavad-gita', title='The Bhagavad Gita', author='Vyasa',
         translator='Edwin Arnold', year='c. 2nd century BCE', category='indian',
-        description="The 'Song of God' from the Mahabharata: Krishna's teachings on duty, devotion, knowledge, and action."
+        description="The 'Song of God' from the Mahabharata: Krishna's teachings on duty, devotion, knowledge, and action.",
+        strip_end_markers=True  # Remove "HERE ENDETH CHAPTER" markers
     ),
     TextConfig(
         gutenberg_id=3283, id='upanishads', title='The Upanishads', author='Various',
