@@ -4,124 +4,172 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ========================================
-   CSS Custom Properties (Theme Variables)
+   Dark Academia Design System
+   ========================================
+   Typography: Cormorant Garamond (display), Spectral (body), Source Serif 4 (UI)
+   Palette: Warm umber darks, cream/parchment lights, antique gold accent
+   Atmosphere: Paper texture, vignette shadows, book-like feel
+   ======================================== */
+
+/* ========================================
+   CSS Custom Properties - Light Mode (Academic Sepia)
    ======================================== */
 
 :root {
-  /* Background colors */
-  --bg-primary: #fafaf9;      /* stone-50 */
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f5f5f4;     /* stone-100 */
-  --bg-elevated: #ffffff;
-  --bg-muted: #e7e5e4;        /* stone-200 */
+  /* Font families */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Spectral', Georgia, serif;
+  --font-ui: 'Source Serif 4', Georgia, serif;
 
-  /* Text colors */
-  --text-primary: #1c1917;    /* stone-900 */
-  --text-secondary: #44403c;  /* stone-700 */
-  --text-tertiary: #78716c;   /* stone-500 */
-  --text-muted: #a8a29e;      /* stone-400 */
-  --text-inverted: #ffffff;
+  /* Type scale (major third - 1.25) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* Background colors - warm cream/parchment */
+  --bg-primary: #f5f0e6;
+  --bg-secondary: #faf6ee;
+  --bg-tertiary: #ebe5d8;
+  --bg-elevated: #ffffff;
+  --bg-muted: #e0d8c8;
+
+  /* Text colors - warm browns */
+  --text-primary: #2a2520;
+  --text-secondary: #4a4238;
+  --text-tertiary: #6a6050;
+  --text-muted: #8a8070;
+  --text-inverted: #f5f0e6;
 
   /* Border colors */
-  --border-primary: #e7e5e4;  /* stone-200 */
-  --border-secondary: #d6d3d1; /* stone-300 */
-  --border-focus: #78716c;    /* stone-500 */
+  --border-primary: #ddd5c5;
+  --border-secondary: #c5baa8;
+  --border-decorative: #b5a890;
+  --border-focus: #8a7860;
 
-  /* Accent colors */
-  --accent-primary: #d97706;  /* amber-600 */
-  --accent-primary-hover: #b45309; /* amber-700 */
-  --accent-bg: #fef3c7;       /* amber-100 */
-  --accent-bg-subtle: #fffbeb; /* amber-50 */
+  /* Accent colors - antique gold */
+  --accent-primary: #a07830;
+  --accent-primary-hover: #8a6828;
+  --accent-bg: #f5efe0;
+  --accent-bg-subtle: #faf7f0;
 
-  /* Category colors - Western */
-  --category-ancient-bg: #fef3c7;
-  --category-ancient-text: #b45309;
-  --category-medieval-bg: #e7e5e4;
-  --category-medieval-text: #57534e;
-  --category-enlightenment-bg: #d1fae5;
-  --category-enlightenment-text: #047857;
-  --category-modern-bg: #dbeafe;
-  --category-modern-text: #1d4ed8;
+  /* Category colors - Western (scholarly, muted) */
+  --category-ancient-bg: #f5efe0;
+  --category-ancient-text: #8a6828;
+  --category-medieval-bg: #ebe5d8;
+  --category-medieval-text: #5a5040;
+  --category-enlightenment-bg: #e8f0e8;
+  --category-enlightenment-text: #3a5a3a;
+  --category-modern-bg: #e8ecf0;
+  --category-modern-text: #3a4a5a;
+
   /* Category colors - Eastern */
-  --category-chinese-bg: #fee2e2;
-  --category-chinese-text: #dc2626;
-  --category-indian-bg: #ffedd5;
-  --category-indian-text: #ea580c;
-  --category-buddhist-bg: #fef9c3;
-  --category-buddhist-text: #ca8a04;
-  --category-sufi-bg: #f3e8ff;
-  --category-sufi-text: #9333ea;
+  --category-chinese-bg: #f5e8e8;
+  --category-chinese-text: #7a3a3a;
+  --category-indian-bg: #f5ebe0;
+  --category-indian-text: #8a5a28;
+  --category-buddhist-bg: #f5f0d8;
+  --category-buddhist-text: #6a5a18;
+  --category-sufi-bg: #f0e8f5;
+  --category-sufi-text: #5a3a7a;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Shadows - subtle warmth */
+  --shadow-sm: 0 1px 2px rgba(42,37,32,0.06);
+  --shadow-md: 0 4px 8px rgba(42,37,32,0.08);
+  --shadow-lg: 0 8px 16px rgba(42,37,32,0.1);
+  --shadow-inner: inset 0 2px 4px rgba(42,37,32,0.06);
 
   /* Scrollbar */
   --scrollbar-track: transparent;
-  --scrollbar-thumb: #d4d4d4;
-  --scrollbar-thumb-hover: #a3a3a3;
+  --scrollbar-thumb: #c5baa8;
+  --scrollbar-thumb-hover: #a89a80;
 
   /* Selection */
-  --selection-bg: #fef3c7;
+  --selection-bg: #f0e8d0;
+
+  /* Texture */
+  --texture-opacity: 0.015;
+
+  /* Animation timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
 }
 
-.dark {
-  /* Background colors */
-  --bg-primary: #1c1917;      /* stone-900 */
-  --bg-secondary: #292524;    /* stone-800 */
-  --bg-tertiary: #1c1917;     /* stone-900 */
-  --bg-elevated: #44403c;     /* stone-700 */
-  --bg-muted: #44403c;        /* stone-700 */
+/* ========================================
+   Dark Mode (Default - Dark Academia)
+   ======================================== */
 
-  /* Text colors */
-  --text-primary: #fafaf9;    /* stone-50 */
-  --text-secondary: #d6d3d1;  /* stone-300 */
-  --text-tertiary: #a8a29e;   /* stone-400 */
-  --text-muted: #78716c;      /* stone-500 */
-  --text-inverted: #1c1917;
+.dark {
+  /* Background colors - warm umber/charcoal */
+  --bg-primary: #1a1815;
+  --bg-secondary: #221f1a;
+  --bg-tertiary: #2a2620;
+  --bg-elevated: #322d26;
+  --bg-muted: #3d3730;
+
+  /* Text colors - cream/parchment */
+  --text-primary: #e8e0d4;
+  --text-secondary: #c9bfae;
+  --text-tertiary: #9a8e7c;
+  --text-muted: #6b6155;
+  --text-inverted: #1a1815;
 
   /* Border colors */
-  --border-primary: #44403c;  /* stone-700 */
-  --border-secondary: #57534e; /* stone-600 */
-  --border-focus: #a8a29e;    /* stone-400 */
+  --border-primary: #3d3730;
+  --border-secondary: #4d453b;
+  --border-decorative: #5a5145;
+  --border-focus: #9a8e7c;
 
-  /* Accent colors */
-  --accent-primary: #fbbf24;  /* amber-400 */
-  --accent-primary-hover: #f59e0b; /* amber-500 */
-  --accent-bg: #451a03;       /* amber-950 */
-  --accent-bg-subtle: #292524;
+  /* Accent colors - antique gold */
+  --accent-primary: #c9a962;
+  --accent-primary-hover: #d4b872;
+  --accent-bg: #2a2518;
+  --accent-bg-subtle: #232019;
 
-  /* Category colors - Western (muted for dark mode) */
-  --category-ancient-bg: #451a03;
-  --category-ancient-text: #fcd34d;
-  --category-medieval-bg: #44403c;
-  --category-medieval-text: #d6d3d1;
-  --category-enlightenment-bg: #064e3b;
-  --category-enlightenment-text: #6ee7b7;
-  --category-modern-bg: #1e3a8a;
-  --category-modern-text: #93c5fd;
-  /* Category colors - Eastern (muted for dark mode) */
-  --category-chinese-bg: #7f1d1d;
-  --category-chinese-text: #fca5a5;
-  --category-indian-bg: #7c2d12;
-  --category-indian-text: #fdba74;
-  --category-buddhist-bg: #713f12;
-  --category-buddhist-text: #fde047;
-  --category-sufi-bg: #581c87;
-  --category-sufi-text: #d8b4fe;
+  /* Category colors - Western (muted for dark) */
+  --category-ancient-bg: #2a2518;
+  --category-ancient-text: #c9a962;
+  --category-medieval-bg: #282520;
+  --category-medieval-text: #a89a8a;
+  --category-enlightenment-bg: #1f2820;
+  --category-enlightenment-text: #7ab87a;
+  --category-modern-bg: #1f2228;
+  --category-modern-text: #7a9ab8;
 
-  /* Shadows - subtle in dark mode */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  /* Category colors - Eastern */
+  --category-chinese-bg: #281f1f;
+  --category-chinese-text: #b87a7a;
+  --category-indian-bg: #2a2518;
+  --category-indian-text: #c99a62;
+  --category-buddhist-bg: #28281f;
+  --category-buddhist-text: #b8a862;
+  --category-sufi-bg: #251f28;
+  --category-sufi-text: #9a7ab8;
+
+  /* Shadows - deep and atmospheric */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-inner: inset 0 2px 4px rgba(0,0,0,0.2);
 
   /* Scrollbar */
-  --scrollbar-thumb: #57534e;
-  --scrollbar-thumb-hover: #78716c;
+  --scrollbar-thumb: #4d453b;
+  --scrollbar-thumb-hover: #5a5145;
 
   /* Selection */
-  --selection-bg: #451a03;
+  --selection-bg: #3d3520;
+
+  /* Texture */
+  --texture-opacity: 0.025;
 }
 
 /* ========================================
@@ -134,12 +182,13 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color var(--duration-normal) var(--ease-out-quad),
+              color var(--duration-normal) var(--ease-out-quad);
 }
 
 /* Prevent scroll on reader page */
@@ -147,9 +196,127 @@ body:has(.reader-page) {
   overflow: hidden;
 }
 
-/* Serif font for philosophy text */
+/* ========================================
+   Typography Classes
+   ======================================== */
+
+/* Display font for titles */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Serif body font */
 .font-serif {
-  font-family: 'Libre Baskerville', Georgia, serif;
+  font-family: var(--font-body);
+}
+
+/* UI font for controls */
+.font-ui {
+  font-family: var(--font-ui);
+}
+
+/* Small caps for section headers */
+.small-caps {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* Drop cap for first paragraph */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding-right: 0.1em;
+  padding-top: 0.05em;
+  color: var(--accent-primary);
+}
+
+/* ========================================
+   Texture and Atmosphere
+   ======================================== */
+
+/* Paper grain texture overlay */
+.textured::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: var(--texture-opacity);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Vignette effect for depth */
+.vignette {
+  box-shadow:
+    inset 0 0 100px rgba(0,0,0,0.08),
+    inset 0 0 30px rgba(0,0,0,0.05);
+}
+
+.dark .vignette {
+  box-shadow:
+    inset 0 0 100px rgba(0,0,0,0.2),
+    inset 0 0 30px rgba(0,0,0,0.15);
+}
+
+/* Book spine shadow for reader */
+.book-spine {
+  box-shadow:
+    inset 6px 0 12px -6px rgba(0,0,0,0.15),
+    inset -6px 0 12px -6px rgba(0,0,0,0.15);
+}
+
+.dark .book-spine {
+  box-shadow:
+    inset 6px 0 12px -6px rgba(0,0,0,0.3),
+    inset -6px 0 12px -6px rgba(0,0,0,0.3);
+}
+
+/* ========================================
+   Decorative Elements
+   ======================================== */
+
+/* Scholarly rule line */
+.rule-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-decorative) 15%,
+    var(--border-decorative) 85%,
+    transparent 100%
+  );
+}
+
+/* Ornamental divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-muted);
+  padding: 1.5rem 0;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--border-decorative);
+}
+
+/* Section header style */
+.section-header {
+  font-family: var(--font-ui);
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 /* ========================================
@@ -197,11 +364,34 @@ body:has(.reader-page) {
 }
 
 /* ========================================
+   Card Styles (Dark Academia)
+   ======================================== */
+
+.card-academia {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  transition: all var(--duration-normal) var(--ease-out-quad);
+}
+
+.card-academia:hover {
+  border-color: var(--border-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Card with inner glow on hover */
+.card-glow:hover {
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* ========================================
    Panel Resize Handle
    ======================================== */
 
 .resize-handle {
-  transition: background-color 0.15s ease;
+  transition: background-color var(--duration-fast) var(--ease-out-quad);
 }
 
 .resize-handle:hover {
@@ -213,7 +403,7 @@ body:has(.reader-page) {
 }
 
 /* ========================================
-   Prose Styling (Markdown)
+   Prose Styling (Markdown in chat)
    ======================================== */
 
 .prose-custom p {
@@ -239,17 +429,19 @@ body:has(.reader-page) {
 }
 
 .prose-custom blockquote {
-  border-left: 3px solid var(--border-secondary);
+  border-left: 2px solid var(--accent-primary);
   padding-left: 1em;
-  margin: 0.5em 0;
-  color: var(--text-tertiary);
+  margin: 0.75em 0;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
 .prose-custom code {
   background: var(--bg-tertiary);
   padding: 0.125em 0.375em;
-  border-radius: 0.25em;
+  border-radius: 2px;
   font-size: 0.875em;
+  font-family: 'Source Serif 4', Georgia, serif;
 }
 
 /* ========================================
@@ -280,12 +472,12 @@ body:has(.reader-page) {
 .border-theme-secondary { border-color: var(--border-secondary); }
 
 /* ========================================
-   Command Palette Backdrop
+   Command Palette (Card Catalog Style)
    ======================================== */
 
 .command-palette-backdrop {
   backdrop-filter: blur(4px);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(26, 24, 21, 0.4);
 }
 
 .dark .command-palette-backdrop {
@@ -298,13 +490,13 @@ body:has(.reader-page) {
 
 @keyframes skeleton-pulse {
   0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
+  50% { opacity: 0.6; }
 }
 
 .skeleton {
-  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  animation: skeleton-pulse 2s ease-in-out infinite;
   background: var(--bg-muted);
-  border-radius: 0.375rem;
+  border-radius: 2px;
 }
 
 /* ========================================
@@ -314,26 +506,26 @@ body:has(.reader-page) {
 /* Font Size */
 :root[data-font-size="small"] .reader-content p {
   font-size: 1rem !important;
-  line-height: 1.7 !important;
+  line-height: 1.75 !important;
 }
 
 :root[data-font-size="medium"] .reader-content p {
   font-size: 1.125rem !important;
-  line-height: 1.75 !important;
+  line-height: 1.8 !important;
 }
 
 :root[data-font-size="large"] .reader-content p {
   font-size: 1.25rem !important;
-  line-height: 1.8 !important;
+  line-height: 1.85 !important;
 }
 
 /* Font Family */
 :root[data-font-family="sans"] .reader-content p {
-  font-family: 'Inter', system-ui, sans-serif !important;
+  font-family: var(--font-ui) !important;
 }
 
 :root[data-font-family="serif"] .reader-content p {
-  font-family: 'Libre Baskerville', Georgia, serif !important;
+  font-family: var(--font-body) !important;
 }
 
 /* ========================================
@@ -354,19 +546,16 @@ body:has(.reader-page) {
     min-width: 44px;
   }
 
-  /* Larger selection popup button on mobile */
   .selection-popup button {
     min-height: 44px;
     padding: 12px 20px;
     font-size: 15px;
   }
 
-  /* Prevent pull-to-refresh interfering with sheet */
   .no-overscroll {
     overscroll-behavior: none;
   }
 
-  /* Prevent text selection on drag handles */
   .touch-none {
     touch-action: none;
     user-select: none;
@@ -381,7 +570,7 @@ body:has(.reader-page) {
 
 .sheet-enter-active {
   transform: translateY(0);
-  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 350ms var(--ease-out-expo);
 }
 
 .sheet-exit {
@@ -390,7 +579,7 @@ body:has(.reader-page) {
 
 .sheet-exit-active {
   transform: translateY(100%);
-  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 300ms var(--ease-out-quad);
 }
 
 /* FAB (Floating Action Button) */
@@ -400,26 +589,24 @@ body:has(.reader-page) {
   right: 24px;
   width: 56px;
   height: 56px;
-  border-radius: 16px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: var(--accent-primary);
+  color: var(--text-inverted);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast);
 }
 
 .fab:active {
   transform: scale(0.95);
 }
 
-.dark .fab {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
 /* Mobile reader full-screen mode */
 .mobile-reader {
   height: 100%;
-  height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -436,3 +623,57 @@ body.sheet-open {
 .mobile-header {
   padding-top: env(safe-area-inset-top, 0px);
 }
+
+/* ========================================
+   Quote Card Styling (Marginalia)
+   ======================================== */
+
+.quote-card {
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--accent-primary);
+}
+
+.quote-card::before {
+  content: '"';
+  position: absolute;
+  top: -0.25rem;
+  left: -0.5rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--accent-primary);
+  opacity: 0.5;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-slow) var(--ease-out-expo);
+}
+
+/* Staggered children animation helper */
+.stagger-children > * {
+  animation: fadeInUp var(--duration-slow) var(--ease-out-expo) backwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 420ms; }

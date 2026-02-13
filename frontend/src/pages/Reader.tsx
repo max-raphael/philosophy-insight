@@ -211,7 +211,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   return (
     <div className="reader-page h-full bg-[var(--bg-primary)] flex flex-col">
       {/* Header */}
-      <header className="bg-[var(--bg-secondary)] border-b border-[var(--border-primary)] px-4 md:px-6 py-3 md:py-4 shrink-0 shadow-sm">
+      <header className="bg-[var(--bg-secondary)] border-b border-[var(--border-primary)] px-4 md:px-6 py-3 md:py-4 shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 md:gap-4 min-w-0 flex-1">
             <Link
@@ -220,24 +220,24 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               title="Back to library"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
               </svg>
             </Link>
 
             {/* TOC button */}
             <button
               onClick={() => setShowTOC(true)}
-              className="p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
+              className="p-2 rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
               title="Table of Contents (⌘\)"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h7" />
               </svg>
             </button>
 
             <div className="min-w-0">
-              <h1 className="text-lg md:text-xl font-serif font-bold text-[var(--text-primary)] truncate">{text.title}</h1>
-              <p className="text-[var(--text-muted)] text-sm hidden md:block">{text.author}</p>
+              <h1 className="text-lg md:text-xl font-display font-semibold text-[var(--text-primary)] truncate">{text.title}</h1>
+              <p className="text-[var(--text-muted)] text-sm hidden md:block font-ui">{text.author}</p>
             </div>
           </div>
           <div className="flex items-center gap-2 md:gap-3 shrink-0">
@@ -297,12 +297,12 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               <div className="relative">
                 <button
                   onClick={() => setShowBookMenu(!showBookMenu)}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors text-sm"
+                  className="flex items-center gap-2 px-4 py-2 rounded border border-[var(--border-primary)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-tertiary)] transition-colors text-sm font-ui"
                 >
-                  <span className="text-[var(--text-secondary)] font-medium">Book {currentBook}</span>
+                  <span className="text-[var(--text-primary)] font-medium">Book {currentBook}</span>
                   <span className="text-[var(--text-muted)]">of {totalBooks}</span>
                   <svg className={`w-4 h-4 text-[var(--text-muted)] transition-transform ${showBookMenu ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
@@ -312,12 +312,12 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
                       className="fixed inset-0 z-10"
                       onClick={() => setShowBookMenu(false)}
                     />
-                    <div className="absolute right-0 mt-1 w-48 bg-[var(--bg-secondary)] rounded-lg shadow-lg border border-[var(--border-primary)] py-1 z-20 max-h-64 overflow-y-auto">
+                    <div className="absolute right-0 mt-1 w-48 bg-[var(--bg-secondary)] rounded shadow-lg border border-[var(--border-secondary)] py-1 z-20 max-h-64 overflow-y-auto">
                       {books.map(book => (
                         <button
                           key={book}
                           onClick={() => handleBookSelect(book)}
-                          className={`w-full text-left px-4 py-2 text-sm hover:bg-[var(--bg-tertiary)] transition-colors ${
+                          className={`w-full text-left px-4 py-2.5 text-sm font-ui hover:bg-[var(--bg-tertiary)] transition-colors ${
                             book === currentBook ? 'text-[var(--accent-primary)] font-medium bg-[var(--accent-bg)]' : 'text-[var(--text-secondary)]'
                           }`}
                         >

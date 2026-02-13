@@ -26,6 +26,23 @@ export interface ReaderHandle {
   scrollToBook: (book: number) => void
 }
 
+// Convert number to Roman numeral
+function toRoman(num: number): string {
+  const romanNumerals: [number, string][] = [
+    [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+    [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
+    [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+  ]
+  let result = ''
+  for (const [value, symbol] of romanNumerals) {
+    while (num >= value) {
+      result += symbol
+      num -= value
+    }
+  }
+  return result
+}
+
 const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
   { sections, onSelectText, onScroll, onBookChange },
   ref
@@ -183,7 +200,7 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
   }
 
   return (
-    <div ref={containerRef} className="h-full overflow-y-auto px-8 py-10 lg:px-12">
+    <div ref={containerRef} className="h-full overflow-y-auto px-8 py-12 lg:px-16 book-spine">
       {/* Selection popup */}
       <AnimatePresence>
         {selectionPopup && (
@@ -197,22 +214,22 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
           >
             <button
               onClick={handleDiscuss}
-              className="bg-[var(--text-primary)] text-[var(--text-inverted)] px-4 py-2 rounded-lg text-sm font-medium shadow-xl hover:opacity-90 active:opacity-80 transition-opacity flex items-center gap-2"
+              className="bg-[var(--accent-primary)] text-[var(--text-inverted)] px-4 py-2 rounded text-sm font-ui font-medium shadow-lg hover:opacity-90 active:opacity-80 transition-opacity flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
               Discuss
             </button>
             <div className="absolute left-1/2 -translate-x-1/2 top-full">
-              <div className="border-8 border-transparent" style={{ borderTopColor: 'var(--text-primary)' }} />
+              <div className="border-8 border-transparent" style={{ borderTopColor: 'var(--accent-primary)' }} />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Content */}
-      <div className="max-w-4xl mx-auto reader-content">
+      {/* Content - Book-like layout */}
+      <div className="max-w-3xl mx-auto reader-content">
         {Array.from(sectionsByBook.entries()).map(([book, bookSections], bookIndex) => {
           // Compute the starting global index for this book
           let globalIndexStart = 0
@@ -229,28 +246,42 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
               }}
               data-book={book}
               id={`book-${book}`}
-              className="mb-16"
+              className="mb-20"
             >
-              <motion.h2
+              {/* Book header - scholarly style */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: bookIndex * 0.05 }}
-                className="text-sm font-medium tracking-widest text-[var(--text-muted)] uppercase mb-8"
+                transition={{ duration: 0.5, delay: bookIndex * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center mb-12"
               >
-                Book {book}
-              </motion.h2>
+                <span className="block text-[var(--text-muted)] font-display text-sm tracking-widest uppercase mb-2">
+                  Liber
+                </span>
+                <span className="block text-[var(--accent-primary)] font-display text-4xl font-medium">
+                  {toRoman(book)}
+                </span>
+                <div className="mt-4 flex items-center justify-center gap-4">
+                  <span className="w-12 h-px bg-[var(--border-decorative)]" />
+                  <span className="text-[var(--text-muted)] text-xs">§</span>
+                  <span className="w-12 h-px bg-[var(--border-decorative)]" />
+                </div>
+              </motion.div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {bookSections.map((section, localIndex) => {
                   const globalIndex = globalIndexStart + localIndex
+                  const isFirstParagraph = localIndex === 0
 
                   return (
                     <p
                       key={localIndex}
                       data-paragraph-index={globalIndex}
-                      className="font-serif text-[var(--text-secondary)] text-lg leading-relaxed"
+                      className={`font-body text-[var(--text-secondary)] text-lg leading-[1.85] ${
+                        isFirstParagraph ? 'drop-cap' : ''
+                      }`}
                     >
-                      <span className="text-[var(--text-muted)] text-sm font-sans mr-3 select-none">
+                      <span className="text-[var(--text-muted)] text-xs font-ui mr-4 select-none opacity-60">
                         {section.number}
                       </span>
                       {formatText(section.content)}
@@ -258,6 +289,13 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
                   )
                 })}
               </div>
+
+              {/* Book divider - ornamental */}
+              {bookIndex < books.length - 1 && (
+                <div className="mt-16 flex items-center justify-center">
+                  <span className="text-[var(--text-muted)] text-lg tracking-[0.5em]">* * *</span>
+                </div>
+              )}
             </div>
           )
         })}

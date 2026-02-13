@@ -39,19 +39,43 @@ const categoryColors: Record<string, string> = {
 
 const eraColors: Record<string, { bg: string; border: string; text: string }> = {
   // Western
-  ancient: { bg: 'bg-amber-50 dark:bg-amber-950/30', border: 'border-amber-200 dark:border-amber-800', text: 'text-amber-700 dark:text-amber-300' },
-  medieval: { bg: 'bg-stone-100 dark:bg-stone-800/50', border: 'border-stone-300 dark:border-stone-600', text: 'text-stone-700 dark:text-stone-300' },
-  enlightenment: { bg: 'bg-emerald-50 dark:bg-emerald-950/30', border: 'border-emerald-200 dark:border-emerald-800', text: 'text-emerald-700 dark:text-emerald-300' },
-  modern: { bg: 'bg-blue-50 dark:bg-blue-950/30', border: 'border-blue-200 dark:border-blue-800', text: 'text-blue-700 dark:text-blue-300' },
+  ancient: { bg: 'bg-[var(--category-ancient-bg)]', border: 'border-[var(--category-ancient-text)]/20', text: 'text-[var(--category-ancient-text)]' },
+  medieval: { bg: 'bg-[var(--category-medieval-bg)]', border: 'border-[var(--category-medieval-text)]/20', text: 'text-[var(--category-medieval-text)]' },
+  enlightenment: { bg: 'bg-[var(--category-enlightenment-bg)]', border: 'border-[var(--category-enlightenment-text)]/20', text: 'text-[var(--category-enlightenment-text)]' },
+  modern: { bg: 'bg-[var(--category-modern-bg)]', border: 'border-[var(--category-modern-text)]/20', text: 'text-[var(--category-modern-text)]' },
   // Eastern
-  chinese: { bg: 'bg-red-50 dark:bg-red-950/30', border: 'border-red-200 dark:border-red-800', text: 'text-red-700 dark:text-red-300' },
-  indian: { bg: 'bg-orange-50 dark:bg-orange-950/30', border: 'border-orange-200 dark:border-orange-800', text: 'text-orange-700 dark:text-orange-300' },
-  buddhist: { bg: 'bg-yellow-50 dark:bg-yellow-950/30', border: 'border-yellow-200 dark:border-yellow-800', text: 'text-yellow-700 dark:text-yellow-300' },
-  sufi: { bg: 'bg-purple-50 dark:bg-purple-950/30', border: 'border-purple-200 dark:border-purple-800', text: 'text-purple-700 dark:text-purple-300' },
+  chinese: { bg: 'bg-[var(--category-chinese-bg)]', border: 'border-[var(--category-chinese-text)]/20', text: 'text-[var(--category-chinese-text)]' },
+  indian: { bg: 'bg-[var(--category-indian-bg)]', border: 'border-[var(--category-indian-text)]/20', text: 'text-[var(--category-indian-text)]' },
+  buddhist: { bg: 'bg-[var(--category-buddhist-bg)]', border: 'border-[var(--category-buddhist-text)]/20', text: 'text-[var(--category-buddhist-text)]' },
+  sufi: { bg: 'bg-[var(--category-sufi-bg)]', border: 'border-[var(--category-sufi-text)]/20', text: 'text-[var(--category-sufi-text)]' },
 }
 
 type SortOption = 'title' | 'author' | 'era'
 type FilterEra = EraId | 'all'
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.1,
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    }
+  }
+}
 
 export default function Home({ texts, onOpenSearch }: HomeProps) {
   const [loading, setLoading] = useState(true)
@@ -148,8 +172,8 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
     return (
       <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-2 border-[var(--border-secondary)] border-t-[var(--text-tertiary)] rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-[var(--text-muted)] text-sm">Loading library...</p>
+          <div className="w-8 h-8 border-2 border-[var(--border-secondary)] border-t-[var(--accent-primary)] rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-[var(--text-muted)] text-sm font-ui">Loading library...</p>
         </div>
       </div>
     )
@@ -159,29 +183,33 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
     return (
       <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center">
         <div className="text-center max-w-md px-4">
-          <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          <div className="w-12 h-12 bg-[var(--category-chinese-bg)] rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-6 h-6 text-[var(--category-chinese-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
           </div>
-          <p className="text-[var(--text-primary)] font-medium mb-1">Connection Error</p>
-          <p className="text-[var(--text-muted)] text-sm">{error}</p>
-          <p className="text-[var(--text-muted)] text-xs mt-2">Make sure the backend is running on port 8000</p>
+          <p className="text-[var(--text-primary)] font-display text-xl mb-1">Connection Error</p>
+          <p className="text-[var(--text-muted)] text-sm font-body">{error}</p>
+          <p className="text-[var(--text-muted)] text-xs mt-2 font-ui">Make sure the backend is running on port 8000</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]">
+    <div className="min-h-screen bg-[var(--bg-primary)] relative">
+      {/* Subtle texture overlay */}
+      <div className="fixed inset-0 pointer-events-none textured" />
+
       {/* Header */}
-      <header className="bg-[var(--bg-secondary)] border-b border-[var(--border-primary)]">
-        <div className="max-w-6xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between mb-8">
+      <header className="relative bg-[var(--bg-secondary)] border-b border-[var(--border-primary)]">
+        <div className="max-w-5xl mx-auto px-6 py-8">
+          <div className="flex items-center justify-between mb-10">
             <motion.h1
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-2xl font-serif font-bold text-[var(--text-primary)]"
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl font-display font-semibold text-[var(--text-primary)] tracking-tight"
             >
               Philosophy Insight
             </motion.h1>
@@ -194,69 +222,79 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-center max-w-2xl mx-auto"
           >
-            <p className="text-lg text-[var(--text-secondary)] mb-6">
-              Read philosophy with an AI companion. Explore {texts.length} texts from 2,500 years of thought.
+            <p className="text-lg text-[var(--text-secondary)] mb-8 font-body leading-relaxed">
+              Read philosophy with an AI companion. Explore{' '}
+              <span className="text-[var(--accent-primary)] font-medium">{texts.length} texts</span>{' '}
+              from 2,500 years of thought.
             </p>
 
             {/* Search Bar */}
             <button
               onClick={() => onOpenSearch()}
-              className="w-full max-w-lg mx-auto flex items-center gap-3 px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded-xl hover:border-[var(--border-secondary)] hover:shadow-md transition-all group"
+              className="w-full max-w-lg mx-auto flex items-center gap-3 px-5 py-3.5 bg-[var(--bg-primary)] border border-[var(--border-secondary)] rounded hover:border-[var(--accent-primary)] hover:shadow-md transition-all group"
             >
-              <svg className="w-5 h-5 text-[var(--text-muted)] group-hover:text-[var(--text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg className="w-5 h-5 text-[var(--text-muted)] group-hover:text-[var(--accent-primary)] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <span className="flex-1 text-left text-[var(--text-muted)]">Search texts, authors, or topics...</span>
-              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 text-xs text-[var(--text-muted)] bg-[var(--bg-tertiary)] rounded">
+              <span className="flex-1 text-left text-[var(--text-muted)] font-body italic">Search the library...</span>
+              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 text-xs text-[var(--text-muted)] bg-[var(--bg-tertiary)] rounded font-ui border border-[var(--border-primary)]">
                 <span>⌘</span>K
               </kbd>
             </button>
           </motion.div>
         </div>
+
+        {/* Decorative rule */}
+        <div className="rule-line mt-0" />
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-8 space-y-12">
+      <main className="relative max-w-5xl mx-auto px-6 py-10 space-y-16">
         {/* Continue Reading */}
         <AnimatePresence>
           {continueReading.length > 0 && (
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
             >
-              <h2 className="text-sm font-medium tracking-widest text-[var(--text-muted)] uppercase mb-4">
-                Continue Reading
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="flex items-center gap-4 mb-6">
+                <h2 className="section-header">Continue Reading</h2>
+                <div className="flex-1 rule-line" />
+              </div>
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+                variants={containerVariants}
+              >
                 {continueReading.map((progress) => {
                   const text = texts.find(t => t.id === progress.textId)
                   if (!text) return null
                   return (
-                    <Link
-                      key={progress.textId}
-                      to={`/texts/${progress.textId}`}
-                      className="group p-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-primary)] hover:border-[var(--border-secondary)] hover:shadow-md transition-all"
-                    >
-                      <h3 className="font-serif font-semibold text-[var(--text-primary)] truncate group-hover:text-[var(--accent-primary)]">
-                        {text.title}
-                      </h3>
-                      <p className="text-sm text-[var(--text-muted)] mb-3">{text.author}</p>
-                      <div className="flex items-center gap-2">
-                        <div className="flex-1 h-1.5 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-[var(--accent-primary)] rounded-full"
-                            style={{ width: `${(progress.book / 10) * 100}%` }}
-                          />
+                    <motion.div key={progress.textId} variants={itemVariants}>
+                      <Link
+                        to={`/texts/${progress.textId}`}
+                        className="group block p-5 bg-[var(--bg-secondary)] rounded border border-[var(--border-primary)] hover:border-[var(--accent-primary)] hover:shadow-md transition-all"
+                      >
+                        <h3 className="font-display text-lg font-medium text-[var(--text-primary)] truncate group-hover:text-[var(--accent-primary)] transition-colors">
+                          {text.title}
+                        </h3>
+                        <p className="text-sm text-[var(--text-muted)] font-ui mb-4">{text.author}</p>
+                        <div className="flex items-center gap-3">
+                          <div className="flex-1 h-1 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-[var(--accent-primary)] rounded-full transition-all"
+                              style={{ width: `${(progress.book / 10) * 100}%` }}
+                            />
+                          </div>
+                          <span className="text-xs text-[var(--text-muted)] font-ui">Book {progress.book}</span>
                         </div>
-                        <span className="text-xs text-[var(--text-muted)]">Book {progress.book}</span>
-                      </div>
-                    </Link>
+                      </Link>
+                    </motion.div>
                   )
                 })}
-              </div>
+              </motion.div>
             </motion.section>
           )}
         </AnimatePresence>
@@ -264,110 +302,128 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
         {/* Start Here */}
         {startHereWithData.length > 0 && (
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-medium tracking-widest text-[var(--text-muted)] uppercase">
-                Start Here
-              </h2>
-              <span className="text-xs text-[var(--text-muted)]">Essential reads for beginners</span>
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-4">
+                <h2 className="section-header">Start Here</h2>
+                <div className="w-16 rule-line" />
+              </div>
+              <span className="text-xs text-[var(--text-muted)] font-ui italic">Essential reads for beginners</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {startHereWithData.slice(0, 4).map((text, index) => (
-                <motion.div
-                  key={text.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
-                >
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+              variants={containerVariants}
+            >
+              {startHereWithData.slice(0, 4).map((text) => (
+                <motion.div key={text.id} variants={itemVariants}>
                   <Link
                     to={`/texts/${text.id}`}
-                    className="group h-full flex flex-col p-5 bg-[var(--bg-secondary)] rounded-xl border-2 border-[var(--border-primary)] hover:border-[var(--accent-primary)] hover:shadow-lg transition-all"
+                    className="group h-full flex flex-col p-5 bg-[var(--bg-secondary)] rounded border-2 border-[var(--border-primary)] hover:border-[var(--accent-primary)] hover:shadow-lg transition-all"
                   >
-                    <div className="flex items-start justify-between mb-2">
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${categoryColors[text.category || 'ancient']}`}>
+                    <div className="flex items-start justify-between mb-3">
+                      <span className={`text-xs px-2.5 py-1 rounded font-ui ${categoryColors[text.category || 'ancient']}`}>
                         {text.category}
                       </span>
                       <svg className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent-primary)] group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                    <h3 className="font-serif text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">
+                    <h3 className="font-display text-xl font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors mb-1">
                       {text.title}
                     </h3>
-                    <p className="text-sm text-[var(--text-tertiary)] mb-2">{text.author}</p>
-                    <p className="text-sm text-[var(--text-muted)] italic mt-auto">"{text.tagline}"</p>
+                    <p className="text-sm text-[var(--text-tertiary)] font-ui mb-3">{text.author}</p>
+                    <p className="text-sm text-[var(--text-muted)] font-body italic mt-auto">"{text.tagline}"</p>
                   </Link>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.section>
         )}
 
+        {/* Decorative divider */}
+        <div className="ornament-divider">
+          <span className="text-[var(--accent-primary)]">§</span>
+        </div>
+
         {/* Browse by Era */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
         >
-          <h2 className="text-sm font-medium tracking-widest text-[var(--text-muted)] uppercase mb-4">
-            Browse by Era
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="section-header">Browse by Era</h2>
+            <div className="flex-1 rule-line" />
+          </div>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            variants={containerVariants}
+          >
             {eras.map((era) => {
               const eraTexts = textsByEra[era.id] || []
               const colors = eraColors[era.id]
               return (
-                <button
-                  key={era.id}
-                  onClick={() => {
-                    setFilterEra(era.id)
-                    setShowAllLibrary(true)
-                    document.getElementById('library')?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className={`group p-5 rounded-xl border-2 ${colors.bg} ${colors.border} hover:shadow-lg transition-all text-left`}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className={`text-2xl font-serif font-bold ${colors.text}`}>{eraTexts.length}</span>
-                    <svg className={`w-5 h-5 ${colors.text} opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                  <h3 className={`font-semibold ${colors.text}`}>{era.name}</h3>
-                  <p className="text-sm text-[var(--text-muted)]">{era.years}</p>
-                  <p className="text-xs text-[var(--text-muted)] mt-2">{era.description}</p>
-                </button>
+                <motion.div key={era.id} variants={itemVariants}>
+                  <button
+                    onClick={() => {
+                      setFilterEra(era.id)
+                      setShowAllLibrary(true)
+                      document.getElementById('library')?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                    className={`group w-full p-5 rounded border ${colors.bg} ${colors.border} hover:shadow-lg transition-all text-left`}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`font-display text-3xl font-semibold ${colors.text}`}>{eraTexts.length}</span>
+                      <svg className={`w-5 h-5 ${colors.text} opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                    <h3 className={`font-display text-lg font-medium ${colors.text}`}>{era.name}</h3>
+                    <p className="text-sm text-[var(--text-muted)] font-ui">{era.years}</p>
+                    <p className="text-xs text-[var(--text-muted)] mt-2 font-body line-clamp-2">{era.description}</p>
+                  </button>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* Browse by Philosopher */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
         >
-          <h2 className="text-sm font-medium tracking-widest text-[var(--text-muted)] uppercase mb-4">
-            Browse by Philosopher
-          </h2>
-          <div className="flex gap-3 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="section-header">Browse by Philosopher</h2>
+            <div className="flex-1 rule-line" />
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-3 -mx-6 px-6 scrollbar-hide">
             {philosophers.map((philosopher) => (
-              <button
+              <motion.button
                 key={philosopher.name}
+                variants={itemVariants}
                 onClick={() => onOpenSearch(philosopher.name)}
-                className="shrink-0 p-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-primary)] hover:border-[var(--border-secondary)] hover:shadow-md transition-all min-w-[160px]"
+                className="shrink-0 p-5 bg-[var(--bg-secondary)] rounded border border-[var(--border-primary)] hover:border-[var(--accent-primary)] hover:shadow-md transition-all min-w-[160px] text-left group"
               >
-                <div className="w-10 h-10 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center mb-3">
-                  <span className="text-lg font-serif font-bold text-[var(--text-tertiary)]">
+                {/* Parchment-style avatar */}
+                <div className="relative w-12 h-12 mb-3">
+                  <div className="absolute inset-0 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-decorative)]" />
+                  <span className="absolute inset-0 flex items-center justify-center font-display text-2xl text-[var(--text-secondary)] group-hover:text-[var(--accent-primary)] transition-colors">
                     {philosopher.name.charAt(0)}
                   </span>
                 </div>
-                <h3 className="font-medium text-[var(--text-primary)] truncate">{philosopher.name}</h3>
-                <p className="text-xs text-[var(--text-muted)]">{philosopher.textIds.length} texts</p>
-              </button>
+                <h3 className="font-display text-base font-medium text-[var(--text-primary)] truncate group-hover:text-[var(--accent-primary)] transition-colors">
+                  {philosopher.name}
+                </h3>
+                <p className="text-xs text-[var(--text-muted)] font-ui">{philosopher.textIds.length} works</p>
+              </motion.button>
             ))}
           </div>
         </motion.section>
@@ -375,20 +431,22 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
         {/* Full Library */}
         <motion.section
           id="library"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-sm font-medium tracking-widest text-[var(--text-muted)] uppercase">
-              Full Library ({filteredTexts.length} texts)
-            </h2>
+            <div className="flex items-center gap-4">
+              <h2 className="section-header">Full Library</h2>
+              <span className="text-xs text-[var(--text-muted)] font-ui">({filteredTexts.length} texts)</span>
+            </div>
             <div className="flex items-center gap-3">
               {/* Era Filter */}
-              <div className="flex items-center gap-1 bg-[var(--bg-secondary)] rounded-lg p-1 border border-[var(--border-primary)]">
+              <div className="flex items-center gap-1 bg-[var(--bg-secondary)] rounded p-1 border border-[var(--border-primary)]">
                 <button
                   onClick={() => setFilterEra('all')}
-                  className={`px-3 py-1.5 text-xs rounded-md transition-colors ${
+                  className={`px-3 py-1.5 text-xs rounded transition-colors font-ui ${
                     filterEra === 'all'
                       ? 'bg-[var(--bg-tertiary)] text-[var(--text-primary)] font-medium'
                       : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
@@ -400,7 +458,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                   <button
                     key={era.id}
                     onClick={() => setFilterEra(era.id)}
-                    className={`px-3 py-1.5 text-xs rounded-md transition-colors ${
+                    className={`px-3 py-1.5 text-xs rounded transition-colors font-ui ${
                       filterEra === era.id
                         ? 'bg-[var(--bg-tertiary)] text-[var(--text-primary)] font-medium'
                         : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
@@ -415,7 +473,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="px-3 py-2 text-xs bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-lg text-[var(--text-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--border-focus)]"
+                className="px-3 py-2 text-xs bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded text-[var(--text-secondary)] font-ui focus:outline-none focus:ring-1 focus:ring-[var(--accent-primary)]"
               >
                 <option value="title">Sort by Title</option>
                 <option value="author">Sort by Author</option>
@@ -424,56 +482,54 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayedTexts.map((text, index) => (
-              <motion.div
-                key={text.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: Math.min(index * 0.03, 0.3) }}
-              >
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            variants={containerVariants}
+          >
+            {displayedTexts.map((text) => (
+              <motion.div key={text.id} variants={itemVariants}>
                 <Link
                   to={`/texts/${text.id}`}
-                  className="h-full flex flex-col bg-[var(--bg-secondary)] rounded-xl p-5 border border-[var(--border-primary)] hover:border-[var(--border-secondary)] hover:shadow-md transition-all group"
+                  className="h-full flex flex-col bg-[var(--bg-secondary)] rounded p-5 border border-[var(--border-primary)] hover:border-[var(--accent-primary)] hover:shadow-md transition-all group"
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-serif text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors flex-1 pr-2">
+                    <h3 className="font-display text-lg font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors flex-1 pr-2 leading-tight">
                       {text.title}
                     </h3>
                     {text.category && (
-                      <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ${categoryColors[text.category]}`}>
+                      <span className={`text-xs px-2 py-0.5 rounded shrink-0 font-ui ${categoryColors[text.category]}`}>
                         {text.category}
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-[var(--text-tertiary)]">{text.author}</p>
+                  <p className="text-sm text-[var(--text-tertiary)] font-ui">{text.author}</p>
                   {text.year && (
-                    <p className="text-xs text-[var(--text-muted)] mt-1">{text.year}</p>
+                    <p className="text-xs text-[var(--text-muted)] mt-1 font-ui">{text.year}</p>
                   )}
                   {text.description && (
-                    <p className="text-sm text-[var(--text-secondary)] mt-3 line-clamp-3 flex-1">
+                    <p className="text-sm text-[var(--text-secondary)] mt-3 line-clamp-3 flex-1 font-body">
                       {text.description}
                     </p>
                   )}
-                  <div className="mt-4 flex items-center text-[var(--accent-primary)] text-sm font-medium">
-                    <span>Start reading</span>
+                  <div className="mt-4 flex items-center text-[var(--accent-primary)] text-sm font-ui">
+                    <span>Begin reading</span>
                     <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </Link>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Show more/less button */}
           {filteredTexts.length > 12 && (
-            <div className="mt-6 text-center">
+            <div className="mt-8 text-center">
               <button
                 onClick={() => setShowAllLibrary(!showAllLibrary)}
-                className="px-6 py-2 text-sm font-medium text-[var(--text-secondary)] bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-lg hover:border-[var(--border-secondary)] hover:shadow-sm transition-all"
+                className="px-6 py-2.5 text-sm font-ui text-[var(--text-secondary)] bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)] transition-all"
               >
-                {showAllLibrary ? 'Show less' : `Show all ${filteredTexts.length} texts`}
+                {showAllLibrary ? 'Show fewer' : `View all ${filteredTexts.length} texts`}
               </button>
             </div>
           )}
@@ -481,10 +537,13 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] mt-12">
-        <div className="max-w-6xl mx-auto px-6 py-8 text-center">
-          <p className="text-[var(--text-muted)] text-sm">
-            Texts sourced from public domain works. Press <kbd className="px-1.5 py-0.5 bg-[var(--bg-tertiary)] rounded text-xs">⌘K</kbd> to search.
+      <footer className="relative border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] mt-16">
+        <div className="max-w-5xl mx-auto px-6 py-10 text-center">
+          <p className="text-[var(--text-muted)] text-sm font-body">
+            Texts sourced from public domain works.
+          </p>
+          <p className="text-[var(--text-muted)] text-xs mt-2 font-ui">
+            Press <kbd className="px-1.5 py-0.5 bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded text-[10px]">⌘K</kbd> to search the library.
           </p>
         </div>
       </footer>

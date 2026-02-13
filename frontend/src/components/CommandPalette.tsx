@@ -231,6 +231,10 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
       case 'medieval': return 'bg-[var(--category-medieval-bg)] text-[var(--category-medieval-text)]'
       case 'enlightenment': return 'bg-[var(--category-enlightenment-bg)] text-[var(--category-enlightenment-text)]'
       case 'modern': return 'bg-[var(--category-modern-bg)] text-[var(--category-modern-text)]'
+      case 'chinese': return 'bg-[var(--category-chinese-bg)] text-[var(--category-chinese-text)]'
+      case 'indian': return 'bg-[var(--category-indian-bg)] text-[var(--category-indian-text)]'
+      case 'buddhist': return 'bg-[var(--category-buddhist-bg)] text-[var(--category-buddhist-text)]'
+      case 'sufi': return 'bg-[var(--category-sufi-bg)] text-[var(--category-sufi-text)]'
       default: return 'bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]'
     }
   }
@@ -244,42 +248,42 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 command-palette-backdrop"
             onClick={onClose}
           />
 
-          {/* Modal */}
+          {/* Modal - Card Catalog Style */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            initial={{ opacity: 0, scale: 0.96, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="fixed left-1/2 top-[20%] -translate-x-1/2 z-50 w-full max-w-xl"
+            exit={{ opacity: 0, scale: 0.96, y: -10 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed left-1/2 top-[18%] -translate-x-1/2 z-50 w-full max-w-xl"
           >
-            <div className="mx-4 overflow-hidden rounded-xl bg-[var(--bg-secondary)] shadow-2xl border border-[var(--border-primary)]">
-              {/* Search input */}
-              <div className="flex items-center gap-3 px-4 border-b border-[var(--border-primary)]">
+            <div className="mx-4 overflow-hidden rounded bg-[var(--bg-secondary)] shadow-2xl border border-[var(--border-secondary)]">
+              {/* Search input - Card catalog drawer style */}
+              <div className="flex items-center gap-3 px-5 border-b-2 border-[var(--border-primary)]">
                 {selectedAuthor ? (
                   <button
                     onClick={() => setSelectedAuthor(null)}
-                    className="p-1 rounded hover:bg-[var(--bg-tertiary)] text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors shrink-0"
+                    className="p-1.5 rounded hover:bg-[var(--bg-tertiary)] text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors shrink-0"
                     title="Back to search"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
                 ) : (
                   <svg className="w-5 h-5 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 )}
                 {selectedAuthor ? (
                   <div className="flex-1 py-4 flex items-center gap-2">
-                    <span className="text-[var(--text-primary)] font-medium">{selectedAuthor}</span>
+                    <span className="text-[var(--text-primary)] font-display text-lg">{selectedAuthor}</span>
                     <span className="text-[var(--text-muted)]">·</span>
-                    <span className="text-[var(--text-muted)] text-sm">{textsByAuthor.length} texts</span>
+                    <span className="text-[var(--text-muted)] text-sm font-ui">{textsByAuthor.length} works</span>
                   </div>
                 ) : (
                   <input
@@ -288,12 +292,12 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Search texts, authors, or topics..."
-                    className="flex-1 py-4 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none ring-0 border-none text-base"
+                    placeholder="Search the library..."
+                    className="flex-1 py-4 bg-transparent text-[var(--text-primary)] font-body placeholder:text-[var(--text-muted)] placeholder:italic outline-none ring-0 border-none text-base"
                     style={{ outline: 'none' }}
                   />
                 )}
-                <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs text-[var(--text-muted)] bg-[var(--bg-tertiary)] rounded">
+                <kbd className="hidden sm:inline-flex items-center px-2 py-1 text-xs text-[var(--text-muted)] bg-[var(--bg-tertiary)] rounded font-ui">
                   esc
                 </kbd>
               </div>
@@ -301,16 +305,16 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
               {/* Results */}
               <div ref={listRef} className="max-h-[60vh] overflow-y-auto">
                 {displayItems.length === 0 && query.trim() && !selectedAuthor && (
-                  <div className="px-4 py-8 text-center">
-                    <p className="text-[var(--text-muted)]">No results found for "{query}"</p>
-                    <p className="text-sm text-[var(--text-muted)] mt-1">Try searching for a title, author, or topic</p>
+                  <div className="px-5 py-10 text-center">
+                    <p className="text-[var(--text-secondary)] font-body italic">No results found for "{query}"</p>
+                    <p className="text-sm text-[var(--text-muted)] mt-2 font-ui">Try searching for a title, author, or topic</p>
                   </div>
                 )}
 
                 {displayItems.length === 0 && !query.trim() && !selectedAuthor && (
-                  <div className="px-4 py-6 text-center">
-                    <p className="text-[var(--text-tertiary)] text-sm">
-                      Start typing to search 136 philosophical texts
+                  <div className="px-5 py-10 text-center">
+                    <p className="text-[var(--text-tertiary)] font-body italic">
+                      Search {texts.length} philosophical texts
                     </p>
                   </div>
                 )}
@@ -318,19 +322,19 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
                 {displayItems.length > 0 && (
                   <div className="py-2">
                     {selectedAuthor && (
-                      <div className="px-4 py-2 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide">
+                      <div className="px-5 py-2 section-header">
                         Works by {selectedAuthor}
                       </div>
                     )}
 
                     {!selectedAuthor && !query.trim() && displayItems.length > 0 && (
-                      <div className="px-4 py-2 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide">
-                        Recent
+                      <div className="px-5 py-2 section-header">
+                        Recently Consulted
                       </div>
                     )}
 
                     {!selectedAuthor && query.trim() && authorResults.length > 0 && (
-                      <div className="px-4 py-2 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide">
+                      <div className="px-5 py-2 section-header">
                         Authors
                       </div>
                     )}
@@ -344,21 +348,23 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
                           <button
                             key={`author-${authorData.author}`}
                             onClick={() => handleSelect(item)}
-                            className={`w-full px-4 py-3 flex items-center gap-3 text-left transition-colors ${
-                              isSelected ? 'bg-[var(--accent-bg)]' : 'hover:bg-[var(--bg-tertiary)]'
+                            className={`w-full px-5 py-3 flex items-center gap-4 text-left transition-all border-l-3 ${
+                              isSelected
+                                ? 'bg-[var(--accent-bg)] border-l-[var(--accent-primary)]'
+                                : 'border-l-transparent hover:bg-[var(--bg-tertiary)]'
                             }`}
                           >
-                            <div className="w-8 h-8 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center shrink-0">
-                              <svg className="w-4 h-4 text-[var(--text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                              </svg>
+                            <div className="w-9 h-9 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-decorative)] flex items-center justify-center shrink-0">
+                              <span className="font-display text-lg text-[var(--text-secondary)]">
+                                {authorData.author.charAt(0)}
+                              </span>
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-[var(--text-primary)] font-medium">{authorData.author}</p>
-                              <p className="text-sm text-[var(--text-muted)]">{authorData.count} texts</p>
+                              <p className="text-[var(--text-primary)] font-display text-lg">{authorData.author}</p>
+                              <p className="text-sm text-[var(--text-muted)] font-ui">{authorData.count} works</p>
                             </div>
                             <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                             </svg>
                           </button>
                         )
@@ -375,27 +381,29 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
                       return (
                         <div key={text.id}>
                           {showTextsHeader && (
-                            <div className="px-4 py-2 mt-2 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide border-t border-[var(--border-primary)]">
+                            <div className="px-5 py-2 mt-2 section-header border-t border-[var(--border-primary)]">
                               Texts
                             </div>
                           )}
                           <button
                             onClick={() => handleSelect(item)}
-                            className={`w-full px-4 py-3 flex items-center gap-3 text-left transition-colors ${
-                              isSelected ? 'bg-[var(--accent-bg)]' : 'hover:bg-[var(--bg-tertiary)]'
+                            className={`w-full px-5 py-3 flex items-center gap-4 text-left transition-all border-l-3 ${
+                              isSelected
+                                ? 'bg-[var(--accent-bg)] border-l-[var(--accent-primary)]'
+                                : 'border-l-transparent hover:bg-[var(--bg-tertiary)]'
                             }`}
                           >
-                            <div className="w-8 h-8 rounded-lg bg-[var(--bg-tertiary)] flex items-center justify-center shrink-0">
+                            <div className="w-9 h-9 rounded bg-[var(--bg-tertiary)] border border-[var(--border-primary)] flex items-center justify-center shrink-0">
                               <svg className="w-4 h-4 text-[var(--text-tertiary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                               </svg>
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-[var(--text-primary)] font-medium truncate">{text.title}</p>
-                              <p className="text-sm text-[var(--text-muted)] truncate">{text.author}</p>
+                              <p className="text-[var(--text-primary)] font-display text-lg truncate">{text.title}</p>
+                              <p className="text-sm text-[var(--text-muted)] font-ui truncate">{text.author}</p>
                             </div>
                             {text.category && (
-                              <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ${getCategoryColor(text.category)}`}>
+                              <span className={`text-xs px-2 py-0.5 rounded shrink-0 font-ui ${getCategoryColor(text.category)}`}>
                                 {text.category}
                               </span>
                             )}
@@ -407,19 +415,19 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
                 )}
               </div>
 
-              {/* Footer */}
-              <div className="px-4 py-2 border-t border-[var(--border-primary)] flex items-center justify-between text-xs text-[var(--text-muted)]">
+              {/* Footer - Library drawer label style */}
+              <div className="px-5 py-3 border-t border-[var(--border-primary)] flex items-center justify-between text-xs text-[var(--text-muted)] font-ui bg-[var(--bg-tertiary)]">
                 <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-[var(--bg-tertiary)] rounded">↑↓</kbd>
-                    navigate
+                  <span className="flex items-center gap-1.5">
+                    <kbd className="px-1.5 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded text-[10px]">↑↓</kbd>
+                    <span>navigate</span>
                   </span>
-                  <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-[var(--bg-tertiary)] rounded">↵</kbd>
-                    select
+                  <span className="flex items-center gap-1.5">
+                    <kbd className="px-1.5 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded text-[10px]">↵</kbd>
+                    <span>select</span>
                   </span>
                 </div>
-                <span>136 texts</span>
+                <span className="small-caps">{texts.length} volumes</span>
               </div>
             </div>
           </motion.div>
