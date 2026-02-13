@@ -73,14 +73,17 @@ function formatMessageWithContext(
     formatted += `[Book ${location.book}, Section ${location.section}]\n`
   }
 
-  // Add passage context - prefer explicit quote over ambient passage
-  const contextText = quote || passage
-  if (contextText) {
-    // Truncate long passages, format as quote
-    const truncated = contextText.length > 300
-      ? contextText.slice(0, 300) + '...'
-      : contextText
-    formatted += `> ${truncated.split('\n').join('\n> ')}\n\n`
+  // Add context: full paragraph with highlight marked if both exist
+  if (quote && passage && passage.includes(quote)) {
+    // Include full paragraph with the highlight marked
+    formatted += `> ${passage.split('\n').join('\n> ')}\n\n`
+    formatted += `[Highlighted: "${quote}"]\n\n`
+  } else if (quote) {
+    // Just the highlight (not found in current paragraph, e.g. selected across paragraphs)
+    formatted += `> ${quote.split('\n').join('\n> ')}\n\n`
+  } else if (passage) {
+    // No highlight, just the current paragraph
+    formatted += `> ${passage.split('\n').join('\n> ')}\n\n`
   }
 
   formatted += userText
@@ -128,6 +131,7 @@ export default function DiscussionPanel({
   const [streamingContent, setStreamingContent] = useState('')
   const [inputHeight, setInputHeight] = useState(120) // Default input area height
   const [isDragging, setIsDragging] = useState(false)
+  const [activeQuote, setActiveQuote] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -139,13 +143,10 @@ export default function DiscussionPanel({
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, streamingContent])
 
-  // Handle pending quote
+  // Handle pending quote - store it separately as activeQuote
   useEffect(() => {
     if (pendingQuote) {
-      setInput(prev => {
-        const quote = `"${pendingQuote}"\n\n`
-        return prev ? quote + prev : quote
-      })
+      setActiveQuote(pendingQuote)
       onQuoteUsed()
       inputRef.current?.focus()
     }
@@ -232,26 +233,20 @@ export default function DiscussionPanel({
   const sendMessage = useCallback(async () => {
     if (!input.trim() || loading) return
 
-    const rawInput = input.trim()
+    const userText = input.trim()
     const isFirstExchange = messages.length === 0
     setInput('')
 
-    // Extract any inline quote from the input (added via text highlighting)
-    // Format: "quoted text"\n\nuser question
-    let explicitQuote: string | null = null
-    let userText = rawInput
-    const quoteMatch = rawInput.match(/^"(.+?)"\n\n(.*)$/s)
-    if (quoteMatch) {
-      explicitQuote = quoteMatch[1]
-      userText = quoteMatch[2]
-    }
+    // Use activeQuote if present, then clear it
+    const quoteToSend = activeQuote
+    setActiveQuote(null)
 
     // Format the message with embedded context
     const formattedMessage = formatMessageWithContext(
       userText,
       activeParagraph ? { book: activeParagraph.book, section: activeParagraph.section } : null,
       activeParagraph?.content || null,
-      explicitQuote
+      quoteToSend
     )
 
     setMessages(prev => [...prev, { role: 'user', content: formattedMessage }])
@@ -316,7 +311,7 @@ export default function DiscussionPanel({
     } finally {
       setLoading(false)
     }
-  }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle])
+  }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle, activeQuote])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -561,8 +556,38 @@ export default function DiscussionPanel({
       {/* Input */}
       <div
         className="p-4 border-t border-[var(--border-primary)] shrink-0 bg-[var(--bg-secondary)] flex flex-col"
-        style={{ height: inputHeight }}
+        style={{ height: activeQuote ? inputHeight + 60 : inputHeight }}
       >
+        {/* Quote Card */}
+        <AnimatePresence>
+          {activeQuote && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="mb-3 overflow-hidden"
+            >
+              <div className="flex items-start gap-2 p-3 bg-[var(--bg-tertiary)] rounded-lg border-l-2 border-[var(--accent-primary)]">
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Discussing passage:</p>
+                  <p className="text-sm text-[var(--text-secondary)] italic line-clamp-2">
+                    "{activeQuote.length > 150 ? activeQuote.slice(0, 150) + '...' : activeQuote}"
+                  </p>
+                </div>
+                <button
+                  onClick={() => setActiveQuote(null)}
+                  className="p-1 text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] rounded transition-colors shrink-0"
+                  title="Remove quote"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="flex gap-3 items-end flex-1 min-h-0">
           <div className="flex-1 relative h-full">
             <textarea
@@ -570,7 +595,7 @@ export default function DiscussionPanel({
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask about the text..."
+              placeholder={activeQuote ? "Ask about this passage..." : "Ask about the text..."}
               className="w-full h-full px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-[var(--border-secondary)] focus:border-transparent text-sm text-[var(--text-primary)] transition-all placeholder:text-[var(--text-muted)]"
             />
           </div>

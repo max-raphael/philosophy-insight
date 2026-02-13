@@ -111,7 +111,7 @@ curl -X POST http://localhost:8000/reload-texts
 - Multiple conversations per text with localStorage persistence:
   - Index: `philosophy-insight-conversations-index-{textId}` (metadata for all conversations)
   - Messages: `philosophy-insight-conversation-{textId}-{conversationId}` (actual messages)
-- `pendingQuote` state flows: Reader selection → App → DiscussionPanel input
+- `pendingQuote` state flows: Reader selection → App → DiscussionPanel → quote card above input
 - Streaming responses use SSE with `data: {content}` / `data: {done: true}` format
 - Theme preference persists in localStorage (`philosophy-insight-theme`)
 - Reading settings persist in localStorage (`philosophy-insight-reading-settings`)
@@ -151,6 +151,15 @@ CSS custom properties enable dark mode theming.
 - **Zen Mode** - Hide chat panel for distraction-free reading (button in header)
 - **Progress Tracking** - Percentage and book number shown in header
 - **Keyboard Navigation** - See shortcuts below
+
+### Discussion Panel
+- **Quote Card** - Highlighting text shows it as a dismissible card above the input (not inline in the textarea)
+- **Resizable Input** - Drag the divider between messages and input to resize (80px-400px range)
+- **Context Passing** - When sending a message, includes:
+  - Location: `[Book X, Section Y]`
+  - Full paragraph text (no truncation)
+  - Highlighted phrase marked separately: `[Highlighted: "..."]`
+- **Conversation Management** - Multiple named conversations per text with auto-generated titles
 
 ### Mobile Experience (≤768px)
 Mobile gets a completely different layout optimized for touch:
