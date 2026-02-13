@@ -50,6 +50,7 @@ const philosopherImages: Record<string, string> = {
   'David Hume': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Painting_of_David_Hume.jpg/440px-Painting_of_David_Hume.jpg',
   'William James': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/William_James_b1842c.jpg/440px-William_James_b1842c.jpg',
   'Jean-Jacques Rousseau': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_WGA12360.jpg/440px-Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_WGA12360.jpg',
+  'Henry David Thoreau': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg/440px-Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg',
   // Eastern
   'Confucius': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Confucius_Tang_Dynasty.jpg/440px-Confucius_Tang_Dynasty.jpg',
   'Vyasa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sculpture_of_Vyasa.jpeg/440px-Sculpture_of_Vyasa.jpeg',
