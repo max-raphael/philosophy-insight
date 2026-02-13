@@ -50,10 +50,19 @@ function parseMessageContext(content: string): ParsedMessage {
     i++
   }
   if (quoteLines.length > 0) {
-    quote = quoteLines.join('\n')
     // Skip blank line after quote
     if (lines[i] === '') i++
     remaining = lines.slice(i).join('\n')
+  }
+
+  // Check for [Highlighted: "..."] marker - show only this in UI, not full paragraph
+  const highlightMatch = remaining.match(/^\[Highlighted: "(.+?)"\]\n\n/s)
+  if (highlightMatch) {
+    quote = highlightMatch[1]
+    remaining = remaining.slice(highlightMatch[0].length)
+  } else if (quoteLines.length > 0) {
+    // No highlight marker, show the quoted passage (ambient context)
+    quote = quoteLines.join('\n')
   }
 
   return { location, quote, content: remaining }
