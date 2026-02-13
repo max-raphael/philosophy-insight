@@ -149,7 +149,6 @@ async def chat_stream(request: ChatRequest):
         try:
             stream = client.chat.completions.create(
                 model="gpt-4o",
-                max_tokens=1024,
                 messages=messages,
                 stream=True
             )
@@ -203,7 +202,6 @@ def chat(request: ChatRequest):
     try:
         response = client.chat.completions.create(
             model="gpt-4o",
-            max_tokens=1024,
             messages=messages
         )
 
