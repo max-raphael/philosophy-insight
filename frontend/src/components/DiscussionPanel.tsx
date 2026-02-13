@@ -133,6 +133,7 @@ export default function DiscussionPanel({
     deleteConversation,
     switchConversation,
     clearMessages,
+    setMode,
   } = useConversations(textId)
 
   const [input, setInput] = useState('')
@@ -270,6 +271,7 @@ export default function DiscussionPanel({
           conversation_id: backendConversationId,
           text_id: textId,
           user_message: formattedMessage,
+          mode: activeConversation?.mode || 'tutor',
         }),
       })
 
@@ -320,7 +322,7 @@ export default function DiscussionPanel({
     } finally {
       setLoading(false)
     }
-  }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle, activeQuote])
+  }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle, activeQuote, activeConversation?.mode])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -403,33 +405,60 @@ export default function DiscussionPanel({
             }
           </p>
         </div>
-        <AnimatePresence>
-          {messages.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="flex items-center gap-1"
+        <div className="flex items-center gap-2">
+          {/* Mode Toggle */}
+          <div className="flex items-center bg-[var(--bg-tertiary)] rounded p-0.5 border border-[var(--border-primary)]">
+            <button
+              onClick={() => setMode('tutor')}
+              className={`px-2.5 py-1 text-xs font-ui rounded transition-all ${
+                activeConversation?.mode !== 'socratic'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+              title="Tutor mode: Get explanations and insights"
             >
-              <button
-                onClick={exportConversation}
-                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] px-3 py-1.5 hover:bg-[var(--bg-tertiary)] rounded transition-colors flex items-center gap-1.5 font-ui"
-                title="Export as Markdown"
+              Tutor
+            </button>
+            <button
+              onClick={() => setMode('socratic')}
+              className={`px-2.5 py-1 text-xs font-ui rounded transition-all ${
+                activeConversation?.mode === 'socratic'
+                  ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+              }`}
+              title="Socratic mode: Learn through questions"
+            >
+              Socratic
+            </button>
+          </div>
+          <AnimatePresence>
+            {messages.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="flex items-center gap-1"
               >
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Export
-              </button>
-              <button
-                onClick={clearConversation}
-                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] px-3 py-1.5 hover:bg-[var(--bg-tertiary)] rounded transition-colors font-ui"
-              >
-                Clear
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <button
+                  onClick={exportConversation}
+                  className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] px-3 py-1.5 hover:bg-[var(--bg-tertiary)] rounded transition-colors flex items-center gap-1.5 font-ui"
+                  title="Export as Markdown"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Export
+                </button>
+                <button
+                  onClick={clearConversation}
+                  className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] px-3 py-1.5 hover:bg-[var(--bg-tertiary)] rounded transition-colors font-ui"
+                >
+                  Clear
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Messages - Marginalia Style */}
@@ -449,7 +478,10 @@ export default function DiscussionPanel({
               </div>
               <p className="text-[var(--text-primary)] font-display text-lg mb-2">Reading {textTitle}</p>
               <p className="text-[var(--text-muted)] text-sm mb-8 font-body">
-                Ask anything, or highlight a passage to discuss it
+                {activeConversation?.mode === 'socratic'
+                  ? 'Ask a question and discover the answer through guided inquiry'
+                  : 'Ask anything, or highlight a passage to discuss it'
+                }
               </p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {generateSuggestions(textAuthor, textCategory).map((suggestion) => (

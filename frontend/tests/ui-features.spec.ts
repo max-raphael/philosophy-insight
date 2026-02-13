@@ -91,13 +91,13 @@ test.describe('Dark Mode', () => {
   })
 
   test('theme toggle button is visible', async ({ page }) => {
-    // ThemeToggle shows "Daylight", "Evening", or "System"
-    const themeButton = page.locator('button').filter({ hasText: /^(Daylight|Evening|System)$/ }).first()
+    // ThemeToggle shows "Dark" or "Light"
+    const themeButton = page.locator('button').filter({ hasText: /^(Dark|Light)$/ }).first()
     await expect(themeButton).toBeVisible()
   })
 
   test('clicking theme toggle cycles through themes', async ({ page }) => {
-    const themeButton = page.locator('button').filter({ hasText: /^(Daylight|Evening|System)$/ }).first()
+    const themeButton = page.locator('button').filter({ hasText: /^(Dark|Light)$/ }).first()
 
     // Get initial state
     const initialText = await themeButton.textContent()
@@ -111,13 +111,13 @@ test.describe('Dark Mode', () => {
   })
 
   test('dark mode applies dark background', async ({ page }) => {
-    // Click until we get to Evening (dark) mode
-    const themeButton = page.locator('button').filter({ hasText: /^(Daylight|Evening|System)$/ }).first()
+    // Click until we get to Dark mode
+    const themeButton = page.locator('button').filter({ hasText: /^(Dark|Light)$/ }).first()
 
-    // Keep clicking until we see "Evening"
-    for (let i = 0; i < 3; i++) {
+    // Keep clicking until we see "Dark"
+    for (let i = 0; i < 2; i++) {
       const text = await themeButton.textContent()
-      if (text?.includes('Evening')) break
+      if (text?.includes('Dark')) break
       await themeButton.click()
     }
 
@@ -127,12 +127,12 @@ test.describe('Dark Mode', () => {
   })
 
   test('light mode applies light background', async ({ page }) => {
-    const themeButton = page.locator('button').filter({ hasText: /^(Daylight|Evening|System)$/ }).first()
+    const themeButton = page.locator('button').filter({ hasText: /^(Dark|Light)$/ }).first()
 
-    // Keep clicking until we see "Daylight"
-    for (let i = 0; i < 3; i++) {
+    // Keep clicking until we see "Light"
+    for (let i = 0; i < 2; i++) {
       const text = await themeButton.textContent()
-      if (text?.includes('Daylight')) break
+      if (text?.includes('Light')) break
       await themeButton.click()
     }
 
@@ -694,5 +694,25 @@ test.describe('Conversations', () => {
       return Object.keys(localStorage).filter(k => k.includes('conversations-index'))
     })
     expect(storageKeys.length).toBeGreaterThan(0)
+  })
+
+  test('mode toggle switches between Tutor and Socratic', async ({ page }) => {
+    // Find mode toggle buttons
+    const tutorButton = page.locator('button').filter({ hasText: 'Tutor' })
+    const socraticButton = page.locator('button').filter({ hasText: 'Socratic' })
+
+    // Both buttons should be visible
+    await expect(tutorButton).toBeVisible()
+    await expect(socraticButton).toBeVisible()
+
+    // Tutor should be active by default (has shadow-sm class indicating selection)
+    await expect(tutorButton).toHaveClass(/shadow-sm/)
+
+    // Click Socratic
+    await socraticButton.click()
+    await page.waitForTimeout(100)
+
+    // Socratic should now be active
+    await expect(socraticButton).toHaveClass(/shadow-sm/)
   })
 })

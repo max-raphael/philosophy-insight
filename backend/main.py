@@ -46,6 +46,7 @@ class ChatRequest(BaseModel):
     conversation_id: str
     text_id: str
     user_message: str  # Contains embedded context (location + passage)
+    mode: str = "tutor"  # "tutor" (default) or "socratic"
 
 
 class ChatResponse(BaseModel):
@@ -71,20 +72,38 @@ def load_texts() -> dict[str, TextInfo]:
 TEXTS = load_texts()
 
 
-def get_system_prompt(text_id: str) -> str:
+def get_system_prompt(text_id: str, mode: str = "tutor") -> str:
     """Build the system prompt for the AI tutor."""
     text_info = TEXTS.get(text_id)
     text_title = text_info.title if text_info else "this philosophical text"
     text_author = text_info.author if text_info else "the author"
 
-    return f"""You are an expert guide to {text_title} by {text_author}.
-
-The reader's messages include context showing where they are in the text:
+    context_instructions = """The reader's messages include context showing where they are in the text:
 - [Book X, Section Y] indicates their location
 - Quoted text (>) shows the full paragraph they're currently reading
 - [Highlighted: "..."] indicates the specific phrase they selected to discuss
 
-When they refer to "this" or ask "what does this mean", focus on the highlighted text within its paragraph context. When context changes between messages (different book/section), they've moved to a new part of the text.
+When they refer to "this" or ask "what does this mean", focus on the highlighted text within its paragraph context. When context changes between messages (different book/section), they've moved to a new part of the text."""
+
+    if mode == "socratic":
+        return f"""You are a Socratic guide to {text_title} by {text_author}.
+
+{context_instructions}
+
+Your approach:
+- Instead of explaining, ask 1-2 thoughtful questions that help the reader discover insights themselves
+- Guide them toward understanding through inquiry, not instruction
+- Ask questions that illuminate the text's meaning, challenge assumptions, or draw connections
+- If they seem genuinely stuck after several exchanges, offer a gentle hint or reframe your question
+- Never lecture or provide direct answers unless they explicitly ask you to "just tell me"
+- Keep your questions focused and specific to what they're reading
+
+You embody Socrates' method: wisdom comes from self-discovery, not from being told."""
+
+    # Default tutor mode
+    return f"""You are an expert guide to {text_title} by {text_author}.
+
+{context_instructions}
 
 Your approach:
 - Explain concepts and arguments with precision and depth
@@ -141,7 +160,7 @@ async def chat_stream(request: ChatRequest):
         "content": request.user_message
     })
 
-    system_prompt = get_system_prompt(request.text_id)
+    system_prompt = get_system_prompt(request.text_id, request.mode)
     messages = [{"role": "system", "content": system_prompt}] + conversation
 
     async def generate():
@@ -196,7 +215,7 @@ def chat(request: ChatRequest):
         "content": request.user_message
     })
 
-    system_prompt = get_system_prompt(request.text_id)
+    system_prompt = get_system_prompt(request.text_id, request.mode)
     messages = [{"role": "system", "content": system_prompt}] + conversation
 
     try:

@@ -5,12 +5,15 @@ export interface Message {
   content: string
 }
 
+export type ConversationMode = 'tutor' | 'socratic'
+
 export interface ConversationMeta {
   id: string
   title: string
   createdAt: number
   lastMessagePreview: string
   messageCount: number
+  mode: ConversationMode
 }
 
 export interface ConversationsIndex {
@@ -29,12 +32,13 @@ const getLegacyKey = (textId: string) => `philosophy-insight-conversation-${text
 const generateId = () => `conv-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
 
 // Create a new conversation metadata object
-const createConversationMeta = (title: string): ConversationMeta => ({
+const createConversationMeta = (title: string, mode: ConversationMode = 'tutor'): ConversationMeta => ({
   id: generateId(),
   title,
   createdAt: Date.now(),
   lastMessagePreview: '',
   messageCount: 0,
+  mode,
 })
 
 export function useConversations(textId: string) {
@@ -52,7 +56,13 @@ export function useConversations(textId: string) {
     if (storedIndex) {
       try {
         const parsed: ConversationsIndex = JSON.parse(storedIndex)
-        setIndex(parsed)
+        // Add default mode to conversations that don't have it (backward compatibility)
+        const migratedConversations = parsed.conversations.map(conv => ({
+          ...conv,
+          mode: conv.mode || 'tutor' as ConversationMode,
+        }))
+        const migratedIndex = { ...parsed, conversations: migratedConversations }
+        setIndex(migratedIndex)
 
         // Load messages for active conversation
         const messagesKey = getMessagesKey(textId, parsed.activeConversationId)
@@ -190,6 +200,19 @@ export function useConversations(textId: string) {
     })
   }, [])
 
+  // Set mode for active conversation
+  const setMode = useCallback((mode: ConversationMode) => {
+    setIndex(prev => {
+      if (!prev) return prev
+      return {
+        ...prev,
+        conversations: prev.conversations.map(conv =>
+          conv.id === prev.activeConversationId ? { ...conv, mode } : conv
+        ),
+      }
+    })
+  }, [])
+
   // Delete a conversation
   const deleteConversation = useCallback((id: string) => {
     if (!index) return
@@ -270,5 +293,6 @@ export function useConversations(textId: string) {
     addMessage,
     setMessages,
     clearMessages,
+    setMode,
   }
 }
