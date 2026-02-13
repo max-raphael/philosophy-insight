@@ -33,6 +33,30 @@ const heroQuotes = [
   { text: "Man is condemned to be free.", author: "Jean-Paul Sartre", work: "Existentialism is a Humanism" },
 ]
 
+// Philosopher portraits (from Wikipedia API - verified URLs)
+const philosopherImages: Record<string, string> = {
+  // Ancient
+  'Plato': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Plato_Silanion_Musei_Capitolini_MC1377.jpg/440px-Plato_Silanion_Musei_Capitolini_MC1377.jpg',
+  'Aristotle': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/440px-Aristotle_Altemps_Inv8575.jpg',
+  'Cicero': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Bust_of_Cicero_%281st-cent._BC%29_-_Palazzo_Nuovo_-_Musei_Capitolini_-_Rome_2016.jpg/440px-Bust_of_Cicero_%281st-cent._BC%29_-_Palazzo_Nuovo_-_Musei_Capitolini_-_Rome_2016.jpg',
+  'Seneca': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg/440px-Duble_herma_of_Socrates_and_Seneca_Antikensammlung_Berlin_07.jpg',
+  'Marcus Aurelius': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/MSR-ra-61-b-1-DM.jpg/440px-MSR-ra-61-b-1-DM.jpg',
+  // Medieval
+  'Augustine of Hippo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg/440px-Saint_Augustine_by_Philippe_de_Champaigne.jpg',
+  // Modern Western
+  'Immanuel Kant': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Immanuel_Kant_%28painted_portrait%29.jpg/440px-Immanuel_Kant_%28painted_portrait%29.jpg',
+  'Friedrich Nietzsche': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/440px-Nietzsche187a.jpg',
+  'John Stuart Mill': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg/440px-John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg',
+  'David Hume': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Painting_of_David_Hume.jpg/440px-Painting_of_David_Hume.jpg',
+  'William James': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/William_James_b1842c.jpg/440px-William_James_b1842c.jpg',
+  'Jean-Jacques Rousseau': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_WGA12360.jpg/440px-Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_WGA12360.jpg',
+  // Eastern
+  'Confucius': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Confucius_Tang_Dynasty.jpg/440px-Confucius_Tang_Dynasty.jpg',
+  'Vyasa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sculpture_of_Vyasa.jpeg/440px-Sculpture_of_Vyasa.jpeg',
+  'Rabindranath Tagore': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/1926_Rabindrath_Tagore.jpg/440px-1926_Rabindrath_Tagore.jpg',
+  'Omar Khayyam': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Hakim_Omar_Khayam_-_panoramio.jpg/440px-Hakim_Omar_Khayam_-_panoramio.jpg',
+}
+
 // Category color mapping
 const categoryStyles: Record<string, { bg: string; text: string; accent: string }> = {
   ancient: { bg: 'bg-amber-950/20', text: 'text-amber-200', accent: 'border-amber-600/40' },
@@ -648,36 +672,47 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
             {/* Horizontal scroll gallery */}
             <div className="relative -mx-6 px-6">
               <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory">
-                {philosophers.map((philosopher, i) => (
-                  <motion.button
-                    key={philosopher.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    onClick={() => onOpenSearch(philosopher.name)}
-                    className="group shrink-0 snap-start w-[200px] text-left"
-                  >
-                    {/* Avatar */}
-                    <div className="relative w-full aspect-square mb-4 rounded-2xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)] overflow-hidden group-hover:border-[var(--accent-primary)]/30 transition-all duration-300">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-display text-6xl text-[var(--text-muted)] group-hover:text-[var(--accent-primary)] transition-colors duration-300">
-                          {philosopher.name.charAt(0)}
-                        </span>
+                {philosophers.map((philosopher, i) => {
+                  const imageUrl = philosopherImages[philosopher.name]
+                  return (
+                    <motion.button
+                      key={philosopher.name}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      onClick={() => onOpenSearch(philosopher.name)}
+                      className="group shrink-0 snap-start w-[180px] text-left"
+                    >
+                      {/* Avatar */}
+                      <div className="relative w-full aspect-square mb-4 rounded-2xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)] overflow-hidden group-hover:border-[var(--accent-primary)]/30 transition-all duration-300">
+                        {imageUrl ? (
+                          <img
+                            src={imageUrl}
+                            alt={philosopher.name}
+                            className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="font-display text-6xl text-[var(--text-muted)] group-hover:text-[var(--accent-primary)] transition-colors duration-300">
+                              {philosopher.name.charAt(0)}
+                            </span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {/* Work count badge */}
+                        <div className="absolute top-3 right-3 px-2 py-1 bg-[var(--bg-primary)]/80 backdrop-blur-sm rounded-full">
+                          <span className="text-[10px] font-ui text-[var(--text-muted)]">{philosopher.textIds.length} works</span>
+                        </div>
                       </div>
-                      {/* Work count badge */}
-                      <div className="absolute top-3 right-3 px-2 py-1 bg-[var(--bg-primary)]/80 backdrop-blur-sm rounded-full">
-                        <span className="text-[10px] font-ui text-[var(--text-muted)]">{philosopher.textIds.length} works</span>
-                      </div>
-                    </div>
 
-                    {/* Name */}
-                    <h3 className="font-display text-lg font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors truncate">
-                      {philosopher.name}
-                    </h3>
-                  </motion.button>
-                ))}
+                      {/* Name */}
+                      <h3 className="font-display text-lg font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors truncate">
+                        {philosopher.name}
+                      </h3>
+                    </motion.button>
+                  )
+                })}
               </div>
 
               {/* Fade edges */}

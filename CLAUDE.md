@@ -138,11 +138,12 @@ CSS custom properties enable dark mode theming.
 - Keyboard navigation: `↑↓` to navigate, `Enter` to select, `Esc` to close
 
 ### Home Page Sections
-1. **Continue Reading** - Texts with saved reading progress
-2. **Start Here** - 8 curated essential texts for beginners
-3. **Browse by Era** - Western (Ancient, Medieval, Enlightenment, Modern) + Eastern (Chinese, Indian, Buddhist, Sufi)
-4. **Browse by Philosopher** - Horizontal scroll of top authors
-5. **Full Library** - Filterable/sortable grid of all texts
+1. **Hero** - Rotating philosophical quotes with "Explore the Library" CTA
+2. **Continue Reading** - Texts with saved reading progress (shown only if progress exists)
+3. **Start Here** - Curated essential texts in uniform 3-column grid
+4. **Philosophical Traditions** - Two-column layout (Western | Eastern) with clickable era cards
+5. **Philosophers Gallery** - Horizontal scroll with portraits sourced from Wikipedia API
+6. **The Library** - Filterable/sortable grid with pill-style era filters
 
 ### Reader Features (Desktop)
 - **Table of Contents** - Sidebar showing book structure (`Cmd+\` to toggle)
