@@ -126,8 +126,13 @@ export default function DiscussionPanel({
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [streamingContent, setStreamingContent] = useState('')
+  const [inputHeight, setInputHeight] = useState(120) // Default input area height
+  const [isDragging, setIsDragging] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const dragStartY = useRef(0)
+  const dragStartHeight = useRef(0)
 
   // Scroll to bottom
   useEffect(() => {
@@ -159,6 +164,42 @@ export default function DiscussionPanel({
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
+
+  // Handle divider drag
+  const handleDragStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+    dragStartY.current = clientY
+    dragStartHeight.current = inputHeight
+  }, [inputHeight])
+
+  useEffect(() => {
+    if (!isDragging) return
+
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+      const delta = dragStartY.current - clientY
+      const newHeight = Math.min(Math.max(dragStartHeight.current + delta, 80), 400)
+      setInputHeight(newHeight)
+    }
+
+    const handleEnd = () => {
+      setIsDragging(false)
+    }
+
+    document.addEventListener('mousemove', handleMove)
+    document.addEventListener('mouseup', handleEnd)
+    document.addEventListener('touchmove', handleMove)
+    document.addEventListener('touchend', handleEnd)
+
+    return () => {
+      document.removeEventListener('mousemove', handleMove)
+      document.removeEventListener('mouseup', handleEnd)
+      document.removeEventListener('touchmove', handleMove)
+      document.removeEventListener('touchend', handleEnd)
+    }
+  }, [isDragging])
 
   // Generate a title for the conversation after first exchange
   const generateTitle = useCallback(async (userMsg: string, assistantMsg: string) => {
@@ -335,7 +376,7 @@ export default function DiscussionPanel({
   }
 
   return (
-    <div className="h-full flex flex-col">
+    <div ref={containerRef} className="h-full flex flex-col">
       {/* Header */}
       <div className="px-5 py-4 border-b border-[var(--border-primary)] flex items-center justify-between shrink-0 bg-[var(--bg-secondary)]">
         <div>
@@ -508,19 +549,29 @@ export default function DiscussionPanel({
         <div ref={messagesEndRef} />
       </div>
 
+      {/* Draggable Divider */}
+      <div
+        onMouseDown={handleDragStart}
+        onTouchStart={handleDragStart}
+        className={`h-2 shrink-0 cursor-ns-resize flex items-center justify-center group hover:bg-[var(--bg-tertiary)] transition-colors ${isDragging ? 'bg-[var(--bg-tertiary)]' : ''}`}
+      >
+        <div className={`w-12 h-1 rounded-full transition-colors ${isDragging ? 'bg-[var(--text-muted)]' : 'bg-[var(--border-primary)] group-hover:bg-[var(--text-muted)]'}`} />
+      </div>
+
       {/* Input */}
-      <div className="p-4 border-t border-[var(--border-primary)] shrink-0 bg-[var(--bg-secondary)]">
-        <div className="flex gap-3 items-end">
-          <div className="flex-1 relative">
+      <div
+        className="p-4 border-t border-[var(--border-primary)] shrink-0 bg-[var(--bg-secondary)] flex flex-col"
+        style={{ height: inputHeight }}
+      >
+        <div className="flex gap-3 items-end flex-1 min-h-0">
+          <div className="flex-1 relative h-full">
             <textarea
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask about the text..."
-              rows={input.split('\n').length > 2 ? 3 : 1}
-              className="w-full px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-[var(--border-secondary)] focus:border-transparent text-sm text-[var(--text-primary)] transition-all placeholder:text-[var(--text-muted)]"
-              style={{ minHeight: '44px' }}
+              className="w-full h-full px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-[var(--border-secondary)] focus:border-transparent text-sm text-[var(--text-primary)] transition-all placeholder:text-[var(--text-muted)]"
             />
           </div>
           <motion.button
@@ -528,7 +579,7 @@ export default function DiscussionPanel({
             whileTap={{ scale: 0.98 }}
             onClick={sendMessage}
             disabled={!input.trim() || loading}
-            className="px-5 py-3 bg-[var(--text-primary)] text-[var(--text-inverted)] rounded-xl hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all text-sm font-medium shadow-sm disabled:shadow-none"
+            className="px-5 py-3 bg-[var(--text-primary)] text-[var(--text-inverted)] rounded-xl hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all text-sm font-medium shadow-sm disabled:shadow-none self-end"
           >
             Send
           </motion.button>
