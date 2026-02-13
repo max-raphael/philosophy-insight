@@ -72,7 +72,7 @@ curl -X POST http://localhost:8000/reload-texts
       DiscussionPanel.tsx # Chat with streaming responses
       ConversationSwitcher.tsx  # Dropdown for managing multiple conversations
       CommandPalette.tsx  # Spotlight-style search (Cmd+K)
-      ThemeToggle.tsx     # Evening/Daylight theme switcher
+      ThemeToggle.tsx     # Dark/Light theme switcher
       TableOfContents.tsx # Sidebar TOC navigation
       ReadingControls.tsx # Font size, font family, theme, fullscreen
       KeyboardShortcutsModal.tsx  # Help modal showing shortcuts
@@ -126,7 +126,7 @@ CSS custom properties enable dark mode theming.
 ## UI Features
 
 ### Dark Mode
-- Two modes: Evening (dark, default) and Daylight (light)
+- Two modes: Dark (default) and Light
 - Toggle via ThemeToggle button in header or Reading Controls
 - CSS variables in `index.css` control all colors for seamless theming
 

@@ -31,7 +31,7 @@ export default function ThemeToggle({ className = '' }: ThemeToggleProps) {
   }
 
   const getLabel = () => {
-    return isDark ? 'Evening' : 'Daylight'
+    return isDark ? 'Dark' : 'Light'
   }
 
   return (
