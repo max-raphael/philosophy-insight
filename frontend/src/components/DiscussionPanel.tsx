@@ -77,23 +77,23 @@ function formatMessageWithContext(
 ): string {
   let formatted = ''
 
-  // Add location if available
-  if (location) {
-    formatted += `[Book ${location.book}, Section ${location.section}]\n`
-  }
+  // Only add context when user explicitly highlights text
+  if (quote) {
+    // Add location if available
+    if (location) {
+      formatted += `[Book ${location.book}, Section ${location.section}]\n`
+    }
 
-  // Add context: full paragraph with highlight marked if both exist
-  if (quote && passage && passage.includes(quote)) {
-    // Include full paragraph with the highlight marked
-    formatted += `> ${passage.split('\n').join('\n> ')}\n\n`
-    formatted += `[Highlighted: "${quote}"]\n\n`
-  } else if (quote) {
-    // Just the highlight (not found in current paragraph, e.g. selected across paragraphs)
-    formatted += `> ${quote.split('\n').join('\n> ')}\n\n`
-  } else if (passage) {
-    // No highlight, just the current paragraph
-    formatted += `> ${passage.split('\n').join('\n> ')}\n\n`
+    if (passage && passage.includes(quote)) {
+      // Include full paragraph with the highlight marked
+      formatted += `> ${passage.split('\n').join('\n> ')}\n\n`
+      formatted += `[Highlighted: "${quote}"]\n\n`
+    } else {
+      // Just the highlight (not found in current paragraph, e.g. selected across paragraphs)
+      formatted += `> ${quote.split('\n').join('\n> ')}\n\n`
+    }
   }
+  // No location or context when user hasn't highlighted anything - just send their message
 
   formatted += userText
   return formatted
