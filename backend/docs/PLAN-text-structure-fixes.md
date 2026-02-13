@@ -186,20 +186,25 @@ The plan achieved its primary goals:
 - ✓ Nested parsing working for multi-level texts
 - ✓ TOC filtering removes garbage sections
 - ✓ End markers stripped from Bhagavad Gita
-- ✓ 35% reduction in TRUE STRUCTURE markers
+- ✓ 38% reduction in TRUE STRUCTURE markers (793 → 493)
+- ✓ Critique of Pure Reason: 23 → 1,175 sections (51x improvement)
+- ✓ Enquiry Concerning Human Understanding: 13 → 346 sections (27x improvement)
 
-Some texts remain with inline markers due to their source structure (cross-references, scholarly apparatus) or genuinely sparse structural markers. These don't break the reading experience.
+Some texts remain with inline markers due to their source structure (cross-references, scholarly apparatus). These don't break the reading experience.
 
 ## Texts Updated with New Config
 
 ```python
 # structure_depth=2 (nested parsing)
 - democracy-in-america
-- critique-of-pure-reason
 - system-of-logic
 - thus-spoke-zarathustra
 - treatise-of-human-nature
 - theory-of-moral-sentiments
+
+# structure_hint='paragraphs' (forced paragraph chunking for sparse structure)
+- critique-of-pure-reason
+- enquiry-concerning-human-understanding
 
 # strip_end_markers=True
 - bhagavad-gita
@@ -207,5 +212,15 @@ Some texts remain with inline markers due to their source structure (cross-refer
 
 ## Files Modified
 
-1. `backend/scripts/import_gutenberg.py` - Added nested parsing, TOC detection, end marker stripping
-2. `backend/scripts/text_manifest.py` - Updated 7 TextConfig entries with new options
+1. `backend/scripts/import_gutenberg.py` - Added nested parsing, TOC detection, end marker stripping, forced paragraph chunking
+2. `backend/scripts/text_manifest.py` - Updated 8 TextConfig entries with new options
+
+## Future Work (Optional)
+
+Remaining moderate issues (3-10 markers) that could be addressed if desired:
+- Theory of Moral Sentiments (51 sections, 28 CHAP. markers)
+- First Principles (175 sections, 11 CHAPTER markers)
+- Nicomachean Ethics (913 sections, 19 CHAPTER markers)
+- World as Will and Representation (10 markers)
+
+These have inline cross-references that don't significantly impact reading experience.
