@@ -80,7 +80,7 @@ curl -X POST http://localhost:8000/reload-texts
       MobileBottomSheet.tsx   # Draggable bottom sheet with snap points
       MobileHeader.tsx        # Compact mobile header
   tests/
-    ui-features.spec.ts   # Playwright E2E tests (48 tests)
+    ui-features.spec.ts   # Playwright E2E tests (49 tests)
   playwright.config.ts    # Playwright configuration
 ```
 
@@ -103,7 +103,7 @@ curl -X POST http://localhost:8000/reload-texts
 **API Endpoints:**
 - `GET /texts` - List all texts (metadata only)
 - `GET /texts/{id}` - Full text with sections
-- `POST /chat/stream` - SSE streaming chat response
+- `POST /chat/stream` - SSE streaming chat response (accepts `mode`: `"tutor"` or `"socratic"`)
 - `POST /generate-title` - Generate conversation title from first exchange (uses gpt-4o-mini)
 - `DELETE /conversations/{id}` - Clear conversation
 
@@ -154,6 +154,9 @@ CSS custom properties enable dark mode theming.
 - **Keyboard Navigation** - See shortcuts below
 
 ### Discussion Panel
+- **Mode Toggle** - Switch between Tutor and Socratic modes:
+  - **Tutor mode** (default): AI explains concepts with precision and depth
+  - **Socratic mode**: AI asks guiding questions to help you discover insights yourself (say "just tell me" for a direct answer)
 - **Quote Card** - Highlighting text shows it as a dismissible card above the input (not inline in the textarea)
 - **Resizable Input** - Drag the divider between messages and input to resize (80px-400px range)
 - **Context Passing** - When sending a message, includes:
@@ -190,12 +193,12 @@ Mobile gets a completely different layout optimized for touch:
 Run Playwright E2E tests:
 ```bash
 cd frontend
-npm test              # Run all 48 tests headless
+npm test              # Run all 49 tests headless
 npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
 
-Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, and conversations.
+Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, conversations, and Socratic mode.
 
 ## Text Import System
 
