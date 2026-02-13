@@ -416,17 +416,22 @@ def split_into_subsections(text: str, book_num: int) -> list:
     return sections
 
 
-def parse_by_paragraphs(text: str, target_size: int = 600) -> list:
+def parse_by_paragraphs(text: str, target_size: int = 600, force_paragraphs: bool = False) -> list:
     """
     Fall back parser: first try pattern-based splitting, then chunk by paragraphs.
     This is used when no top-level structure (BOOK/CHAPTER/PART) is detected.
+
+    If force_paragraphs=True, skip pattern detection and go straight to paragraph chunking.
+    Use this for texts with sparse structural markers that result in huge sections.
     """
     # First, try to split by subsection patterns (§, CHAPTER, etc.)
-    sections = split_into_subsections(text, book_num=1)
-    if sections:
-        return sections
+    # Skip this if force_paragraphs is set
+    if not force_paragraphs:
+        sections = split_into_subsections(text, book_num=1)
+        if sections:
+            return sections
 
-    # If no patterns found, fall back to paragraph chunking
+    # Fall back to paragraph chunking
     paragraphs = re.split(r'\n\s*\n', text)
     sections = []
 
@@ -536,7 +541,11 @@ def import_text(config: TextConfig) -> dict:
     print(f"  Detected structure: {structure['type']} ({len(structure['markers'])} markers)")
 
     # Parse
-    if structure['markers']:
+    force_paragraphs = config.structure_hint == 'paragraphs'
+    if force_paragraphs:
+        print(f"  Forcing paragraph chunking (structure_hint='paragraphs')")
+        sections = parse_by_paragraphs(text, force_paragraphs=True)
+    elif structure['markers']:
         sections = parse_by_markers(
             text,
             structure['markers'],

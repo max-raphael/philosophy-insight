@@ -373,7 +373,8 @@ EMPIRICISTS = [
     TextConfig(
         gutenberg_id=9662, id='enquiry-concerning-human-understanding', title='An Enquiry Concerning Human Understanding', author='David Hume',
         translator=None, year='1748', category='enlightenment',
-        description="Hume's accessible reworking of his epistemology, famous for its analysis of causation and the problem of induction."
+        description="Hume's accessible reworking of his epistemology, famous for its analysis of causation and the problem of induction.",
+        structure_hint='paragraphs'  # Sparse structural markers, force paragraph chunking
     ),
     TextConfig(
         gutenberg_id=4320, id='enquiry-concerning-morals', title='An Enquiry Concerning the Principles of Morals', author='David Hume',
@@ -392,7 +393,7 @@ KANT = [
         gutenberg_id=4280, id='critique-of-pure-reason', title='Critique of Pure Reason', author='Immanuel Kant',
         translator='J. M. D. Meiklejohn', year='1781', category='enlightenment',
         description="Kant's revolutionary examination of the limits and possibilities of human knowledge, establishing transcendental idealism.",
-        structure_depth=2  # Parse CHAPTER/SECTION within BOOK
+        structure_hint='paragraphs'  # Sparse structural markers (only 4 BOOK + 4 SECTION for 1.3M chars), force paragraph chunking
     ),
     TextConfig(
         gutenberg_id=5683, id='critique-of-practical-reason', title='Critique of Practical Reason', author='Immanuel Kant',
