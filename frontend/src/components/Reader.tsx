@@ -256,7 +256,7 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
                 className="text-center mb-12"
               >
                 <span className="block text-[var(--text-muted)] font-display text-sm tracking-widest uppercase mb-2">
-                  Liber
+                  Book
                 </span>
                 <span className="block text-[var(--accent-primary)] font-display text-4xl font-medium">
                   {toRoman(book)}
