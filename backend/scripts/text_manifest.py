@@ -260,14 +260,145 @@ EPICUREANS_AND_OTHERS = [
         description="The first volume of Plotinus's Neoplatonist philosophy, exploring the One, Intellect, and Soul."
     ),
     TextConfig(
+        gutenberg_id=42931, id='enneads-vol-2', title='Enneads, Volume 2', author='Plotinus',
+        translator='Kenneth Sylvan Guthrie', year='c. 270 CE', category='ancient',
+        description="The second volume of Plotinus's Neoplatonist philosophy, continuing exploration of metaphysics and ethics."
+    ),
+    TextConfig(
+        gutenberg_id=42932, id='enneads-vol-3', title='Enneads, Volume 3', author='Plotinus',
+        translator='Kenneth Sylvan Guthrie', year='c. 270 CE', category='ancient',
+        description="The third volume of Plotinus's Neoplatonist philosophy on the soul's relation to the divine."
+    ),
+    TextConfig(
+        gutenberg_id=42933, id='enneads-vol-4', title='Enneads, Volume 4', author='Plotinus',
+        translator='Kenneth Sylvan Guthrie', year='c. 270 CE', category='ancient',
+        description="The fourth volume completing Plotinus's Neoplatonist philosophy and mystical theology."
+    ),
+    TextConfig(
         gutenberg_id=29510, id='essay-on-the-beautiful', title='An Essay on the Beautiful', author='Plotinus',
         translator='Thomas Taylor', year='c. 260 CE', category='ancient',
         description="Plotinus's treatise on beauty and its relation to the divine, foundational to Neoplatonist aesthetics."
     ),
     TextConfig(
+        gutenberg_id=74253, id='proclus-euclid', title='Proclus: Commentary on the First Book of Euclid', author='Proclus',
+        translator='Thomas Taylor', year='c. 450 CE', category='ancient',
+        description="Proclus's philosophical commentary on Euclid, revealing Neoplatonist views on mathematics and reality."
+    ),
+    TextConfig(
+        gutenberg_id=77393, id='proclus-theology-plato', title='On the Theology of Plato', author='Proclus',
+        translator='Thomas Taylor', year='c. 450 CE', category='ancient',
+        description="Proclus's systematic exposition of Neoplatonist theology based on Plato's dialogues."
+    ),
+    TextConfig(
+        gutenberg_id=77014, id='porphyry-select-works', title='Select Works of Porphyry', author='Porphyry',
+        translator='Thomas Taylor', year='c. 270 CE', category='ancient',
+        description="Works by Plotinus's student including philosophical treatises and the famous Isagoge on categories."
+    ),
+    TextConfig(
+        gutenberg_id=63300, id='iamblichus-pythagoras', title='Life of Pythagoras', author='Iamblichus',
+        translator='Thomas Taylor', year='c. 300 CE', category='ancient',
+        description="Iamblichus's biography of Pythagoras revealing the mystical-philosophical teachings of the Pythagoreans."
+    ),
+    TextConfig(
+        gutenberg_id=72815, id='iamblichus-mysteries', title='On the Mysteries', author='Iamblichus',
+        translator='Thomas Taylor', year='c. 300 CE', category='ancient',
+        description="Iamblichus's defense of theurgy and religious ritual, a key text of later Neoplatonism."
+    ),
+    TextConfig(
         gutenberg_id=1177, id='memorabilia', title='Memorabilia', author='Xenophon',
         translator='H. G. Dakyns', year='c. 370 BCE', category='ancient',
         description="Xenophon's recollections of Socrates, offering a different portrait than Plato's dialogues."
+    ),
+]
+
+SKEPTICS_AND_PRESOCRATICS = [
+    TextConfig(
+        gutenberg_id=17556, id='sextus-empiricus', title='Sextus Empiricus and Greek Scepticism', author='Mary Mills Patrick',
+        translator=None, year='1899', category='ancient',
+        description="Study of Pyrrhonian skepticism through Sextus Empiricus, examining the suspension of judgment."
+    ),
+    TextConfig(
+        gutenberg_id=67097, id='early-greek-philosophy', title='Early Greek Philosophy', author='John Burnet',
+        translator=None, year='1892', category='ancient',
+        description="Burnet's authoritative collection and analysis of the Pre-Socratic philosophers."
+    ),
+    TextConfig(
+        gutenberg_id=69174, id='golden-verses-pythagoras', title='The Golden Verses of Pythagoras', author='Pythagoras',
+        translator='Fabre d\'Olivet', year='c. 500 BCE', category='ancient',
+        description="The ethical maxims attributed to Pythagoras with philosophical commentary."
+    ),
+]
+
+STOICS_ADDITIONAL = [
+    TextConfig(
+        gutenberg_id=871, id='golden-sayings-epictetus', title='Golden Sayings of Epictetus with Hymn of Cleanthes', author='Epictetus',
+        translator='Hastings Crossley', year='c. 125 CE', category='ancient',
+        description="Selected teachings of Epictetus with the famous Hymn to Zeus by the Stoic Cleanthes."
+    ),
+    TextConfig(
+        gutenberg_id=7514, id='guide-to-stoicism', title='A Guide to Stoicism', author='St George Stock',
+        translator=None, year='1915', category='ancient',
+        description="An accessible introduction to Stoic philosophy covering logic, physics, and ethics."
+    ),
+    TextConfig(
+        gutenberg_id=64488, id='roman-stoicism', title='Roman Stoicism', author='E. V. Arnold',
+        translator=None, year='1911', category='ancient',
+        description="Comprehensive study of Stoicism in Rome from Cicero through Marcus Aurelius."
+    ),
+]
+
+PLUTARCH = [
+    TextConfig(
+        gutenberg_id=23639, id='plutarch-morals', title="Plutarch's Morals", author='Plutarch',
+        translator='William W. Goodwin', year='c. 100 CE', category='ancient',
+        description="Plutarch's essays on ethics, education, and practical philosophy, rivaling the Lives in influence."
+    ),
+    TextConfig(
+        gutenberg_id=62618, id='plutarch-essays-1', title='Selected Essays of Plutarch, Volume 1', author='Plutarch',
+        translator='A. O. Prickard', year='c. 100 CE', category='ancient',
+        description="First volume of Plutarch's philosophical and moral essays."
+    ),
+    TextConfig(
+        gutenberg_id=62858, id='plutarch-essays-2', title='Selected Essays of Plutarch, Volume 2', author='Plutarch',
+        translator='A. O. Prickard', year='c. 100 CE', category='ancient',
+        description="Second volume of Plutarch's philosophical and moral essays."
+    ),
+]
+
+# =============================================================================
+# RENAISSANCE PHILOSOPHY
+# =============================================================================
+
+RENAISSANCE = [
+    TextConfig(
+        gutenberg_id=19817, id='bruno-enthusiasts-1', title='The Heroic Enthusiasts, Part 1', author='Giordano Bruno',
+        translator='L. Williams', year='1585', category='enlightenment',
+        description="Bruno's philosophical dialogue on heroic love and the soul's ascent to divine beauty."
+    ),
+    TextConfig(
+        gutenberg_id=19833, id='bruno-enthusiasts-2', title='The Heroic Enthusiasts, Part 2', author='Giordano Bruno',
+        translator='L. Williams', year='1585', category='enlightenment',
+        description="The second part of Bruno's dialogue on transcendent love and philosophical contemplation."
+    ),
+    TextConfig(
+        gutenberg_id=30201, id='erasmus-folly', title='In Praise of Folly', author='Desiderius Erasmus',
+        translator='John Wilson', year='1511', category='enlightenment',
+        description="Erasmus's satirical masterpiece critiquing society, church, and scholars through Folly's speech."
+    ),
+    TextConfig(
+        gutenberg_id=14031, id='erasmus-colloquies', title='Colloquies, Volume 1', author='Desiderius Erasmus',
+        translator='N. Bailey', year='1518', category='enlightenment',
+        description="Erasmus's dialogues combining humanist learning with social criticism and moral instruction."
+    ),
+    TextConfig(
+        gutenberg_id=39487, id='erasmus-against-war', title='Erasmus Against War', author='Desiderius Erasmus',
+        translator='J. W. Mackail', year='1517', category='enlightenment',
+        description="Erasmus's pacifist treatise arguing against war from Christian humanist principles."
+    ),
+    TextConfig(
+        gutenberg_id=2130, id='more-utopia', title='Utopia', author='Thomas More',
+        translator='Gilbert Burnet', year='1516', category='enlightenment',
+        description="More's influential vision of an ideal society, blending social criticism with political philosophy."
     ),
 ]
 
@@ -337,9 +468,24 @@ RATIONALISTS = [
         description="Spinoza's defense of freedom of thought, biblical criticism, and the separation of philosophy from theology."
     ),
     TextConfig(
+        gutenberg_id=1016, id='spinoza-improvement', title='On the Improvement of the Understanding', author='Baruch Spinoza',
+        translator='R. H. M. Elwes', year='1677', category='enlightenment',
+        description="Spinoza's unfinished treatise on method and the path to true knowledge and blessedness."
+    ),
+    TextConfig(
         gutenberg_id=39441, id='monadology', title='Monadology', author='Gottfried Wilhelm Leibniz',
         translator='George Montgomery', year='1714', category='enlightenment',
         description="Leibniz's compact presentation of his metaphysics of monads, pre-established harmony, and the best of all possible worlds."
+    ),
+    TextConfig(
+        gutenberg_id=17147, id='leibniz-theodicy', title='Theodicy', author='Gottfried Wilhelm Leibniz',
+        translator='E. M. Huggard', year='1710', category='enlightenment',
+        description="Leibniz's defense of divine justice explaining evil in the best of all possible worlds."
+    ),
+    TextConfig(
+        gutenberg_id=40957, id='leibniz-new-essays', title='New Essays Concerning Human Understanding', author='Gottfried Wilhelm Leibniz',
+        translator='Alfred Gideon Langley', year='1704', category='enlightenment',
+        description="Leibniz's response to Locke, defending innate ideas and the active nature of mind."
     ),
 ]
 
@@ -365,6 +511,16 @@ EMPIRICISTS = [
         description="Berkeley defends immaterialism through lively dialogue, arguing that matter does not exist independently of perception."
     ),
     TextConfig(
+        gutenberg_id=39746, id='berkeley-works-1', title='The Works of George Berkeley, Volume 1', author='George Berkeley',
+        translator=None, year='Various', category='enlightenment',
+        description="Collected philosophical works of Berkeley including early essays on vision and perception."
+    ),
+    TextConfig(
+        gutenberg_id=4722, id='berkeley-new-theory-vision', title='An Essay Towards a New Theory of Vision', author='George Berkeley',
+        translator=None, year='1709', category='enlightenment',
+        description="Berkeley's groundbreaking analysis of visual perception and the relationship between sight and touch."
+    ),
+    TextConfig(
         gutenberg_id=4705, id='treatise-of-human-nature', title='A Treatise of Human Nature', author='David Hume',
         translator=None, year='1739', category='enlightenment',
         description="Hume's ambitious attempt to introduce experimental method into moral subjects, examining understanding, passions, and morals.",
@@ -385,6 +541,16 @@ EMPIRICISTS = [
         gutenberg_id=4583, id='dialogues-concerning-natural-religion', title='Dialogues Concerning Natural Religion', author='David Hume',
         translator=None, year='1779', category='enlightenment',
         description="Hume's posthumous critique of arguments for God's existence, presented through three philosophical characters."
+    ),
+    TextConfig(
+        gutenberg_id=36120, id='hume-essays', title='Essays: Moral, Political, and Literary', author='David Hume',
+        translator=None, year='1741-77', category='enlightenment',
+        description="Hume's wide-ranging essays on taste, commerce, politics, and philosophy for general readers."
+    ),
+    TextConfig(
+        gutenberg_id=59792, id='hume-political-discourses', title='Political Discourses', author='David Hume',
+        translator=None, year='1752', category='enlightenment',
+        description="Hume's influential essays on economics, commerce, and political economy."
     ),
 ]
 
@@ -494,6 +660,78 @@ OTHER_ENLIGHTENMENT = [
     ),
 ]
 
+FRENCH_MATERIALISTS = [
+    TextConfig(
+        gutenberg_id=8909, id='holbach-system-nature-1', title='The System of Nature, Volume 1', author="Baron d'Holbach",
+        translator='H. D. Robinson', year='1770', category='enlightenment',
+        description="Holbach's atheist and materialist manifesto, arguing nature is all that exists."
+    ),
+    TextConfig(
+        gutenberg_id=8910, id='holbach-system-nature-2', title='The System of Nature, Volume 2', author="Baron d'Holbach",
+        translator='H. D. Robinson', year='1770', category='enlightenment',
+        description="The second volume completing Holbach's systematic materialist philosophy."
+    ),
+    TextConfig(
+        gutenberg_id=7319, id='holbach-good-sense', title='Good Sense', author="Baron d'Holbach",
+        translator=None, year='1772', category='enlightenment',
+        description="Holbach's accessible summary of atheist arguments for general readers."
+    ),
+    TextConfig(
+        gutenberg_id=40770, id='holbach-christianity-unveiled', title='Christianity Unveiled', author="Baron d'Holbach",
+        translator='W. M. Johnson', year='1761', category='enlightenment',
+        description="Holbach's critique of Christianity as harmful to society and morality."
+    ),
+    TextConfig(
+        gutenberg_id=17607, id='holbach-superstition', title='Superstition in All Ages', author="Jean Meslier",
+        translator=None, year='1733', category='enlightenment',
+        description="Meslier's posthumous atheist testament, one of the first explicitly atheist philosophical works."
+    ),
+    TextConfig(
+        gutenberg_id=52090, id='la-mettrie-man-machine', title='Man a Machine', author='Julien Offray de La Mettrie',
+        translator='Gertrude Carman Bussey', year='1747', category='enlightenment',
+        description="La Mettrie's materialist view that humans are purely mechanical beings without souls."
+    ),
+    TextConfig(
+        gutenberg_id=13862, id='diderot-rameau', title="Rameau's Nephew", author='Denis Diderot',
+        translator='Jacques Barzun', year='1761', category='enlightenment',
+        description="Diderot's brilliant dialogue on morality, genius, and society through a bohemian character."
+    ),
+]
+
+FRENCH_MORALISTS = [
+    TextConfig(
+        gutenberg_id=9105, id='rochefoucauld-maxims', title='Reflections; or Sentences and Moral Maxims', author='François de La Rochefoucauld',
+        translator=None, year='1665', category='enlightenment',
+        description="La Rochefoucauld's cynical maxims exposing self-interest as the hidden motive behind human actions."
+    ),
+    TextConfig(
+        gutenberg_id=46633, id='la-bruyere-characters', title='The Characters', author='Jean de La Bruyère',
+        translator='Henri Van Laun', year='1688', category='enlightenment',
+        description="La Bruyère's witty character sketches and moral observations of French society."
+    ),
+]
+
+SCOTTISH_ENLIGHTENMENT = [
+    TextConfig(
+        gutenberg_id=8646, id='ferguson-civil-society', title='An Essay on the History of Civil Society', author='Adam Ferguson',
+        translator=None, year='1767', category='enlightenment',
+        description="Ferguson's sociological analysis of progress and the moral dangers of commercial society."
+    ),
+]
+
+VOLTAIRE_ADDITIONAL = [
+    TextConfig(
+        gutenberg_id=64858, id='voltaire-toleration', title='Toleration and Other Essays', author='Voltaire',
+        translator='Joseph McCabe', year='1763', category='enlightenment',
+        description="Voltaire's passionate defense of religious tolerance and Enlightenment values."
+    ),
+    TextConfig(
+        gutenberg_id=2445, id='voltaire-letters-england', title='Letters on England', author='Voltaire',
+        translator=None, year='1733', category='enlightenment',
+        description="Voltaire's influential comparison of English and French society, praising English liberty."
+    ),
+]
+
 # =============================================================================
 # 19TH CENTURY
 # =============================================================================
@@ -510,9 +748,99 @@ GERMAN_IDEALISM = [
         description="Hegel's lectures on world history as the progress of the consciousness of freedom."
     ),
     TextConfig(
+        gutenberg_id=51635, id='hegel-history-philosophy-1', title='Lectures on the History of Philosophy, Volume 1', author='G. W. F. Hegel',
+        translator='E. S. Haldane', year='1837', category='modern',
+        description="Hegel's comprehensive history of philosophy from the Greeks through the Scholastics."
+    ),
+    TextConfig(
+        gutenberg_id=51636, id='hegel-history-philosophy-2', title='Lectures on the History of Philosophy, Volume 2', author='G. W. F. Hegel',
+        translator='E. S. Haldane', year='1837', category='modern',
+        description="Hegel's history of philosophy covering medieval and early modern thought."
+    ),
+    TextConfig(
+        gutenberg_id=58169, id='hegel-history-philosophy-3', title='Lectures on the History of Philosophy, Volume 3', author='G. W. F. Hegel',
+        translator='E. S. Haldane', year='1837', category='modern',
+        description="Hegel's history of philosophy concluding with German idealism."
+    ),
+    TextConfig(
+        gutenberg_id=55108, id='hegel-logic', title='The Science of Logic', author='G. W. F. Hegel',
+        translator='W. H. Johnston and L. G. Struthers', year='1812', category='modern',
+        description="Hegel's systematic development of logical categories as the self-movement of thought."
+    ),
+    TextConfig(
+        gutenberg_id=39064, id='hegel-philosophy-mind', title='Philosophy of Mind', author='G. W. F. Hegel',
+        translator='William Wallace', year='1817', category='modern',
+        description="The third part of Hegel's Encyclopedia on subjective, objective, and absolute spirit."
+    ),
+    TextConfig(
+        gutenberg_id=55334, id='hegel-fine-art-1', title='The Philosophy of Fine Art, Volume 1', author='G. W. F. Hegel',
+        translator='F. P. B. Osmaston', year='1835', category='modern',
+        description="Hegel's aesthetics: the nature of beauty and art's role in human culture."
+    ),
+    TextConfig(
+        gutenberg_id=55445, id='hegel-fine-art-2', title='The Philosophy of Fine Art, Volume 2', author='G. W. F. Hegel',
+        translator='F. P. B. Osmaston', year='1835', category='modern',
+        description="Hegel on symbolic, classical, and romantic art forms."
+    ),
+    TextConfig(
+        gutenberg_id=55623, id='hegel-fine-art-3', title='The Philosophy of Fine Art, Volume 3', author='G. W. F. Hegel',
+        translator='F. P. B. Osmaston', year='1835', category='modern',
+        description="Hegel on architecture, sculpture, and painting as art forms."
+    ),
+    TextConfig(
+        gutenberg_id=55731, id='hegel-fine-art-4', title='The Philosophy of Fine Art, Volume 4', author='G. W. F. Hegel',
+        translator='F. P. B. Osmaston', year='1835', category='modern',
+        description="Hegel on music and poetry, completing his philosophy of the arts."
+    ),
+    TextConfig(
         gutenberg_id=38427, id='world-as-will-and-representation', title='The World as Will and Representation', author='Arthur Schopenhauer',
         translator='R. B. Haldane and J. Kemp', year='1818', category='modern',
         description="Schopenhauer's pessimistic philosophy: the world is driven by blind will, and salvation lies in aesthetic contemplation and asceticism."
+    ),
+    TextConfig(
+        gutenberg_id=50966, id='schopenhauer-fourfold-root', title='On the Fourfold Root of the Principle of Sufficient Reason', author='Arthur Schopenhauer',
+        translator='Karl Hillebrand', year='1813', category='modern',
+        description="Schopenhauer's doctoral dissertation establishing the epistemological basis for his philosophy."
+    ),
+    TextConfig(
+        gutenberg_id=44929, id='schopenhauer-basis-morality', title='The Basis of Morality', author='Arthur Schopenhauer',
+        translator='Arthur Brodrick Bullock', year='1840', category='modern',
+        description="Schopenhauer's ethics grounding morality in compassion rather than Kantian duty."
+    ),
+    TextConfig(
+        gutenberg_id=10739, id='schopenhauer-human-nature', title='Essays of Schopenhauer: On Human Nature', author='Arthur Schopenhauer',
+        translator='T. Bailey Saunders', year='1851', category='modern',
+        description="Schopenhauer's essays on character, psychology, and the human condition."
+    ),
+    TextConfig(
+        gutenberg_id=10731, id='schopenhauer-controversy', title='The Art of Controversy', author='Arthur Schopenhauer',
+        translator='T. Bailey Saunders', year='1851', category='modern',
+        description="Schopenhauer's witty guide to winning arguments through rhetorical tricks."
+    ),
+    TextConfig(
+        gutenberg_id=10714, id='schopenhauer-literature', title='The Art of Literature', author='Arthur Schopenhauer',
+        translator='T. Bailey Saunders', year='1851', category='modern',
+        description="Schopenhauer's essays on style, authorship, and the value of reading."
+    ),
+    TextConfig(
+        gutenberg_id=10833, id='schopenhauer-religion', title='Religion: A Dialogue and Other Essays', author='Arthur Schopenhauer',
+        translator='T. Bailey Saunders', year='1851', category='modern',
+        description="Schopenhauer's dialogues and essays on religion, metaphysics, and ethics."
+    ),
+    TextConfig(
+        gutenberg_id=43544, id='schlegel-philosophy-life', title='The Philosophy of Life and Philosophy of Language', author='Friedrich Schlegel',
+        translator='A. J. W. Morrison', year='1828', category='modern',
+        description="Schlegel's lectures on the philosophy of life, consciousness, and language."
+    ),
+    TextConfig(
+        gutenberg_id=38365, id='schlegel-philosophy-history-1', title='The Philosophy of History, Volume 1', author='Friedrich Schlegel',
+        translator='James Burton Robertson', year='1829', category='modern',
+        description="Schlegel's lectures on world history from a romantic-conservative perspective."
+    ),
+    TextConfig(
+        gutenberg_id=48275, id='schlegel-philosophy-history-2', title='The Philosophy of History, Volume 2', author='Friedrich Schlegel',
+        translator='James Burton Robertson', year='1829', category='modern',
+        description="The second volume of Schlegel's philosophy of history lectures."
     ),
 ]
 
@@ -637,6 +965,189 @@ BRITISH_PHILOSOPHY = [
     ),
 ]
 
+BRITISH_IDEALISTS = [
+    TextConfig(
+        gutenberg_id=63249, id='bosanquet-state', title='The Philosophical Theory of the State', author='Bernard Bosanquet',
+        translator=None, year='1899', category='modern',
+        description="Bosanquet's idealist political philosophy defending the state as moral community."
+    ),
+    TextConfig(
+        gutenberg_id=63598, id='bosanquet-logic', title='The Essentials of Logic', author='Bernard Bosanquet',
+        translator=None, year='1895', category='modern',
+        description="Bosanquet's accessible introduction to idealist logic and judgment."
+    ),
+    TextConfig(
+        gutenberg_id=49228, id='brentano-right-wrong', title='The Origin of Our Knowledge of Right and Wrong', author='Franz Brentano',
+        translator='Cecil Hague', year='1889', category='modern',
+        description="Brentano's ethical theory grounding morality in emotive attitudes and intentionality."
+    ),
+]
+
+VICTORIAN_ESSAYISTS = [
+    TextConfig(
+        gutenberg_id=77244, id='arnold-essays-criticism', title='Essays in Criticism', author='Matthew Arnold',
+        translator=None, year='1865', category='modern',
+        description="Arnold's influential literary criticism establishing the function of criticism at the present time."
+    ),
+    TextConfig(
+        gutenberg_id=2940, id='huxley-evolution-ethics', title='Evolution and Ethics and Other Essays', author='Thomas Henry Huxley',
+        translator=None, year='1893', category='modern',
+        description="Huxley's lectures on evolutionary ethics and the cosmic versus ethical process."
+    ),
+    TextConfig(
+        gutenberg_id=52344, id='huxley-science-culture', title='Science and Culture and Other Essays', author='Thomas Henry Huxley',
+        translator=None, year='1881', category='modern',
+        description="Huxley's essays defending scientific education and the scientific worldview."
+    ),
+    TextConfig(
+        gutenberg_id=16729, id='huxley-lay-sermons', title='Lay Sermons, Addresses and Reviews', author='Thomas Henry Huxley',
+        translator=None, year='1870', category='modern',
+        description="Huxley's popular essays on science, education, and the improvement of natural knowledge."
+    ),
+    TextConfig(
+        gutenberg_id=1051, id='carlyle-sartor', title='Sartor Resartus', author='Thomas Carlyle',
+        translator=None, year='1833', category='modern',
+        description="Carlyle's idiosyncratic philosophical work on clothes as symbols and the philosophy of life."
+    ),
+    TextConfig(
+        gutenberg_id=26159, id='carlyle-past-present', title='Past and Present', author='Thomas Carlyle',
+        translator=None, year='1843', category='modern',
+        description="Carlyle's social criticism contrasting medieval community with industrial capitalism."
+    ),
+    TextConfig(
+        gutenberg_id=1140, id='carlyle-pamphlets', title='Latter-Day Pamphlets', author='Thomas Carlyle',
+        translator=None, year='1850', category='modern',
+        description="Carlyle's polemical essays attacking democracy, philanthropy, and modern liberalism."
+    ),
+    TextConfig(
+        gutenberg_id=3020, id='hazlitt-table-talk', title='Table Talk', author='William Hazlitt',
+        translator=None, year='1821', category='modern',
+        description="Hazlitt's brilliant essays on literature, art, and human nature."
+    ),
+    TextConfig(
+        gutenberg_id=4037, id='pater-appreciations', title='Appreciations, with an Essay on Style', author='Walter Pater',
+        translator=None, year='1889', category='modern',
+        description="Pater's aesthetic criticism on Wordsworth, Coleridge, Lamb, and the nature of literary style."
+    ),
+    TextConfig(
+        gutenberg_id=4035, id='pater-greek-studies', title='Greek Studies', author='Walter Pater',
+        translator=None, year='1895', category='modern',
+        description="Pater's essays on Greek religion, myth, and art as expressions of aesthetic culture."
+    ),
+]
+
+BURKE = [
+    TextConfig(
+        gutenberg_id=15043, id='burke-works-1', title='The Works of Edmund Burke, Volume 1', author='Edmund Burke',
+        translator=None, year='Various', category='enlightenment',
+        description="Burke's collected works including speeches on American taxation and conciliation."
+    ),
+    TextConfig(
+        gutenberg_id=15198, id='burke-works-2', title='The Works of Edmund Burke, Volume 2', author='Edmund Burke',
+        translator=None, year='Various', category='enlightenment',
+        description="Burke's works on the French Revolution and political philosophy."
+    ),
+    TextConfig(
+        gutenberg_id=15679, id='burke-works-3', title='The Works of Edmund Burke, Volume 3', author='Edmund Burke',
+        translator=None, year='Various', category='enlightenment',
+        description="Burke's works including speeches on India and the impeachment of Warren Hastings."
+    ),
+    TextConfig(
+        gutenberg_id=15700, id='burke-works-4', title='The Works of Edmund Burke, Volume 4', author='Edmund Burke',
+        translator=None, year='Various', category='enlightenment',
+        description="Burke's works on Ireland and parliamentary reform."
+    ),
+    TextConfig(
+        gutenberg_id=15701, id='burke-works-5', title='The Works of Edmund Burke, Volume 5', author='Edmund Burke',
+        translator=None, year='Various', category='enlightenment',
+        description="Burke's works including correspondence and biographical materials."
+    ),
+    TextConfig(
+        gutenberg_id=2173, id='burke-discontents', title='Thoughts on the Cause of the Present Discontents', author='Edmund Burke',
+        translator=None, year='1770', category='enlightenment',
+        description="Burke's defense of party politics and criticism of royal influence on Parliament."
+    ),
+]
+
+AESTHETICS = [
+    TextConfig(
+        gutenberg_id=6798, id='schiller-aesthetical', title='Aesthetical Essays', author='Friedrich Schiller',
+        translator=None, year='Various', category='modern',
+        description="Schiller's essays on aesthetic education and the harmony of sense and reason."
+    ),
+    TextConfig(
+        gutenberg_id=73078, id='lessing-laocoon', title='Laocoon: An Essay on the Limits of Painting and Poetry', author='Gotthold Ephraim Lessing',
+        translator='Ellen Frothingham', year='1766', category='enlightenment',
+        description="Lessing's influential analysis distinguishing the proper domains of visual and literary arts."
+    ),
+    TextConfig(
+        gutenberg_id=64908, id='tolstoy-what-is-art', title='What is Art?', author='Leo Tolstoy',
+        translator='Aylmer Maude', year='1897', category='modern',
+        description="Tolstoy's radical critique of aestheticism, arguing art should unite humanity through sincere emotion."
+    ),
+]
+
+SPENCER_COMPLETE = [
+    TextConfig(
+        gutenberg_id=29869, id='spencer-essays-1', title='Essays: Scientific, Political, and Speculative, Volume 1', author='Herbert Spencer',
+        translator=None, year='1858', category='modern',
+        description="Spencer's essays on evolution, psychology, and the philosophy of science."
+    ),
+    TextConfig(
+        gutenberg_id=53395, id='spencer-essays-2', title='Essays: Scientific, Political, and Speculative, Volume 2', author='Herbert Spencer',
+        translator=None, year='1863', category='modern',
+        description="Spencer's essays on social evolution, morality, and political philosophy."
+    ),
+    TextConfig(
+        gutenberg_id=54076, id='spencer-essays-3', title='Essays: Scientific, Political, and Speculative, Volume 3', author='Herbert Spencer',
+        translator=None, year='1874', category='modern',
+        description="Spencer's later essays on ethics, sociology, and the limits of state action."
+    ),
+    TextConfig(
+        gutenberg_id=16510, id='spencer-education', title='Essays on Education and Kindred Subjects', author='Herbert Spencer',
+        translator=None, year='1861', category='modern',
+        description="Spencer's influential essays on intellectual, moral, and physical education."
+    ),
+    TextConfig(
+        gutenberg_id=5849, id='spencer-style', title='The Philosophy of Style', author='Herbert Spencer',
+        translator=None, year='1852', category='modern',
+        description="Spencer's essay analyzing the principles of effective writing and communication."
+    ),
+    TextConfig(
+        gutenberg_id=46129, id='spencer-data-ethics', title='The Data of Ethics', author='Herbert Spencer',
+        translator=None, year='1879', category='modern',
+        description="Spencer's evolutionary ethics deriving moral principles from biological and social evolution."
+    ),
+]
+
+CROCE = [
+    TextConfig(
+        gutenberg_id=54618, id='croce-aesthetic', title='Aesthetic as Science of Expression and General Linguistic', author='Benedetto Croce',
+        translator='Douglas Ainslie', year='1902', category='modern',
+        description="Croce's foundational work on aesthetics, identifying art with intuitive expression."
+    ),
+    TextConfig(
+        gutenberg_id=52814, id='croce-vico', title='The Philosophy of Giambattista Vico', author='Benedetto Croce',
+        translator='R. G. Collingwood', year='1911', category='modern',
+        description="Croce's interpretation of Vico as the founder of the philosophy of history."
+    ),
+    TextConfig(
+        gutenberg_id=54642, id='croce-historiography', title='Theory and History of Historiography', author='Benedetto Croce',
+        translator='Douglas Ainslie', year='1917', category='modern',
+        description="Croce's philosophy of history arguing all history is contemporary history."
+    ),
+    TextConfig(
+        gutenberg_id=54137, id='croce-logic', title='Logic as the Science of the Pure Concept', author='Benedetto Croce',
+        translator='Douglas Ainslie', year='1909', category='modern',
+        description="Croce's idealist logic identifying concepts with the development of spirit."
+    ),
+    TextConfig(
+        gutenberg_id=54938, id='croce-practical', title='Philosophy of the Practical', author='Benedetto Croce',
+        translator='Douglas Ainslie', year='1909', category='modern',
+        description="Croce's philosophy of economics and ethics as forms of practical activity."
+    ),
+]
+
 POLITICAL_ECONOMIC = [
     TextConfig(
         gutenberg_id=61, id='communist-manifesto', title='The Communist Manifesto', author='Karl Marx and Friedrich Engels',
@@ -703,6 +1214,36 @@ AMERICAN_PHILOSOPHY = [
         description="Emerson's transcendentalist essays including 'Self-Reliance,' 'The Over-Soul,' and 'Circles.'"
     ),
     TextConfig(
+        gutenberg_id=29433, id='emerson-nature', title='Nature', author='Ralph Waldo Emerson',
+        translator=None, year='1836', category='modern',
+        description="Emerson's foundational transcendentalist essay on nature, spirit, and the correspondence between mind and world."
+    ),
+    TextConfig(
+        gutenberg_id=2944, id='emerson-essays-1', title='Essays: First Series', author='Ralph Waldo Emerson',
+        translator=None, year='1841', category='modern',
+        description="Emerson's first essay collection including Self-Reliance, Compensation, and Spiritual Laws."
+    ),
+    TextConfig(
+        gutenberg_id=2945, id='emerson-essays-2', title='Essays: Second Series', author='Ralph Waldo Emerson',
+        translator=None, year='1844', category='modern',
+        description="Emerson's second collection including The Poet, Experience, and Manners."
+    ),
+    TextConfig(
+        gutenberg_id=39827, id='emerson-conduct-life', title='The Conduct of Life', author='Ralph Waldo Emerson',
+        translator=None, year='1860', category='modern',
+        description="Emerson's mature wisdom on fate, power, wealth, culture, and behavior."
+    ),
+    TextConfig(
+        gutenberg_id=69258, id='emerson-society-solitude', title='Society and Solitude', author='Ralph Waldo Emerson',
+        translator=None, year='1870', category='modern',
+        description="Emerson's late essays on domestic life, books, eloquence, and the balance of society and solitude."
+    ),
+    TextConfig(
+        gutenberg_id=6312, id='emerson-representative-men', title='Representative Men', author='Ralph Waldo Emerson',
+        translator=None, year='1850', category='modern',
+        description="Emerson's lectures on Plato, Swedenborg, Montaigne, Shakespeare, Napoleon, and Goethe."
+    ),
+    TextConfig(
         gutenberg_id=205, id='walden', title='Walden', author='Henry David Thoreau',
         translator=None, year='1854', category='modern',
         description="Thoreau's transcendentalist masterpiece on simple living, self-reliance, and communion with nature."
@@ -711,6 +1252,26 @@ AMERICAN_PHILOSOPHY = [
         gutenberg_id=71, id='civil-disobedience', title='On the Duty of Civil Disobedience', author='Henry David Thoreau',
         translator=None, year='1849', category='modern',
         description="Thoreau's influential essay on resistance to unjust government, inspiring Gandhi and MLK."
+    ),
+    TextConfig(
+        gutenberg_id=1022, id='thoreau-walking', title='Walking', author='Henry David Thoreau',
+        translator=None, year='1862', category='modern',
+        description="Thoreau's essay celebrating wildness and the art of walking as spiritual practice."
+    ),
+    TextConfig(
+        gutenberg_id=42500, id='thoreau-maine-woods', title='The Maine Woods', author='Henry David Thoreau',
+        translator=None, year='1864', category='modern',
+        description="Thoreau's account of three journeys into the Maine wilderness, exploring nature and Native American life."
+    ),
+    TextConfig(
+        gutenberg_id=34392, id='thoreau-cape-cod', title='Cape Cod', author='Henry David Thoreau',
+        translator=None, year='1865', category='modern',
+        description="Thoreau's observations on Cape Cod's landscape, history, and people."
+    ),
+    TextConfig(
+        gutenberg_id=4232, id='thoreau-week-concord', title='A Week on the Concord and Merrimack Rivers', author='Henry David Thoreau',
+        translator=None, year='1849', category='modern',
+        description="Thoreau's first book, a blend of travel narrative, natural history, and philosophy."
     ),
     TextConfig(
         gutenberg_id=5116, id='pragmatism', title='Pragmatism', author='William James',
@@ -731,6 +1292,36 @@ AMERICAN_PHILOSOPHY = [
         gutenberg_id=15000, id='life-of-reason', title='The Life of Reason', author='George Santayana',
         translator=None, year='1905', category='modern',
         description="Santayana's naturalistic philosophy examining reason's role in common sense, society, religion, art, and science."
+    ),
+    TextConfig(
+        gutenberg_id=26659, id='james-will-to-believe', title='The Will to Believe', author='William James',
+        translator=None, year='1896', category='modern',
+        description="James's essays defending the right to believe in the absence of decisive evidence."
+    ),
+    TextConfig(
+        gutenberg_id=33677, id='royce-religious-insight', title='The Sources of Religious Insight', author='Josiah Royce',
+        translator=None, year='1912', category='modern',
+        description="Royce's lectures on the psychology and philosophy of religious experience."
+    ),
+    TextConfig(
+        gutenberg_id=26842, id='santayana-sense-beauty', title='The Sense of Beauty', author='George Santayana',
+        translator=None, year='1896', category='modern',
+        description="Santayana's aesthetic theory defining beauty as objectified pleasure."
+    ),
+    TextConfig(
+        gutenberg_id=35612, id='santayana-three-poets', title='Three Philosophical Poets', author='George Santayana',
+        translator=None, year='1910', category='modern',
+        description="Santayana's literary-philosophical study of Lucretius, Dante, and Goethe."
+    ),
+    TextConfig(
+        gutenberg_id=48429, id='santayana-soliloquies', title='Soliloquies in England', author='George Santayana',
+        translator=None, year='1922', category='modern',
+        description="Santayana's reflections on English culture, democracy, and the spiritual life."
+    ),
+    TextConfig(
+        gutenberg_id=34654, id='santayana-character-opinion', title='Character and Opinion in the United States', author='George Santayana',
+        translator=None, year='1920', category='modern',
+        description="Santayana's cultural criticism of American intellectual and social life."
     ),
     TextConfig(
         gutenberg_id=65274, id='chance-love-and-logic', title='Chance, Love, and Logic', author='Charles Sanders Peirce',
@@ -791,6 +1382,41 @@ CONFUCIAN = [
         gutenberg_id=3100, id='chinese-classics', title='The Chinese Classics', author='Various',
         translator='James Legge', year='various', category='chinese',
         description="Legge's comprehensive translation of the Four Books and Five Classics of Confucian philosophy."
+    ),
+    TextConfig(
+        gutenberg_id=25142, id='wang-yangming-works', title='The Philosophy of Wang Yang-ming', author='Wang Yangming',
+        translator='Frederick Goodrich Henke', year='c. 1520', category='chinese',
+        description="Wang Yangming's Neo-Confucian philosophy emphasizing innate moral knowledge and unity of knowledge and action."
+    ),
+    TextConfig(
+        gutenberg_id=25517, id='wang-yangming-instructions', title='Instructions for Practical Living', author='Wang Yangming',
+        translator='Wing-tsit Chan', year='c. 1520', category='chinese',
+        description="Wang Yangming's teachings on moral cultivation and the extension of innate knowledge."
+    ),
+    TextConfig(
+        gutenberg_id=24178, id='mencius', title='The Works of Mencius', author='Mencius',
+        translator='James Legge', year='c. 300 BCE', category='chinese',
+        description="Mencius's development of Confucian philosophy, arguing for innate human goodness."
+    ),
+    TextConfig(
+        gutenberg_id=25314, id='xunzi', title='The Works of Hsüntze', author='Xunzi',
+        translator='Homer H. Dubs', year='c. 250 BCE', category='chinese',
+        description="Xunzi's Confucian philosophy arguing humans are naturally selfish and require cultivation."
+    ),
+    TextConfig(
+        gutenberg_id=24240, id='mozi', title='The Ethical and Political Works of Motse', author='Mozi',
+        translator='Yi-pao Mei', year='c. 400 BCE', category='chinese',
+        description="Mozi's universal love, anti-war philosophy, and utilitarian ethics critiquing Confucian ritual."
+    ),
+    TextConfig(
+        gutenberg_id=24049, id='han-feizi', title='The Complete Works of Han Fei Tzu', author='Han Feizi',
+        translator='W. K. Liao', year='c. 230 BCE', category='chinese',
+        description="Han Feizi's Legalist political philosophy emphasizing law, technique, and authority."
+    ),
+    TextConfig(
+        gutenberg_id=7341, id='liezi', title='Lieh-tzu', author='Liezi',
+        translator='Lionel Giles', year='c. 400 BCE', category='chinese',
+        description="The Taoist classic on fate, destiny, and living in harmony with the natural order."
     ),
 ]
 
@@ -1050,6 +1676,31 @@ ISLAMIC_PHILOSOPHY = [
         translator='Edward Abbott van Dyck', year='c. 11th century', category='sufi',
         description="The great Islamic philosopher's treatise on psychology, consciousness, and the nature of the soul."
     ),
+    TextConfig(
+        gutenberg_id=65708, id='averroes-philosophy', title='Averroes: Philosophy and Theology of Averroes', author='Averroes (Ibn Rushd)',
+        translator='Mohammad Jamil-ur-Rehman', year='c. 1180', category='medieval',
+        description="Averroes on the harmony between philosophy and Islamic theology, influential for medieval Scholasticism."
+    ),
+    TextConfig(
+        gutenberg_id=58977, id='ghazali-confessions', title="Al-Ghazali's Confessions", author='Al-Ghazali',
+        translator='Claud Field', year='c. 1100', category='medieval',
+        description="Al-Ghazali's spiritual autobiography describing his crisis of faith and turn to Sufism."
+    ),
+    TextConfig(
+        gutenberg_id=73140, id='ghazali-teachings', title='The Religious and Moral Teachings of Al-Ghazali', author='Al-Ghazali',
+        translator='Syed Nawab Ali', year='c. 1100', category='medieval',
+        description="Al-Ghazali's ethical teachings integrating Islamic law, philosophy, and Sufi spirituality."
+    ),
+    TextConfig(
+        gutenberg_id=16831, id='ibn-tufail-reason', title='The Improvement of Human Reason', author='Ibn Tufail',
+        translator='Simon Ockley', year='c. 1160', category='medieval',
+        description="Philosophical novel about Hayy ibn Yaqzan discovering truth through reason alone on a deserted island."
+    ),
+    TextConfig(
+        gutenberg_id=34572, id='ibn-tufail-awakening', title='The Awakening of the Soul', author='Ibn Tufail',
+        translator='Paul Bronnle', year='c. 1160', category='medieval',
+        description="Alternative translation of Ibn Tufail's philosophical tale of natural human enlightenment."
+    ),
 ]
 
 # =============================================================================
@@ -1064,6 +1715,367 @@ EASTERN_COMPARATIVE = [
     ),
 ]
 
+ESSAY_COLLECTIONS = [
+    TextConfig(
+        gutenberg_id=575, id='bacon-essays', title='The Essays or Counsels, Civil and Moral', author='Francis Bacon',
+        translator=None, year='1625', category='enlightenment',
+        description="Bacon's practical wisdom essays on truth, death, revenge, adversity, gardens, and studies."
+    ),
+    TextConfig(
+        gutenberg_id=147, id='paine-common-sense', title='Common Sense', author='Thomas Paine',
+        translator=None, year='1776', category='enlightenment',
+        description="Paine's revolutionary pamphlet arguing for American independence from Britain."
+    ),
+    TextConfig(
+        gutenberg_id=743, id='godwin-thoughts-man', title='Thoughts on Man', author='William Godwin',
+        translator=None, year='1831', category='modern',
+        description="Godwin's essays on human nature, politics, and society from the anarchist pioneer."
+    ),
+    TextConfig(
+        gutenberg_id=73959, id='pascal-provincial-letters', title='The Provincial Letters', author='Blaise Pascal',
+        translator="Thomas M'Crie", year='1656', category='enlightenment',
+        description="Pascal's satirical attack on Jesuit casuistry, a masterpiece of French prose."
+    ),
+    TextConfig(
+        gutenberg_id=58559, id='smith-essays', title='Essays of Adam Smith', author='Adam Smith',
+        translator=None, year='Various', category='enlightenment',
+        description="Smith's philosophical essays on the imitative arts, language, and astronomy."
+    ),
+]
+
+WOMEN_PHILOSOPHERS = [
+    TextConfig(
+        gutenberg_id=73404, id='taylor-mill-enfranchisement', title='Enfranchisement of Women', author='Harriet Taylor Mill',
+        translator=None, year='1851', category='modern',
+        description="Harriet Taylor Mill's argument for women's political rights and economic independence."
+    ),
+]
+
+REFERENCE_WORKS = [
+    TextConfig(
+        gutenberg_id=25009, id='worlds-greatest-philosophy', title="The World's Greatest Books: Philosophy and Economics", author='Various',
+        translator=None, year='Various', category='modern',
+        description="Anthology of summaries of major philosophical works for general readers."
+    ),
+]
+
+SUFI_ADDITIONAL = [
+    TextConfig(
+        gutenberg_id=61724, id='rumi-mesnevi', title='The Mesnevi', author='Jalal al-Din Rumi',
+        translator='E. H. Whinfield', year='c. 1260', category='sufi',
+        description="Rumi's spiritual epic poem teaching Sufi wisdom through stories and parables."
+    ),
+]
+
+# =============================================================================
+# EARLY 20TH CENTURY / ANALYTIC PHILOSOPHY
+# =============================================================================
+
+RUSSELL = [
+    TextConfig(
+        gutenberg_id=5827, id='problems-of-philosophy', title='The Problems of Philosophy', author='Bertrand Russell',
+        translator=None, year='1912', category='modern',
+        description="Russell's accessible introduction to philosophy, exploring knowledge, reality, and the limits of philosophical inquiry."
+    ),
+    TextConfig(
+        gutenberg_id=2529, id='analysis-of-mind', title='The Analysis of Mind', author='Bertrand Russell',
+        translator=None, year='1921', category='modern',
+        description="Russell's lectures exploring the nature of mind, consciousness, and the relationship between psychology and physics."
+    ),
+    TextConfig(
+        gutenberg_id=25447, id='mysticism-and-logic', title='Mysticism and Logic', author='Bertrand Russell',
+        translator=None, year='1918', category='modern',
+        description="Essays contrasting mystical and scientific approaches to reality, including 'A Free Man's Worship.'"
+    ),
+    TextConfig(
+        gutenberg_id=37090, id='knowledge-external-world', title='Our Knowledge of the External World', author='Bertrand Russell',
+        translator=None, year='1914', category='modern',
+        description="Russell applies logical analysis to epistemological problems, demonstrating the scientific method in philosophy."
+    ),
+    # NOTE: No plain text available - needs HTML/EPUB parsing
+    # TextConfig(
+    #     gutenberg_id=41654, id='intro-mathematical-philosophy', title='Introduction to Mathematical Philosophy', author='Bertrand Russell',
+    #     translator=None, year='1919', category='modern',
+    #     description="Russell's accessible explanation of the logical foundations of mathematics, written while imprisoned for pacifism."
+    # ),
+    TextConfig(
+        gutenberg_id=690, id='proposed-roads-freedom', title='Proposed Roads to Freedom', author='Bertrand Russell',
+        translator=None, year='1918', category='modern',
+        description="Russell's comparative analysis of socialism, anarchism, and syndicalism as paths to social reform."
+    ),
+    TextConfig(
+        gutenberg_id=4776, id='political-ideals', title='Political Ideals', author='Bertrand Russell',
+        translator=None, year='1917', category='modern',
+        description="Russell's vision for political and economic reform, emphasizing individual liberty and creative impulses."
+    ),
+    TextConfig(
+        gutenberg_id=55610, id='why-men-fight', title='Why Men Fight', author='Bertrand Russell',
+        translator=None, year='1917', category='modern',
+        description="Russell's analysis of the psychological and social causes of war, written during World War I."
+    ),
+    TextConfig(
+        gutenberg_id=73782, id='what-i-believe', title='What I Believe', author='Bertrand Russell',
+        translator=None, year='1925', category='modern',
+        description="Russell's concise statement of his philosophical and ethical views on life, morality, and human values."
+    ),
+    TextConfig(
+        gutenberg_id=67104, id='abc-relativity', title='The A B C of Relativity', author='Bertrand Russell',
+        translator=None, year='1925', category='modern',
+        description="Russell's lucid explanation of Einstein's theory of relativity for general readers."
+    ),
+    TextConfig(
+        gutenberg_id=77894, id='conquest-happiness', title='The Conquest of Happiness', author='Bertrand Russell',
+        translator=None, year='1930', category='modern',
+        description="Russell's practical philosophy for achieving happiness through engagement with life and overcoming self-absorption."
+    ),
+    TextConfig(
+        gutenberg_id=44932, id='free-thought-propaganda', title='Free Thought and Official Propaganda', author='Bertrand Russell',
+        translator=None, year='1922', category='modern',
+        description="Russell's defense of free thought against propaganda, censorship, and institutional control of ideas."
+    ),
+    TextConfig(
+        gutenberg_id=13940, id='problem-of-china', title='The Problem of China', author='Bertrand Russell',
+        translator=None, year='1922', category='modern',
+        description="Russell's analysis of Chinese civilization, politics, and the challenges of modernization after visiting China."
+    ),
+    TextConfig(
+        gutenberg_id=17350, id='practice-theory-bolshevism', title='The Practice and Theory of Bolshevism', author='Bertrand Russell',
+        translator=None, year='1920', category='modern',
+        description="Russell's critical assessment of Soviet communism based on his visit to Russia, sympathetic yet honest."
+    ),
+    TextConfig(
+        gutenberg_id=52091, id='foundations-geometry', title='An Essay on the Foundations of Geometry', author='Bertrand Russell',
+        translator=None, year='1897', category='modern',
+        description="Russell's early work examining the philosophical foundations of geometry and spatial reasoning."
+    ),
+    TextConfig(
+        gutenberg_id=72981, id='philosophy-russell', title='Philosophy', author='Bertrand Russell',
+        translator=None, year='1927', category='modern',
+        description="Russell's overview of philosophy's nature, methods, and value for the general reader."
+    ),
+    TextConfig(
+        gutenberg_id=70302, id='education-good-life', title='Education and the Good Life', author='Bertrand Russell',
+        translator=None, year='1926', category='modern',
+        description="Russell's philosophy of education, advocating for intellectual freedom and the development of character."
+    ),
+    TextConfig(
+        gutenberg_id=66225, id='icarus', title='Icarus, or The Future of Science', author='Bertrand Russell',
+        translator=None, year='1924', category='modern',
+        description="Russell's warning about the dangers of scientific progress without ethical guidance."
+    ),
+    # NOTE: No plain text available - needs HTML/EPUB parsing
+    # TextConfig(
+    #     gutenberg_id=77427, id='analysis-matter', title='The Analysis of Matter', author='Bertrand Russell',
+    #     translator=None, year='1927', category='modern',
+    #     description="Russell's examination of the philosophical implications of modern physics for our understanding of matter."
+    # ),
+    # NOTE: No plain text available - needs HTML/EPUB parsing
+    # TextConfig(
+    #     gutenberg_id=72875, id='abc-atoms', title='The A B C of Atoms', author='Bertrand Russell',
+    #     translator=None, year='1923', category='modern',
+    #     description="Russell's accessible introduction to atomic theory and its philosophical implications."
+    # ),
+]
+
+WITTGENSTEIN = [
+    # NOTE: No plain text available - only PDF/TeX due to logical notation
+    # TextConfig(
+    #     gutenberg_id=5740, id='tractatus', title='Tractatus Logico-Philosophicus', author='Ludwig Wittgenstein',
+    #     translator='C. K. Ogden', year='1921', category='modern',
+    #     description="Wittgenstein's early masterwork on the limits of language, logic, and what can be said versus shown."
+    # ),
+]
+
+MOORE = [
+    TextConfig(
+        gutenberg_id=53430, id='principia-ethica', title='Principia Ethica', author='G. E. Moore',
+        translator=None, year='1903', category='modern',
+        description="Moore's foundational work in analytic ethics, introducing the open question argument against naturalism."
+    ),
+    TextConfig(
+        gutenberg_id=50141, id='philosophical-studies', title='Philosophical Studies', author='G. E. Moore',
+        translator=None, year='1922', category='modern',
+        description="Moore's collected essays on ethics, epistemology, and metaphysics, exemplifying analytic philosophy's methods."
+    ),
+]
+
+WHITEHEAD = [
+    TextConfig(
+        gutenberg_id=68611, id='science-modern-world', title='Science and the Modern World', author='Alfred North Whitehead',
+        translator=None, year='1925', category='modern',
+        description="Whitehead's influential analysis of the rise of modern science and its impact on civilization."
+    ),
+    TextConfig(
+        gutenberg_id=18835, id='concept-nature', title='The Concept of Nature', author='Alfred North Whitehead',
+        translator=None, year='1920', category='modern',
+        description="Whitehead's philosophy of nature, examining time, space, and the objects of scientific knowledge."
+    ),
+    # NOTE: No plain text available - needs HTML/EPUB parsing
+    # TextConfig(
+    #     gutenberg_id=71026, id='enquiry-natural-knowledge', title='An Enquiry Concerning the Principles of Natural Knowledge', author='Alfred North Whitehead',
+    #     translator=None, year='1919', category='modern',
+    #     description="Whitehead's technical investigation of the foundations of natural science and perception."
+    # ),
+    TextConfig(
+        gutenberg_id=77011, id='organisation-thought', title='The Organisation of Thought', author='Alfred North Whitehead',
+        translator=None, year='1917', category='modern',
+        description="Whitehead's essays on education, logic, and the organization of scientific thinking."
+    ),
+]
+
+BERGSON = [
+    TextConfig(
+        gutenberg_id=26163, id='creative-evolution', title='Creative Evolution', author='Henri Bergson',
+        translator='Arthur Mitchell', year='1907', category='modern',
+        description="Bergson's influential theory of the élan vital, critiquing mechanism and finalism in understanding life."
+    ),
+    TextConfig(
+        gutenberg_id=56852, id='time-free-will', title='Time and Free Will', author='Henri Bergson',
+        translator='F. L. Pogson', year='1889', category='modern',
+        description="Bergson's doctoral thesis introducing the concept of duration and defending free will against determinism."
+    ),
+    TextConfig(
+        gutenberg_id=4352, id='laughter', title='Laughter: An Essay on the Meaning of the Comic', author='Henri Bergson',
+        translator='Cloudesley Brereton', year='1900', category='modern',
+        description="Bergson's analysis of comedy and why we laugh, exploring the mechanical encrusted on the living."
+    ),
+    TextConfig(
+        gutenberg_id=20842, id='dreams-bergson', title='Dreams', author='Henri Bergson',
+        translator='Edwin E. Slosson', year='1914', category='modern',
+        description="Bergson's exploration of dream states and their relation to memory and perception."
+    ),
+    TextConfig(
+        gutenberg_id=17111, id='meaning-of-war', title='The Meaning of the War', author='Henri Bergson',
+        translator=None, year='1915', category='modern',
+        description="Bergson's philosophical interpretation of World War I as a conflict of cultures and ideals."
+    ),
+]
+
+DEWEY_ADDITIONAL = [
+    TextConfig(
+        gutenberg_id=37423, id='how-we-think', title='How We Think', author='John Dewey',
+        translator=None, year='1910', category='modern',
+        description="Dewey's influential analysis of reflective thinking and its cultivation through education."
+    ),
+    TextConfig(
+        gutenberg_id=41386, id='human-nature-conduct', title='Human Nature and Conduct', author='John Dewey',
+        translator=None, year='1922', category='modern',
+        description="Dewey's social psychology examining habit, impulse, and intelligence in human conduct."
+    ),
+    TextConfig(
+        gutenberg_id=71000, id='public-problems', title='The Public and Its Problems', author='John Dewey',
+        translator=None, year='1927', category='modern',
+        description="Dewey's analysis of democracy, public discourse, and the conditions for effective political participation."
+    ),
+    TextConfig(
+        gutenberg_id=40089, id='reconstruction-philosophy', title='Reconstruction in Philosophy', author='John Dewey',
+        translator=None, year='1920', category='modern',
+        description="Dewey's pragmatist critique of traditional philosophy and vision for its reconstruction."
+    ),
+    TextConfig(
+        gutenberg_id=39551, id='ethics-dewey', title='Ethics', author='John Dewey and James H. Tufts',
+        translator=None, year='1908', category='modern',
+        description="Dewey's comprehensive ethics textbook examining moral development, theory, and social problems."
+    ),
+    TextConfig(
+        gutenberg_id=53910, id='school-society', title='The School and Society', author='John Dewey',
+        translator=None, year='1899', category='modern',
+        description="Dewey's foundational work on progressive education and the school as a social institution."
+    ),
+    TextConfig(
+        gutenberg_id=51525, id='influence-darwin', title='The Influence of Darwin on Philosophy', author='John Dewey',
+        translator=None, year='1910', category='modern',
+        description="Essays on how evolutionary thinking transformed philosophy, logic, and moral theory."
+    ),
+    TextConfig(
+        gutenberg_id=40794, id='essays-experimental-logic', title='Essays in Experimental Logic', author='John Dewey',
+        translator=None, year='1916', category='modern',
+        description="Dewey's essays developing his instrumentalist theory of inquiry and logical theory."
+    ),
+    TextConfig(
+        gutenberg_id=40665, id='studies-logical-theory', title='Studies in Logical Theory', author='John Dewey',
+        translator=None, year='1903', category='modern',
+        description="Early essays by Dewey and colleagues developing the Chicago school's pragmatist logic."
+    ),
+    TextConfig(
+        gutenberg_id=42208, id='german-philosophy-politics', title='German Philosophy and Politics', author='John Dewey',
+        translator=None, year='1915', category='modern',
+        description="Dewey's analysis of how German idealist philosophy influenced political thought and nationalism."
+    ),
+    TextConfig(
+        gutenberg_id=33727, id='creative-intelligence', title='Creative Intelligence', author='John Dewey and others',
+        translator=None, year='1917', category='modern',
+        description="Essays by Dewey and colleagues presenting pragmatism's approach to intelligence and inquiry."
+    ),
+    TextConfig(
+        gutenberg_id=25172, id='moral-principles-education', title='Moral Principles in Education', author='John Dewey',
+        translator=None, year='1909', category='modern',
+        description="Dewey's essay on developing moral character through education and social experience."
+    ),
+    TextConfig(
+        gutenberg_id=29259, id='child-curriculum', title='The Child and the Curriculum', author='John Dewey',
+        translator=None, year='1902', category='modern',
+        description="Dewey's reconciliation of child-centered and curriculum-centered approaches to education."
+    ),
+    TextConfig(
+        gutenberg_id=60422, id='outlines-critical-ethics', title='Outlines of a Critical Theory of Ethics', author='John Dewey',
+        translator=None, year='1891', category='modern',
+        description="Dewey's early systematic treatment of ethics, showing his development toward pragmatism."
+    ),
+    TextConfig(
+        gutenberg_id=48906, id='schools-tomorrow', title='Schools of To-morrow', author='John Dewey and Evelyn Dewey',
+        translator=None, year='1915', category='modern',
+        description="Survey of progressive school experiments putting Dewey's educational philosophy into practice."
+    ),
+]
+
+PHILOSOPHY_OF_SCIENCE = [
+    TextConfig(
+        gutenberg_id=39713, id='foundations-science', title='The Foundations of Science', author='Henri Poincaré',
+        translator='George Bruce Halsted', year='1913', category='modern',
+        description="Poincaré's collected philosophy of science works examining the nature of scientific knowledge."
+    ),
+    # NOTE: No plain text available - only PDF/TeX due to mathematical notation
+    # TextConfig(
+    #     gutenberg_id=37157, id='science-hypothesis', title='Science and Hypothesis', author='Henri Poincaré',
+    #     translator='William John Greenstreet', year='1902', category='modern',
+    #     description="Poincaré's influential analysis of the role of hypothesis and convention in scientific theory."
+    # ),
+    TextConfig(
+        gutenberg_id=68693, id='history-inductive-sciences', title='History of the Inductive Sciences', author='William Whewell',
+        translator=None, year='1837', category='modern',
+        description="Whewell's comprehensive history of scientific method and discovery across the natural sciences."
+    ),
+    TextConfig(
+        gutenberg_id=51555, id='philosophy-discovery', title='The Philosophy of Discovery', author='William Whewell',
+        translator=None, year='1860', category='modern',
+        description="Whewell's analysis of how scientific discoveries are made and the nature of scientific creativity."
+    ),
+    TextConfig(
+        gutenberg_id=69764, id='novum-organon-renovatum', title='Novum Organon Renovatum', author='William Whewell',
+        translator=None, year='1858', category='modern',
+        description="Whewell's update to Bacon's method, presenting his philosophy of inductive science."
+    ),
+    TextConfig(
+        gutenberg_id=54897, id='preliminary-discourse', title='A Preliminary Discourse on the Study of Natural Philosophy', author='John Herschel',
+        translator=None, year='1831', category='modern',
+        description="Herschel's influential introduction to scientific method that shaped Victorian science."
+    ),
+]
+
+PSYCHOLOGY_PHILOSOPHY = [
+    TextConfig(
+        gutenberg_id=44138, id='folk-psychology', title='Elements of Folk Psychology', author='Wilhelm Wundt',
+        translator='Edward Leroy Schaub', year='1912', category='modern',
+        description="Wundt's social psychology examining the development of mind through language, myth, and custom."
+    ),
+    TextConfig(
+        gutenberg_id=46677, id='intro-psychology-wundt', title='An Introduction to Psychology', author='Wilhelm Wundt',
+        translator='Rudolf Pintner', year='1912', category='modern',
+        description="Wundt's accessible introduction to his experimental psychology and theory of mind."
+    ),
+]
+
 # =============================================================================
 # COMBINED LIST
 # =============================================================================
@@ -1073,6 +2085,10 @@ ALL_TEXTS = (
     ARISTOTLE +
     STOICS +
     EPICUREANS_AND_OTHERS +
+    SKEPTICS_AND_PRESOCRATICS +
+    STOICS_ADDITIONAL +
+    PLUTARCH +
+    RENAISSANCE +
     MEDIEVAL +
     BACON +
     RATIONALISTS +
@@ -1080,10 +2096,20 @@ ALL_TEXTS = (
     KANT +
     POLITICAL_PHILOSOPHY +
     OTHER_ENLIGHTENMENT +
+    FRENCH_MATERIALISTS +
+    FRENCH_MORALISTS +
+    SCOTTISH_ENLIGHTENMENT +
+    VOLTAIRE_ADDITIONAL +
     GERMAN_IDEALISM +
     EXISTENTIALIST_PRECURSORS +
     NIETZSCHE +
     BRITISH_PHILOSOPHY +
+    BRITISH_IDEALISTS +
+    VICTORIAN_ESSAYISTS +
+    BURKE +
+    AESTHETICS +
+    SPENCER_COMPLETE +
+    CROCE +
     POLITICAL_ECONOMIC +
     AMERICAN_PHILOSOPHY +
     # Eastern Philosophy
@@ -1098,8 +2124,21 @@ ALL_TEXTS = (
     BUDDHIST_ZEN +
     BUDDHIST_STUDIES +
     SUFI +
+    SUFI_ADDITIONAL +
     ISLAMIC_PHILOSOPHY +
-    EASTERN_COMPARATIVE
+    EASTERN_COMPARATIVE +
+    ESSAY_COLLECTIONS +
+    WOMEN_PHILOSOPHERS +
+    REFERENCE_WORKS +
+    # Early 20th Century / Analytic Philosophy
+    RUSSELL +
+    WITTGENSTEIN +
+    MOORE +
+    WHITEHEAD +
+    BERGSON +
+    DEWEY_ADDITIONAL +
+    PHILOSOPHY_OF_SCIENCE +
+    PSYCHOLOGY_PHILOSOPHY
 )
 
 # Texts we already have (don't reimport)
