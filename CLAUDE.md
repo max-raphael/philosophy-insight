@@ -59,6 +59,7 @@ curl -X POST http://localhost:8000/reload-texts
       useDarkMode.ts      # Theme preference with system detection + localStorage
       useKeyboardShortcuts.ts  # Global keyboard shortcut handler
       useMediaQuery.ts    # Responsive breakpoint detection
+      useOnboarding.ts    # First-time user detection and onboarding state
       useTextSelection.ts # Unified mouse/touch text selection
     utils/
       formatText.tsx      # Text formatting utilities
@@ -66,6 +67,7 @@ curl -X POST http://localhost:8000/reload-texts
       collections.ts      # Curated text collections ("Start Here", eras, themes)
     pages/
       Home.tsx            # Curated discovery experience with sections
+      HowToRead.tsx       # Guide page for new users on reading philosophy
       Reader.tsx          # Reading view with TOC, controls, keyboard nav, zen mode
     components/
       Reader.tsx          # Text display with selection popup
@@ -79,8 +81,10 @@ curl -X POST http://localhost:8000/reload-texts
       MobileReaderLayout.tsx  # Mobile-specific full-screen reader
       MobileBottomSheet.tsx   # Draggable bottom sheet with snap points
       MobileHeader.tsx        # Compact mobile header
+      onboarding/
+        WelcomeModal.tsx    # First-visit welcome modal with philosophical framing
   tests/
-    ui-features.spec.ts   # Playwright E2E tests (49 tests)
+    ui-features.spec.ts   # Playwright E2E tests (62 tests)
   playwright.config.ts    # Playwright configuration
 ```
 
@@ -112,6 +116,7 @@ curl -X POST http://localhost:8000/reload-texts
   - Index: `philosophy-insight-conversations-index-{textId}` (metadata for all conversations)
   - Messages: `philosophy-insight-conversation-{textId}-{conversationId}` (actual messages)
 - Bookmarks stored globally: `philosophy-insight-bookmarks` (array of all bookmarks with text/location metadata)
+- Onboarding state: `philosophy-insight-onboarding` (tracks first visit, welcome modal seen)
 - `pendingQuote` state flows: Reader selection → App → DiscussionPanel → quote card above input
 - Streaming responses use SSE with `data: {content}` / `data: {done: true}` format
 - Theme preference persists in localStorage (`philosophy-insight-theme`)
@@ -125,6 +130,21 @@ curl -X POST http://localhost:8000/reload-texts
 CSS custom properties enable dark mode theming.
 
 ## UI Features
+
+### Onboarding
+- **Welcome Modal** - Appears on first visit to Home page
+  - Philosophical framing: "wrestle with it first" before asking for help
+  - Primary CTA dismisses modal, secondary links to How to Read guide
+  - Persists in localStorage so it only shows once
+- **How to Read page** (`/how-to-read`) - Static guide with sections:
+  - Philosophy of reading (value of struggling with difficult ideas)
+  - How selection and discussion works
+  - Tutor vs Socratic modes
+  - Bookmarks and export
+  - Keyboard shortcuts
+  - Mobile gestures
+- **Mobile hint** - Toast appears on first Reader visit: "Swipe up to discuss passages"
+- **Access points** - Footer link, keyboard shortcuts modal link, welcome modal CTA
 
 ### Dark Mode
 - Two modes: Dark (default) and Light
@@ -196,12 +216,12 @@ Mobile gets a completely different layout optimized for touch:
 Run Playwright E2E tests:
 ```bash
 cd frontend
-npm test              # Run all 55 tests headless
+npm test              # Run all 62 tests headless
 npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
 
-Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, conversations, Socratic mode, and bookmarks.
+Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, conversations, Socratic mode, bookmarks, and onboarding.
 
 ## Text Import System
 
