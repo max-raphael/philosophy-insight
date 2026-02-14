@@ -6,9 +6,13 @@ import DiscussionPanel from '../components/DiscussionPanel'
 import TableOfContents from '../components/TableOfContents'
 import ReadingControls from '../components/ReadingControls'
 import KeyboardShortcutsModal from '../components/KeyboardShortcutsModal'
+import BookmarksPanel from '../components/BookmarksPanel'
+import BookmarkModal from '../components/BookmarkModal'
 import MobileReaderLayout from '../components/MobileReaderLayout'
 import { useIsMobile } from '../hooks/useMediaQuery'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
+import { useBookmarks } from '../hooks/useBookmarks'
+import { downloadBookmarks } from '../utils/exportBookmarks'
 import { API_URL } from '../config'
 
 interface Section {
@@ -42,10 +46,14 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const [showTOC, setShowTOC] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
+  const [showBookmarks, setShowBookmarks] = useState(false)
+  const [showBookmarkModal, setShowBookmarkModal] = useState(false)
+  const [pendingBookmark, setPendingBookmark] = useState<{ text: string; location: ParagraphLocation } | null>(null)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [isZenMode, setIsZenMode] = useState(false)
   const readerRef = useRef<ReaderHandle>(null)
   const isMobile = useIsMobile()
+  const { bookmarks, addBookmark, removeBookmark, updateNote, getBookmarksForText } = useBookmarks()
 
   // Get unique books from sections
   const books = text
@@ -83,6 +91,50 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const handleQuoteUsed = useCallback(() => {
     setPendingQuote(null)
   }, [])
+
+  const handleSaveBookmark = useCallback((selectedText: string, location: ParagraphLocation) => {
+    setPendingBookmark({ text: selectedText, location })
+    setShowBookmarkModal(true)
+  }, [])
+
+  const handleConfirmBookmark = useCallback((note: string) => {
+    if (pendingBookmark && text) {
+      addBookmark({
+        textId: text.id,
+        textTitle: text.title,
+        textAuthor: text.author,
+        book: pendingBookmark.location.book,
+        section: pendingBookmark.location.section,
+        paragraphIndex: pendingBookmark.location.index,
+        selectedText: pendingBookmark.text,
+        note: note || undefined,
+      })
+    }
+    setShowBookmarkModal(false)
+    setPendingBookmark(null)
+  }, [pendingBookmark, text, addBookmark])
+
+  const handleScrollToBookmark = useCallback((paragraphIndex: number) => {
+    // Find the book for this paragraph
+    if (text) {
+      const section = text.sections[paragraphIndex]
+      if (section) {
+        readerRef.current?.scrollToBook(section.book)
+        // After scrolling to book, scroll to specific paragraph
+        setTimeout(() => {
+          const element = document.querySelector(`[data-paragraph-index="${paragraphIndex}"]`)
+          element?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }, 300)
+      }
+    }
+  }, [text])
+
+  const handleExportBookmarks = useCallback(() => {
+    if (text) {
+      const textBookmarks = getBookmarksForText(text.id)
+      downloadBookmarks(textBookmarks, text.title, text.author)
+    }
+  }, [text, getBookmarksForText])
 
   const handleScroll = useCallback((progress: number) => {
     setReadingProgress(progress)
@@ -128,8 +180,11 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
       setShowTOC(false)
       setShowControls(false)
       setShowShortcuts(false)
+      setShowBookmarks(false)
+      setShowBookmarkModal(false)
     }},
     { key: '\\', metaKey: true, handler: () => setShowTOC(prev => !prev) },
+    { key: 'b', metaKey: true, handler: () => setShowBookmarks(prev => !prev) },
     { key: '?', shiftKey: true, handler: () => setShowShortcuts(prev => !prev) },
     { key: '.', metaKey: true, handler: () => setIsZenMode(prev => !prev) },
   ], true)
@@ -232,6 +287,17 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h7" />
+              </svg>
+            </button>
+
+            {/* Bookmarks button */}
+            <button
+              onClick={() => setShowBookmarks(true)}
+              className="p-2 rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
+              title="Bookmarks (⌘B)"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
               </svg>
             </button>
 
@@ -352,6 +418,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               ref={readerRef}
               sections={text.sections}
               onSelectText={handleSelectText}
+              onSaveBookmark={handleSaveBookmark}
               onScroll={handleScroll}
               onBookChange={handleBookChange}
             />
@@ -397,6 +464,32 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
         isOpen={showShortcuts}
         onClose={() => setShowShortcuts(false)}
       />
+
+      {/* Bookmarks panel */}
+      <BookmarksPanel
+        bookmarks={bookmarks}
+        textId={text.id}
+        isOpen={showBookmarks}
+        onClose={() => setShowBookmarks(false)}
+        onSelectBookmark={handleScrollToBookmark}
+        onDeleteBookmark={removeBookmark}
+        onUpdateNote={updateNote}
+        onExport={handleExportBookmarks}
+      />
+
+      {/* Bookmark modal */}
+      {pendingBookmark && (
+        <BookmarkModal
+          isOpen={showBookmarkModal}
+          onClose={() => {
+            setShowBookmarkModal(false)
+            setPendingBookmark(null)
+          }}
+          onSave={handleConfirmBookmark}
+          selectedText={pendingBookmark.text}
+          location={pendingBookmark.location}
+        />
+      )}
     </div>
   )
 }

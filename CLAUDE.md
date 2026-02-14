@@ -111,6 +111,7 @@ curl -X POST http://localhost:8000/reload-texts
 - Multiple conversations per text with localStorage persistence:
   - Index: `philosophy-insight-conversations-index-{textId}` (metadata for all conversations)
   - Messages: `philosophy-insight-conversation-{textId}-{conversationId}` (actual messages)
+- Bookmarks stored globally: `philosophy-insight-bookmarks` (array of all bookmarks with text/location metadata)
 - `pendingQuote` state flows: Reader selection → App → DiscussionPanel → quote card above input
 - Streaming responses use SSE with `data: {content}` / `data: {done: true}` format
 - Theme preference persists in localStorage (`philosophy-insight-theme`)
@@ -147,6 +148,7 @@ CSS custom properties enable dark mode theming.
 
 ### Reader Features (Desktop)
 - **Table of Contents** - Sidebar showing book structure (`Cmd+\` to toggle)
+- **Bookmarks** - Save passages with optional notes (`Cmd+B` to toggle panel), export to Markdown
 - **Reading Controls** - Font size (S/M/L), font family (Serif/Sans), theme
 - **Fullscreen Mode** - Press `f` to toggle
 - **Zen Mode** - Hide chat panel for distraction-free reading (button in header)
@@ -185,6 +187,7 @@ Mobile gets a completely different layout optimized for touch:
 | `f` | Toggle fullscreen (Reader) |
 | `Cmd+.` | Toggle zen mode (Reader) |
 | `Cmd+\` | Toggle table of contents (Reader) |
+| `Cmd+B` | Toggle bookmarks panel (Reader) |
 | `Cmd+/` | Focus chat input (Reader) |
 | `?` | Show keyboard shortcuts (Reader) |
 
@@ -193,12 +196,12 @@ Mobile gets a completely different layout optimized for touch:
 Run Playwright E2E tests:
 ```bash
 cd frontend
-npm test              # Run all 49 tests headless
+npm test              # Run all 55 tests headless
 npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
 
-Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, conversations, and Socratic mode.
+Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, conversations, Socratic mode, and bookmarks.
 
 ## Text Import System
 

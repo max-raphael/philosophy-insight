@@ -716,3 +716,103 @@ test.describe('Conversations', () => {
     await expect(socraticButton).toHaveClass(/shadow-sm/)
   })
 })
+
+test.describe('Bookmarks', () => {
+  test.beforeEach(async ({ page }) => {
+    // Clear localStorage before each test
+    await page.goto('/')
+    await page.evaluate(() => localStorage.clear())
+    await page.goto('/texts/meditations')
+    await page.waitForSelector('.reader-page', { timeout: 15000 })
+  })
+
+  test('selection popup shows both Discuss and Save buttons', async ({ page }) => {
+    // Get some text content
+    const paragraph = page.locator('[data-paragraph-index="0"]').first()
+    await paragraph.waitFor({ state: 'visible' })
+
+    // Select text by triple-clicking
+    await paragraph.click({ clickCount: 3 })
+    await page.waitForTimeout(200)
+
+    // Both buttons should be visible in the selection popup
+    const popup = page.locator('.selection-popup')
+    await expect(popup).toBeVisible()
+    await expect(popup.getByText('Discuss')).toBeVisible()
+    await expect(popup.getByText('Save')).toBeVisible()
+  })
+
+  test('bookmarks panel button is visible in header', async ({ page }) => {
+    // Look for bookmark icon button (SVG with bookmark path)
+    const bookmarkButton = page.locator('button[title="Bookmarks (⌘B)"]')
+    await expect(bookmarkButton).toBeVisible()
+  })
+
+  test('bookmarks panel opens and shows empty state', async ({ page }) => {
+    // Click bookmarks button
+    const bookmarkButton = page.locator('button[title="Bookmarks (⌘B)"]')
+    await bookmarkButton.click()
+    await page.waitForTimeout(200)
+
+    // Panel should be visible with empty state message
+    const panel = page.locator('aside').filter({ hasText: 'Bookmarks' })
+    await expect(panel).toBeVisible()
+    await expect(panel.getByText('No bookmarks yet')).toBeVisible()
+  })
+
+  test('Cmd+B toggles bookmarks panel', async ({ page }) => {
+    // Press Cmd+B to open
+    await page.keyboard.press('Meta+b')
+    await page.waitForTimeout(200)
+
+    // Panel should be visible
+    const panel = page.locator('aside').filter({ hasText: 'Bookmarks' })
+    await expect(panel).toBeVisible()
+
+    // Press Cmd+B again to close
+    await page.keyboard.press('Meta+b')
+    await page.waitForTimeout(200)
+
+    // Panel should be hidden
+    await expect(panel).not.toBeVisible()
+  })
+
+  test('clicking Save button opens bookmark modal', async ({ page }) => {
+    // Select text
+    const paragraph = page.locator('[data-paragraph-index="0"]').first()
+    await paragraph.click({ clickCount: 3 })
+    await page.waitForTimeout(200)
+
+    // Click Save button
+    await page.locator('.selection-popup').getByText('Save').click()
+    await page.waitForTimeout(200)
+
+    // Modal should appear
+    const modal = page.locator('div').filter({ hasText: 'Save Passage' }).first()
+    await expect(modal).toBeVisible()
+  })
+
+  test('can save a bookmark and see it in panel', async ({ page }) => {
+    // Select text
+    const paragraph = page.locator('[data-paragraph-index="0"]').first()
+    await paragraph.click({ clickCount: 3 })
+    await page.waitForTimeout(200)
+
+    // Click Save button
+    await page.locator('.selection-popup').getByText('Save').click()
+    await page.waitForTimeout(200)
+
+    // Click Save in modal (without note)
+    await page.getByRole('button', { name: 'Save', exact: true }).click()
+    await page.waitForTimeout(200)
+
+    // Open bookmarks panel
+    const bookmarkButton = page.locator('button[title="Bookmarks (⌘B)"]')
+    await bookmarkButton.click()
+    await page.waitForTimeout(200)
+
+    // Should show 1 bookmark
+    const panel = page.locator('aside').filter({ hasText: 'Bookmarks' })
+    await expect(panel.getByText('1 bookmark saved')).toBeVisible()
+  })
+})

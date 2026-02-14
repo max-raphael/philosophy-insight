@@ -6,8 +6,12 @@ import ReaderComponent, { type ParagraphLocation, type ReaderHandle } from './Re
 import DiscussionPanel from './DiscussionPanel'
 import TableOfContents from './TableOfContents'
 import ReadingControls from './ReadingControls'
+import BookmarksPanel from './BookmarksPanel'
+import BookmarkModal from './BookmarkModal'
 import { useTextSelection } from '../hooks/useTextSelection'
 import { useConversations } from '../hooks/useConversations'
+import { useBookmarks } from '../hooks/useBookmarks'
+import { downloadBookmarks } from '../utils/exportBookmarks'
 
 interface Section {
   book: number
@@ -45,15 +49,19 @@ export default function MobileReaderLayout({
   // UI state
   const [showTOC, setShowTOC] = useState(false)
   const [showControls, setShowControls] = useState(false)
+  const [showBookmarks, setShowBookmarks] = useState(false)
+  const [showBookmarkModal, setShowBookmarkModal] = useState(false)
   const [showSelectionPopup, setShowSelectionPopup] = useState(false)
   const [selectionPosition, setSelectionPosition] = useState({ x: 0, y: 0 })
   const [selectedText, setSelectedText] = useState('')
+  const [pendingBookmark, setPendingBookmark] = useState<{ text: string; location: ParagraphLocation } | null>(null)
 
   const readerRef = useRef<ReaderHandle>(null)
   const readerContainerRef = useRef<HTMLDivElement>(null)
 
   // Get message count from conversations hook
   const { messages } = useConversations(textId)
+  const { bookmarks, addBookmark, removeBookmark, updateNote, getBookmarksForText } = useBookmarks()
 
   // Get unique books
   const books = Array.from(new Set(sections.map(s => s.book))).sort((a, b) => a - b)
@@ -114,6 +122,52 @@ export default function MobileReaderLayout({
       clearSelection()
     }
   }, [selectedText, clearSelection])
+
+  // Handle "Save" button click
+  const handleSave = useCallback(() => {
+    if (selectedText && activeParagraph) {
+      setPendingBookmark({ text: selectedText, location: activeParagraph })
+      setShowBookmarkModal(true)
+      setShowSelectionPopup(false)
+      clearSelection()
+    }
+  }, [selectedText, activeParagraph, clearSelection])
+
+  // Handle bookmark confirmation
+  const handleConfirmBookmark = useCallback((note: string) => {
+    if (pendingBookmark) {
+      addBookmark({
+        textId,
+        textTitle: title,
+        textAuthor: author,
+        book: pendingBookmark.location.book,
+        section: pendingBookmark.location.section,
+        paragraphIndex: pendingBookmark.location.index,
+        selectedText: pendingBookmark.text,
+        note: note || undefined,
+      })
+    }
+    setShowBookmarkModal(false)
+    setPendingBookmark(null)
+  }, [pendingBookmark, textId, title, author, addBookmark])
+
+  // Handle scroll to bookmark
+  const handleScrollToBookmark = useCallback((paragraphIndex: number) => {
+    const section = sections[paragraphIndex]
+    if (section) {
+      readerRef.current?.scrollToBook(section.book)
+      setTimeout(() => {
+        const element = document.querySelector(`[data-paragraph-index="${paragraphIndex}"]`)
+        element?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 300)
+    }
+  }, [sections])
+
+  // Handle export bookmarks
+  const handleExportBookmarks = useCallback(() => {
+    const textBookmarks = getBookmarksForText(textId)
+    downloadBookmarks(textBookmarks, title, author)
+  }, [textId, title, author, getBookmarksForText])
 
   // Handle quote used in chat
   const handleQuoteUsed = useCallback(() => {
@@ -189,8 +243,10 @@ export default function MobileReaderLayout({
         totalBooks={totalBooks}
         onOpenSearch={onOpenSearch}
         onOpenTOC={() => setShowTOC(true)}
+        onOpenBookmarks={() => setShowBookmarks(true)}
         onOpenSettings={() => setShowControls(true)}
         messageCount={messages.length}
+        bookmarkCount={getBookmarksForText(textId).length}
         onChatToggle={toggleChat}
         isChatOpen={isSheetOpen}
       />
@@ -224,15 +280,27 @@ export default function MobileReaderLayout({
             <div className="absolute left-1/2 -translate-x-1/2 -top-2">
               <div className="border-8 border-transparent" style={{ borderBottomColor: 'var(--text-primary)' }} />
             </div>
-            <button
-              onClick={handleDiscuss}
-              className="bg-[var(--text-primary)] text-[var(--text-inverted)] px-5 py-3 rounded-xl text-sm font-medium shadow-xl hover:opacity-90 active:opacity-80 transition-opacity flex items-center gap-2 touch-target"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              Discuss
-            </button>
+            <div className="flex items-center bg-[var(--text-primary)] rounded-xl shadow-xl overflow-hidden">
+              <button
+                onClick={handleDiscuss}
+                className="text-[var(--text-inverted)] px-5 py-3 text-sm font-medium hover:bg-white/10 active:bg-white/20 transition-colors flex items-center gap-2 touch-target"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                Discuss
+              </button>
+              <div className="w-px h-8 bg-white/20" />
+              <button
+                onClick={handleSave}
+                className="text-[var(--text-inverted)] px-5 py-3 text-sm font-medium hover:bg-white/10 active:bg-white/20 transition-colors flex items-center gap-2 touch-target"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+                Save
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -319,6 +387,32 @@ export default function MobileReaderLayout({
           </>
         )}
       </AnimatePresence>
+
+      {/* Bookmarks panel */}
+      <BookmarksPanel
+        bookmarks={bookmarks}
+        textId={textId}
+        isOpen={showBookmarks}
+        onClose={() => setShowBookmarks(false)}
+        onSelectBookmark={handleScrollToBookmark}
+        onDeleteBookmark={removeBookmark}
+        onUpdateNote={updateNote}
+        onExport={handleExportBookmarks}
+      />
+
+      {/* Bookmark modal */}
+      {pendingBookmark && (
+        <BookmarkModal
+          isOpen={showBookmarkModal}
+          onClose={() => {
+            setShowBookmarkModal(false)
+            setPendingBookmark(null)
+          }}
+          onSave={handleConfirmBookmark}
+          selectedText={pendingBookmark.text}
+          location={pendingBookmark.location}
+        />
+      )}
     </div>
   )
 }

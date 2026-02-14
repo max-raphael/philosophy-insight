@@ -13,6 +13,7 @@ const shortcuts = [
     { keys: ['f'], description: 'Toggle fullscreen' },
     { keys: ['⌘', '.'], description: 'Toggle zen mode' },
     { keys: ['⌘', '\\'], description: 'Toggle table of contents' },
+    { keys: ['⌘', 'B'], description: 'Toggle bookmarks panel' },
     { keys: ['Esc'], description: 'Exit fullscreen / close modals' },
   ]},
   { category: 'Discussion', items: [

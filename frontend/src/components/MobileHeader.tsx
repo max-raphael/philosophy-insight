@@ -7,8 +7,10 @@ interface MobileHeaderProps {
   totalBooks: number
   onOpenSearch: () => void
   onOpenTOC: () => void
+  onOpenBookmarks: () => void
   onOpenSettings: () => void
   messageCount: number
+  bookmarkCount: number
   onChatToggle: () => void
   isChatOpen: boolean
 }
@@ -20,8 +22,10 @@ export default function MobileHeader({
   totalBooks,
   onOpenSearch,
   onOpenTOC,
+  onOpenBookmarks,
   onOpenSettings,
   messageCount,
+  bookmarkCount,
   onChatToggle,
   isChatOpen,
 }: MobileHeaderProps) {
@@ -48,6 +52,21 @@ export default function MobileHeader({
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
             </svg>
+          </button>
+
+          <button
+            onClick={onOpenBookmarks}
+            className="relative p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors touch-target"
+            title="Bookmarks"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+            </svg>
+            {bookmarkCount > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[var(--accent-primary)] text-[var(--text-inverted)] text-[10px] font-bold rounded-full flex items-center justify-center">
+                {bookmarkCount > 9 ? '9+' : bookmarkCount}
+              </span>
+            )}
           </button>
         </div>
 
