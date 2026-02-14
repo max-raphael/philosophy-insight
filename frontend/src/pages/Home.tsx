@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import ThemeToggle from '../components/ThemeToggle'
+import WelcomeModal from '../components/onboarding/WelcomeModal'
+import { useOnboarding } from '../hooks/useOnboarding'
 import { startHereTexts, eras, getPhilosophersFromTexts, type EraId } from '../data/collections'
 
 interface TextInfo {
@@ -82,6 +84,9 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
   const [showAllLibrary, setShowAllLibrary] = useState(false)
   const [currentQuote, setCurrentQuote] = useState(0)
   const [hoveredEra, setHoveredEra] = useState<string | null>(null)
+
+  // Onboarding
+  const { showWelcome, markWelcomeSeen, isLoaded: onboardingLoaded } = useOnboarding()
 
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -884,7 +889,15 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
             <div>
               <h4 className="text-xs font-ui text-[var(--text-muted)] tracking-widest uppercase mb-4">Quick Start</h4>
               <ul className="space-y-3">
-                {startHereWithData.slice(0, 4).map(text => (
+                <li>
+                  <Link
+                    to="/how-to-read"
+                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors font-body"
+                  >
+                    How to Read
+                  </Link>
+                </li>
+                {startHereWithData.slice(0, 3).map(text => (
                   <li key={text.id}>
                     <Link
                       to={`/texts/${text.id}`}
@@ -935,6 +948,14 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
           </div>
         </div>
       </footer>
+
+      {/* Welcome Modal for first-time users */}
+      {onboardingLoaded && (
+        <WelcomeModal
+          isOpen={showWelcome}
+          onClose={markWelcomeSeen}
+        />
+      )}
     </div>
   )
 }

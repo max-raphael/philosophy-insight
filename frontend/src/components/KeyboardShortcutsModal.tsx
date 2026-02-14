@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 interface KeyboardShortcutsModalProps {
   isOpen: boolean
@@ -95,9 +96,18 @@ export default function KeyboardShortcutsModal({ isOpen, onClose }: KeyboardShor
 
               {/* Footer */}
               <div className="px-5 py-3 bg-[var(--bg-tertiary)] border-t border-[var(--border-primary)]">
-                <p className="text-xs text-[var(--text-muted)] text-center">
-                  Press <kbd className="px-1.5 py-0.5 bg-[var(--bg-secondary)] rounded">Esc</kbd> or <kbd className="px-1.5 py-0.5 bg-[var(--bg-secondary)] rounded">?</kbd> to close
-                </p>
+                <div className="flex items-center justify-between">
+                  <Link
+                    to="/how-to-read"
+                    onClick={onClose}
+                    className="text-xs text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors"
+                  >
+                    How to use this app
+                  </Link>
+                  <p className="text-xs text-[var(--text-muted)]">
+                    <kbd className="px-1.5 py-0.5 bg-[var(--bg-secondary)] rounded">Esc</kbd> to close
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>

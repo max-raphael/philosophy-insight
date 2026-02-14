@@ -1,7 +1,21 @@
 import { test, expect } from '@playwright/test'
 
+// Helper to skip onboarding modal
+const skipOnboarding = async (page: import('@playwright/test').Page) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('philosophy-insight-onboarding', JSON.stringify({
+      version: 1,
+      firstVisit: Date.now(),
+      hasSeenWelcome: true,
+      hasSeenGuide: false
+    }))
+  })
+}
+
 test.describe('Home Page', () => {
   test.beforeEach(async ({ page }) => {
+    // Mark onboarding as seen to skip welcome modal
+    await skipOnboarding(page)
     await page.goto('/')
     // Wait for texts to load - check for Philosophy Insight brand in header
     await page.waitForSelector('text=Philosophy Insight', { timeout: 10000 })
@@ -86,6 +100,8 @@ test.describe('Home Page', () => {
 
 test.describe('Dark Mode', () => {
   test.beforeEach(async ({ page }) => {
+    // Mark onboarding as seen to skip welcome modal
+    await skipOnboarding(page)
     await page.goto('/')
     await page.waitForSelector('text=Philosophy Insight', { timeout: 10000 })
   })
@@ -144,6 +160,8 @@ test.describe('Dark Mode', () => {
 
 test.describe('Command Palette', () => {
   test.beforeEach(async ({ page }) => {
+    // Mark onboarding as seen to skip welcome modal
+    await skipOnboarding(page)
     await page.goto('/')
     await page.waitForSelector('text=Philosophy Insight', { timeout: 10000 })
   })
@@ -406,6 +424,8 @@ test.describe('Responsive Design', () => {
 
 test.describe('Navigation', () => {
   test('can navigate from home to reader and back', async ({ page }) => {
+    // Mark onboarding as seen to skip welcome modal
+    await skipOnboarding(page)
     await page.goto('/')
     await page.waitForSelector('text=Philosophy Insight', { timeout: 10000 })
 
@@ -814,5 +834,130 @@ test.describe('Bookmarks', () => {
     // Should show 1 bookmark
     const panel = page.locator('aside').filter({ hasText: 'Bookmarks' })
     await expect(panel.getByText('1 bookmark saved')).toBeVisible()
+  })
+})
+
+test.describe('Onboarding', () => {
+  test.beforeEach(async ({ page }) => {
+    // Clear localStorage to simulate first-time user
+    await page.goto('/')
+    await page.evaluate(() => localStorage.clear())
+  })
+
+  test('welcome modal appears on first visit', async ({ page }) => {
+    // Navigate to home page (cleared localStorage simulates first visit)
+    await page.goto('/')
+    await page.waitForTimeout(500)
+
+    // Welcome modal should appear
+    await expect(page.getByText('Welcome to Philosophy Insight')).toBeVisible({ timeout: 5000 })
+    await expect(page.getByText('wrestle with it first')).toBeVisible()
+  })
+
+  test('welcome modal dismisses and does not reappear', async ({ page }) => {
+    await page.goto('/')
+    await page.waitForTimeout(500)
+
+    // Welcome modal should appear
+    await expect(page.getByText('Welcome to Philosophy Insight')).toBeVisible({ timeout: 5000 })
+
+    // Click Begin Exploring button
+    await page.getByRole('button', { name: 'Begin Exploring' }).click()
+    await page.waitForTimeout(300)
+
+    // Modal should be gone
+    await expect(page.getByText('Welcome to Philosophy Insight')).not.toBeVisible()
+
+    // Reload page
+    await page.reload()
+    await page.waitForSelector('text=Philosophy Insight', { timeout: 10000 })
+    await page.waitForTimeout(500)
+
+    // Modal should not appear on subsequent visit
+    await expect(page.getByText('Welcome to Philosophy Insight')).not.toBeVisible()
+  })
+
+  test('welcome modal How to Read link navigates to guide', async ({ page }) => {
+    await page.goto('/')
+    await page.waitForTimeout(500)
+
+    // Welcome modal should appear
+    await expect(page.getByText('Welcome to Philosophy Insight')).toBeVisible({ timeout: 5000 })
+
+    // Click How to Read button in the modal (the button, not the footer link)
+    await page.getByRole('button', { name: /How to Read/ }).click()
+    await page.waitForTimeout(300)
+
+    // Should be on the How to Read page
+    await expect(page).toHaveURL('/how-to-read')
+    await expect(page.getByRole('heading', { name: 'How to Read Philosophy' })).toBeVisible()
+  })
+
+  test('How to Read page renders all sections', async ({ page }) => {
+    await page.goto('/how-to-read')
+    await page.waitForTimeout(500)
+
+    // Check main heading
+    await expect(page.getByRole('heading', { name: 'How to Read Philosophy' })).toBeVisible()
+
+    // Check key sections (using headings to be specific)
+    await expect(page.getByRole('heading', { name: 'The Philosophy of Reading' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'How It Works' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Two Modes of Discussion' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Tutor Mode' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Socratic Mode' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Save & Export' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Keyboard Shortcuts' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'On Mobile' })).toBeVisible()
+
+    // Check Start Reading CTA
+    await expect(page.getByRole('link', { name: 'Start Reading' })).toBeVisible()
+  })
+
+  test('How to Read page Start Reading links to home', async ({ page }) => {
+    await page.goto('/how-to-read')
+    await page.waitForTimeout(500)
+
+    // Click Start Reading
+    await page.getByRole('link', { name: 'Start Reading' }).click()
+    await page.waitForTimeout(300)
+
+    // Should be on home page
+    await expect(page).toHaveURL('/')
+  })
+
+  test('keyboard shortcuts modal has How to use this app link', async ({ page }) => {
+    // Skip welcome modal using helper
+    await skipOnboarding(page)
+    await page.goto('/texts/categories')
+    await page.waitForSelector('.reader-page', { timeout: 15000 })
+
+    // Click on body to ensure focus is on page
+    await page.locator('body').click()
+    await page.waitForTimeout(100)
+
+    // Press Shift+? to open shortcuts modal (same as existing test)
+    await page.keyboard.press('Shift+?')
+
+    // Modal should appear
+    await expect(page.locator('h2').filter({ hasText: 'Keyboard Shortcuts' })).toBeVisible({ timeout: 3000 })
+
+    // Should have the How to use link
+    await expect(page.getByText('How to use this app')).toBeVisible()
+  })
+
+  test('footer has How to Read link', async ({ page }) => {
+    // Skip welcome modal using helper
+    await skipOnboarding(page)
+    await page.goto('/')
+    await page.waitForSelector('text=Philosophy Insight', { timeout: 10000 })
+
+    // Scroll to footer
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.waitForTimeout(500)
+
+    // Check for How to Read link in footer
+    const footer = page.locator('footer')
+    await expect(footer.getByText('How to Read')).toBeVisible()
   })
 })

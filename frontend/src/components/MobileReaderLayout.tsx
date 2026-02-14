@@ -11,6 +11,7 @@ import BookmarkModal from './BookmarkModal'
 import { useTextSelection } from '../hooks/useTextSelection'
 import { useConversations } from '../hooks/useConversations'
 import { useBookmarks } from '../hooks/useBookmarks'
+import { useOnboarding } from '../hooks/useOnboarding'
 import { downloadBookmarks } from '../utils/exportBookmarks'
 
 interface Section {
@@ -55,6 +56,7 @@ export default function MobileReaderLayout({
   const [selectionPosition, setSelectionPosition] = useState({ x: 0, y: 0 })
   const [selectedText, setSelectedText] = useState('')
   const [pendingBookmark, setPendingBookmark] = useState<{ text: string; location: ParagraphLocation } | null>(null)
+  const [showMobileHint, setShowMobileHint] = useState(false)
 
   const readerRef = useRef<ReaderHandle>(null)
   const readerContainerRef = useRef<HTMLDivElement>(null)
@@ -62,6 +64,7 @@ export default function MobileReaderLayout({
   // Get message count from conversations hook
   const { messages } = useConversations(textId)
   const { bookmarks, addBookmark, removeBookmark, updateNote, getBookmarksForText } = useBookmarks()
+  const { isFirstTimeUser, isLoaded: onboardingLoaded } = useOnboarding()
 
   // Get unique books
   const books = Array.from(new Set(sections.map(s => s.book))).sort((a, b) => a - b)
@@ -232,6 +235,29 @@ export default function MobileReaderLayout({
       document.body.classList.remove('sheet-open')
     }
   }, [isSheetOpen])
+
+  // Show mobile hint for first-time users
+  useEffect(() => {
+    if (onboardingLoaded && isFirstTimeUser && !isSheetOpen) {
+      // Delay showing the hint so user can see the page first
+      const showTimer = setTimeout(() => {
+        setShowMobileHint(true)
+      }, 1500)
+
+      return () => clearTimeout(showTimer)
+    }
+  }, [onboardingLoaded, isFirstTimeUser, isSheetOpen])
+
+  // Auto-dismiss mobile hint after 5 seconds
+  useEffect(() => {
+    if (showMobileHint) {
+      const dismissTimer = setTimeout(() => {
+        setShowMobileHint(false)
+      }, 5000)
+
+      return () => clearTimeout(dismissTimer)
+    }
+  }, [showMobileHint])
 
   return (
     <div className="mobile-reader bg-[var(--bg-primary)]">
@@ -413,6 +439,39 @@ export default function MobileReaderLayout({
           location={pendingBookmark.location}
         />
       )}
+
+      {/* Mobile onboarding hint */}
+      <AnimatePresence>
+        {showMobileHint && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed bottom-24 left-4 right-4 z-40"
+          >
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-xl p-4 shadow-lg flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[var(--accent-primary)]/10 flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 11l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-[var(--text-primary)] font-medium">Swipe up to discuss passages</p>
+                <p className="text-xs text-[var(--text-muted)]">Tap and hold text to select</p>
+              </div>
+              <button
+                onClick={() => setShowMobileHint(false)}
+                className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors shrink-0"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
