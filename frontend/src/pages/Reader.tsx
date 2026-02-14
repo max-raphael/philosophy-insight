@@ -142,11 +142,21 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
 
   const handleBookChange = useCallback((book: number) => {
     setCurrentBook(book)
-    // Save to localStorage
-    if (textId) {
-      localStorage.setItem(`reading-position-${textId}`, JSON.stringify({ book, progress: readingProgress }))
+  }, [])
+
+  const handleSectionChange = useCallback((sectionIndex: number) => {
+    // Save to localStorage whenever section changes
+    if (textId && text) {
+      const section = text.sections[sectionIndex]
+      if (section) {
+        localStorage.setItem(`reading-position-${textId}`, JSON.stringify({
+          book: section.book,
+          sectionIndex,
+          progress: readingProgress
+        }))
+      }
     }
-  }, [textId, readingProgress])
+  }, [textId, text, readingProgress])
 
   const handleBookSelect = useCallback((book: number) => {
     setShowBookMenu(false)
@@ -195,10 +205,17 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
       const saved = localStorage.getItem(`reading-position-${textId}`)
       if (saved) {
         try {
-          const { book } = JSON.parse(saved)
-          if (books.includes(book)) {
-            setCurrentBook(book)
+          const { book, sectionIndex } = JSON.parse(saved)
+          // Prefer section-level restore if available
+          if (typeof sectionIndex === 'number' && sectionIndex >= 0 && sectionIndex < text.sections.length) {
+            setCurrentBook(text.sections[sectionIndex].book)
             // Delay scroll to let content render
+            setTimeout(() => {
+              readerRef.current?.scrollToSection(sectionIndex)
+            }, 100)
+          } else if (books.includes(book)) {
+            // Fall back to book-level restore for older saved data
+            setCurrentBook(book)
             setTimeout(() => {
               readerRef.current?.scrollToBook(book)
             }, 100)
@@ -421,6 +438,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               onSaveBookmark={handleSaveBookmark}
               onScroll={handleScroll}
               onBookChange={handleBookChange}
+              onSectionChange={handleSectionChange}
             />
           </div>
         </Panel>

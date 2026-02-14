@@ -184,10 +184,21 @@ export default function MobileReaderLayout({
 
   const handleBookChange = useCallback((book: number) => {
     setCurrentBook(book)
-    if (textId) {
-      localStorage.setItem(`reading-position-${textId}`, JSON.stringify({ book, progress: readingProgress }))
+  }, [])
+
+  const handleSectionChange = useCallback((sectionIndex: number) => {
+    // Save to localStorage whenever section changes
+    if (textId && sections.length > 0) {
+      const section = sections[sectionIndex]
+      if (section) {
+        localStorage.setItem(`reading-position-${textId}`, JSON.stringify({
+          book: section.book,
+          sectionIndex,
+          progress: readingProgress
+        }))
+      }
     }
-  }, [textId, readingProgress])
+  }, [textId, sections, readingProgress])
 
   const handleBookSelect = useCallback((book: number) => {
     setShowTOC(false)
@@ -210,8 +221,15 @@ export default function MobileReaderLayout({
       const saved = localStorage.getItem(`reading-position-${textId}`)
       if (saved) {
         try {
-          const { book } = JSON.parse(saved)
-          if (books.includes(book)) {
+          const { book, sectionIndex } = JSON.parse(saved)
+          // Prefer section-level restore if available
+          if (typeof sectionIndex === 'number' && sectionIndex >= 0 && sectionIndex < sections.length) {
+            setCurrentBook(sections[sectionIndex].book)
+            setTimeout(() => {
+              readerRef.current?.scrollToSection(sectionIndex)
+            }, 100)
+          } else if (books.includes(book)) {
+            // Fall back to book-level restore for older saved data
             setCurrentBook(book)
             setTimeout(() => {
               readerRef.current?.scrollToBook(book)
@@ -288,6 +306,7 @@ export default function MobileReaderLayout({
           onSelectText={() => {}} // Selection handled by useTextSelection
           onScroll={handleScroll}
           onBookChange={handleBookChange}
+          onSectionChange={handleSectionChange}
         />
       </div>
 

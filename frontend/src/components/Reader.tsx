@@ -21,10 +21,12 @@ interface ReaderProps {
   onSaveBookmark?: (text: string, location: ParagraphLocation) => void
   onScroll: (progress: number) => void
   onBookChange?: (book: number) => void
+  onSectionChange?: (sectionIndex: number) => void
 }
 
 export interface ReaderHandle {
   scrollToBook: (book: number) => void
+  scrollToSection: (sectionIndex: number) => void
 }
 
 // Convert number to Roman numeral
@@ -45,12 +47,13 @@ function toRoman(num: number): string {
 }
 
 const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
-  { sections, onSelectText, onSaveBookmark, onScroll, onBookChange },
+  { sections, onSelectText, onSaveBookmark, onScroll, onBookChange, onSectionChange },
   ref
 ) {
   const [selectionPopup, setSelectionPopup] = useState<{ x: number; y: number; text: string; location: ParagraphLocation } | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const bookRefs = useRef<Map<number, HTMLDivElement>>(new Map())
+  const sectionRefs = useRef<Map<number, HTMLParagraphElement>>(new Map())
 
   // Group sections by book
   const sectionsByBook: Map<number, Section[]> = new Map()
@@ -63,7 +66,7 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
 
   const books = Array.from(sectionsByBook.keys()).sort((a, b) => a - b)
 
-  // Expose scrollToBook method
+  // Expose scrollToBook and scrollToSection methods
   useImperativeHandle(ref, () => ({
     scrollToBook: (book: number) => {
       const bookElement = bookRefs.current.get(book)
@@ -71,6 +74,15 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
         const containerRect = containerRef.current.getBoundingClientRect()
         const bookRect = bookElement.getBoundingClientRect()
         const scrollTop = containerRef.current.scrollTop + (bookRect.top - containerRect.top) - 20
+        containerRef.current.scrollTo({ top: scrollTop, behavior: 'smooth' })
+      }
+    },
+    scrollToSection: (sectionIndex: number) => {
+      const sectionElement = sectionRefs.current.get(sectionIndex)
+      if (sectionElement && containerRef.current) {
+        const containerRect = containerRef.current.getBoundingClientRect()
+        const sectionRect = sectionElement.getBoundingClientRect()
+        const scrollTop = containerRef.current.scrollTop + (sectionRect.top - containerRect.top) - 60
         containerRef.current.scrollTo({ top: scrollTop, behavior: 'smooth' })
       }
     }
@@ -105,6 +117,37 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
 
     return () => observer.disconnect()
   }, [onBookChange, books.length])
+
+  // Track current visible section with IntersectionObserver
+  useEffect(() => {
+    if (!onSectionChange) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the topmost visible section
+        const visibleSections = entries
+          .filter(entry => entry.isIntersecting)
+          .map(entry => parseInt(entry.target.getAttribute('data-paragraph-index') || '-1', 10))
+          .filter(index => index >= 0)
+          .sort((a, b) => a - b)
+
+        if (visibleSections.length > 0) {
+          onSectionChange(visibleSections[0])
+        }
+      },
+      {
+        root: containerRef.current,
+        rootMargin: '-20% 0px -70% 0px', // Trigger when section is near top
+        threshold: 0
+      }
+    )
+
+    sectionRefs.current.forEach((element) => {
+      observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [onSectionChange, sections.length])
 
   // Track scroll progress
   const handleScroll = useCallback(() => {
@@ -301,6 +344,9 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
                   return (
                     <p
                       key={localIndex}
+                      ref={(el) => {
+                        if (el) sectionRefs.current.set(globalIndex, el)
+                      }}
                       data-paragraph-index={globalIndex}
                       className={`font-body text-[var(--text-secondary)] text-lg leading-[1.85] ${
                         isFirstParagraph ? 'drop-cap' : ''

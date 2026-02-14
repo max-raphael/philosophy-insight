@@ -121,7 +121,7 @@ curl -X POST http://localhost:8000/reload-texts
 - Streaming responses use SSE with `data: {content}` / `data: {done: true}` format
 - Theme preference persists in localStorage (`philosophy-insight-theme`)
 - Reading settings persist in localStorage (`philosophy-insight-reading-settings`)
-- Reading position persists per text (`reading-position-{textId}`)
+- Reading position persists per text at section level (`reading-position-{textId}`) - auto-saves current section as you scroll, restores exact position on return
 
 **Styling:** Tailwind CSS v4, Libre Baskerville for text, Inter for UI. Category colors defined via CSS custom properties:
 - Western: amber (ancient), stone (medieval), emerald (enlightenment), blue (modern)
@@ -172,7 +172,7 @@ CSS custom properties enable dark mode theming.
 - **Reading Controls** - Font size (S/M/L), font family (Serif/Sans), theme
 - **Fullscreen Mode** - Press `f` to toggle
 - **Zen Mode** - Hide chat panel for distraction-free reading (button in header)
-- **Progress Tracking** - Percentage and book number shown in header
+- **Progress Tracking** - Percentage and book number shown in header; auto-saves section position and resumes where you left off
 - **Keyboard Navigation** - See shortcuts below
 
 ### Discussion Panel
