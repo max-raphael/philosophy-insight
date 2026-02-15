@@ -40,10 +40,12 @@ curl -X POST http://localhost:8000/reload-texts
 ```
 /backend
   main.py           # FastAPI app - all routes, OpenAI integration, conversation storage
-  texts/*.json      # Philosophy texts as JSON (187 texts currently)
+  texts/*.json      # Philosophy texts as JSON (401 texts currently)
   scripts/
     import_gutenberg.py   # Generic Gutenberg parser with auto-structure detection
-    text_manifest.py      # Manifest of all texts to import (TextConfig definitions)
+    import_marxists.py    # Marxists.org HTML parser for Marxist/Anarchist texts
+    text_manifest.py      # Manifest of Gutenberg texts (TextConfig definitions)
+    marxists_manifest.py  # Manifest of marxists.org texts
     batch_import.py       # Batch import script with progress tracking
     parse_*.py            # Legacy per-text parsers (no longer needed)
   .env              # OPENAI_API_KEY
@@ -126,6 +128,7 @@ curl -X POST http://localhost:8000/reload-texts
 **Styling:** Tailwind CSS v4, Libre Baskerville for text, Inter for UI. Category colors defined via CSS custom properties:
 - Western: amber (ancient), stone (medieval), emerald (enlightenment), blue (modern)
 - Eastern: red (chinese), orange (indian), yellow (buddhist), purple (sufi)
+- Revolutionary: rose (marxist)
 
 CSS custom properties enable dark mode theming.
 
@@ -226,9 +229,9 @@ Tests cover: Home page sections, dark mode, command palette, reader features, ke
 ## Text Import System
 
 ### Current State
-- **187 texts** imported from Project Gutenberg and other public domain sources
-- Covers Western philosophy (Ancient through 19th century) plus Eastern philosophy traditions
-- 20th century texts are mostly under copyright and unavailable
+- **401 texts** imported from Project Gutenberg and Marxists Internet Archive
+- Covers Western philosophy (Ancient through 20th century) plus Eastern philosophy traditions
+- New marxist/anarchist category with 36 texts from marxists.org
 
 **Coverage by tradition:**
 

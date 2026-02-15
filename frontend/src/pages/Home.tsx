@@ -70,6 +70,7 @@ const categoryStyles: Record<string, { bg: string; text: string; accent: string 
   indian: { bg: 'bg-[var(--category-indian-bg)]', text: 'text-[var(--category-indian-text)]', accent: 'border-[var(--category-indian-text)]/40' },
   buddhist: { bg: 'bg-[var(--category-buddhist-bg)]', text: 'text-[var(--category-buddhist-text)]', accent: 'border-[var(--category-buddhist-text)]/40' },
   sufi: { bg: 'bg-[var(--category-sufi-bg)]', text: 'text-[var(--category-sufi-text)]', accent: 'border-[var(--category-sufi-text)]/40' },
+  marxist: { bg: 'bg-[var(--category-marxist-bg)]', text: 'text-[var(--category-marxist-text)]', accent: 'border-[var(--category-marxist-text)]/40' },
 }
 
 type SortOption = 'title' | 'author' | 'era'
@@ -593,7 +594,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
               <div>
                 <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">Eastern Philosophy</h3>
                 <div className="space-y-4">
-                  {eras.slice(4).map((era, i) => {
+                  {eras.slice(4, 8).map((era, i) => {
                     const eraTexts = textsByEra[era.id] || []
                     const isHovered = hoveredEra === era.id
                     return (
@@ -648,6 +649,67 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                 </div>
               </div>
             </div>
+
+            {/* Revolutionary Philosophy - Full width below */}
+            {eras.slice(8).length > 0 && (
+              <div className="mt-8">
+                <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">Revolutionary Philosophy</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {eras.slice(8).map((era, i) => {
+                    const eraTexts = textsByEra[era.id] || []
+                    const isHovered = hoveredEra === era.id
+                    return (
+                      <motion.div
+                        key={era.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                      >
+                        <button
+                          onMouseEnter={() => setHoveredEra(era.id)}
+                          onMouseLeave={() => setHoveredEra(null)}
+                          onClick={() => {
+                            setFilterEra(era.id)
+                            setShowAllLibrary(true)
+                            document.getElementById('library')?.scrollIntoView({ behavior: 'smooth' })
+                          }}
+                          className={`group w-full p-6 rounded-xl border text-left transition-all duration-300 ${
+                            isHovered
+                              ? 'bg-[var(--bg-elevated)] border-[var(--accent-primary)]/30 shadow-lg'
+                              : 'bg-[var(--bg-secondary)] border-[var(--border-primary)] hover:border-[var(--border-secondary)]'
+                          }`}
+                        >
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-3 mb-2">
+                                <h4 className="font-display text-2xl font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">
+                                  {era.name}
+                                </h4>
+                                <span className="text-xs font-ui text-[var(--text-muted)]">{era.years}</span>
+                              </div>
+                              <p className="text-sm text-[var(--text-secondary)] font-body mb-3">{era.description}</p>
+                              <p className="text-xs text-[var(--text-muted)] font-ui">
+                                {eraTexts.length} texts available
+                              </p>
+                            </div>
+                            <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                              isHovered ? 'bg-[var(--accent-primary)]' : 'bg-[var(--bg-tertiary)]'
+                            }`}>
+                              <span className={`font-display text-xl font-bold transition-colors ${
+                                isHovered ? 'text-[var(--text-inverted)]' : 'text-[var(--text-secondary)]'
+                              }`}>
+                                {eraTexts.length}
+                              </span>
+                            </div>
+                          </div>
+                        </button>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 

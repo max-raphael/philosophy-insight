@@ -235,6 +235,7 @@ export default function CommandPalette({ isOpen, onClose, texts, initialAuthor }
       case 'indian': return 'bg-[var(--category-indian-bg)] text-[var(--category-indian-text)]'
       case 'buddhist': return 'bg-[var(--category-buddhist-bg)] text-[var(--category-buddhist-text)]'
       case 'sufi': return 'bg-[var(--category-sufi-bg)] text-[var(--category-sufi-text)]'
+      case 'marxist': return 'bg-[var(--category-marxist-bg)] text-[var(--category-marxist-text)]'
       default: return 'bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]'
     }
   }

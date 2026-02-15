@@ -138,10 +138,22 @@ def detect_structure(text: str) -> dict:
         (r'^\s*(THE\s+)?(FIRST|SECOND|THIRD|FOURTH|FIFTH|SIXTH|SEVENTH|EIGHTH|NINTH|TENTH|ELEVENTH|TWELFTH)?\s*BOOK\s*([IVXLC]+|\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|ELEVEN|TWELVE)?[\.\:]?\s*', 'book'),
         # "CHAPTER I", "CHAPTER 1", "CHAPTER ONE"
         (r'^\s*CHAPTER\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'chapter'),
+        # "LECTURE I", "LECTURE 1", "LECTURE ONE" - common in philosophy texts
+        (r'^\s*LECTURE\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'lecture'),
         # "PART I", "PART ONE", "PART 1"
         (r'^\s*PART\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'part'),
+        # "ESSAY I", "ESSAY 1", "ESSAY ONE" - common in essay collections
+        (r'^\s*ESSAY\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'essay'),
+        # "LETTER I", "LETTER 1" - common in correspondence
+        (r'^\s*LETTER\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'letter'),
         # "SECTION I", "SECTION 1"
         (r'^\s*SECTION\s+([IVXLC]+|\d+)[\.\:]?\s*', 'section'),
+        # "VOLUME I", "VOLUME 1" - for collected works
+        (r'^\s*VOLUME\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'volume'),
+        # "TREATISE I", "TREATISE ON" - philosophical treatises
+        (r'^\s*TREATISE\s+([IVXLC]+|\d+|\w+)?[\.\:]?\s*', 'treatise'),
+        # "DISCOURSE I", "DISCOURSE 1"
+        (r'^\s*DISCOURSE\s+([IVXLC]+|\d+|\w+)[\.\:]?\s*', 'discourse'),
     ]
 
     markers = []
@@ -254,8 +266,8 @@ def parse_by_markers(text: str, markers: list, structure_type: str, depth: int =
         section_lines = lines[start_line:section_end]
         section_text = '\n'.join(section_lines)
 
-        # For book/chapter/part structures with depth > 1, try to detect nested structure
-        if structure_type in ('book', 'chapter', 'part') and depth > 1:
+        # For major structures with depth > 1, try to detect nested structure
+        if structure_type in ('book', 'chapter', 'part', 'lecture', 'essay', 'volume', 'treatise', 'discourse') and depth > 1:
             nested_structure = detect_structure(section_text)
             if nested_structure['markers'] and len(nested_structure['markers']) >= 2:
                 # Found nested structure (e.g., CHAPTERs within a BOOK)
@@ -272,8 +284,8 @@ def parse_by_markers(text: str, markers: list, structure_type: str, depth: int =
                 sections.extend(nested_sections)
                 continue
 
-        # For book/chapter/part structures, split further into subsections
-        if structure_type in ('book', 'chapter', 'part'):
+        # For major structures, split further into subsections
+        if structure_type in ('book', 'chapter', 'part', 'lecture', 'essay', 'letter', 'volume', 'treatise', 'discourse'):
             subsections = split_into_subsections(section_text, marker['number'])
             sections.extend(subsections)
         else:

@@ -117,6 +117,14 @@ export const eras = [
     description: 'Mystical poetry and the path of the heart',
     color: 'purple',
   },
+  // Revolutionary Philosophy
+  {
+    id: 'marxist',
+    name: 'Marxist & Anarchist',
+    years: '1840 - present',
+    description: 'Revolutionary thought and the critique of capitalism',
+    color: 'rose',
+  },
 ] as const
 
 export type EraId = typeof eras[number]['id']
