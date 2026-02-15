@@ -127,9 +127,9 @@ curl -X POST http://localhost:8000/reload-texts
 - Reading position persists per text at section level (`reading-position-{textId}`) - auto-saves current section as you scroll, restores exact position on return
 
 **Styling:** Tailwind CSS v4, Libre Baskerville for text, Inter for UI. Category colors defined via CSS custom properties:
-- Western: amber (ancient), stone (medieval), emerald (enlightenment), blue (modern)
-- Eastern: red (chinese), orange (indian), yellow (buddhist), purple (sufi)
-- Revolutionary: rose (marxist)
+- Western: amber (ancient), stone (medieval), amber (islamic), emerald (enlightenment), blue (19th-century, 20th-century)
+- Eastern: red (chinese), orange (indian), yellow (buddhist), purple (persian)
+- Revolutionary: rose (revolutionary)
 
 CSS custom properties enable dark mode theming.
 
@@ -237,22 +237,26 @@ Tests cover: Home page sections, dark mode, command palette, reader features, ke
 
 ### Current State
 - **400 texts** imported from Project Gutenberg, Marxists Internet Archive, and Standard Ebooks
-- Covers Western philosophy (Ancient through 20th century) plus Eastern philosophy traditions
-- New marxist/anarchist category with 36 texts from marxists.org
+- Covers Western philosophy (Ancient through 20th century), Islamic philosophy, Eastern traditions, and revolutionary thought
 
-**Coverage by tradition:**
+**Coverage by category:**
 
-Western (136 texts):
-- Ancient: 50 texts (Plato, Aristotle, Stoics, Epicureans, Neoplatonists)
-- Medieval: 5 texts (Augustine, Aquinas, Boethius, Maimonides)
-- Enlightenment: 35 texts (Bacon, Descartes, Spinoza, Locke, Hume, Kant, Rousseau)
-- Modern (19th c.): 46 texts (Hegel, Nietzsche, Mill, Marx, James, Dewey)
+Western:
+- Ancient: 67 texts (Plato, Aristotle, Stoics, Epicureans, Neoplatonists)
+- Medieval: 4 texts (Augustine, Aquinas, Boethius)
+- Enlightenment: 70 texts (Bacon, Descartes, Spinoza, Locke, Hume, Kant, Rousseau)
+- 19th Century: 85 texts (Hegel, Nietzsche, Mill, Emerson, Thoreau, Kierkegaard)
+- 20th Century: 66 texts (Russell, Dewey, James, Whitehead, Bergson)
 
-Eastern (51 texts):
-- Chinese: 9 texts (Confucius, Laozi, Zhuangzi, Mencius)
-- Indian: 22 texts (Upanishads, Bhagavad Gita, Patanjali, Shankara)
-- Buddhist: 10 texts (Dhammapada, Heart Sutra, Zen texts)
-- Sufi: 10 texts (Rumi, Hafiz, Attar, Ibn Arabi)
+Islamic: 7 texts (Avicenna, Averroes, Al-Ghazali, Ibn Tufail, Maimonides)
+
+Eastern:
+- Chinese: 16 texts (Confucius, Laozi, Zhuangzi, Mencius)
+- Indian: 22 texts (Upanishads, Bhagavad Gita, Patanjali, Vivekananda)
+- Buddhist: 10 texts (Dhammapada, Zen texts)
+- Persian: 10 texts (Rumi, Hafiz, Omar Khayyam)
+
+Revolutionary: 43 texts (Marx, Engels, Lenin, Bakunin, Kropotkin, Goldman)
 
 ### How to Add More Texts
 
@@ -266,8 +270,10 @@ TextConfig(
     translator='Translator',  # Optional
     year='1800',
     description='One sentence description.',
-    category='enlightenment', # Western: ancient, medieval, enlightenment, modern
-                              # Eastern: chinese, indian, buddhist, sufi
+    category='enlightenment', # Western: ancient, medieval, enlightenment, 19th-century, 20th-century
+                              # Islamic: islamic
+                              # Eastern: chinese, indian, buddhist, persian
+                              # Revolutionary: revolutionary
 )
 ```
 

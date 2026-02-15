@@ -65,8 +65,14 @@
   --category-medieval-text: #5a5040;
   --category-enlightenment-bg: #e8f0e8;
   --category-enlightenment-text: #3a5a3a;
-  --category-modern-bg: #e8ecf0;
-  --category-modern-text: #3a4a5a;
+  --category-19th-century-bg: #e8ecf0;
+  --category-19th-century-text: #3a4a5a;
+  --category-20th-century-bg: #e0e8f0;
+  --category-20th-century-text: #2a3a5a;
+
+  /* Category colors - Islamic */
+  --category-islamic-bg: #f0ebe0;
+  --category-islamic-text: #5a4a28;
 
   /* Category colors - Eastern */
   --category-chinese-bg: #f5e8e8;
@@ -75,12 +81,12 @@
   --category-indian-text: #8a5a28;
   --category-buddhist-bg: #f5f0d8;
   --category-buddhist-text: #6a5a18;
-  --category-sufi-bg: #f0e8f5;
-  --category-sufi-text: #5a3a7a;
+  --category-persian-bg: #f0e8f5;
+  --category-persian-text: #5a3a7a;
 
   /* Category colors - Revolutionary */
-  --category-marxist-bg: #f5e8e8;
-  --category-marxist-text: #8a3a3a;
+  --category-revolutionary-bg: #f5e8e8;
+  --category-revolutionary-text: #8a3a3a;
 
   /* Shadows - subtle warmth */
   --shadow-sm: 0 1px 2px rgba(42,37,32,0.06);
@@ -146,8 +152,14 @@
   --category-medieval-text: #a89a8a;
   --category-enlightenment-bg: #1f2820;
   --category-enlightenment-text: #7ab87a;
-  --category-modern-bg: #1f2228;
-  --category-modern-text: #7a9ab8;
+  --category-19th-century-bg: #1f2228;
+  --category-19th-century-text: #7a9ab8;
+  --category-20th-century-bg: #1a2028;
+  --category-20th-century-text: #6a8ab8;
+
+  /* Category colors - Islamic */
+  --category-islamic-bg: #282418;
+  --category-islamic-text: #b8a862;
 
   /* Category colors - Eastern */
   --category-chinese-bg: #281f1f;
@@ -156,12 +168,12 @@
   --category-indian-text: #c99a62;
   --category-buddhist-bg: #28281f;
   --category-buddhist-text: #b8a862;
-  --category-sufi-bg: #251f28;
-  --category-sufi-text: #9a7ab8;
+  --category-persian-bg: #251f28;
+  --category-persian-text: #9a7ab8;
 
   /* Category colors - Revolutionary */
-  --category-marxist-bg: #281f1f;
-  --category-marxist-text: #b87a7a;
+  --category-revolutionary-bg: #281f1f;
+  --category-revolutionary-text: #b87a7a;
 
   /* Shadows - deep and atmospheric */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
