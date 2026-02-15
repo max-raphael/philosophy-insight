@@ -40,7 +40,7 @@ curl -X POST http://localhost:8000/reload-texts
 ```
 /backend
   main.py           # FastAPI app - all routes, OpenAI integration, conversation storage
-  texts/*.json      # Philosophy texts as JSON (401 texts currently)
+  texts/*.json      # Philosophy texts as JSON (400 texts currently)
   scripts/
     import_gutenberg.py   # Generic Gutenberg parser with auto-structure detection
     import_marxists.py    # Marxists.org HTML parser for Marxist/Anarchist texts
@@ -236,7 +236,7 @@ Tests cover: Home page sections, dark mode, command palette, reader features, ke
 ## Text Import System
 
 ### Current State
-- **401 texts** imported from Project Gutenberg and Marxists Internet Archive
+- **400 texts** imported from Project Gutenberg, Marxists Internet Archive, and Standard Ebooks
 - Covers Western philosophy (Ancient through 20th century) plus Eastern philosophy traditions
 - New marxist/anarchist category with 36 texts from marxists.org
 

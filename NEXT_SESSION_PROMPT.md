@@ -2,18 +2,24 @@
 
 ## Context
 
-Philosophy Insight is a web app for reading philosophy texts with an AI companion. The library has grown from 187 to 401 texts through Project Gutenberg and Marxists Internet Archive imports.
+Philosophy Insight is a web app for reading philosophy texts with an AI companion. The library has grown from 187 to 400 texts through Project Gutenberg, Marxists Internet Archive, and Standard Ebooks imports.
 
 ## Current State
 
-- **401 texts** currently in `backend/texts/`
+- **400 texts** currently in `backend/texts/`
 - **Phase 8 complete**: 36 Marxist/Anarchist texts imported from marxists.org
 - **Import infrastructure**:
   - `backend/scripts/import_gutenberg.py` - Plain text from Gutenberg
-  - `backend/scripts/import_marxists.py` - HTML from marxists.org (NEW)
-  - `backend/scripts/marxists_manifest.py` - 51 Marxist text configs (NEW)
+  - `backend/scripts/import_marxists.py` - HTML from marxists.org
+  - `backend/scripts/marxists_manifest.py` - 51 Marxist text configs
+  - `backend/scripts/import_standard_ebooks.py` - HTML from Standard Ebooks (NEW)
 - **Frontend updated**: New "marxist" category with rose color scheme
 - **Master plan**: `MASTER_EXPANSION_PLAN.md` documents all work
+
+### Recent Fix (2026-02-14): Adam Smith Texts
+- **Removed** `smith-essays.json` - was a broken omnibus that jumbled Theory of Moral Sentiments with other essays and had only TOC entries instead of content
+- **Reimported** `theory-of-moral-sentiments.json` from Standard Ebooks with proper 34-section structure
+- **Essays on Philosophical Subjects** (History of Astronomy, etc.) - to be added as separate texts when Gutenberg comes back online (was experiencing gateway timeouts)
 
 ## Priority Options for Next Session
 
@@ -113,7 +119,7 @@ Build `import_gutenberg_html.py` to handle these.
 | Indian | 22 |
 | Buddhist | 10 |
 | Sufi | 11 |
-| **TOTAL** | **401** |
+| **TOTAL** | **400** |
 
 ## Begin
 

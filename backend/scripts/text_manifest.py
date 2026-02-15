@@ -1736,11 +1736,8 @@ ESSAY_COLLECTIONS = [
         translator="Thomas M'Crie", year='1656', category='enlightenment',
         description="Pascal's satirical attack on Jesuit casuistry, a masterpiece of French prose."
     ),
-    TextConfig(
-        gutenberg_id=58559, id='smith-essays', title='Essays of Adam Smith', author='Adam Smith',
-        translator=None, year='Various', category='enlightenment',
-        description="Smith's philosophical essays on the imitative arts, language, and astronomy."
-    ),
+    # Removed: smith-essays (58559) - omnibus volume that duplicated Theory of Moral Sentiments
+    # and had parsing issues. Individual essays to be added when available from clean sources.
 ]
 
 WOMEN_PHILOSOPHERS = [

@@ -284,6 +284,12 @@ Available at: https://standardebooks.org/bulk-downloads
 ⚠️ **Limited selection** - Only ~9 philosophy titles vs hundreds on Gutenberg
 💡 **Recommendation**: Use for texts where both sources have the same work (prefer Standard Ebooks quality)
 
+### Import Script Created (2026-02-14)
+**Script:** `backend/scripts/import_standard_ebooks.py`
+**Method:** Parses the single-page HTML format available at `/text/single-page` URLs
+**Example URL:** `https://standardebooks.org/ebooks/adam-smith/the-theory-of-moral-sentiments/text/single-page`
+**Success:** Used to reimport Theory of Moral Sentiments with 34 properly structured sections (fixing a broken Gutenberg import)
+
 ---
 
 ## 3. EARLY MODERN TEXTS (Simplified Philosophy Texts)

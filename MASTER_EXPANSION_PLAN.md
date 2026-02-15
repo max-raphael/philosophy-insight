@@ -3,7 +3,7 @@
 ## Current Status
 
 **Started:** 187 texts
-**Current:** 401 texts (115% increase)
+**Current:** 400 texts (114% increase)
 **Target:** 500+ texts
 
 ---
@@ -173,10 +173,12 @@ All texts imported successfully:
 
 All texts imported successfully:
 - Chinese (Wang Yangming, Mencius, Xunzi, Mozi, Han Feizi, Liezi)
-- Essay Collections (Bacon Essays, Common Sense, Godwin, Pascal, Smith)
+- Essay Collections (Bacon Essays, Common Sense, Godwin, Pascal)
 - Women Philosophers (Harriet Taylor Mill)
 - Sufi (Rumi Mesnevi)
 - Reference Works
+
+**Note (2026-02-14):** Removed `smith-essays` (Gutenberg #58559) - was a broken omnibus that duplicated Theory of Moral Sentiments and jumbled multiple essays together. Theory of Moral Sentiments reimported from Standard Ebooks with proper structure.
 
 ---
 
@@ -276,7 +278,8 @@ All texts imported successfully:
 
 ### Phase 9: Standard Ebooks (~30 texts)
 
-**Requires:** New import script `import_standard_ebooks.py` for EPUB parsing
+**Script:** `import_standard_ebooks.py` ✅ Created - parses Standard Ebooks single-page HTML format
+**Status:** Successfully used to reimport Theory of Moral Sentiments (34 sections)
 
 | ID | Title | Notes |
 |----|-------|-------|
@@ -350,7 +353,7 @@ All texts imported successfully:
 | Indian | 22 |
 | Buddhist | 10 |
 | Sufi | 11 |
-| **TOTAL** | **401** |
+| **TOTAL** | **400** |
 
 ### Projected Final Coverage
 
@@ -365,7 +368,7 @@ All texts imported successfully:
 | Indian | 22 | 0 | 22 |
 | Buddhist | 10 | 0 | 10 |
 | Sufi | 11 | 0 | 11 |
-| **TOTAL** | **401** | **+60** | **~461** |
+| **TOTAL** | **400** | **+60** | **~460** |
 
 ---
 
@@ -381,7 +384,7 @@ All texts imported successfully:
 | `import_marxists.py` | ✅ Complete | HTML from marxists.org |
 | `marxists_manifest.py` | ✅ Complete | 51 Marxist texts defined |
 | `import_gutenberg_html.py` | 🔲 Needed | HTML/EPUB from Gutenberg |
-| `import_standard_ebooks.py` | 🔲 Needed | EPUB from standardebooks.org |
+| `import_standard_ebooks.py` | ✅ Complete | HTML from standardebooks.org single-page format |
 | `import_perseus.py` | 🔲 Needed | XML from Perseus |
 | `import_early_modern.py` | 🔲 Needed | HTML from earlymoderntexts.com |
 
