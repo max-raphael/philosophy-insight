@@ -529,13 +529,13 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
               </p>
             </motion.div>
 
-            {/* Two-column layout: Western and Eastern */}
+            {/* Two-column layout: Western and World Traditions */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Western Philosophy */}
               <div>
                 <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">Western Philosophy</h3>
                 <div className="space-y-4">
-                  {eras.slice(0, 4).map((era, i) => {
+                  {eras.slice(0, 5).map((era, i) => {
                     const eraTexts = textsByEra[era.id] || []
                     const isHovered = hoveredEra === era.id
                     return (
@@ -590,11 +590,11 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                 </div>
               </div>
 
-              {/* Eastern Philosophy */}
+              {/* World Traditions */}
               <div>
-                <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">Eastern Philosophy</h3>
+                <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">World Traditions</h3>
                 <div className="space-y-4">
-                  {eras.slice(4, 8).map((era, i) => {
+                  {eras.slice(5, 10).map((era, i) => {
                     const eraTexts = textsByEra[era.id] || []
                     const isHovered = hoveredEra === era.id
                     return (
@@ -650,12 +650,12 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
               </div>
             </div>
 
-            {/* Revolutionary Philosophy - Full width below */}
-            {eras.slice(8).length > 0 && (
+            {/* Political Philosophy - Full width below */}
+            {eras.slice(10).length > 0 && (
               <div className="mt-8">
-                <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">Revolutionary Philosophy</h3>
+                <h3 className="text-sm font-ui text-[var(--text-muted)] tracking-widest uppercase mb-6">Political Philosophy</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {eras.slice(8).map((era, i) => {
+                  {eras.slice(10).map((era, i) => {
                     const eraTexts = textsByEra[era.id] || []
                     const isHovered = hoveredEra === era.id
                     return (
