@@ -59,7 +59,7 @@ export const thematicCollections: Collection[] = [
 
 // Era metadata for browsing
 export const eras = [
-  // Western Philosophy
+  // Western
   {
     id: 'ancient',
     name: 'Ancient',
@@ -73,13 +73,6 @@ export const eras = [
     years: '400 - 1400 CE',
     description: 'Faith and reason in the Christian tradition',
     color: 'stone',
-  },
-  {
-    id: 'islamic',
-    name: 'Islamic',
-    years: '800 - 1400 CE',
-    description: 'The golden age of Arabic philosophy',
-    color: 'amber',
   },
   {
     id: 'enlightenment',
@@ -102,7 +95,15 @@ export const eras = [
     description: 'Pragmatism, analysis, and process',
     color: 'blue',
   },
-  // Eastern Philosophy
+  // Islamic
+  {
+    id: 'islamic',
+    name: 'Islamic',
+    years: '800 - 1400 CE',
+    description: 'The golden age of Arabic philosophy',
+    color: 'amber',
+  },
+  // Eastern
   {
     id: 'chinese',
     name: 'Chinese',
@@ -131,7 +132,7 @@ export const eras = [
     description: 'Mystical poetry and the path of the heart',
     color: 'purple',
   },
-  // Revolutionary Philosophy
+  // Political
   {
     id: 'revolutionary',
     name: 'Revolutionary',

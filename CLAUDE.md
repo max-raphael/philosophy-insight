@@ -127,9 +127,10 @@ curl -X POST http://localhost:8000/reload-texts
 - Reading position persists per text at section level (`reading-position-{textId}`) - auto-saves current section as you scroll, restores exact position on return
 
 **Styling:** Tailwind CSS v4, Libre Baskerville for text, Inter for UI. Category colors defined via CSS custom properties:
-- Western: amber (ancient), stone (medieval), amber (islamic), emerald (enlightenment), blue (19th-century, 20th-century)
+- Western: amber (ancient), stone (medieval), emerald (enlightenment), blue (19th-century, 20th-century)
+- Islamic: amber (islamic)
 - Eastern: red (chinese), orange (indian), yellow (buddhist), purple (persian)
-- Revolutionary: rose (revolutionary)
+- Political: rose (revolutionary)
 
 CSS custom properties enable dark mode theming.
 
