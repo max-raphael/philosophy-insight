@@ -316,25 +316,27 @@ const Reader = forwardRef<ReaderHandle, ReaderProps>(function Reader(
               id={`book-${book}`}
               className="mb-20"
             >
-              {/* Book header - scholarly style */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: bookIndex * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-12"
-              >
-                <span className="block text-[var(--text-muted)] font-display text-sm tracking-widest uppercase mb-2">
-                  Book
-                </span>
-                <span className="block text-[var(--accent-primary)] font-display text-4xl font-medium">
-                  {toRoman(book)}
-                </span>
-                <div className="mt-4 flex items-center justify-center gap-4">
-                  <span className="w-12 h-px bg-[var(--border-decorative)]" />
-                  <span className="text-[var(--text-muted)] text-xs">§</span>
-                  <span className="w-12 h-px bg-[var(--border-decorative)]" />
-                </div>
-              </motion.div>
+              {/* Book header - scholarly style (only show if multiple books) */}
+              {books.length > 1 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: bookIndex * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-center mb-12"
+                >
+                  <span className="block text-[var(--text-muted)] font-display text-sm tracking-widest uppercase mb-2">
+                    Book
+                  </span>
+                  <span className="block text-[var(--accent-primary)] font-display text-4xl font-medium">
+                    {toRoman(book)}
+                  </span>
+                  <div className="mt-4 flex items-center justify-center gap-4">
+                    <span className="w-12 h-px bg-[var(--border-decorative)]" />
+                    <span className="text-[var(--text-muted)] text-xs">§</span>
+                    <span className="w-12 h-px bg-[var(--border-decorative)]" />
+                  </div>
+                </motion.div>
+              )}
 
               <div className="space-y-8">
                 {bookSections.map((section, localIndex) => {
