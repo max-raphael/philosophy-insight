@@ -487,7 +487,7 @@ test.describe('Chat Focus Shortcut', () => {
     await expect(chatInput).toBeFocused()
   })
 
-  test('Cmd+. toggles zen mode', async ({ page }) => {
+  test('Cmd+. toggles reading mode', async ({ page }) => {
     // Chat panel visible initially
     const chatPanelIndicator = page.locator('button').filter({ hasText: 'Discussion' })
     await expect(chatPanelIndicator).toBeVisible()
@@ -496,14 +496,14 @@ test.describe('Chat Focus Shortcut', () => {
     await page.locator('.reader-page').click()
     await page.waitForTimeout(100)
 
-    // Press Cmd+. to enter zen mode
+    // Press Cmd+. to enter reading mode
     await page.keyboard.press('Meta+.')
 
     // Chat should be hidden
     await page.waitForTimeout(100)
     await expect(chatPanelIndicator).not.toBeVisible()
 
-    // Press Cmd+. again to exit zen mode
+    // Press Cmd+. again to exit reading mode
     await page.keyboard.press('Meta+.')
 
     // Chat should be visible again
@@ -512,33 +512,33 @@ test.describe('Chat Focus Shortcut', () => {
   })
 })
 
-test.describe('Zen Mode', () => {
+test.describe('Reading Mode', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/texts/categories')
     await page.waitForSelector('.reader-page', { timeout: 15000 })
   })
 
-  test('zen mode button toggles zen mode', async ({ page }) => {
-    // Find zen mode button by its title
-    const zenButton = page.locator('button[title*="zen mode"]')
-    await expect(zenButton).toBeVisible()
+  test('reading mode button toggles reading mode', async ({ page }) => {
+    // Find reading mode button by its title
+    const readingModeButton = page.locator('button[title*="reading mode"]')
+    await expect(readingModeButton).toBeVisible()
 
     // Chat panel visible initially (use the conversation switcher button as indicator)
     const chatPanelIndicator = page.locator('button').filter({ hasText: 'Discussion' })
     await expect(chatPanelIndicator).toBeVisible()
 
-    // Click to enter zen mode
-    await zenButton.click()
+    // Click to enter reading mode
+    await readingModeButton.click()
 
     // Chat should be hidden
     await page.waitForTimeout(100)
     await expect(chatPanelIndicator).not.toBeVisible()
 
     // Button title should change
-    await expect(page.locator('button[title="Exit zen mode (⌘.)"]')).toBeVisible()
+    await expect(page.locator('button[title="Exit reading mode (⌘.)"]')).toBeVisible()
 
     // Click again to exit
-    await zenButton.click()
+    await readingModeButton.click()
 
     // Chat should be visible again
     await page.waitForTimeout(100)
@@ -877,28 +877,28 @@ test.describe('Onboarding', () => {
     await expect(page.getByText('Welcome to Philosophy Insight')).not.toBeVisible()
   })
 
-  test('welcome modal How to Read link navigates to guide', async ({ page }) => {
+  test('welcome modal How to Use link navigates to guide', async ({ page }) => {
     await page.goto('/')
     await page.waitForTimeout(500)
 
     // Welcome modal should appear
     await expect(page.getByText('Welcome to Philosophy Insight')).toBeVisible({ timeout: 5000 })
 
-    // Click How to Read button in the modal (the button, not the footer link)
-    await page.getByRole('button', { name: /How to Read/ }).click()
+    // Click How to Use button in the modal (the button, not the footer link)
+    await page.getByRole('button', { name: /How to Use/ }).click()
     await page.waitForTimeout(300)
 
-    // Should be on the How to Read page
-    await expect(page).toHaveURL('/how-to-read')
-    await expect(page.getByRole('heading', { name: 'How to Read Philosophy' })).toBeVisible()
+    // Should be on the How to Use page
+    await expect(page).toHaveURL('/how-to-use')
+    await expect(page.getByRole('heading', { name: 'How to Use This App' })).toBeVisible()
   })
 
-  test('How to Read page renders all sections', async ({ page }) => {
-    await page.goto('/how-to-read')
+  test('How to Use page renders all sections', async ({ page }) => {
+    await page.goto('/how-to-use')
     await page.waitForTimeout(500)
 
     // Check main heading
-    await expect(page.getByRole('heading', { name: 'How to Read Philosophy' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'How to Use This App' })).toBeVisible()
 
     // Check key sections (using headings to be specific)
     await expect(page.getByRole('heading', { name: 'The Philosophy of Reading' })).toBeVisible()
@@ -914,8 +914,8 @@ test.describe('Onboarding', () => {
     await expect(page.getByRole('link', { name: 'Start Reading' })).toBeVisible()
   })
 
-  test('How to Read page Start Reading links to home', async ({ page }) => {
-    await page.goto('/how-to-read')
+  test('How to Use page Start Reading links to home', async ({ page }) => {
+    await page.goto('/how-to-use')
     await page.waitForTimeout(500)
 
     // Click Start Reading
@@ -946,7 +946,7 @@ test.describe('Onboarding', () => {
     await expect(page.getByText('How to use this app')).toBeVisible()
   })
 
-  test('footer has How to Read link', async ({ page }) => {
+  test('footer has How to Use link', async ({ page }) => {
     // Skip welcome modal using helper
     await skipOnboarding(page)
     await page.goto('/')
@@ -956,8 +956,8 @@ test.describe('Onboarding', () => {
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
     await page.waitForTimeout(500)
 
-    // Check for How to Read link in footer
+    // Check for How to Use link in footer
     const footer = page.locator('footer')
-    await expect(footer.getByText('How to Read')).toBeVisible()
+    await expect(footer.getByText('How to Use')).toBeVisible()
   })
 })

@@ -12,6 +12,7 @@ import MobileReaderLayout from '../components/MobileReaderLayout'
 import { useIsMobile } from '../hooks/useMediaQuery'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import { useBookmarks } from '../hooks/useBookmarks'
+import { useOnboarding } from '../hooks/useOnboarding'
 import { downloadBookmarks } from '../utils/exportBookmarks'
 import { API_URL } from '../config'
 
@@ -50,10 +51,12 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const [showBookmarkModal, setShowBookmarkModal] = useState(false)
   const [pendingBookmark, setPendingBookmark] = useState<{ text: string; location: ParagraphLocation } | null>(null)
   const [isFullscreen, setIsFullscreen] = useState(false)
-  const [isZenMode, setIsZenMode] = useState(false)
+  const [isReadingMode, setIsReadingMode] = useState(false)
   const readerRef = useRef<ReaderHandle>(null)
   const isMobile = useIsMobile()
   const { bookmarks, addBookmark, removeBookmark, updateNote, getBookmarksForText } = useBookmarks()
+  const { hasSeenHighlightHint, markHighlightHintSeen, isLoaded: onboardingLoaded } = useOnboarding()
+  const [showHighlightHint, setShowHighlightHint] = useState(false)
 
   // Get unique books from sections
   const books = text
@@ -85,7 +88,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const handleSelectText = useCallback((selectedText: string, location: ParagraphLocation) => {
     setPendingQuote(selectedText)
     setActiveParagraph(location)
-    setIsZenMode(false) // Exit zen mode to show the chat panel
+    setIsReadingMode(false) // Exit reading mode to show the chat panel
   }, [])
 
   const handleQuoteUsed = useCallback(() => {
@@ -182,6 +185,28 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
   }, [])
 
+  // Show highlight hint for first-time desktop visitors
+  useEffect(() => {
+    if (!isMobile && onboardingLoaded && !hasSeenHighlightHint && text) {
+      // Show hint after a short delay to let user settle in
+      const timer = setTimeout(() => {
+        setShowHighlightHint(true)
+      }, 2000)
+      return () => clearTimeout(timer)
+    }
+  }, [isMobile, onboardingLoaded, hasSeenHighlightHint, text])
+
+  // Auto-dismiss highlight hint after 8 seconds
+  useEffect(() => {
+    if (showHighlightHint) {
+      const timer = setTimeout(() => {
+        setShowHighlightHint(false)
+        markHighlightHintSeen()
+      }, 8000)
+      return () => clearTimeout(timer)
+    }
+  }, [showHighlightHint, markHighlightHintSeen])
+
   // Keyboard shortcuts - always enabled for toggle shortcuts
   useKeyboardShortcuts([
     { key: 'f', handler: toggleFullscreen },
@@ -196,7 +221,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
     { key: '\\', metaKey: true, handler: () => setShowTOC(prev => !prev) },
     { key: 'b', metaKey: true, handler: () => setShowBookmarks(prev => !prev) },
     { key: '?', shiftKey: true, handler: () => setShowShortcuts(prev => !prev) },
-    { key: '.', metaKey: true, handler: () => setIsZenMode(prev => !prev) },
+    { key: '.', metaKey: true, handler: () => setIsReadingMode(prev => !prev) },
   ], true)
 
   // Restore reading position on load
@@ -335,17 +360,17 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
               </svg>
             </button>
 
-            {/* Zen mode button */}
+            {/* Reading mode button */}
             <button
-              onClick={() => setIsZenMode(prev => !prev)}
+              onClick={() => setIsReadingMode(prev => !prev)}
               className={`p-2 rounded-lg transition-colors ${
-                isZenMode
+                isReadingMode
                   ? 'text-[var(--accent-primary)] bg-[var(--accent-bg)]'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
               }`}
-              title={isZenMode ? 'Exit zen mode (⌘.)' : 'Enter zen mode (⌘.)'}
+              title={isReadingMode ? 'Exit reading mode (⌘.)' : 'Enter reading mode (⌘.)'}
             >
-              {isZenMode ? (
+              {isReadingMode ? (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
@@ -429,7 +454,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
 
       {/* Main content with resizable panels */}
       <Group orientation={isMobile ? 'vertical' : 'horizontal'} className="flex-1">
-        <Panel defaultSize={isMobile ? 60 : 50} minSize={30}>
+        <Panel defaultSize={isMobile ? 60 : 75} minSize={30}>
           <div className="h-full overflow-y-auto bg-[var(--bg-primary)]">
             <ReaderComponent
               ref={readerRef}
@@ -443,7 +468,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
           </div>
         </Panel>
 
-        {!isZenMode && (
+        {!isReadingMode && (
           <>
             <Separator className={
               isMobile
@@ -451,7 +476,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
                 : 'w-1 bg-[var(--border-primary)] hover:bg-[var(--border-secondary)] active:bg-[var(--text-muted)] transition-colors cursor-col-resize'
             } />
 
-            <Panel defaultSize={isMobile ? 40 : 50} minSize={20}>
+            <Panel defaultSize={isMobile ? 40 : 25} minSize={20}>
               <div className="h-full bg-[var(--bg-secondary)] shadow-lg">
                 <DiscussionPanel
                   textId={text.id}
@@ -507,6 +532,36 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
           selectedText={pendingBookmark.text}
           location={pendingBookmark.location}
         />
+      )}
+
+      {/* Highlight hint toast */}
+      {showHighlightHint && (
+        <div
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300"
+          role="alert"
+        >
+          <div className="flex items-center gap-3 px-4 py-3 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-lg shadow-lg">
+            <div className="w-8 h-8 rounded-full bg-[var(--accent-primary)]/10 flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-[var(--accent-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+            </div>
+            <p className="text-sm text-[var(--text-secondary)] font-ui">
+              <span className="text-[var(--text-primary)] font-medium">Highlight any passage</span> to discuss it
+            </p>
+            <button
+              onClick={() => {
+                setShowHighlightHint(false)
+                markHighlightHintSeen()
+              }}
+              className="p-1 rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
       )}
     </div>
   )

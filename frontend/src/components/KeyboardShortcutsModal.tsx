@@ -12,7 +12,7 @@ const shortcuts = [
   ]},
   { category: 'Reading', items: [
     { keys: ['f'], description: 'Toggle fullscreen' },
-    { keys: ['⌘', '.'], description: 'Toggle zen mode' },
+    { keys: ['⌘', '.'], description: 'Toggle reading mode' },
     { keys: ['⌘', '\\'], description: 'Toggle table of contents' },
     { keys: ['⌘', 'B'], description: 'Toggle bookmarks panel' },
     { keys: ['Esc'], description: 'Exit fullscreen / close modals' },
@@ -98,7 +98,7 @@ export default function KeyboardShortcutsModal({ isOpen, onClose }: KeyboardShor
               <div className="px-5 py-3 bg-[var(--bg-tertiary)] border-t border-[var(--border-primary)]">
                 <div className="flex items-center justify-between">
                   <Link
-                    to="/how-to-read"
+                    to="/how-to-use"
                     onClick={onClose}
                     className="text-xs text-[var(--text-muted)] hover:text-[var(--accent-primary)] transition-colors"
                   >

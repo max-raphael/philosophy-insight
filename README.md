@@ -10,13 +10,13 @@ Philosophy Insight puts an AI tutor right next to the text. Highlight a confusin
 
 ## Features
 
-- **187 philosophy texts** spanning Western and Eastern traditions
+- **401 philosophy texts** spanning Western and Eastern traditions
 - **AI-powered discussion** with streaming responses and conversation memory
 - **Text highlighting** to quote passages in your conversation
 - **Multiple conversations per text** with auto-generated titles
 - **Dark mode** with light, dark, and system-preference options
 - **Command palette** (`Cmd+K`) for quick search
-- **Zen mode** for distraction-free reading
+- **Reading mode** for distraction-free reading
 - **Reading progress** tracking
 
 ## Library

@@ -5,6 +5,7 @@ export interface OnboardingState {
   firstVisit: number
   hasSeenWelcome: boolean
   hasSeenGuide: boolean
+  hasSeenHighlightHint: boolean
 }
 
 const STORAGE_KEY = 'philosophy-insight-onboarding'
@@ -14,6 +15,7 @@ const getDefaultState = (): OnboardingState => ({
   firstVisit: Date.now(),
   hasSeenWelcome: false,
   hasSeenGuide: false,
+  hasSeenHighlightHint: false,
 })
 
 export function useOnboarding() {
@@ -59,6 +61,10 @@ export function useOnboarding() {
     setState(prev => prev ? { ...prev, hasSeenGuide: true } : prev)
   }, [])
 
+  const markHighlightHintSeen = useCallback(() => {
+    setState(prev => prev ? { ...prev, hasSeenHighlightHint: true } : prev)
+  }, [])
+
   // Reset onboarding (for testing or user request)
   const resetOnboarding = useCallback(() => {
     localStorage.removeItem(STORAGE_KEY)
@@ -70,8 +76,10 @@ export function useOnboarding() {
     isFirstTimeUser,
     showWelcome,
     hasSeenGuide: state?.hasSeenGuide ?? false,
+    hasSeenHighlightHint: state?.hasSeenHighlightHint ?? false,
     markWelcomeSeen,
     markGuideSeen,
+    markHighlightHintSeen,
     resetOnboarding,
   }
 }

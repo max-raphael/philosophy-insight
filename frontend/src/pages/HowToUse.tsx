@@ -5,7 +5,7 @@ import ThemeToggle from '../components/ThemeToggle'
 const shortcuts = [
   { keys: ['⌘', 'K'], description: 'Open search' },
   { keys: ['f'], description: 'Toggle fullscreen' },
-  { keys: ['⌘', '.'], description: 'Toggle zen mode' },
+  { keys: ['⌘', '.'], description: 'Toggle reading mode' },
   { keys: ['⌘', '\\'], description: 'Toggle table of contents' },
   { keys: ['⌘', 'B'], description: 'Toggle bookmarks panel' },
   { keys: ['⌘', '/'], description: 'Focus chat input' },

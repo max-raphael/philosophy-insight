@@ -71,7 +71,7 @@ curl -X POST http://localhost:8000/reload-texts
       Home.tsx            # Curated discovery experience with sections
       HowToUse.tsx        # Guide page for new users on using the app
       Philosophers.tsx    # Dedicated page showing all philosophers with portraits
-      Reader.tsx          # Reading view with TOC, controls, keyboard nav, zen mode
+      Reader.tsx          # Reading view with TOC, controls, keyboard nav, reading mode
     components/
       Reader.tsx          # Text display with selection popup
       DiscussionPanel.tsx # Chat with streaming responses
@@ -181,7 +181,7 @@ CSS custom properties enable dark mode theming.
 - **Bookmarks** - Save passages with optional notes (`Cmd+B` to toggle panel), export to Markdown
 - **Reading Controls** - Font size (S/M/L), font family (Serif/Sans), theme
 - **Fullscreen Mode** - Press `f` to toggle
-- **Zen Mode** - Hide chat panel for distraction-free reading (button in header)
+- **Reading Mode** - Hide chat panel for distraction-free reading (button in header)
 - **Progress Tracking** - Percentage and book number shown in header; auto-saves section position and resumes where you left off
 - **Keyboard Navigation** - See shortcuts below
 
@@ -215,7 +215,7 @@ Mobile gets a completely different layout optimized for touch:
 | `Cmd+K` | Open search |
 | `Esc` | Close modal/exit fullscreen |
 | `f` | Toggle fullscreen (Reader) |
-| `Cmd+.` | Toggle zen mode (Reader) |
+| `Cmd+.` | Toggle reading mode (Reader) |
 | `Cmd+\` | Toggle table of contents (Reader) |
 | `Cmd+B` | Toggle bookmarks panel (Reader) |
 | `Cmd+/` | Focus chat input (Reader) |
@@ -231,7 +231,7 @@ npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
 
-Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, zen mode, conversations, Socratic mode, bookmarks, and onboarding.
+Tests cover: Home page sections, dark mode, command palette, reader features, keyboard shortcuts, navigation, responsive design, reading mode, conversations, Socratic mode, bookmarks, and onboarding.
 
 ## Text Import System
 
