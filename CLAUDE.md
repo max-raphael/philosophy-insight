@@ -69,7 +69,8 @@ curl -X POST http://localhost:8000/reload-texts
       collections.ts      # Curated text collections ("Start Here", eras, themes)
     pages/
       Home.tsx            # Curated discovery experience with sections
-      HowToRead.tsx       # Guide page for new users on reading philosophy
+      HowToUse.tsx        # Guide page for new users on using the app
+      Philosophers.tsx    # Dedicated page showing all philosophers with portraits
       Reader.tsx          # Reading view with TOC, controls, keyboard nav, zen mode
     components/
       Reader.tsx          # Text display with selection popup
@@ -139,7 +140,7 @@ CSS custom properties enable dark mode theming.
   - Philosophical framing: "wrestle with it first" before asking for help
   - Primary CTA dismisses modal, secondary links to How to Read guide
   - Persists in localStorage so it only shows once
-- **How to Read page** (`/how-to-read`) - Static guide with sections:
+- **How to Use page** (`/how-to-use`) - Static guide with sections:
   - Philosophy of reading (value of struggling with difficult ideas)
   - How selection and discussion works
   - Tutor vs Socratic modes
@@ -150,7 +151,7 @@ CSS custom properties enable dark mode theming.
 - **Access points** - Footer link, keyboard shortcuts modal link, welcome modal CTA
 
 ### Dark Mode
-- Two modes: Dark (default) and Light
+- Two modes: Light (default) and Dark
 - Toggle via ThemeToggle button in header or Reading Controls
 - CSS variables in `index.css` control all colors for seamless theming
 
@@ -168,6 +169,12 @@ CSS custom properties enable dark mode theming.
 4. **Philosophical Traditions** - Two-column layout (Western | Eastern) with clickable era cards
 5. **Philosophers Gallery** - Horizontal scroll with portraits sourced from Wikipedia API
 6. **The Library** - Filterable/sortable grid with pill-style era filters
+
+### Philosophers Page (`/philosophers`)
+- Grid of all philosophers with portraits from Wikipedia
+- Filter by tradition (Ancient, Medieval, Enlightenment, Modern, Eastern, Revolutionary)
+- Click a philosopher to expand and see their available works
+- Links directly to each text's reader page
 
 ### Reader Features (Desktop)
 - **Table of Contents** - Sidebar showing book structure (`Cmd+\` to toggle)

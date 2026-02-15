@@ -9,9 +9,9 @@ interface WelcomeModalProps {
 export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
   const navigate = useNavigate()
 
-  const handleHowToRead = () => {
+  const handleHowToUse = () => {
     onClose()
-    navigate('/how-to-read')
+    navigate('/how-to-use')
   }
 
   return (
@@ -72,10 +72,10 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
                     Begin Exploring
                   </button>
                   <button
-                    onClick={handleHowToRead}
+                    onClick={handleHowToUse}
                     className="w-full sm:w-auto px-6 py-3 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] font-ui transition-colors flex items-center justify-center gap-2"
                   >
-                    How to Read
+                    How to Use
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

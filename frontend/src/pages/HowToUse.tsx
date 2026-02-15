@@ -12,7 +12,7 @@ const shortcuts = [
   { keys: ['?'], description: 'Show all shortcuts' },
 ]
 
-export default function HowToRead() {
+export default function HowToUse() {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] relative">
       {/* Ambient background */}
@@ -55,7 +55,7 @@ export default function HowToRead() {
           >
             <span className="font-display text-6xl text-[var(--accent-primary)]/30 block mb-4">φ</span>
             <h1 className="font-display text-4xl md:text-5xl font-medium text-[var(--text-primary)] mb-4">
-              How to Read Philosophy
+              How to Use This App
             </h1>
             <p className="text-lg text-[var(--text-secondary)] font-body max-w-xl mx-auto">
               A guide to engaging deeply with philosophical texts

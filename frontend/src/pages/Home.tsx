@@ -726,15 +726,15 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                 <p className="text-xs font-ui text-[var(--accent-primary)] tracking-widest uppercase mb-3">The great minds</p>
                 <h2 className="text-4xl md:text-5xl font-display font-medium text-[var(--text-primary)]">Philosophers</h2>
               </div>
-              <button
-                onClick={() => onOpenSearch()}
+              <Link
+                to="/philosophers"
                 className="hidden sm:flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors font-ui"
               >
                 View all
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Horizontal scroll gallery */}
@@ -953,10 +953,10 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
               <ul className="space-y-3">
                 <li>
                   <Link
-                    to="/how-to-read"
+                    to="/how-to-use"
                     className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors font-body"
                   >
-                    How to Read
+                    How to Use
                   </Link>
                 </li>
                 {startHereWithData.slice(0, 3).map(text => (

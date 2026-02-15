@@ -6,11 +6,10 @@ const STORAGE_KEY = 'philosophy-insight-theme'
 
 export function useDarkMode() {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark'
+    if (typeof window === 'undefined') return 'light'
     const stored = localStorage.getItem(STORAGE_KEY)
-    // Migrate old 'system' preference to 'dark'
-    if (stored === 'light') return 'light'
-    return 'dark'
+    if (stored === 'dark') return 'dark'
+    return 'light'
   })
 
   // Determine if dark mode is active

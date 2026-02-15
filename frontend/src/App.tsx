@@ -5,7 +5,8 @@ import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 import CommandPalette from './components/CommandPalette'
 import Home from './pages/Home'
 import Reader from './pages/Reader'
-import HowToRead from './pages/HowToRead'
+import HowToUse from './pages/HowToUse'
+import Philosophers from './pages/Philosophers'
 import { API_URL } from './config'
 
 interface TextInfo {
@@ -50,7 +51,8 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home texts={texts} onOpenSearch={openCommandPalette} />} />
         <Route path="/texts/:textId" element={<Reader onOpenSearch={openCommandPalette} />} />
-        <Route path="/how-to-read" element={<HowToRead />} />
+        <Route path="/how-to-use" element={<HowToUse />} />
+        <Route path="/philosophers" element={<Philosophers texts={texts} onOpenSearch={openCommandPalette} />} />
       </Routes>
       <CommandPalette
         isOpen={commandPaletteOpen}
