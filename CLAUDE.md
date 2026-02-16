@@ -237,7 +237,7 @@ Tests cover: Home page sections, dark mode, command palette, reader features, ke
 ## Text Import System
 
 ### Current State
-- **400 texts** imported from Project Gutenberg, Marxists Internet Archive, and Standard Ebooks
+- **423 texts** imported from Project Gutenberg, Marxists Internet Archive, and Standard Ebooks
 - Covers Western philosophy (Ancient through 20th century), Islamic philosophy, Eastern traditions, and revolutionary thought
 
 **Coverage by category:**
@@ -257,7 +257,7 @@ Eastern:
 - Buddhist: 10 texts (Dhammapada, Zen texts)
 - Persian: 10 texts (Rumi, Hafiz, Omar Khayyam)
 
-Revolutionary: 43 texts (Marx, Engels, Lenin, Bakunin, Kropotkin, Goldman)
+Revolutionary: 40 texts (Marx, Engels, Lenin, Lukács, Bakunin, Goldman, Luxemburg)
 
 ### How to Add More Texts
 

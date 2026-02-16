@@ -188,34 +188,10 @@ LENIN = [
 ]
 
 # =============================================================================
-# ANTONIO GRAMSCI (8 texts from Prison Notebooks)
+# ANTONIO GRAMSCI (1 text - Prison Notebooks not available as separate pages)
 # =============================================================================
 
 GRAMSCI = [
-    MarxistTextConfig(
-        id='gramsci-modern-prince',
-        title='The Modern Prince',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's analysis of political parties as the 'modern prince' and agents of historical change.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/modern_prince/index.htm',
-    ),
-    MarxistTextConfig(
-        id='gramsci-state-civil-society',
-        title='State and Civil Society',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's analysis of the relationship between state power and civil society institutions.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/state_civil/index.htm',
-    ),
-    MarxistTextConfig(
-        id='gramsci-study-philosophy',
-        title='The Study of Philosophy',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's notes on the philosophy of praxis and the relationship between common sense and philosophy.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/philosophy/index.htm',
-    ),
     MarxistTextConfig(
         id='gramsci-revolution-capital',
         title='The Revolution against "Capital"',
@@ -225,41 +201,8 @@ GRAMSCI = [
         url='https://www.marxists.org/archive/gramsci/1917/12/revolution-against-capital.htm',
         single_page=True,
     ),
-    MarxistTextConfig(
-        id='gramsci-intellectuals',
-        title='The Intellectuals',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's influential analysis of organic and traditional intellectuals in modern society.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/intellectuals/intellectuals.htm',
-        single_page=True,
-    ),
-    MarxistTextConfig(
-        id='gramsci-party',
-        title='Political Parties in Periods of Organic Crisis',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's analysis of how political parties respond to organic crises of hegemony.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/state_civil/organic_crisis.htm',
-        single_page=True,
-    ),
-    MarxistTextConfig(
-        id='gramsci-hegemony',
-        title='Hegemony, War of Position and War of Manoeuvre',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's strategic concepts of hegemonic struggle and political warfare.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/state_civil/war_position.htm',
-        single_page=True,
-    ),
-    MarxistTextConfig(
-        id='gramsci-americanism',
-        title='Americanism and Fordism',
-        author='Antonio Gramsci',
-        year='1929-1935',
-        description="Gramsci's analysis of Fordist production methods and their social implications.",
-        url='https://www.marxists.org/archive/gramsci/prison_notebooks/americanism_fordism/index.htm',
-    ),
+    # NOTE: Prison Notebooks sections (Modern Prince, State and Civil Society, etc.)
+    # are not available as separate pages on marxists.org - only index pages exist
 ]
 
 # =============================================================================
@@ -291,7 +234,8 @@ LUKACS = [
         author='Georg Lukács',
         year='1923',
         description="Lukács' influential analysis of commodity fetishism and the reification of social relations.",
-        url='https://www.marxists.org/archive/lukacs/works/history/hcc05s1.htm',
+        url='https://www.marxists.org/archive/lukacs/works/history/hcc05.htm',
+        single_page=True,
     ),
     MarxistTextConfig(
         id='lukacs-rosa-luxemburg',
@@ -299,7 +243,7 @@ LUKACS = [
         author='Georg Lukács',
         year='1921',
         description="Lukács' assessment of Rosa Luxemburg's contributions to Marxist theory.",
-        url='https://www.marxists.org/archive/lukacs/works/history/hcc03.htm',
+        url='https://www.marxists.org/archive/lukacs/works/history/ch02.htm',
         single_page=True,
     ),
     MarxistTextConfig(
@@ -308,7 +252,7 @@ LUKACS = [
         author='Georg Lukács',
         year='1920',
         description="Lukács' analysis of revolutionary tactics and the question of legality.",
-        url='https://www.marxists.org/archive/lukacs/works/history/hcc06.htm',
+        url='https://www.marxists.org/archive/lukacs/works/history/ch06.htm',
         single_page=True,
     ),
     MarxistTextConfig(
@@ -317,7 +261,7 @@ LUKACS = [
         author='Georg Lukács',
         year='1922',
         description="Lukács' analysis of the revolutionary party as the mediator of class consciousness.",
-        url='https://www.marxists.org/archive/lukacs/works/history/hcc08.htm',
+        url='https://www.marxists.org/archive/lukacs/works/history/ch08.htm',
         single_page=True,
     ),
 ]
@@ -382,52 +326,13 @@ BAKUNIN = [
 ]
 
 # =============================================================================
-# PETER KROPOTKIN (5 texts)
+# PETER KROPOTKIN - NOT AVAILABLE (entire archive returns 404)
 # =============================================================================
 
 KROPOTKIN = [
-    MarxistTextConfig(
-        id='kropotkin-anarchist-morality',
-        title='Anarchist Morality',
-        author='Peter Kropotkin',
-        year='1897',
-        description="Kropotkin's exposition of ethics based on mutual aid and solidarity.",
-        url='https://www.marxists.org/reference/archive/kropotkin/1897/morality.htm',
-        single_page=True,
-    ),
-    MarxistTextConfig(
-        id='kropotkin-anarchist-communism',
-        title='Anarchist Communism: Its Basis and Principles',
-        author='Peter Kropotkin',
-        year='1887',
-        description="Kropotkin's outline of anarchist communist society and its economic organization.",
-        url='https://www.marxists.org/reference/archive/kropotkin/1887/anarchist-communism.htm',
-        single_page=True,
-    ),
-    MarxistTextConfig(
-        id='kropotkin-modern-science',
-        title='Modern Science and Anarchism',
-        author='Peter Kropotkin',
-        year='1903',
-        description="Kropotkin's attempt to ground anarchism in modern scientific method and natural philosophy.",
-        url='https://www.marxists.org/reference/archive/kropotkin/1912/modern-science/',
-    ),
-    MarxistTextConfig(
-        id='kropotkin-state-historic-role',
-        title='The State: Its Historic Role',
-        author='Peter Kropotkin',
-        year='1896',
-        description="Kropotkin's historical analysis of the state as an institution of domination.",
-        url='https://www.marxists.org/reference/archive/kropotkin/1896/state/',
-    ),
-    MarxistTextConfig(
-        id='kropotkin-mutual-aid',
-        title='Mutual Aid: A Factor of Evolution',
-        author='Peter Kropotkin',
-        year='1902',
-        description="Kropotkin's scientific critique of Social Darwinism, emphasizing cooperation in evolution.",
-        url='https://www.marxists.org/reference/archive/kropotkin/1902/mutual-aid/',
-    ),
+    # NOTE: Kropotkin's works are not available on marxists.org
+    # The /reference/archive/kropotkin/ path returns 404
+    # Consider importing from theanarchistlibrary.org instead
 ]
 
 # =============================================================================
@@ -441,7 +346,7 @@ GOLDMAN = [
         author='Emma Goldman',
         year='1910',
         description="Goldman's powerful statement of anarchist philosophy and its vision for human freedom.",
-        url='https://www.marxists.org/reference/archive/goldman/works/1910/anarchism.htm',
+        url='https://www.marxists.org/reference/archive/goldman/works/1910s/anarchism.htm',
         single_page=True,
     ),
     MarxistTextConfig(
@@ -450,7 +355,7 @@ GOLDMAN = [
         author='Emma Goldman',
         year='1916',
         description="Goldman's critique of religious belief and defense of atheistic humanism.",
-        url='https://www.marxists.org/reference/archive/goldman/works/1916/philosophy-atheism.htm',
+        url='https://www.marxists.org/reference/archive/goldman/works/1916/atheism.htm',
         single_page=True,
     ),
     MarxistTextConfig(

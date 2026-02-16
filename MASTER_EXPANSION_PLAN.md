@@ -3,7 +3,7 @@
 ## Current Status
 
 **Started:** 187 texts
-**Current:** 400 texts (114% increase)
+**Current:** 423 texts (126% increase)
 **Target:** 500+ texts
 
 ---
@@ -25,7 +25,7 @@
 | 5 | British Philosophy (Burke, Spencer, Croce) | 30 | ✅ Complete |
 | 6 | American Philosophy | 18 | ✅ Complete |
 | 7 | Chinese Philosophy & Collections | 15 | ✅ Complete |
-| 8 | Marxists Internet Archive | 36 | ✅ Complete |
+| 8 | Marxists Internet Archive | 40 | ✅ Complete |
 
 ### ⚠️ UNABLE TO IMPORT (No Plain Text Available)
 
@@ -184,10 +184,10 @@ All texts imported successfully:
 
 ## ✅ PHASE 8: MARXISTS INTERNET ARCHIVE (COMPLETE)
 
-**Session Date:** 2026-02-14
-**Texts Added:** 36 texts
-**Import Script:** `import_marxists.py` (newly built HTML parser)
-**Manifest:** `marxists_manifest.py` (51 texts defined, 36 successful)
+**Session Dates:** 2026-02-14, 2026-02-15
+**Texts Added:** 40 texts
+**Import Script:** `import_marxists.py` (HTML parser)
+**Manifest:** `marxists_manifest.py`
 
 ### Successfully Imported
 
@@ -222,18 +222,22 @@ All texts imported successfully:
 | lenin-state-revolution | The State and Revolution | ✅ |
 | lenin-imperialism | Imperialism, the Highest Stage | ✅ |
 
-#### Antonio Gramsci (3 texts)
+#### Antonio Gramsci (1 text)
 | ID | Title | Status |
 |----|-------|--------|
-| gramsci-modern-prince | The Modern Prince | ✅ |
-| gramsci-state-civil-society | State and Civil Society | ✅ |
 | gramsci-revolution-capital | The Revolution against "Capital" | ✅ |
 
-#### Georg Lukács (2 texts)
+*Note: Prison Notebooks sections (Modern Prince, State and Civil Society, etc.) only have index pages on marxists.org, not full text.*
+
+#### Georg Lukács (6 texts)
 | ID | Title | Status |
 |----|-------|--------|
 | lukacs-orthodox-marxism | What is Orthodox Marxism? | ✅ |
 | lukacs-class-consciousness | Class Consciousness | ✅ |
+| lukacs-reification | Reification and the Consciousness of the Proletariat | ✅ (fixed 2026-02-15) |
+| lukacs-rosa-luxemburg | The Marxism of Rosa Luxemburg | ✅ (fixed 2026-02-15) |
+| lukacs-legality-illegality | Legality and Illegality | ✅ (fixed 2026-02-15) |
+| lukacs-party | Towards a Methodology of the Problem of Organisation | ✅ (fixed 2026-02-15) |
 
 #### Mikhail Bakunin (6 texts)
 | ID | Title | Status |
@@ -245,11 +249,13 @@ All texts imported successfully:
 | bakunin-catechism | Revolutionary Catechism | ✅ |
 | bakunin-paris-commune | The Paris Commune and the Idea of the State | ✅ |
 
-#### Emma Goldman (2 texts)
+#### Emma Goldman (4 texts)
 | ID | Title | Status |
 |----|-------|--------|
 | goldman-patriotism | Patriotism, a Menace to Liberty | ✅ |
 | goldman-traffic-women | The Traffic in Women | ✅ |
+| goldman-anarchism | Anarchism: What It Really Stands For | ✅ (fixed 2026-02-15) |
+| goldman-philosophy-atheism | The Philosophy of Atheism | ✅ (fixed 2026-02-15) |
 
 #### Rosa Luxemburg (3 texts)
 | ID | Title | Status |
@@ -258,19 +264,18 @@ All texts imported successfully:
 | luxemburg-mass-strike | The Mass Strike | ✅ |
 | luxemburg-russian-revolution | The Russian Revolution | ✅ |
 
-### Failed Imports (404 Errors - Wrong URLs in Manifest)
+### Not Available on marxists.org
 
-16 texts failed due to incorrect URLs. These can be fixed by updating `marxists_manifest.py` with correct URLs:
-- 5 Gramsci texts (Prison Notebooks sections)
-- 4 Lukács texts (History and Class Consciousness chapters)
-- 5 Kropotkin texts
-- 2 Goldman texts
+- **Kropotkin (5 texts)**: Entire `/reference/archive/kropotkin/` returns 404
+- **Gramsci Prison Notebooks (7 texts)**: Only index pages exist, not individual note content
+
+*Kropotkin texts may be available on theanarchistlibrary.org for future import.*
 
 ### Frontend Updates
-- Added `marxist` category to `collections.ts`
+- Added `revolutionary` category to `collections.ts`
 - Added category colors to `index.css` (light/dark modes)
 - Updated `Home.tsx` with "Revolutionary Philosophy" section
-- Updated `CommandPalette.tsx` with marxist category styling
+- Updated `CommandPalette.tsx` with category styling
 
 ---
 
@@ -348,12 +353,12 @@ All texts imported successfully:
 | Medieval | 10 |
 | Enlightenment | 71 |
 | Modern (19th-early 20th) | 158 |
-| Marxist/Anarchist | 36 |
+| Revolutionary | 40 |
 | Chinese | 16 |
 | Indian | 22 |
 | Buddhist | 10 |
 | Sufi | 11 |
-| **TOTAL** | **400** |
+| **TOTAL** | **404** |
 
 ### Projected Final Coverage
 
@@ -363,12 +368,12 @@ All texts imported successfully:
 | Medieval | 10 | +3 (Female philosophers) | 13 |
 | Enlightenment | 71 | +3 | 74 |
 | Modern | 158 | +30 (Standard Ebooks) | 188 |
-| Marxist/Anarchist | 36 | +15 (fix URLs) | 51 |
+| Revolutionary | 40 | +5 (Kropotkin from Anarchist Library) | 45 |
 | Chinese | 16 | 0 | 16 |
 | Indian | 22 | 0 | 22 |
 | Buddhist | 10 | 0 | 10 |
 | Sufi | 11 | 0 | 11 |
-| **TOTAL** | **400** | **+60** | **~460** |
+| **TOTAL** | **404** | **+50** | **~455** |
 
 ---
 
@@ -398,5 +403,5 @@ All texts imported successfully:
 
 ---
 
-*Last Updated: 2026-02-14*
-*Next Priority: Phase 9 (Standard Ebooks) or fix remaining Phase 8 URLs*
+*Last Updated: 2026-02-15*
+*Next Priority: Phase 9 (Standard Ebooks) or import Kropotkin from The Anarchist Library*
