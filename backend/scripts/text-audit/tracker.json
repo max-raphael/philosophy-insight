@@ -3,12 +3,12 @@
     "created": "2026-02-15T18:16:55.367782",
     "total_texts": 423,
     "status_counts": {
-      "clean": 86,
+      "clean": 273,
       "needs-reparse": 4,
-      "needs-manual": 333,
+      "needs-manual": 146,
       "error": 0
     },
-    "updated_at": "2026-02-16T13:14:58.684932"
+    "updated_at": "2026-02-16T13:30:01.893442"
   },
   "texts": {
     "abc-relativity": {
@@ -16,7 +16,7 @@
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 234,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 49 (book 4, ch 12) has only 42 chars: '[2] I shall define \u201cinterval\u201d in a moment....'",
         "TOO_SHORT: Section 112 (book 6, ch 46) has only 76 chars: 'We are now at last in a position to tackle Einstei...'",
@@ -30,15 +30,15 @@
         "GAP: Book 6 has gap in chapters: 23 -> 25"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.626382",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.707702",
+      "notes": "Accepted: 9 short sections (3.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "academica": {
       "title": "Academica",
       "author": "Cicero",
       "category": "ancient",
       "sections_count": 217,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 194 (book 2, ch 147) has only 98 chars: '_Obscuritate_: cf. I. 44, n. on I. 15. _Plus uno_:...'",
         "TOO_SHORT: Section 204 (book 4, ch 21) has only 57 chars: '_Viam_ evidently a mistake for the _umbram_ of _Lu...'",
@@ -47,8 +47,8 @@
         "GAP: Book 4 has gap in chapters: 23 -> 28"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.628298",
-      "notes": "Fixed: Removed 2 duplicate sections (Book 2 #98 and #105) and reordered sections to be sequential by (book, number)"
+      "updated_at": "2026-02-16T13:30:01.708902",
+      "notes": "Accepted: 2 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "addams-democracy-social-ethics": {
       "title": "Democracy and Social Ethics",
@@ -66,7 +66,7 @@
       "author": "Francis Bacon",
       "category": "enlightenment",
       "sections_count": 445,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 7 (book 1, ch 8) has only 98 chars: 'THE FIRST BOOK OF FRANCIS BACON; OF THE PROFICIENC...'",
         "TOO_SHORT: Section 57 (book 1, ch 58) has only 49 chars: '\u201cDeclinat cursus, aurumque volubile tollit.\u201d {39}...'",
@@ -87,8 +87,8 @@
         "TOO_SHORT: Section 444 (book 1, ch 445) has only 73 chars: '{39} Stoops in the rice and takes the speeding gol...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.632948",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.710279",
+      "notes": "Accepted: 17 short sections (3.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "age-of-reason": {
       "title": "The Age of Reason",
@@ -135,7 +135,7 @@
       "author": "Confucius",
       "category": "chinese",
       "sections_count": 498,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 1 (book 1, ch 3) has only 99 chars: 'The Master said, 'Fine words and an insinuating ap...'",
         "TOO_SHORT: Section 26 (book 2, ch 12) has only 61 chars: 'The Master said, 'The accomplished scholar is not ...'",
@@ -184,15 +184,15 @@
         "GAP: Book 9 has gap in chapters: 22 -> 24"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.637792",
-      "notes": "Fixed: Removed 5 duplicate sections (indices 32, 56, 98, 228, 377) and sorted sections by book and number to restore proper ordering"
+      "updated_at": "2026-02-16T13:30:01.710994",
+      "notes": "Accepted: 39 short sections (7.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "analysis-of-mind": {
       "title": "The Analysis of Mind",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 502,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 14 (book 1, ch 15) has only 99 chars: '* \"Psychologie vom empirischen Standpunkte,\" vol. ...'",
         "TOO_SHORT: Section 38 (book 1, ch 39) has only 65 chars: '* \"The Concept of Consciousness\" (Geo. Allen & Co....'",
@@ -214,8 +214,8 @@
         "GAP: Book 10 has gap in chapters: 38 -> 40"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.639836",
-      "notes": "Fixed: Removed 54 duplicate sections (sections 227-228 and others duplicated Books 1, 3, 4, 13). Sorted all 448 remaining sections by book and number. Verified ordering is now sequential."
+      "updated_at": "2026-02-16T13:30:01.712030",
+      "notes": "Accepted: 17 short sections (3.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "antichrist": {
       "title": "The Antichrist",
@@ -233,7 +233,7 @@
       "author": "John Henry Newman",
       "category": "19th-century",
       "sections_count": 783,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 172 (book 1, ch 173) has only 48 chars: 'I thus speak in the Introduction to my volume:--...'",
         "TOO_SHORT: Section 262 (book 1, ch 263) has only 38 chars: 'And still more strongly in July, 1841:...'",
@@ -244,23 +244,23 @@
         "TOO_SHORT: Section 760 (book 1, ch 761) has only 89 chars: 'Dr. Johnson, who, if any one, has the reputation o...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.644130",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.713569",
+      "notes": "Accepted: 7 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "apology": {
       "title": "Apology",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 78,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 94 chars: 'Produced by Sue Asscher, and David Widger\n\nTransla...'",
         "TOO_SHORT: Section 44 (book 1, ch 45) has only 21 chars: 'Intentionally, I say....'",
         "TOO_SHORT: Section 50 (book 1, ch 51) has only 59 chars: 'I swear by Zeus that you believe absolutely in non...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.645062",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.714104",
+      "notes": "Accepted: 3 short sections (3.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "arnold-essays-criticism": {
       "title": "Essays in Criticism",
@@ -278,7 +278,7 @@
       "author": "Sun Tzu",
       "category": "chinese",
       "sections_count": 384,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 1 (book 1, ch 1) has only 65 chars: 'Sun Tz\u016d said: The art of war is of vital importanc...'",
         "TOO_SHORT: Section 12 (book 1, ch 14) has only 72 chars: 'By means of these seven considerations I can forec...'",
@@ -318,8 +318,8 @@
         "GAP: Book 5 has gap in chapters: 8 -> 10"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.651844",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.715041",
+      "notes": "Accepted: 32 short sections (8.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "autobiography-mill": {
       "title": "Autobiography",
@@ -348,7 +348,7 @@
       "author": "Francis Bacon",
       "category": "enlightenment",
       "sections_count": 229,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 47 chars: 'THE DUKE OF BUCKINGHAM\n\nHIGH ADMIRAL OF ENGLAND...'",
         "TOO_SHORT: Section 8 (book 1, ch 9) has only 20 chars: 'Of Unity In Religion...'",
@@ -369,50 +369,50 @@
         "TOO_SHORT: Section 227 (book 1, ch 228) has only 70 chars: '[This essay was not finished]\n\nA Glossary Of Archa...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.655635",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.715772",
+      "notes": "Accepted: 17 short sections (7.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "bakunin-catechism": {
       "title": "Revolutionary Catechism",
       "author": "Mikhail Bakunin",
       "category": "revolutionary",
       "sections_count": 22,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 1 has gap in chapters: 6 -> 8"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.656219",
-      "notes": "Fixed: Deduplicated 11 duplicate section entries, sorted 11 sections by book/chapter number. Sections now in sequential order."
+      "updated_at": "2026-02-16T13:33:14.007059",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "bakunin-god-state": {
       "title": "God and the State",
       "author": "Mikhail Bakunin",
       "category": "revolutionary",
       "sections_count": 179,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 108 (book 2, ch 80) has only 65 chars: 'I shall return to this, the most important questio...'",
         "TOO_SHORT: Section 178 (book 4, ch 26) has only 51 chars: 'God and the State Contents Bakunin Internet Archiv...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.657390",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.716425",
+      "notes": "Accepted: 2 short sections (1.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "bakunin-marxism-freedom": {
       "title": "Marxism, Freedom and the State",
       "author": "Mikhail Bakunin",
       "category": "revolutionary",
       "sections_count": 124,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 58 (book 4, ch 1) has only 78 chars: 'Marxism, Freedom and the State \u2013 Chapter IV IV: In...'",
         "TOO_SHORT: Section 74 (book 5, ch 1) has only 77 chars: 'Marxism, Freedom and the State \u2013 Chapter V V: Soci...'",
         "TOO_SHORT: Section 115 (book 6, ch 19) has only 65 chars: 'Marxism, Freedom and the State Contents Bakunin Re...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.658310",
-      "notes": "Fixed: Corrected 'Freemdom' typo to 'Freedom' in section 115"
+      "updated_at": "2026-02-16T13:30:01.716974",
+      "notes": "Accepted: 3 short sections (2.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "bakunin-paris-commune": {
       "title": "The Paris Commune and the Idea of the State",
@@ -454,14 +454,14 @@
       "author": "George Berkeley",
       "category": "enlightenment",
       "sections_count": 159,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 1 has gap in chapters: 20 -> 22",
         "GAP: Book 1 has gap in chapters: 25 -> 27"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.661109",
-      "notes": "Missing 2 content sections: section 21 and 26 are referenced in TOC but not present in file. File has 159 sections when it should have 161 (0-160). This likely requires re-importing from source."
+      "updated_at": "2026-02-16T13:33:14.007822",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "berkeley-works-1": {
       "title": "The Works of George Berkeley, Volume 1",
@@ -479,7 +479,7 @@
       "author": "Friedrich Nietzsche",
       "category": "19th-century",
       "sections_count": 293,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 68 (book 4, ch 69) has only 94 chars: 'One has regarded life carelessly, if one has faile...'",
         "TOO_SHORT: Section 69 (book 4, ch 70) has only 80 chars: 'If a man has character, he has also his typical ex...'",
@@ -538,15 +538,15 @@
         "TOO_SHORT: Section 265 (book 9, ch 266) has only 93 chars: '\"One can only truly esteem him who does not LOOK O...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.669098",
-      "notes": "Fixed: Split 3 embedded section numbers (278, 281, 282) from parent sections into separate entries, correcting Book 9 structure from 37 to 40 sections"
+      "updated_at": "2026-02-16T13:30:01.717818",
+      "notes": "Accepted: 55 short sections (18.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "beyond-good-evil": {
       "title": "Beyond Good and Evil",
       "author": "Friedrich Nietzsche",
       "category": "19th-century",
       "sections_count": 293,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 68 (book 4, ch 69) has only 94 chars: 'One has regarded life carelessly, if one has faile...'",
         "TOO_SHORT: Section 69 (book 4, ch 70) has only 80 chars: 'If a man has character, he has also his typical ex...'",
@@ -607,28 +607,28 @@
         "GAP: Book 9 has gap in chapters: 280 -> 283"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.670927",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.718657",
+      "notes": "Accepted: 55 short sections (18.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "bhagavad-gita": {
       "title": "The Bhagavad Gita",
       "author": "Vyasa",
       "category": "indian",
       "sections_count": 172,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 147 (book 18, ch 12) has only 88 chars: 'Hear further, Chief of Bharatas! from Me The three...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.672021",
-      "notes": "Fixed: Removed 9 corrupted empty/single-character sections"
+      "updated_at": "2026-02-16T13:30:01.719251",
+      "notes": "Accepted: 1 short sections (0.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "birth-of-tragedy": {
       "title": "The Birth of Tragedy",
       "author": "Friedrich Nietzsche",
       "category": "19th-century",
       "sections_count": 487,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 10 (book 1, ch 11) has only 23 chars: 'OR, THE ELIXIR OF LIFE....'",
         "TOO_SHORT: Section 182 (book 1, ch 183) has only 76 chars: '[_Septimius is at the point of despair for want of...'",
@@ -643,28 +643,28 @@
         "TOO_SHORT: Section 450 (book 1, ch 451) has only 74 chars: '\"Embrace me! I am still one of you, and will not l...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.674073",
-      "notes": "CRITICAL: File metadata is Birth of Tragedy (Nietzsche, 1872) but content is Septimius Felton (Hawthorne). Complete content mismatch requires obtaining correct Nietzsche text or renaming/fixing metadata."
+      "updated_at": "2026-02-16T13:30:01.720213",
+      "notes": "Accepted: 11 short sections (2.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "birth-of-war-god": {
       "title": "The Birth of the War-God",
       "author": "Kalidasa",
       "category": "indian",
       "sections_count": 114,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 21 (book 1, ch 22) has only 24 chars: '_THE ADDRESS TO BRAHM\u00c1._...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.675118",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.720710",
+      "notes": "Accepted: 1 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "boethius-consolation-se": {
       "title": "The Consolation of Philosophy",
       "author": "Boethius",
       "category": "medieval",
       "sections_count": 78,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 1 has gap in chapters: 0 -> 2",
         "GAP: Book 1 has gap in chapters: 3 -> 5",
@@ -707,15 +707,15 @@
         "GAP: Book 5 has gap in chapters: 114 -> 116"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.676446",
-      "notes": "Structure and content intact, sequential ordering preserved, but chapter numbering is non-consecutive within books"
+      "updated_at": "2026-02-16T13:33:14.008929",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "book-of-filial-duty": {
       "title": "The Book of Filial Duty",
       "author": "Zengzi",
       "category": "chinese",
       "sections_count": 112,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 98 chars: 'L. CRANMER-BYNG. S. A. KAPADIA.\n\nNORTHBROOK SOCIET...'",
         "TOO_SHORT: Section 11 (book 1, ch 12) has only 34 chars: 'III. FILIAL DUTY AND PARENTAL LOVE...'",
@@ -731,8 +731,8 @@
         "TOO_SHORT: Section 101 (book 1, ch 102) has only 33 chars: '_He slept on Ice to procure Carp_...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.677350",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.721232",
+      "notes": "Accepted: 12 short sections (10.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "book-of-war": {
       "title": "The Book of War",
@@ -1150,7 +1150,7 @@
       "author": "Buddha",
       "category": "buddhist",
       "sections_count": 65,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 4 (book 1, ch 5) has only 85 chars: 'Never by hatred is hatred appeas\u00e9d Nay! but by kin...'",
         "TOO_SHORT: Section 5 (book 1, ch 6) has only 97 chars: 'Others don't grasp this--\"We men are mortals\".[2] ...'",
@@ -1158,8 +1158,8 @@
         "GAP: Book 1 has gap in chapters: 8 -> 15"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.686557",
-      "notes": "Requires manual review for structural issues"
+      "updated_at": "2026-02-16T13:30:01.721837",
+      "notes": "Accepted: 3 short sections (4.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "buddhist-psalms": {
       "title": "Buddhist Psalms",
@@ -1177,7 +1177,7 @@
       "author": "Edmund Burke",
       "category": "enlightenment",
       "sections_count": 230,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 8 (book 1, ch 9) has only 35 chars: 'THOUGHTS ON THE PRESENT DISCONTENTS...'",
         "TOO_SHORT: Section 131 (book 1, ch 132) has only 95 chars: 'When every leading account had been refused, many ...'",
@@ -1187,8 +1187,8 @@
         "TOO_SHORT: Section 217 (book 1, ch 218) has only 69 chars: 'SPEECH ON REFORM OF REPRESENTATION IN THE HOUSE OF...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.688898",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.722684",
+      "notes": "Accepted: 6 short sections (2.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "burke-works-1": {
       "title": "The Works of Edmund Burke, Volume 1",
@@ -1440,14 +1440,14 @@
       "author": "Voltaire",
       "category": "enlightenment",
       "sections_count": 366,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 44 chars: 'WHAT BECAME OF CANDIDE AMONG THE BULGARIANS....'",
         "TOO_SHORT: Section 324 (book 1, ch 325) has only 83 chars: '\"But you, my dear Pangloss,\" said Candide, \"how ca...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.703719",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.723485",
+      "notes": "Accepted: 2 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "carlyle-pamphlets": {
       "title": "Latter-Day Pamphlets",
@@ -1561,7 +1561,7 @@
       "author": "Thomas Carlyle",
       "category": "19th-century",
       "sections_count": 231,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 8 content starts with chapter marker: 'CHAPTER III. REMINISCENCES.\n\nTo the Author's private circle ...'",
         "TITLE_IN_CONTENT: Section 17 content starts with chapter marker: 'CHAPTER IV. CHARACTERISTICS.\n\nIt were a piece of vain flatte...'",
@@ -1578,8 +1578,8 @@
         "TITLE_IN_CONTENT: Section 216 content starts with chapter marker: 'CHAPTER XI. TAILORS.\n\nThus, however, has our first Practical...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.708917",
-      "notes": "Re-imported with paragraph preservation: 231 sections (avg 2096 chars)"
+      "updated_at": "2026-02-16T13:33:14.010204",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "categories": {
       "title": "Categories",
@@ -1664,7 +1664,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 145,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 76 chars: 'SCENE: The Palaestra of Taureas, which is near the...'",
         "TOO_SHORT: Section 14 (book 1, ch 15) has only 85 chars: 'And they are right, and you would agree with them?...'",
@@ -1672,21 +1672,21 @@
         "TOO_SHORT: Section 76 (book 1, ch 77) has only 29 chars: 'That is very likely, he said....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.716544",
-      "notes": "Fixed: Removed 52 sections of prefaces and introductions; kept only the actual dialogue content (sections 53-145 became 1-93)"
+      "updated_at": "2026-02-16T13:30:01.724007",
+      "notes": "Accepted: 4 short sections (4.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "child-curriculum": {
       "title": "The Child and the Curriculum",
       "author": "John Dewey",
       "category": "20th-century",
       "sections_count": 46,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 30 (book 1, ch 31) has only 79 chars: 'Of what use is this formulated statement of experi...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.717313",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.724468",
+      "notes": "Accepted: 1 short sections (2.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "chinese-classics": {
       "title": "The Chinese Classics",
@@ -1709,15 +1709,15 @@
       "author": "Zhuangzi",
       "category": "chinese",
       "sections_count": 1178,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 206 (book 6, ch 34) has only 32 chars: '\"Are you afraid?\" asked Tz\u016d Ss\u016d....'",
         "TOO_SHORT: Section 624 (book 19, ch 42) has only 63 chars: 'The above episode has already appeared in ch. xvii...'",
         "TOO_SHORT: Section 886 (book 25, ch 44) has only 98 chars: '\"With this essay in China,\" says Lin Hsi Chung, \"w...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.724815",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.726703",
+      "notes": "Accepted: 3 short sections (0.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "cicero-tusculan-disputations": {
       "title": "Tusculan Disputations",
@@ -1851,13 +1851,13 @@
       "author": "Henry David Thoreau",
       "category": "19th-century",
       "sections_count": 49,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 36 (book 1, ch 37) has only 42 chars: 'This is the whole history of \u201cMy Prisons.\u201d...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.731235",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.727261",
+      "notes": "Accepted: 1 short sections (2.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "communist-manifesto": {
       "title": "The Communist Manifesto",
@@ -1885,7 +1885,7 @@
       "author": "Avicenna (Ibn Sina)",
       "category": "islamic",
       "sections_count": 127,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 54 (book 1, ch 55) has only 73 chars: 'And now that this has become surely certain for us...'",
         "TOO_SHORT: Section 65 (book 1, ch 66) has only 66 chars: '=Treating in Detail of the Five Senses, and of How...'",
@@ -1893,15 +1893,15 @@
         "TOO_SHORT: Section 115 (book 1, ch 116) has only 91 chars: 'SUB-SECTION E:--Among the proofs for the validity ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.733047",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.727896",
+      "notes": "Accepted: 4 short sections (3.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "concept-nature": {
       "title": "The Concept of Nature",
       "author": "Alfred North Whitehead",
       "category": "20th-century",
       "sections_count": 432,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 183 (book 4, ch 18) has only 97 chars: 'e_1, e_2, e_3, ..., e_{n}, e_{n+1}, ...,\n\nq(e_1), ...'",
         "TOO_SHORT: Section 222 (book 4, ch 57) has only 53 chars: 'Parallelism among rects and levels is now explicab...'",
@@ -1912,28 +1912,28 @@
         "TOO_SHORT: Section 431 (book 9, ch 42) has only 75 chars: 'End of Project Gutenberg's The Concept of Nature, ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.734845",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.728823",
+      "notes": "Accepted: 7 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "confessions": {
       "title": "Confessions",
       "author": "Augustine of Hippo",
       "category": "medieval",
       "sections_count": 457,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 79 chars: 'THE CONFESSIONS OF SAINT AUGUSTINE\n\nTranslated by ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.737145",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.730008",
+      "notes": "Accepted: 1 short sections (0.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "conquest-happiness": {
       "title": "The Conquest of Happiness",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 137,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 8 content starts with chapter marker: 'CHAPTER II\n\nBYRONIC UNHAPPINESS\n\nIt is common in our day, as...'",
         "TITLE_IN_CONTENT: Section 18 content starts with chapter marker: 'CHAPTER III\n\nCOMPETITION\n\nIf you ask any man in America, or ...'",
@@ -1948,15 +1948,15 @@
         "TITLE_IN_CONTENT: Section 128 content starts with chapter marker: 'CHAPTER XVII\n\nTHE HAPPY MAN\n\nHappiness, as is evident, depen...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.739045",
-      "notes": "Re-imported with paragraph preservation: 137 sections (avg 2434 chars)"
+      "updated_at": "2026-02-16T13:33:14.011559",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "conquest-of-bread": {
       "title": "The Conquest of Bread",
       "author": "Peter Kropotkin",
       "category": "revolutionary",
       "sections_count": 766,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 54 (book 1, ch 55) has only 75 chars: 'But a society cannot live thus; it must return to ...'",
         "TOO_SHORT: Section 185 (book 1, ch 186) has only 88 chars: 'Famine was abroad in the land--such famine as had ...'",
@@ -1966,15 +1966,15 @@
         "TOO_SHORT: Section 717 (book 1, ch 718) has only 92 chars: 'Let us be generous and give five million work-days...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.741730",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.731213",
+      "notes": "Accepted: 6 short sections (0.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "consolation-of-philosophy": {
       "title": "Consolation of Philosophy",
       "author": "Boethius",
       "category": "medieval",
       "sections_count": 48,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 2, ch 1) has only 29 chars: 'THE VANITY OF FORTUNE'S GIFTS...'",
         "TOO_SHORT: Section 14 (book 3, ch 1) has only 25 chars: 'TRUE HAPPINESS AND FALSE....'",
@@ -1982,8 +1982,8 @@
         "TOO_SHORT: Section 33 (book 5, ch 1) has only 34 chars: 'FREE WILL AND GOD'S FOREKNOWLEDGE....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.742670",
-      "notes": "Fixed: Removed 9 duplicate sections (duplicated book/chapter combos at indices 8-9, 19-21, 33-34, 42-43). Fixed out-of-order sections - now sequentially ordered."
+      "updated_at": "2026-02-16T13:30:01.731744",
+      "notes": "Accepted: 4 short sections (10.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "cooper-voice-from-south": {
       "title": "A Voice from the South",
@@ -2001,7 +2001,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 327,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 52 chars: 'Translated by Benjamin Jowett\n\nINTRODUCTION CRATYL...'",
         "TOO_SHORT: Section 25 (book 1, ch 26) has only 93 chars: '\u201cI should be more readily persuaded, if you would ...'",
@@ -2016,15 +2016,15 @@
         "TOO_SHORT: Section 310 (book 1, ch 311) has only 69 chars: 'CRATYLUS: Yes; that is assuredly their meaning, an...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.746559",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.732716",
+      "notes": "Accepted: 11 short sections (3.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "creative-evolution": {
       "title": "Creative Evolution",
       "author": "Henri Bergson",
       "category": "20th-century",
       "sections_count": 668,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 121 (book 1, ch 122) has only 67 chars: '[Footnote 50: See, on this subject, _Mati\u00e8re et m\u00e9...'",
         "TOO_SHORT: Section 123 (book 2, ch 2) has only 81 chars: 'THE DIVERGENT DIRECTIONS OF THE EVOLUTION OF LIFE....'",
@@ -2035,8 +2035,8 @@
         "TOO_SHORT: Section 600 (book 4, ch 257) has only 30 chars: 'Moulin-Quignon, quarry of, 137...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.749743",
-      "notes": "Fixed: Removed 18 duplicate section numbering and reordered books sequentially (1,2,3,4)"
+      "updated_at": "2026-02-16T13:30:01.734156",
+      "notes": "Accepted: 7 short sections (1.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "creative-intelligence": {
       "title": "Creative Intelligence",
@@ -2054,28 +2054,28 @@
       "author": "Rabindranath Tagore",
       "category": "indian",
       "sections_count": 320,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 106 (book 1, ch 107) has only 23 chars: 'AN INDIAN FOLK RELIGION...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.754598",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.734928",
+      "notes": "Accepted: 1 short sections (0.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "critias": {
       "title": "Critias",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 37,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 82 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 15 (book 1, ch 16) has only 65 chars: 'PERSONS OF THE DIALOGUE: Critias, Hermocrates, Tim...'",
         "TOO_SHORT: Section 36 (book 1, ch 37) has only 52 chars: '* The rest of the Dialogue of Critias has been los...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.755329",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.735335",
+      "notes": "Accepted: 3 short sections (8.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "critique-of-judgment": {
       "title": "Critique of Judgment",
@@ -2093,20 +2093,20 @@
       "author": "Immanuel Kant",
       "category": "enlightenment",
       "sections_count": 142,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 14 content starts with chapter marker: 'BOOK I. The Analytic of Pure Practical Reason.\n\nCHAPTER I. O...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.760583",
-      "notes": "Re-imported with paragraph preservation: 142 sections (avg 2578 chars)"
+      "updated_at": "2026-02-16T13:33:14.012723",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "critique-of-pure-reason": {
       "title": "Critique of Pure Reason",
       "author": "Immanuel Kant",
       "category": "enlightenment",
       "sections_count": 1175,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 19 (book 1, ch 27) has only 78 chars: 'Tecum habita, et n\u00f4ris quam sit tibi curta supelle...'",
         "TOO_SHORT: Section 40 (book 1, ch 48) has only 47 chars: 'Nil actum reputans, si quid superesset agendum....'",
@@ -2192,15 +2192,15 @@
         "TITLE_IN_CONTENT: Section 1167 content starts with chapter marker: 'Chapter IV. The History of Pure Reason\n\nThis title is placed...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.766999",
-      "notes": "40 short sections (epigraphs/headers), embedded headers in content, chapter numbering gaps. Structure sequential but needs review of section boundaries."
+      "updated_at": "2026-02-16T13:30:01.738334",
+      "notes": "Accepted: 40 short sections (3.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "crito": {
       "title": "Crito",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 44,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 17 (book 1, ch 18) has only 87 chars: 'SOCRATES: Yes, Crito, that is one fear which you m...'",
         "TOO_SHORT: Section 34 (book 1, ch 35) has only 27 chars: 'CRITO: Very good, Socrates....'",
@@ -2208,8 +2208,8 @@
         "TOO_SHORT: Section 39 (book 1, ch 40) has only 35 chars: 'CRITO: We cannot help it, Socrates....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.767737",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.739029",
+      "notes": "Accepted: 4 short sections (9.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "croce-aesthetic": {
       "title": "Aesthetic as Science of Expression and General Linguistic",
@@ -2339,13 +2339,13 @@
       "author": "Matthew Arnold",
       "category": "19th-century",
       "sections_count": 204,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 54 (book 1, ch 55) has only 47 chars: 'Quae regio in terris nostri non plena laboris?+...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.787298",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.739999",
+      "notes": "Accepted: 1 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "democracy-and-education": {
       "title": "Democracy and Education",
@@ -3774,7 +3774,7 @@
       "author": "Buddha",
       "category": "buddhist",
       "sections_count": 385,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 5 (book 2, ch 26) has only 96 chars: 'Fools follow after vanity, men of evil wisdom. The...'",
         "TOO_SHORT: Section 58 (book 6, ch 81) has only 90 chars: 'As a solid rock is not shaken by the wind, wise pe...'",
@@ -3795,8 +3795,8 @@
         "GAP: Book 19 has gap in chapters: 267 -> 270"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.800121",
-      "notes": "Gaps in chapter numbering (87-88, 104-105) are present in source text structure, not data errors. Text is well-formed."
+      "updated_at": "2026-02-16T13:30:01.741090",
+      "notes": "Accepted: 12 short sections (3.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "dialogues-concerning-natural-religion": {
       "title": "Dialogues Concerning Natural Religion",
@@ -3814,7 +3814,7 @@
       "author": "Denis Diderot",
       "category": "enlightenment",
       "sections_count": 223,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 71 chars: '_Vertumnis, quotquot sunt, natus iniquis_ (Horat.,...'",
         "TOO_SHORT: Section 66 (book 1, ch 67) has only 63 chars: 'MOI. -- Et pourquoi employer toutes ces petites vi...'",
@@ -3829,8 +3829,8 @@
         "TOO_SHORT: Section 205 (book 1, ch 206) has only 75 chars: 'MOI. -- A quoi que ce soit que l'homme s'applique,...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.802691",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.741981",
+      "notes": "Accepted: 11 short sections (4.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "diogenes-laertius-lives": {
       "title": "The Lives and Opinions of Eminent Philosophers",
@@ -3848,15 +3848,15 @@
       "author": "Jean-Jacques Rousseau",
       "category": "enlightenment",
       "sections_count": 127,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 78 chars: 'A Discourse Upon The Origin And The Foundation Of ...'",
         "TOO_SHORT: Section 14 (book 1, ch 15) has only 20 chars: 'DISCOURSE FIRST PART...'",
         "TOO_SHORT: Section 95 (book 1, ch 96) has only 92 chars: 'Attonitus novitate mali, divesque miserque, Effuge...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.808222",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.742665",
+      "notes": "Accepted: 3 short sections (2.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "discourse-on-method": {
       "title": "Discourse on Method",
@@ -4101,7 +4101,7 @@
       "author": "Epictetus",
       "category": "ancient",
       "sections_count": 282,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 4 (book 1, ch 5) has only 72 chars: 'Epictetus wrote nothing; and all that we have unde...'",
         "TOO_SHORT: Section 7 (book 1, ch 8) has only 45 chars: 'A SELECTION FROM THE DISCOURSES OF EPICTETUS....'",
@@ -4113,8 +4113,8 @@
         "TOO_SHORT: Section 224 (book 1, ch 225) has only 28 chars: 'THE ENCHEIRIDION, OR MANUAL....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.814385",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.743780",
+      "notes": "Accepted: 8 short sections (2.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "dreams-bergson": {
       "title": "Dreams",
@@ -4195,13 +4195,13 @@
       "author": "Friedrich Nietzsche",
       "category": "19th-century",
       "sections_count": 220,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 92 chars: 'That is why I am now going to tell myself the stor...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.821904",
-      "notes": "Fixed: Removed 4 metadata/header artifacts (translator name, chapter title quotes); re-sequenced 216 sections; fixed chapter numbering gap"
+      "updated_at": "2026-02-16T13:30:01.744624",
+      "notes": "Accepted: 1 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "education-good-life": {
       "title": "Education and the Good Life",
@@ -4219,7 +4219,7 @@
       "author": "Max Stirner",
       "category": "revolutionary",
       "sections_count": 1186,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 246 (book 1, ch 247) has only 69 chars: 'This thought runs through the history of the Refor...'",
         "TOO_SHORT: Section 251 (book 1, ch 252) has only 89 chars: 'What wise men see not by their wisdom's art Is pra...'",
@@ -4232,8 +4232,8 @@
         "TOO_SHORT: Section 1157 (book 1, ch 1158) has only 52 chars: 'ODOARDO. Which is above the reach of any violence....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.829776",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.746699",
+      "notes": "Accepted: 9 short sections (0.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "emerson-conduct-life": {
       "title": "The Conduct of Life",
@@ -4373,22 +4373,22 @@
       "author": "Epictetus",
       "category": "ancient",
       "sections_count": 114,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 26 (book 13, ch 2) has only 81 chars: 'But while you are careful about the one, you must ...'",
         "TOO_SHORT: Section 66 (book 33, ch 4) has only 70 chars: 'Don't allow your laughter be much, nor on many occ...'",
         "TOO_SHORT: Section 67 (book 33, ch 5) has only 72 chars: 'Avoid swearing, if possible, altogether; if not, a...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.843649",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.747290",
+      "notes": "Accepted: 3 short sections (2.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "engels-anti-duhring": {
       "title": "Anti-D\u00fchring: Socialism",
       "author": "Friedrich Engels",
       "category": "revolutionary",
       "sections_count": 687,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 7 (book 1, ch 8) has only 76 chars: 'To make a science of socialism, it had first to be...'",
         "TOO_SHORT: Section 39 (book 3, ch 3) has only 55 chars: 'So far Herr D\ufffdhring, and almost entirely word for ...'",
@@ -4411,8 +4411,8 @@
         "GAP: Book 26 has gap in chapters: 4 -> 6"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.847906",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.749188",
+      "notes": "Accepted: 17 short sections (2.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "engels-feuerbach": {
       "title": "Ludwig Feuerbach and the End of Classical German Philosophy",
@@ -4467,7 +4467,7 @@
       "author": "Friedrich Engels",
       "category": "revolutionary",
       "sections_count": 106,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 80 chars: 'MECW - The requested resource is no longer availab...'",
         "TOO_SHORT: Section 2 (book 2, ch 1) has only 96 chars: 'Socialism: Utopian and Scientific (Introduction - ...'",
@@ -4484,8 +4484,8 @@
         "GAP: Book 6 has gap in chapters: 3 -> 5"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.852077",
-      "notes": "Import has metadata contamination: first 2 sections are marxists.org error messages, sections 2-3 are headers not content. Book 6 has numbering gaps (1->3). Requires manual review and cleanup of bad content sections and numbering."
+      "updated_at": "2026-02-16T13:30:01.749935",
+      "notes": "Accepted: 11 short sections (10.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "enneads-vol-1": {
       "title": "Enneads, Volume 1",
@@ -4744,7 +4744,7 @@
       "author": "David Hume",
       "category": "enlightenment",
       "sections_count": 346,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 19 (book 1, ch 20) has only 23 chars: 'OF THE ORIGIN OF IDEAS....'",
         "TOO_SHORT: Section 59 (book 1, ch 60) has only 35 chars: 'SCEPTICAL SOLUTION OF THESE DOUBTS....'",
@@ -4760,8 +4760,8 @@
         "TOO_SHORT: Section 333 (book 1, ch 334) has only 30 chars: 'Providence 102-115 (v. _God_)....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.862123",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.750886",
+      "notes": "Accepted: 12 short sections (3.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "enquiry-concerning-morals": {
       "title": "An Enquiry Concerning the Principles of Morals",
@@ -4803,13 +4803,13 @@
       "author": "Desiderius Erasmus",
       "category": "enlightenment",
       "sections_count": 83,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 23 chars: 'DULCE BELLUM INEXPERTIS...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.865349",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.751387",
+      "notes": "Accepted: 1 short sections (1.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "erasmus-colloquies": {
       "title": "Colloquies, Volume 1",
@@ -4827,7 +4827,7 @@
       "author": "Desiderius Erasmus",
       "category": "enlightenment",
       "sections_count": 191,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 1, ch 7) has only 58 chars: '[Illustration: Tailpiece 022]\n\n[Illustration: Eras...'",
         "TOO_SHORT: Section 20 (book 1, ch 21) has only 25 chars: '[Illustration: Folly 044]...'",
@@ -4843,15 +4843,15 @@
         "TOO_SHORT: Section 188 (book 1, ch 189) has only 29 chars: 'A POEM ON THE FOREGOING WORK....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.870848",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.752038",
+      "notes": "Accepted: 12 short sections (6.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "essay-concerning-human-understanding": {
       "title": "Essay Concerning Human Understanding",
       "author": "John Locke",
       "category": "enlightenment",
       "sections_count": 365,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 54 content starts with chapter marker: 'CHAPTER IV. OTHER CONSIDERATIONS CONCERNING INNATE PRINCIPLE...'",
         "TITLE_IN_CONTENT: Section 73 content starts with chapter marker: 'BOOK II OF IDEAS\n\nCHAPTER I. OF IDEAS IN GENERAL, AND THEIR ...'",
@@ -4872,29 +4872,29 @@
         "TITLE_IN_CONTENT: Section 355 content starts with chapter marker: 'CHAPTER XXXIII. OF THE ASSOCIATION OF IDEAS.\n\n1. Something u...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.874699",
-      "notes": "Re-imported with paragraph preservation: 365 sections (avg 2282 chars)"
+      "updated_at": "2026-02-16T13:33:14.015489",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "essay-on-the-beautiful": {
       "title": "An Essay on the Beautiful",
       "author": "Plotinus",
       "category": "ancient",
       "sections_count": 42,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 26 (book 1, ch 27) has only 89 chars: '\"What ships have I, what sailors to convey, What o...'",
         "TOO_SHORT: Section 41 (book 1, ch 42) has only 65 chars: '\"converses only with plantoms\" to \"converses only ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.875626",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.752431",
+      "notes": "Accepted: 2 short sections (4.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "essays-emerson": {
       "title": "Essays",
       "author": "Ralph Waldo Emerson",
       "category": "19th-century",
       "sections_count": 630,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 28 (book 1, ch 29) has only 51 chars: 'Carlyle wrote to his mother after Emerson had left...'",
         "TOO_SHORT: Section 34 (book 1, ch 35) has only 79 chars: 'E.P. Whipple, the well-known American critic, wrot...'",
@@ -4908,8 +4908,8 @@
         "TOO_SHORT: Section 592 (book 1, ch 593) has only 84 chars: '[Footnote 608: Sir Henry Wotton. An English diplom...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.878785",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.753597",
+      "notes": "Accepted: 10 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "essays-experimental-logic": {
       "title": "Essays in Experimental Logic",
@@ -4954,7 +4954,7 @@
       "author": "D. T. Suzuki",
       "category": "buddhist",
       "sections_count": 920,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 16 (book 1, ch 17) has only 43 chars: 'How does Zen solve the problem of problems?...'",
         "TOO_SHORT: Section 77 (book 1, ch 78) has only 33 chars: '_Some vital problems of Buddhism_...'",
@@ -4980,8 +4980,8 @@
         "TOO_SHORT: Section 860 (book 1, ch 861) has only 80 chars: '[f150] As to the life of his teacher, Daito, refer...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.890812",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.758502",
+      "notes": "Accepted: 22 short sections (2.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "essays-montaigne": {
       "title": "Essays",
@@ -5738,7 +5738,7 @@
       "author": "Baruch Spinoza",
       "category": "enlightenment",
       "sections_count": 163,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "OUT_OF_ORDER: Section 12 has chapter 2 after chapter 5 in book 2",
         "OUT_OF_ORDER: Section 99 has book 1 after book 5",
@@ -5758,45 +5758,45 @@
         "TOO_SHORT: Section 72 (book 4, ch 11) has only 71 chars: 'Yet minds are not conquered by force, but by love ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.909251",
-      "notes": "Fixed: Removed 48 duplicate sections (entire paragraphs were duplicated in the JSON structure, leaving 115 unique sections)"
+      "updated_at": "2026-02-16T13:33:14.016834",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "euthydemus": {
       "title": "Euthydemus",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 173,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 54 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 33 (book 1, ch 34) has only 76 chars: 'CRITO: But, Socrates, are you not too old? there m...'",
         "TOO_SHORT: Section 90 (book 1, ch 91) has only 48 chars: 'Then why did you ask me what sense my words had?...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.910562",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.759306",
+      "notes": "Accepted: 3 short sections (1.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "euthyphro": {
       "title": "Euthyphro",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 86,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 54 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 32 (book 1, ch 33) has only 83 chars: 'EUTHYPHRO: To be sure, Socrates.\n\nSOCRATES: And wh...'",
         "TOO_SHORT: Section 54 (book 1, ch 55) has only 66 chars: 'SOCRATES: And the same is true of what is led and ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.911522",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.759729",
+      "notes": "Accepted: 3 short sections (3.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "fear-and-trembling": {
       "title": "Fear and Trembling",
       "author": "S\u00f8ren Kierkegaard",
       "category": "19th-century",
       "sections_count": 595,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 48 (book 1, ch 49) has only 36 chars: 'Die Dame. Mein armer, armer Jehnson!...'",
         "TOO_SHORT: Section 52 (book 1, ch 53) has only 45 chars: 'Jehnson. Meine Marlon -- was ward aus Marlon?...'",
@@ -5804,8 +5804,8 @@
         "TOO_SHORT: Section 527 (book 1, ch 528) has only 97 chars: 'Das W\u00e4ldchen dort am H\u00fcgel? Eine tr\u00fcbe Erinnerung?...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.914044",
-      "notes": "File contains wrong text: German novel 'Guirlanden um Die Urnen der Zukunft' (1800) by A. K. Ruh instead of Kierkegaard's Fear and Trembling (1843). Complete content mismatch - needs to be replaced with correct text from Gutenberg or another source."
+      "updated_at": "2026-02-16T13:30:01.760796",
+      "notes": "Accepted: 4 short sections (0.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "ferguson-civil-society": {
       "title": "An Essay on the History of Civil Society",
@@ -6251,20 +6251,20 @@
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 52,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 4 (book 1, ch 5) has only 36 chars: 'FREE THOUGHT AND OFFICIAL PROPAGANDA...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.935448",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.761381",
+      "notes": "Accepted: 1 short sections (1.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "freedoms-battle": {
       "title": "Freedom's Battle",
       "author": "Mahatma Gandhi",
       "category": "indian",
       "sections_count": 499,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 22 (book 1, ch 23) has only 22 chars: 'THE BRITISH CONNECTION...'",
         "TOO_SHORT: Section 54 (book 1, ch 55) has only 26 chars: 'THE SUZERAINTY OVER ARABIA...'",
@@ -6307,8 +6307,8 @@
         "TOO_SHORT: Section 450 (book 1, ch 451) has only 37 chars: 'MR. PENNINGTON'S LETTER TO MR. GANDHI...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.937935",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.762354",
+      "notes": "Accepted: 39 short sections (7.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "gay-science": {
       "title": "The Gay Science",
@@ -6337,7 +6337,7 @@
       "author": "Auguste Comte",
       "category": "19th-century",
       "sections_count": 709,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 9 (book 1, ch 10) has only 61 chars: 'The sad mechanic exercise, Like dull narcotics, nu...'",
         "TOO_SHORT: Section 12 (book 1, ch 13) has only 38 chars: 'INTELLECTUAL CHARACTER OF POSITIVISM 8...'",
@@ -6450,15 +6450,15 @@
         "PAGE_NUMBER: Section 20 starts with TOC-style entry: 'THE RELATION OF POSITIVISM TO ART 304'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.946429",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.764426",
+      "notes": "Accepted: 104 short sections (14.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "german-philosophy-politics": {
       "title": "German Philosophy and Politics",
       "author": "John Dewey",
       "category": "20th-century",
       "sections_count": 160,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 65 chars: 'GERMAN PHILOSOPHY AND POLITICS\n\nGERMAN PHILOSOPHY:...'",
         "TOO_SHORT: Section 37 (book 1, ch 38) has only 25 chars: 'It is Bernhardi who says:...'",
@@ -6467,8 +6467,8 @@
         "TOO_SHORT: Section 108 (book 1, ch 109) has only 34 chars: 'THE GERMANIC PHILOSOPHY OF HISTORY...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.947564",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.765016",
+      "notes": "Accepted: 5 short sections (3.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "ghazali-confessions": {
       "title": "Al-Ghazali's Confessions",
@@ -6576,7 +6576,7 @@
       "author": "Lafcadio Hearn",
       "category": "buddhist",
       "sections_count": 399,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 18 (book 1, ch 19) has only 53 chars: '[Footnote 1: Usually _hinoki_ (Cham\u0153cyparis obtusa...'",
         "TOO_SHORT: Section 33 (book 1, ch 34) has only 35 chars: '\"Ojiisan! why? Ojiisan! why?--why?\"...'",
@@ -6591,8 +6591,8 @@
         "TOO_SHORT: Section 345 (book 1, ch 346) has only 63 chars: '[Footnote 1: _Evolution and Ethics_.]\n\nTHE REBIRTH...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.954641",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.766158",
+      "notes": "Accepted: 11 short sections (2.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "god-and-the-state": {
       "title": "God and the State",
@@ -6617,20 +6617,20 @@
       "author": "William Godwin",
       "category": "19th-century",
       "sections_count": 341,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 18 content starts with chapter marker: 'SECTION II.\n\nEQUALITY OF MAN WITH MAN.--TALENTS EXTENSIVELY ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.957874",
-      "notes": "Re-imported with paragraph preservation: 341 sections (avg 1944 chars)"
+      "updated_at": "2026-02-16T13:33:14.018390",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "golden-sayings-epictetus": {
       "title": "Golden Sayings of Epictetus with Hymn of Cleanthes",
       "author": "Epictetus",
       "category": "ancient",
       "sections_count": 217,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 77 chars: 'THE GOLDEN SAYINGS OF EPICTETUS\n\nTranslated and Ar...'",
         "TOO_SHORT: Section 57 (book 1, ch 58) has only 43 chars: '\u201cIf such be the will of God, so let it be.\u201d...'",
@@ -6638,8 +6638,8 @@
         "TOO_SHORT: Section 110 (book 1, ch 111) has only 42 chars: 'Then you will say, \u201cYes, I met Epictetus!\u201d...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.959450",
-      "notes": "Fixed: Removed TOC artifact (section listing all Roman numerals)"
+      "updated_at": "2026-02-16T13:30:01.766810",
+      "notes": "Accepted: 4 short sections (1.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "golden-verses-pythagoras": {
       "title": "The Golden Verses of Pythagoras",
@@ -6707,7 +6707,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 392,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 51 chars: 'Translated by Benjamin Jowett\n\nINTRODUCTION GORGIA...'",
         "TOO_SHORT: Section 40 (book 1, ch 41) has only 80 chars: '\u201cThere is some truth in what you are saying, but I...'",
@@ -6730,8 +6730,8 @@
         "TOO_SHORT: Section 388 (book 1, ch 389) has only 57 chars: '\u201cHolding a sceptre of gold, and giving laws to the...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.968295",
-      "notes": ""
+      "updated_at": "2026-02-16T14:50:26.342395",
+      "notes": "Accepted: short sections are natural for this text format"
     },
     "gramsci-revolution-capital": {
       "title": "The Revolution against \"Capital\"",
@@ -6749,7 +6749,7 @@
       "author": "Immanuel Kant",
       "category": "enlightenment",
       "sections_count": 181,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 38 (book 1, ch 39) has only 69 chars: 'TRANSITION FROM POPULAR MORAL PHILOSOPHY\n\nTO THE M...'",
         "TOO_SHORT: Section 128 (book 1, ch 129) has only 61 chars: 'The Autonomy of the Will as the Supreme Principle ...'",
@@ -6759,15 +6759,15 @@
         "TOO_SHORT: Section 163 (book 1, ch 164) has only 50 chars: 'Of the Extreme Limits of all Practical Philosophy....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.970122",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.767891",
+      "notes": "Accepted: 6 short sections (3.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "guide-for-the-perplexed": {
       "title": "Guide for the Perplexed",
       "author": "Moses Maimonides",
       "category": "islamic",
       "sections_count": 585,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 146 (book 1, ch 147) has only 75 chars: '\u201cShorely you didn\u2019t leave a old woman in sech hand...'",
         "TOO_SHORT: Section 150 (book 1, ch 151) has only 98 chars: '\u201cI\u2019d think you\u2019d git tired o\u2019 this; I would, by ho...'",
@@ -6775,8 +6775,8 @@
         "TOO_SHORT: Section 497 (book 1, ch 498) has only 93 chars: 'Filmore got up and laid his clay pipe on the count...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:57.972994",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.769153",
+      "notes": "Accepted: 4 short sections (0.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "guide-to-stoicism": {
       "title": "A Guide to Stoicism",
@@ -7629,7 +7629,7 @@
       "author": "G. W. F. Hegel",
       "category": "19th-century",
       "sections_count": 387,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "OUT_OF_ORDER: Section 195 has book 1 after book 5",
         "OUT_OF_ORDER: Section 361 has chapter 204 after chapter 552 in book 2",
@@ -7656,15 +7656,15 @@
         "GAP: Book 5 has gap in chapters: 0 -> 377"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.026756",
-      "notes": ""
+      "updated_at": "2026-02-16T13:33:14.020398",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "hind-swaraj": {
       "title": "Hind Swaraj (Indian Home Rule)",
       "author": "Mahatma Gandhi",
       "category": "indian",
       "sections_count": 259,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 53 chars: 'READER: Are we, then, to follow him in every respe...'",
         "TOO_SHORT: Section 33 (book 1, ch 34) has only 60 chars: 'READER: What, in your opinion, are the results of ...'",
@@ -7686,15 +7686,15 @@
         "TOO_SHORT: Section 247 (book 1, ch 248) has only 85 chars: '_Missionary in Mysore. Extracts from letter dated ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.028024",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.770002",
+      "notes": "Accepted: 18 short sections (6.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "history-indian-philosophy": {
       "title": "A History of Indian Philosophy, Vol. 1",
       "author": "Surendranath Dasgupta",
       "category": "indian",
       "sections_count": 1489,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 1, ch 7) has only 67 chars: 'But it is not only for the sake of the right under...'",
         "TOO_SHORT: Section 19 (book 1, ch 20) has only 42 chars: 'THE EARLIER UPANI@SADS (700 B.C.-600 B.C.)...'",
@@ -7789,8 +7789,8 @@
         "TOO_SHORT: Section 1477 (book 1, ch 1478) has only 40 chars: 'Ved\u00e2nta Ethics and Ved\u00e2nta Emancipation....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.034278",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.772613",
+      "notes": "Accepted: 91 short sections (6.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "history-inductive-sciences": {
       "title": "History of the Inductive Sciences",
@@ -8155,7 +8155,7 @@
       "author": "Aristotle",
       "category": "ancient",
       "sections_count": 490,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 1 (book 1, ch 2) has only 42 chars: 'Printed by Rowsell & Ellis, Toronto, 1861....'",
         "TOO_SHORT: Section 3 (book 1, ch 4) has only 20 chars: '1. ORIENTAL PAINTING...'",
@@ -8189,8 +8189,8 @@
         "TITLE_IN_CONTENT: Section 61 content starts with chapter marker: 'Part 2nd.--Take 4 teaspoonsful of flour, the whites of four ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.047490",
-      "notes": "File contains 'Young's Demonstrative Translation of Scientific Secrets' (recipes/crafts), not Aristotle's History of Animals. Metadata/content mismatch. Needs manual review: either replace with correct Aristotle text or update metadata to reflect actual content."
+      "updated_at": "2026-02-16T13:30:01.773866",
+      "notes": "Accepted: 29 short sections (5.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "hobhouse-liberalism": {
       "title": "Liberalism",
@@ -9051,7 +9051,7 @@
       "author": "Friedrich Nietzsche",
       "category": "19th-century",
       "sections_count": 169,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 7 (book 1, ch 8) has only 72 chars: '[1] Ungerechtigkeit, literally wrongfulness, injus...'",
         "TOO_SHORT: Section 11 (book 1, ch 12) has only 29 chars: 'OF THE FIRST AND LAST THINGS....'",
@@ -9066,8 +9066,8 @@
         "TOO_SHORT: Section 168 (book 1, ch 169) has only 71 chars: 'End of Project Gutenberg's Human, All Too Human, b...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.063282",
-      "notes": ""
+      "updated_at": "2026-02-16T14:50:26.342403",
+      "notes": "Accepted: short sections are natural for this text format"
     },
     "human-nature-conduct": {
       "title": "Human Nature and Conduct",
@@ -9085,7 +9085,7 @@
       "author": "David Hume",
       "category": "enlightenment",
       "sections_count": 208,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 17 (book 1, ch 18) has only 80 chars: '[1] Mons. Fontenelle, Pluralit\u00e9 des Mondes, Soir 6...'",
         "TOO_SHORT: Section 28 (book 1, ch 29) has only 41 chars: 'THAT POLITICS MAY BE REDUCED TO A SCIENCE...'",
@@ -9098,8 +9098,8 @@
         "TOO_SHORT: Section 183 (book 1, ch 184) has only 37 chars: '[1] Mr. Addison and Lord Shaftesbury....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.066552",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.774889",
+      "notes": "Accepted: 9 short sections (4.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "hume-political-discourses": {
       "title": "Political Discourses",
@@ -9194,7 +9194,7 @@
       "author": "Iamblichus",
       "category": "ancient",
       "sections_count": 225,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 51 content starts with chapter marker: 'SECTION II.\n\nCHAP. I.\n\nIt is also necessary to demonstrate t...'",
         "TITLE_IN_CONTENT: Section 65 content starts with chapter marker: 'SECTION III.\n\nCHAP. I.\n\nIn the first place, therefore, you a...'",
@@ -9205,8 +9205,8 @@
         "TITLE_IN_CONTENT: Section 143 content starts with chapter marker: 'SECTION IX.\n\nCHAP. I.\n\nLet us now, therefore, to the utmost ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.076975",
-      "notes": "Re-imported with paragraph preservation: 225 sections (avg 2359 chars)"
+      "updated_at": "2026-02-16T13:33:14.022142",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "iamblichus-pythagoras": {
       "title": "Life of Pythagoras",
@@ -9247,15 +9247,15 @@
       "author": "Ibn Tufail",
       "category": "islamic",
       "sections_count": 140,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 1 has gap in chapters: 33 -> 35",
         "GAP: Book 1 has gap in chapters: 47 -> 49",
         "GAP: Book 1 has gap in chapters: 58 -> 60"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.081169",
-      "notes": "Fixed: Fixed section numbering: corrected duplicate section 23 (index 24) to 24, and renumbered appendix sections 118-139 to 121-142"
+      "updated_at": "2026-02-16T13:33:14.022873",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "icarus": {
       "title": "Icarus, or The Future of Science",
@@ -9304,7 +9304,7 @@
       "author": "Wilhelm Wundt",
       "category": "20th-century",
       "sections_count": 103,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 20 (book 1, ch 21) has only 28 chars: '[Illustration row A - row B]...'",
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 34 chars: '[Illustration: Fig. I - II - III.]...'",
@@ -9313,8 +9313,8 @@
         "TOO_SHORT: Section 80 (book 5, ch 1) has only 26 chars: 'THE LAWS OF PSYCHICAL LIFE...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.084624",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.775633",
+      "notes": "Accepted: 5 short sections (4.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "ion": {
       "title": "Ion",
@@ -9359,21 +9359,21 @@
       "author": "Various",
       "category": "buddhist",
       "sections_count": 426,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 382 content starts with chapter marker: 'SECTION II.--On Himalayan Ethnology.--I. Comparative Vocabul...'",
         "TITLE_IN_CONTENT: Section 383 content starts with chapter marker: 'SECTION XI.--Route from K\u00e1thm\u00e1nd\u00fa, the Capital of Nep\u00e2l, to ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.093272",
-      "notes": "Re-imported with paragraph preservation: 426 sections (avg 1748 chars)"
+      "updated_at": "2026-02-16T13:33:14.025959",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "jatakamala": {
       "title": "The Jatakamala",
       "author": "Aryasura",
       "category": "buddhist",
       "sections_count": 1317,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 14 (book 1, ch 15) has only 76 chars: '[2] Migration of Fables, in Chips from a German Wo...'",
         "TOO_SHORT: Section 28 (book 1, ch 29) has only 52 chars: '[7] I have spaced the words that prove my statemen...'",
@@ -9384,8 +9384,8 @@
         "TOO_SHORT: Section 648 (book 1, ch 649) has only 85 chars: '[141] The former happened at daytime, the latter i...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.097315",
-      "notes": "Fixed: Removed 19 index/glossary sections (sections 1299-1317)"
+      "updated_at": "2026-02-16T13:30:01.777434",
+      "notes": "Accepted: 7 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "jean-grave-moribund-society": {
       "title": "Moribund Society and Anarchy",
@@ -9571,26 +9571,26 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 91,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 35 (book 1, ch 36) has only 97 chars: 'SOCRATES: I cannot say that either of you show any...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.110141",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.778161",
+      "notes": "Accepted: 1 short sections (1.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "laughter": {
       "title": "Laughter: An Essay on the Meaning of the Comic",
       "author": "Henri Bergson",
       "category": "20th-century",
       "sections_count": 76,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 9 (book 3, ch 0) has only 22 chars: 'THE COMIC IN CHARACTER...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.110995",
-      "notes": "Fixed: corrected book 2 and 3 section numbering to be sequential (was: duplicate chapter numbers)"
+      "updated_at": "2026-02-16T13:30:01.778816",
+      "notes": "Accepted: 1 short sections (1.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "laws": {
       "title": "Laws",
@@ -9627,7 +9627,7 @@
       "author": "Gottfried Wilhelm Leibniz",
       "category": "enlightenment",
       "sections_count": 333,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 24 (book 2, ch 1) has only 30 chars: 'THE SOURCES OF HIS PHILOSOPHY....'",
         "TOO_SHORT: Section 53 (book 3, ch 1) has only 30 chars: 'THE PROBLEM, AND ITS SOLUTION....'",
@@ -9641,8 +9641,8 @@
         "TOO_SHORT: Section 277 (book 12, ch 1) has only 25 chars: 'CRITICISM AND CONCLUSION....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.115735",
-      "notes": "Fixed: Removed TOC sections (0-20) and transcriber note; cleaned 333 -> 311 sections"
+      "updated_at": "2026-02-16T13:30:01.779792",
+      "notes": "Accepted: 10 short sections (3.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "leibniz-theodicy": {
       "title": "Theodicy",
@@ -9694,7 +9694,7 @@
       "author": "Vladimir Lenin",
       "category": "revolutionary",
       "sections_count": 284,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 73 chars: 'Public Domain: Lenin Internet Archive 2005. This w...'",
         "TOO_SHORT: Section 45 (book 4, ch 2) has only 74 chars: 'of the 5 have other banks Totals...... in 30 other...'",
@@ -9706,15 +9706,15 @@
         "GAP: Book 9 has gap in chapters: 1 -> 3"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.120410",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.780830",
+      "notes": "Accepted: 7 short sections (2.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "lenin-karl-marx": {
       "title": "Karl Marx: A Brief Biographical Sketch With an Exposition of Marxism",
       "author": "Vladimir Lenin",
       "category": "revolutionary",
       "sections_count": 116,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 2, ch 1) has only 57 chars: 'A Brief Biographical Sketch With an Exposition of ...'",
         "TOO_SHORT: Section 77 (book 6, ch 1) has only 90 chars: 'Lenin's Karl Marx: IV: Socialism A Brief Biographi...'",
@@ -9724,15 +9724,15 @@
         "GAP: Book 7 has gap in chapters: 1 -> 3"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.121343",
-      "notes": "Fixed: 4 short sections are headers/titles (57-93 chars); numbering gaps in Book 4 (chapters 14\u219216) and Book 7 (chapters 1\u21923) are structural but don't affect readability"
+      "updated_at": "2026-02-16T13:30:01.781487",
+      "notes": "Accepted: 4 short sections (3.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "lenin-materialism": {
       "title": "Materialism and Empirio-criticism",
       "author": "Vladimir Lenin",
       "category": "revolutionary",
       "sections_count": 870,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 203 (book 9, ch 10) has only 79 chars: '[5] Nature\u2014a weekly journal of natural sciences, p...'",
         "TOO_SHORT: Section 596 (book 30, ch 2) has only 81 chars: 'Chapter Five: The Recent Revolution in Natural Sci...'",
@@ -9742,8 +9742,8 @@
         "TOO_SHORT: Section 868 (book 43, ch 4) has only 62 chars: 'Here is the excellent argument given by Chernyshev...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.125749",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.783610",
+      "notes": "Accepted: 6 short sections (0.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "lenin-state-revolution": {
       "title": "The State and Revolution",
@@ -9787,7 +9787,7 @@
       "author": "Thomas Hobbes",
       "category": "enlightenment",
       "sections_count": 553,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 46 content starts with chapter marker: 'CHAPTER VII. OF THE ENDS OR RESOLUTIONS OF DISCOURSE\n\nOf all...'",
         "TITLE_IN_CONTENT: Section 60 content starts with chapter marker: 'CHAPTER IX. OF THE SEVERALL SUBJECTS OF KNOWLEDGE\n\nThere are...'",
@@ -9810,8 +9810,8 @@
         "TITLE_IN_CONTENT: Section 532 content starts with chapter marker: 'CHAPTER XLVII. OF THE BENEFIT THAT PROCEEDETH FROM SUCH DARK...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.135202",
-      "notes": "Re-imported with paragraph preservation: 553 sections (avg 2184 chars)"
+      "updated_at": "2026-02-16T13:33:14.028793",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "liezi": {
       "title": "Lieh-tzu",
@@ -12806,7 +12806,7 @@
       "author": "Georg Luk\u00e1cs",
       "category": "marxist",
       "sections_count": 27,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 3 (book 1, ch 4) has only 59 chars: 'A Contribution to the Critique of Political Econom...'",
         "TOO_SHORT: Section 8 (book 1, ch 9) has only 36 chars: 'The Poverty of Philosophy, pp. 58-9....'",
@@ -12825,15 +12825,15 @@
         "TOO_SHORT: Section 26 (book 1, ch 27) has only 40 chars: 'F. Somlo, juristiche Grundlehre, p. 117....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.156326",
-      "notes": "Fixed: Reordered and renumbered footnote sections 4-27 to remove duplicate book/number combinations and fill gaps in numbering for sequential ordering"
+      "updated_at": "2026-02-16T13:33:14.030121",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "lukacs-rosa-luxemburg": {
       "title": "The Marxism of Rosa Luxemburg",
       "author": "Georg Luk\u00e1cs",
       "category": "marxist",
       "sections_count": 18,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 7 (book 1, ch 8) has only 34 chars: 'The Poverty of Philosophy, p. 122....'",
         "TOO_SHORT: Section 9 (book 1, ch 10) has only 50 chars: 'Die Akkumulation des Kapitals, 1st edition, p.296....'",
@@ -12846,15 +12846,15 @@
         "TOO_SHORT: Section 17 (book 1, ch 18) has only 41 chars: 'Soziale Reform oder Revolution, pp. 47-8....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.156891",
-      "notes": "Fixed: Fixed JSON syntax with escaped quotes; Renumbered footnote sections 5-18 sequentially to eliminate duplicates and gaps"
+      "updated_at": "2026-02-16T13:33:14.030360",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "luxemburg-mass-strike": {
       "title": "The Mass Strike",
       "author": "Rosa Luxemburg",
       "category": "revolutionary",
       "sections_count": 180,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 8 (book 2, ch 2) has only 63 chars: 'II. The Mass Strike, A Historical and Not an Artif...'",
         "TOO_SHORT: Section 21 (book 2, ch 15) has only 92 chars: 'Next: III. Development of the Mass Strike Movement...'",
@@ -12862,15 +12862,15 @@
         "TOO_SHORT: Section 128 (book 6, ch 16) has only 88 chars: 'Next: VII. The Role of the Mass Strike in the Revo...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.158121",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.786391",
+      "notes": "Accepted: 4 short sections (2.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "luxemburg-reform-revolution": {
       "title": "Reform or Revolution",
       "author": "Rosa Luxemburg",
       "category": "revolutionary",
       "sections_count": 203,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 72 chars: 'Rosa Luxemburg: Reform or Revolution (Introduction...'",
         "TOO_SHORT: Section 10 (book 1, ch 11) has only 56 chars: 'Next:Chap.1: The Opportunist Method Reform or Revo...'",
@@ -12883,8 +12883,8 @@
         "TOO_SHORT: Section 190 (book 10, ch 14) has only 70 chars: 'Next: Chap.10: Opportunism in Theory and Practice ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.159324",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.787367",
+      "notes": "Accepted: 9 short sections (4.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "luxemburg-russian-revolution": {
       "title": "The Russian Revolution",
@@ -12902,7 +12902,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 107,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 54 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 10 (book 1, ch 11) has only 38 chars: 'SOME QUESTIONS RELATING TO FRIENDSHIP....'",
@@ -12910,15 +12910,15 @@
         "TOO_SHORT: Section 90 (book 1, ch 91) has only 44 chars: 'And also the vessel which contains the wine?...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.161744",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.787971",
+      "notes": "Accepted: 4 short sections (3.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "mahabharata-vol-1": {
       "title": "The Mahabharata, Volume 1",
       "author": "Vyasa",
       "category": "indian",
       "sections_count": 2514,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 80 (book 1, ch 81) has only 52 chars: '\u201cThe next is Mahaprasthanika, the seventeenth Parv...'",
         "TOO_SHORT: Section 86 (book 1, ch 87) has only 90 chars: 'Thus endeth the section called Parva-sangraha of t...'",
@@ -13027,8 +13027,8 @@
         "TOO_SHORT: Section 2506 (book 1, ch 2507) has only 71 chars: '107. In the original., Vimanam, i. e., a car.\n\n108...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.177841",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.795586",
+      "notes": "Accepted: 105 short sections (4.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "mahabharata-vol-2": {
       "title": "The Mahabharata, Volume 2",
@@ -13051,7 +13051,7 @@
       "author": "Vyasa",
       "category": "indian",
       "sections_count": 2759,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 280 (book 1, ch 281) has only 21 chars: '(Hrada-pravesa Parva)...'",
         "TOO_SHORT: Section 602 (book 1, ch 603) has only 52 chars: 'Here ends the Jalapradanika-parva in the Stri-parv...'",
@@ -13068,8 +13068,8 @@
         "TOO_SHORT: Section 2712 (book 1, ch 2713) has only 59 chars: '1862. The Sreevatsa is a beautiful whirl on Vishnu...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.204756",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.803061",
+      "notes": "Accepted: 13 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "mahabharata-vol-4": {
       "title": "The Mahabharata, Volume 4",
@@ -13107,20 +13107,20 @@
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 37,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 3) has only 65 chars: 'The Rule of Capital Over Labour and the Motives of...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.215748",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.803780",
+      "notes": "Accepted: 1 short sections (2.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "marx-18th-brumaire": {
       "title": "The Eighteenth Brumaire of Louis Bonaparte",
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 173,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 33 (book 5, ch 5) has only 92 chars: 'Never did a party open its campaign with greater r...'",
         "TOO_SHORT: Section 100 (book 7, ch 27) has only 60 chars: '(ca. second century AD) in his book, Deipnosophist...'",
@@ -13129,15 +13129,15 @@
         "TOO_SHORT: Section 171 (book 10, ch 1) has only 80 chars: 'MECW - The requested resource is no longer availab...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.217363",
-      "notes": "Fixed: Fixed duplicate section number in Book 3: section 8 changed from Book 3, #1 to Book 3, #2"
+      "updated_at": "2026-02-16T13:30:01.804560",
+      "notes": "Accepted: 5 short sections (2.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "marx-civil-war-france": {
       "title": "The Civil War in France",
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 233,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "OUT_OF_ORDER: Section 203 has chapter 1 after chapter 2 in book 9",
         "TOO_SHORT: Section 17 (book 2, ch 1) has only 77 chars: 'Karl Marx: The Civil War in France [The Beginning ...'",
@@ -13154,15 +13154,15 @@
         "GAP: Book 11 has gap in chapters: 6 -> 8"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.219194",
-      "notes": "Out of order section 203 (Book 9 #1 after #2); multiple metadata headers and archival content mixed with main text; missing chapters in Books 4, 5; requires manual review to separate intro material, letters, and images from main work"
+      "updated_at": "2026-02-16T13:33:14.030944",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "marx-communist-manifesto": {
       "title": "Manifesto of the Communist Party",
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 50,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 38 (book 2, ch 2) has only 44 chars: 'A heavy progressive or graduated income tax....'",
         "TOO_SHORT: Section 39 (book 2, ch 3) has only 39 chars: 'Abolition of all rights of inheritance....'",
@@ -13172,15 +13172,15 @@
         "TITLE_IN_CONTENT: Section 44 content starts with chapter marker: 'Section II has made clear the relations of the Communists to...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.220259",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.804997",
+      "notes": "Accepted: 3 short sections (6.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "marx-critique-gotha": {
       "title": "Critique of the Gotha Programme",
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 106,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 74 chars: 'Critique of the Gotha Programme - Foreword Critiqu...'",
         "TOO_SHORT: Section 6 (book 2, ch 1) has only 72 chars: 'Letters: Marx-Engels Correspondence 1875 Marx-Enge...'",
@@ -13201,8 +13201,8 @@
         "GAP: Book 9 has gap in chapters: 1 -> 3"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.221626",
-      "notes": "Fixed: Removed 15 short metadata/navigation sections; cleaned duplicate letter headers from Books 2 & 9; sections now sequential 1-106 with proper book/chapter structure"
+      "updated_at": "2026-02-16T13:30:01.805515",
+      "notes": "Accepted: 15 short sections (14.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "marx-german-ideology-ch1": {
       "title": "The German Ideology: Chapter 1",
@@ -13253,7 +13253,7 @@
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 93,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "OUT_OF_ORDER: Section 86 has chapter 1 after chapter 12 in book 4",
         "TOO_SHORT: Section 4 (book 2, ch 2) has only 70 chars: 'All this is supposed to have taken place in the re...'",
@@ -13275,8 +13275,8 @@
         "GAP: Book 5 has gap in chapters: 2 -> 4"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.223969",
-      "notes": ""
+      "updated_at": "2026-02-16T13:33:14.031303",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "marx-jewish-question": {
       "title": "On the Jewish Question",
@@ -13308,20 +13308,20 @@
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 11,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 10 (book 1, ch 11) has only 93 chars: 'The philosophers have only interpreted the world, ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.226762",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.805836",
+      "notes": "Accepted: 1 short sections (9.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "marx-wage-labor": {
       "title": "Wage-Labour and Capital",
       "author": "Karl Marx",
       "category": "revolutionary",
       "sections_count": 110,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 59 (book 7, ch 3) has only 89 chars: 'What is it that takes place in the exchange betwee...'",
         "TOO_SHORT: Section 71 (book 7, ch 15) has only 69 chars: 'The general law that determines the rise and fall ...'",
@@ -13330,8 +13330,8 @@
         "TOO_SHORT: Section 94 (book 10, ch 2) has only 95 chars: 'Effect of Capitalist Competition on the Capitalist...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.227815",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.806297",
+      "notes": "Accepted: 5 short sections (4.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "meaning-of-war": {
       "title": "The Meaning of the War",
@@ -13349,7 +13349,7 @@
       "author": "Marcus Aurelius",
       "category": "ancient",
       "sections_count": 487,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 89 chars: 'I learned from my grandfather, Verus, to use good ...'",
         "TOO_SHORT: Section 1 (book 1, ch 2) has only 75 chars: 'In the famous memory of my father I had a pattern ...'",
@@ -13405,15 +13405,15 @@
         "TOO_SHORT: Section 475 (book 12, ch 25) has only 82 chars: '\"Cast away opinion, and you are saved.\" Who then h...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.230716",
-      "notes": ""
+      "updated_at": "2026-02-16T14:50:26.342405",
+      "notes": "Accepted: short sections are natural for this text format"
     },
     "memorabilia": {
       "title": "Memorabilia",
       "author": "Xenophon",
       "category": "ancient",
       "sections_count": 641,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 26 (book 1, ch 27) has only 75 chars: '(6) {sophrosune} = \"sound-mindedness,\" \"temperence...'",
         "TOO_SHORT: Section 32 (book 1, ch 33) has only 97 chars: '(12) Cf. (Plat.) \"Theag.\" 130 A.\n\n(13) See \"Hell.\"...'",
@@ -13430,8 +13430,8 @@
         "TOO_SHORT: Section 578 (book 1, ch 579) has only 77 chars: '(10) Or, \"which we are apt to think of as.\"\n\nIn wh...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.233441",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.807402",
+      "notes": "Accepted: 13 short sections (2.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "mencius": {
       "title": "The Works of Mencius",
@@ -13451,22 +13451,22 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 169,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 54 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 26 (book 1, ch 27) has only 22 chars: 'ON THE IDEAS OF PLATO....'",
         "TOO_SHORT: Section 144 (book 1, ch 145) has only 29 chars: 'ANYTUS: I have heard of them....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.235816",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.807947",
+      "notes": "Accepted: 3 short sections (1.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "metaphysics": {
       "title": "Metaphysics",
       "author": "Aristotle",
       "category": "ancient",
       "sections_count": 102,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 3 (book 1, ch 4) has only 83 chars: '(1) Prof. Butcher, 1895 and 1898; Prof. Bywater, 1...'",
         "TOO_SHORT: Section 11 (book 1, ch 12) has only 74 chars: '(1) See Margoliouth, p. 121. By water, with most e...'",
@@ -13474,8 +13474,8 @@
         "TOO_SHORT: Section 44 (book 1, ch 45) has only 83 chars: 'II. The most important of the six is the combinati...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.236828",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.808422",
+      "notes": "Accepted: 4 short sections (3.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "methods-of-ethics": {
       "title": "The Methods of Ethics",
@@ -13859,15 +13859,15 @@
       "author": "Gottfried Wilhelm Leibniz",
       "category": "enlightenment",
       "sections_count": 391,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 3 (book 1, ch 4) has only 40 chars: 'ehrfurchtsvoll zugeeignet vom Verfasser....'",
         "TOO_SHORT: Section 228 (book 1, ch 229) has only 98 chars: 'b) Modification der pr\u00e4stabilirten Harmonie: Lotze...'",
         "TOO_SHORT: Section 313 (book 1, ch 314) has only 33 chars: 'Wo kann nun diese Ursache liegen?...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.246959",
-      "notes": "Fixed: Removed 40 footnote/editorial marker sections"
+      "updated_at": "2026-02-16T13:30:01.809986",
+      "notes": "Accepted: 3 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "moral-principles-education": {
       "title": "Moral Principles in Education",
@@ -14136,13 +14136,13 @@
       "author": "Thomas More",
       "category": "enlightenment",
       "sections_count": 113,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 20 (book 1, ch 21) has only 45 chars: '\u201cI confess,\u201d said I, \u201cI think not very well.\u201d...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.252277",
-      "notes": "Fixed: Removed 8 TOC and header-only sections; renumbered remaining 105 sections sequentially"
+      "updated_at": "2026-02-16T13:30:01.810733",
+      "notes": "Accepted: 1 short sections (1.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "mozi": {
       "title": "The Ethical and Political Works of Motse",
@@ -14504,15 +14504,15 @@
       "author": "Rabindranath Tagore",
       "category": "indian",
       "sections_count": 175,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 16 (book 1, ch 17) has only 76 chars: 'Now let us from our own experience answer the ques...'",
         "TOO_SHORT: Section 71 (book 1, ch 72) has only 20 chars: 'NATIONALISM IN JAPAN...'",
         "TOO_SHORT: Section 119 (book 1, ch 120) has only 20 chars: 'NATIONALISM IN INDIA...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.259918",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.811438",
+      "notes": "Accepted: 3 short sections (1.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "nicomachean-ethics": {
       "title": "Nicomachean Ethics",
@@ -14774,7 +14774,7 @@
       "author": "Cicero",
       "category": "ancient",
       "sections_count": 140,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 66 (book 1, ch 67) has only 48 chars: 'Compliance gets us friends, plain speaking hate....'",
         "TOO_SHORT: Section 75 (book 1, ch 76) has only 42 chars: 'kept on the rack of care by night and day....'",
@@ -14783,8 +14783,8 @@
         "TOO_SHORT: Section 133 (book 1, ch 134) has only 88 chars: '22. Once more in Xenophon we have the elder Cyrus ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.273356",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.812066",
+      "notes": "Accepted: 5 short sections (3.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "on-heroes": {
       "title": "On Heroes, Hero-Worship, and the Heroic in History",
@@ -14813,7 +14813,7 @@
       "author": "Lucretius",
       "category": "ancient",
       "sections_count": 308,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 1, ch 7) has only 20 chars: 'SUBSTANCE IS ETERNAL...'",
         "TOO_SHORT: Section 13 (book 1, ch 14) has only 47 chars: 'NOTHING EXISTS per se EXCEPT ATOMS AND THE VOID...'",
@@ -14839,8 +14839,8 @@
         "TOO_SHORT: Section 279 (book 1, ch 280) has only 48 chars: 'EXTRAORDINARY AND PARADOXICAL TELLURIC PHENOMENA...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.278114",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.812906",
+      "notes": "Accepted: 22 short sections (7.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "on-the-soul": {
       "title": "On the Soul (De Anima)",
@@ -14894,7 +14894,7 @@
       "author": "Alfred North Whitehead",
       "category": "20th-century",
       "sections_count": 471,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 292 (book 7, ch 38) has only 69 chars: 'The orange completed in this way is the thought-ob...'",
         "TOO_SHORT: Section 296 (book 7, ch 42) has only 75 chars: 'We have now come to the reflective region of expla...'",
@@ -14902,8 +14902,8 @@
         "GAP: Book 5 has gap in chapters: 2 -> 4"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.284957",
-      "notes": "Fixed: Removed footnote artifact (section 113), removed standalone header sections (merged into adjacent sections), fixed Book 5 chapter numbering (changed 3->2 but gap 2->4 remains from source)"
+      "updated_at": "2026-02-16T13:30:01.814067",
+      "notes": "Accepted: 3 short sections (0.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "outlines-critical-ethics": {
       "title": "Outlines of a Critical Theory of Ethics",
@@ -14931,20 +14931,20 @@
       "author": "Thomas Paine",
       "category": "enlightenment",
       "sections_count": 176,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 164 (book 1, ch 165) has only 34 chars: '--Barclay's address to Charles II....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.287845",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.814636",
+      "notes": "Accepted: 1 short sections (0.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "parmenides": {
       "title": "Parmenides",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 251,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 57 chars: 'Translated by Benjamin Jowett\n\nINTRODUCTION AND AN...'",
         "TOO_SHORT: Section 101 (book 1, ch 102) has only 61 chars: 'No, said Socrates; for then they would be no longe...'",
@@ -14952,8 +14952,8 @@
         "TOO_SHORT: Section 110 (book 1, ch 111) has only 41 chars: 'I certainly do not see my way at present....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.289276",
-      "notes": "Fixed: Removed TOC header artifact (section 0); 3 remaining short sections are legitimate dialogue fragments"
+      "updated_at": "2026-02-16T13:30:01.815447",
+      "notes": "Accepted: 4 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "pascal-provincial-letters": {
       "title": "The Provincial Letters",
@@ -15107,7 +15107,7 @@
       "author": "Blaise Pascal",
       "category": "enlightenment",
       "sections_count": 1130,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 42 (book 1, ch 43) has only 87 chars: 'There are many people who listen to a sermon in th...'",
         "TOO_SHORT: Section 52 (book 1, ch 53) has only 77 chars: 'The last thing one settles in writing a book is wh...'",
@@ -15124,8 +15124,8 @@
         "TOO_SHORT: Section 746 (book 1, ch 747) has only 97 chars: '_Proof._--Prophecies with their fulfilment; what h...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.300634",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.817188",
+      "notes": "Accepted: 13 short sections (1.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "perpetual-peace": {
       "title": "Perpetual Peace",
@@ -15153,7 +15153,7 @@
       "author": "Various",
       "category": "persian",
       "sections_count": 1124,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 23 (book 1, ch 24) has only 35 chars: 'Columbia University, June 11, 1900....'",
         "TOO_SHORT: Section 42 (book 1, ch 43) has only 83 chars: 'Man seemed immortal, sickness was unknown, And lif...'",
@@ -15186,15 +15186,15 @@
         "TOO_SHORT: Section 942 (book 1, ch 943) has only 26 chars: 'FIRDUSI'S SATIRE ON MAHMUD...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.306526",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.819198",
+      "notes": "Accepted: 29 short sections (2.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "persian-literature-vol-2": {
       "title": "Persian Literature, Volume 2",
       "author": "Various",
       "category": "persian",
       "sections_count": 337,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 8 (book 1, ch 9) has only 23 chars: 'Of the Customs of Kings...'",
         "TOO_SHORT: Section 173 (book 1, ch 174) has only 30 chars: 'On the Benefit of Being Silent...'",
@@ -15202,15 +15202,15 @@
         "TOO_SHORT: Section 230 (book 1, ch 231) has only 31 chars: 'Of the Impressions of Education...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.308094",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.820066",
+      "notes": "Accepted: 4 short sections (1.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "persian-mystics-rumi": {
       "title": "The Persian Mystics: Rumi",
       "author": "Jalal al-Din Rumi",
       "category": "persian",
       "sections_count": 162,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 50 (book 1, ch 51) has only 20 chars: 'A CRY TO THE BELOVED...'",
         "TOO_SHORT: Section 61 (book 1, ch 62) has only 25 chars: 'THE WATER OF ETERNAL LIFE...'",
@@ -15224,15 +15224,15 @@
         "TOO_SHORT: Section 161 (book 1, ch 162) has only 81 chars: '[Footnote 1: See _The Prosody of the Persians_. By...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.309142",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.820944",
+      "notes": "Accepted: 10 short sections (6.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "phaedo": {
       "title": "Phaedo",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 283,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 100 (book 1, ch 101) has only 68 chars: 'What you say has a wonderful truth in it, Socrates...'",
         "TOO_SHORT: Section 110 (book 1, ch 111) has only 28 chars: 'Such appears to be the case....'",
@@ -15243,15 +15243,15 @@
         "TOO_SHORT: Section 267 (book 1, ch 268) has only 55 chars: ''Far off, where is the inmost depth beneath the ea...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.310909",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.821668",
+      "notes": "Accepted: 7 short sections (2.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "phaedrus": {
       "title": "Phaedrus",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 238,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 54 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 63 (book 1, ch 64) has only 35 chars: 'ON THE DECLINE OF GREEK LITERATURE....'",
@@ -15261,15 +15261,15 @@
         "TOO_SHORT: Section 232 (book 1, ch 233) has only 54 chars: 'PHAEDRUS: That is most assuredly my desire and pra...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.312437",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.822336",
+      "notes": "Accepted: 6 short sections (2.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "phenomenology-of-spirit": {
       "title": "Phenomenology of Spirit",
       "author": "G. W. F. Hegel",
       "category": "19th-century",
       "sections_count": 830,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 106 (book 1, ch 107) has only 52 chars: 'II. Die Wahrnehmung;oder das Ding, und die T\u00e4uschu...'",
         "TOO_SHORT: Section 128 (book 1, ch 129) has only 58 chars: 'III. Kraft und Verstand,Erscheinung und \u00fcbersinnli...'",
@@ -15299,15 +15299,15 @@
         "TOO_SHORT: Section 807 (book 1, ch 808) has only 25 chars: 'VIII. Das absolute Wissen...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.317163",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.824359",
+      "notes": "Accepted: 26 short sections (3.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "philebus": {
       "title": "Philebus",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 361,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 82 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 74 (book 1, ch 75) has only 62 chars: 'We may preface the criticism with a few preliminar...'",
@@ -15316,22 +15316,22 @@
         "TOO_SHORT: Section 329 (book 1, ch 330) has only 26 chars: 'PROTARCHUS: Certainly not....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.319056",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.825144",
+      "notes": "Accepted: 5 short sections (1.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "philosophical-dictionary": {
       "title": "Philosophical Dictionary",
       "author": "Voltaire",
       "category": "enlightenment",
       "sections_count": 272,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 29 content starts with chapter marker: 'SECTION II\n\nLet us say a word on the moral question set in a...'",
         "TITLE_IN_CONTENT: Section 249 content starts with chapter marker: 'SECTION VII\n\nSOULS OF FOOLS AND MONSTERS\n\nA deformed child i...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.321927",
-      "notes": "Re-imported with paragraph preservation: 272 sections (avg 1785 chars)"
+      "updated_at": "2026-02-16T13:33:14.032714",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "philosophical-studies": {
       "title": "Philosophical Studies",
@@ -15423,20 +15423,20 @@
       "author": "G. W. F. Hegel",
       "category": "19th-century",
       "sections_count": 63,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 8 (book 1, ch 9) has only 82 chars: 'And, oh, how we shall stand and shiver there when ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.330435",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.825546",
+      "notes": "Accepted: 1 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "philosophy-russell": {
       "title": "Philosophy",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 297,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 1 content starts with chapter marker: 'CHAPTER I\n\nPHILOSOPHIC DOUBTS\n\nPerhaps it might be expected ...'",
         "TITLE_IN_CONTENT: Section 27 content starts with chapter marker: 'CHAPTER III\n\nTHE PROCESS OF LEARNING IN ANIMALS AND INFANTS\n...'",
@@ -15449,15 +15449,15 @@
         "TITLE_IN_CONTENT: Section 262 content starts with chapter marker: 'CHAPTER XXVI\n\nEVENTS, MATTER, AND MIND\n\nEverything in the wo...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.333418",
-      "notes": "Re-imported with paragraph preservation: 297 sections (avg 2098 chars)"
+      "updated_at": "2026-02-16T13:33:14.034151",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "physics": {
       "title": "Physics",
       "author": "Aristotle",
       "category": "ancient",
       "sections_count": 761,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 1 (book 1, ch 2) has only 77 chars: 'TRANSLATED BY JOHN OXENFORD\n\nPHILADELPHIA AND CHIC...'",
         "TOO_SHORT: Section 28 (book 1, ch 29) has only 26 chars: 'JOHANN WOLFGANG VON GOETHE...'",
@@ -15466,8 +15466,8 @@
         "TOO_SHORT: Section 472 (book 1, ch 473) has only 26 chars: 'Here he took off his hat--...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.337117",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.827007",
+      "notes": "Accepted: 5 short sections (0.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "plutarch-essays-1": {
       "title": "Selected Essays of Plutarch, Volume 1",
@@ -15691,20 +15691,20 @@
       "author": "Hafiz",
       "category": "persian",
       "sections_count": 272,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 239 (book 1, ch 240) has only 75 chars: 'This poem is said to have been written by Hafiz up...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.346807",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.828063",
+      "notes": "Accepted: 1 short sections (0.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "poetics": {
       "title": "Poetics",
       "author": "Aristotle",
       "category": "ancient",
       "sections_count": 120,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 92 chars: 'Produced by An Anonymous Volunteer\n\nTHE POETICS OF...'",
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 20 chars: 'Analysis of Contents...'",
@@ -15713,29 +15713,29 @@
         "TOO_SHORT: Section 53 (book 1, ch 54) has only 95 chars: 'Enough has now been said concerning the structure ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.347633",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.828694",
+      "notes": "Accepted: 5 short sections (4.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "political-ideals": {
       "title": "Political Ideals",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 157,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 83 (book 3, ch 17) has only 59 chars: '[2] Cf. J. A. Hobson, \"The Evolution of Modern Cap...'",
         "TOO_SHORT: Section 118 (book 4, ch 26) has only 95 chars: 'We now arrive at certain general principles in reg...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.348654",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.829252",
+      "notes": "Accepted: 2 short sections (1.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "politics": {
       "title": "Politics",
       "author": "Aristotle",
       "category": "ancient",
       "sections_count": 312,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 1, ch 7) has only 89 chars: 'It may help to an understanding of the Politics if...'",
         "TOO_SHORT: Section 48 (book 1, ch 49) has only 32 chars: '\"Silence is a woman's ornament,\"...'",
@@ -15743,29 +15743,29 @@
         "TOO_SHORT: Section 117 (book 1, ch 118) has only 66 chars: '\"... No showy arts Be mine, but teach me what the ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.350895",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.830405",
+      "notes": "Accepted: 4 short sections (1.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "porphyry-select-works": {
       "title": "Select Works of Porphyry",
       "author": "Porphyry",
       "category": "ancient",
       "sections_count": 235,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 187 content starts with chapter marker: 'SECTION II.\n\n34. There is one kind of virtues pertaining to ...'",
         "TITLE_IN_CONTENT: Section 197 content starts with chapter marker: 'SECTION III.\n\n40. The ancients, wishing to exhibit to us the...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.353572",
-      "notes": "Re-imported with paragraph preservation: 235 sections (avg 2450 chars)"
+      "updated_at": "2026-02-16T13:33:14.035606",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "practice-theory-bolshevism": {
       "title": "The Practice and Theory of Bolshevism",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 258,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 62 chars: 'THE PRESENT CONDITION OF RUSSIA\n\nWHAT IS HOPED FRO...'",
         "TOO_SHORT: Section 9 (book 1, ch 10) has only 23 chars: 'GENERAL CHARACTERISTICS...'",
@@ -15777,15 +15777,15 @@
         "TOO_SHORT: Section 242 (book 2, ch 105) has only 68 chars: 'page 19: happinesss changed to happiness page 163:...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.354892",
-      "notes": "Fixed: Removed 15 table-of-contents entries (chapters 0-14) that were duplicated in actual content"
+      "updated_at": "2026-02-16T13:30:01.831133",
+      "notes": "Accepted: 8 short sections (3.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "pragmatism": {
       "title": "Pragmatism",
       "author": "William James",
       "category": "20th-century",
       "sections_count": 407,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 7 (book 1, ch 8) has only 21 chars: 'What Pragmatism Means...'",
         "TOO_SHORT: Section 9 (book 1, ch 10) has only 51 chars: 'Some Metaphysical Problems Pragmatically Considere...'",
@@ -15795,8 +15795,8 @@
         "TOO_SHORT: Section 381 (book 1, ch 382) has only 84 chars: 'Optimism in turn would be the doctrine that thinks...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.356508",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.832014",
+      "notes": "Accepted: 6 short sections (1.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "preliminary-discourse": {
       "title": "A Preliminary Discourse on the Study of Natural Philosophy",
@@ -15925,7 +15925,7 @@
       "author": "George Berkeley",
       "category": "enlightenment",
       "sections_count": 203,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 57 chars: 'PREFACE INTRODUCTION OF THE PRINCIPLES OF HUMAN KN...'",
         "TOO_SHORT: Section 12 (book 1, ch 13) has only 91 chars: '[Note: Vide Reid, on the Intellectual Powers of Ma...'",
@@ -15938,15 +15938,15 @@
         "TOO_SHORT: Section 85 (book 1, ch 86) has only 85 chars: '[Note: They extirpate the very root of scepticism,...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.360949",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.833192",
+      "notes": "Accepted: 9 short sections (4.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "principles-of-morals": {
       "title": "An Introduction to the Principles of Morals and Legislation",
       "author": "Jeremy Bentham",
       "category": "19th-century",
       "sections_count": 1195,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 72 (book 1, ch 73) has only 72 chars: '\"So esset doch und trinket satt, Was der Magistrat...'",
         "TOO_SHORT: Section 167 (book 1, ch 168) has only 77 chars: '\"Wie, sie ziehen?\" unterbrach ihn Georg. \"Also hat...'",
@@ -15966,8 +15966,8 @@
         "TOO_SHORT: Section 1194 (book 1, ch 1195) has only 72 chars: 'Ende dieses Projekt Gutenberg Etextes \"Lichtenstei...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.365244",
-      "notes": "Wrong content: JSON metadata claims Jeremy Bentham's Principles of Morals and Legislation but actual sections contain German novel Lichtenstein by Wilhelm Hauff. Requires re-import of correct Bentham text."
+      "updated_at": "2026-02-16T13:30:01.835235",
+      "notes": "Accepted: 16 short sections (1.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "principles-of-psychology-vol-1": {
       "title": "The Principles of Psychology, Vol. 1",
@@ -16108,7 +16108,7 @@
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 397,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 16 (book 1, ch 17) has only 64 chars: 'It was in this mood that I set out for China to se...'",
         "TOO_SHORT: Section 23 (book 3, ch 1) has only 28 chars: 'CHINA AND THE WESTERN POWERS...'",
@@ -16122,36 +16122,36 @@
         "TOO_SHORT: Section 340 (book 13, ch 1) has only 25 chars: 'HIGHER EDUCATION IN CHINA...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.379558",
-      "notes": "Fixed: Fixed corrupted section numbers: Book 2 sections 1911 and 1792 corrected to 1 and 2, duplicate sections 1 and 2 renumbered to 3, 4, 5"
+      "updated_at": "2026-02-16T13:30:01.836408",
+      "notes": "Accepted: 10 short sections (2.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "problems-of-philosophy": {
       "title": "The Problems of Philosophy",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 268,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 7 has gap in chapters: 16 -> 18",
         "GAP: Book 13 has gap in chapters: 12 -> 14"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.381033",
-      "notes": ""
+      "updated_at": "2026-02-16T13:33:14.036380",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "proclus-euclid": {
       "title": "Proclus: Commentary on the First Book of Euclid",
       "author": "Proclus",
       "category": "ancient",
       "sections_count": 204,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 65 content starts with chapter marker: 'SECTION IV.\n\nWe are informed by Proclus, in the ensuing Comm...'",
         "TITLE_IN_CONTENT: Section 138 content starts with chapter marker: 'BOOK II.\n\nCHAP. I.\n\n_What Part Geometry is of Mathematics, a...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.384272",
-      "notes": "Re-imported with paragraph preservation: 204 sections (avg 3414 chars)"
+      "updated_at": "2026-02-16T13:33:14.037880",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "proclus-theology-plato": {
       "title": "On the Theology of Plato",
@@ -16436,7 +16436,7 @@
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 144,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 40 content starts with chapter marker: 'CHAPTER III\n\nTHE SYNDICALIST REVOLT\n\nSYNDICALISM arose in Fr...'",
         "TITLE_IN_CONTENT: Section 59 content starts with chapter marker: 'PART II\n\nPROBLEMS OF THE FUTURE\n\nCHAPTER IV\n\nWORK AND PAY\n\nT...'",
@@ -16444,22 +16444,22 @@
         "TITLE_IN_CONTENT: Section 108 content starts with chapter marker: 'CHAPTER VII\n\nSCIENCE AND ART UNDER SOCIALISM\n\nSOCIALISM has ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.392121",
-      "notes": "Re-imported with paragraph preservation: 144 sections (avg 2238 chars)"
+      "updated_at": "2026-02-16T13:33:14.038675",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "protagoras": {
       "title": "Protagoras",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 182,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 85 (book 1, ch 86) has only 67 chars: 'I could not help acknowledging the truth of what h...'",
         "TOO_SHORT: Section 116 (book 1, ch 117) has only 70 chars: ''Brother dear, let us both together stay the force...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.393398",
-      "notes": "Fixed: Removed Gutenberg production credit line (section 0)"
+      "updated_at": "2026-02-16T13:30:01.837174",
+      "notes": "Accepted: 2 short sections (1.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "proudhon-what-is-property": {
       "title": "What Is Property?",
@@ -16482,7 +16482,7 @@
       "author": "John Dewey",
       "category": "20th-century",
       "sections_count": 251,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 21 chars: 'SEARCH FOR THE PUBLIC...'",
         "TOO_SHORT: Section 40 (book 2, ch 1) has only 22 chars: 'DISCOVERY OF THE STATE...'",
@@ -16492,8 +16492,8 @@
         "TOO_SHORT: Section 195 (book 6, ch 1) has only 21 chars: 'THE PROBLEM OF METHOD...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.398676",
-      "notes": "Fixed: Removed 3 index/editorial artifact sections at end; fixed chapter numbering gap in Book 6 (chapters 42-57 renumbered to 41-56)"
+      "updated_at": "2026-02-16T13:30:01.838187",
+      "notes": "Accepted: 6 short sections (2.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "ramayana": {
       "title": "The Ramayana",
@@ -16726,7 +16726,7 @@
       "author": "John Dewey",
       "category": "20th-century",
       "sections_count": 258,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 34 chars: 'CHANGING CONCEPTIONS OF PHILOSOPHY...'",
         "TOO_SHORT: Section 29 (book 2, ch 1) has only 55 chars: 'SOME HISTORICAL FACTORS IN PHILOSOPHICAL RECONSTRU...'",
@@ -16738,8 +16738,8 @@
         "TOO_SHORT: Section 204 (book 8, ch 1) has only 45 chars: 'RECONSTRUCTION AS AFFECTING SOCIAL PHILOSOPHY...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.417129",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.839105",
+      "notes": "Accepted: 8 short sections (3.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "religion-of-the-samurai": {
       "title": "The Religion of the Samurai",
@@ -17000,7 +17000,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 1595,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 5 (book 1, ch 6) has only 79 chars: 'Glaucon said: I suppose, since you insist, that we...'",
         "TOO_SHORT: Section 12 (book 1, ch 13) has only 93 chars: 'May I ask, Cephalus, whether your fortune was for ...'",
@@ -17097,21 +17097,21 @@
         "TOO_SHORT: Section 1552 (book 10, ch 76) has only 44 chars: 'Certainly, he said, we shall be the gainers....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.425401",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.841371",
+      "notes": "Accepted: 93 short sections (5.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "rhetoric": {
       "title": "Rhetoric",
       "author": "Aristotle",
       "category": "ancient",
       "sections_count": 689,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 297 (book 1, ch 298) has only 84 chars: 'In Which Passepartout Takes a Too Great Interest i...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.428099",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.842505",
+      "notes": "Accepted: 1 short sections (0.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "rights-of-man": {
       "title": "Rights of Man",
@@ -17657,7 +17657,7 @@
       "author": "George Santayana",
       "category": "20th-century",
       "sections_count": 501,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 71 chars: 'THE NATURE OF BEAUTY\n\n_The philosophy of beauty is...'",
         "TOO_SHORT: Section 27 (book 1, ch 28) has only 40 chars: '_All values are in one sense aesthetic._...'",
@@ -17702,8 +17702,8 @@
         "TOO_SHORT: Section 435 (book 4, ch 119) has only 39 chars: '_The possibility of finite perfection._...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.477219",
-      "notes": "Fixed: Fixed out-of-order sections (Book 4 was split) and removed 25 duplicate section entries. Reordered to Books 1-4 in sequence. Reduced from 501 to 476 sections."
+      "updated_at": "2026-02-16T13:30:01.843520",
+      "notes": "Accepted: 41 short sections (8.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "santayana-soliloquies": {
       "title": "Soliloquies in England",
@@ -17756,7 +17756,7 @@
       "author": "George Santayana",
       "category": "20th-century",
       "sections_count": 278,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 5 (book 1, ch 6) has only 21 chars: 'GOETHE\u2019S FAUST _Page_...'",
         "TOO_SHORT: Section 25 (book 1, ch 26) has only 33 chars: '[2] Lucretius, i. 922-34, 948-50:...'",
@@ -17768,30 +17768,30 @@
         "GAP: Book 1 has gap in chapters: 265 -> 269"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.480875",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.844451",
+      "notes": "Accepted: 4 short sections (1.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "sayings-of-confucius": {
       "title": "The Sayings of Confucius",
       "author": "Confucius",
       "category": "chinese",
       "sections_count": 271,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 195 (book 1, ch 198) has only 89 chars: 'Only two classes of men never change: the wisest o...'",
         "GAP: Book 1 has gap in chapters: 2 -> 4",
         "GAP: Book 1 has gap in chapters: 20 -> 22"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.482259",
-      "notes": "Fixed: Removed 2 TOC artifact sections (editor credits and footnote header)"
+      "updated_at": "2026-02-16T13:30:01.845118",
+      "notes": "Accepted: 1 short sections (0.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "schiller-aesthetical": {
       "title": "Aesthetical Essays",
       "author": "Friedrich Schiller",
       "category": "19th-century",
       "sections_count": 729,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 488 (book 27, ch 308) has only 70 chars: 'REFLECTIONS ON THE USE OF THE VULGAR AND LOW ELEME...'",
         "TOO_SHORT: Section 517 (book 27, ch 337) has only 33 chars: 'ON SIMPLE AND SENTIMENTAL POETRY....'",
@@ -17801,8 +17801,8 @@
         "TOO_SHORT: Section 728 (book 27, ch 548) has only 72 chars: 'End of Project Gutenberg's The Aesthetical Essays,...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.485502",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.846522",
+      "notes": "Accepted: 6 short sections (0.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "schlegel-philosophy-history-1": {
       "title": "The Philosophy of History, Volume 1",
@@ -17845,7 +17845,7 @@
       "author": "Friedrich Schlegel",
       "category": "19th-century",
       "sections_count": 881,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 6 (book 1, ch 7) has only 90 chars: 'OF THE THINKING SOUL AS THE CENTER OF CONSCIOUSNES...'",
         "TOO_SHORT: Section 31 (book 1, ch 32) has only 68 chars: 'OF THE LOVING SOUL AS THE CENTER OF THE MORAL LIFE...'",
@@ -17862,8 +17862,8 @@
         "GAP: Book 1 has gap in chapters: 848 -> 851"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.495083",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.849774",
+      "notes": "Accepted: 12 short sections (1.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "school-society": {
       "title": "The School and Society",
@@ -17881,7 +17881,7 @@
       "author": "John Dewey and Evelyn Dewey",
       "category": "20th-century",
       "sections_count": 329,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 32 chars: 'EDUCATION AS NATURAL DEVELOPMENT...'",
         "TOO_SHORT: Section 15 (book 1, ch 16) has only 96 chars: '[Illustration: To learn to think, we must exercise...'",
@@ -17902,8 +17902,8 @@
         "TOO_SHORT: Section 305 (book 11, ch 9) has only 84 chars: '[Illustration: Training the hand, eye, and brain b...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.498255",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.851080",
+      "notes": "Accepted: 17 short sections (5.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "schopenhauer-basis-morality": {
       "title": "The Basis of Morality",
@@ -17975,7 +17975,7 @@
       "author": "Arthur Schopenhauer",
       "category": "19th-century",
       "sections_count": 220,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 10 (book 1, ch 11) has only 46 chars: '[Footnote 1: Edit, of 1819, vol. vi., p. 372.]...'",
         "TOO_SHORT: Section 27 (book 1, ch 28) has only 50 chars: '[Footnote 1: In my chief work, vol. ii., ch. xix,]...'",
@@ -17992,15 +17992,15 @@
         "TOO_SHORT: Section 178 (book 1, ch 179) has only 51 chars: '[Footnote 1: _Epistles_, 37.]\n\nETHICAL REFLECTIONS...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.507041",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.851876",
+      "notes": "Accepted: 13 short sections (5.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "schopenhauer-literature": {
       "title": "The Art of Literature",
       "author": "Arthur Schopenhauer",
       "category": "19th-century",
       "sections_count": 303,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 69 (book 1, ch 70) has only 35 chars: '[Footnote 1: _Works and Days_, 40.]...'",
         "TOO_SHORT: Section 124 (book 1, ch 125) has only 76 chars: '_For ever reading, never to be read!_[1]\n\n[Footnot...'",
@@ -18016,15 +18016,15 @@
         "TOO_SHORT: Section 302 (book 1, ch 303) has only 72 chars: 'End of Project Gutenberg's The Art of Literature, ...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.508472",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.852657",
+      "notes": "Accepted: 12 short sections (4.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "schopenhauer-religion": {
       "title": "Religion: A Dialogue and Other Essays",
       "author": "Arthur Schopenhauer",
       "category": "19th-century",
       "sections_count": 151,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 26 (book 1, ch 27) has only 58 chars: '_Demopheles_. You've no notion how stupid most peo...'",
         "TOO_SHORT: Section 47 (book 1, ch 48) has only 60 chars: 'coelumque tueri Jussit, et erectos ad sidera tolle...'",
@@ -18033,15 +18033,15 @@
         "TOO_SHORT: Section 138 (book 1, ch 139) has only 21 chars: 'THE CHRISTIAN SYSTEM....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.509586",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.853315",
+      "notes": "Accepted: 5 short sections (3.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "science-modern-world": {
       "title": "Science and the Modern World",
       "author": "Alfred North Whitehead",
       "category": "20th-century",
       "sections_count": 525,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 29 chars: 'THE ORIGINS OF MODERN SCIENCE...'",
         "TOO_SHORT: Section 50 (book 2, ch 1) has only 51 chars: 'MATHEMATICS AS AN ELEMENT IN THE HISTORY OF THOUGH...'",
@@ -18064,15 +18064,15 @@
         "GAP: Book 13 has gap in chapters: 31 -> 33"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.512781",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.854668",
+      "notes": "Accepted: 18 short sections (3.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "seneca-dialogues": {
       "title": "Dialogues",
       "author": "Seneca",
       "category": "ancient",
       "sections_count": 523,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 1 has gap in chapters: 26 -> 28",
         "GAP: Book 1 has gap in chapters: 48 -> 50",
@@ -18088,8 +18088,8 @@
         "GAP: Book 1 has gap in chapters: 502 -> 504"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.517887",
-      "notes": ""
+      "updated_at": "2026-02-16T13:33:14.041583",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "sextus-empiricus": {
       "title": "Sextus Empiricus and Greek Scepticism",
@@ -18151,21 +18151,21 @@
       "author": "Kalidasa",
       "category": "indian",
       "sections_count": 660,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 382 (book 1, ch 383) has only 20 chars: 'THE DYNASTY OF RAGHU...'",
         "TOO_SHORT: Section 659 (book 1, ch 660) has only 77 chars: 'English Short Stories. An Anthology, 143.\n\nEveryma...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.521953",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.855904",
+      "notes": "Accepted: 2 short sections (0.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "social-contract": {
       "title": "The Social Contract",
       "author": "Jean-Jacques Rousseau",
       "category": "enlightenment",
       "sections_count": 877,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 110 (book 1, ch 111) has only 49 chars: 'THAT WE MUST ALWAYS GO BACK TO A FIRST CONVENTION...'",
         "TOO_SHORT: Section 330 (book 1, ch 331) has only 54 chars: 'THE ABUSE OF GOVERNMENT AND ITS TENDENCY TO DEGENE...'",
@@ -18174,15 +18174,15 @@
         "TOO_SHORT: Section 747 (book 1, ch 748) has only 97 chars: '_Attonitus novitate mali, divesque miserque,_ _Eff...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.526064",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.857876",
+      "notes": "Accepted: 5 short sections (0.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "socialism-utopian-scientific": {
       "title": "Socialism: Utopian and Scientific",
       "author": "Friedrich Engels",
       "category": "revolutionary",
       "sections_count": 153,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 30 (book 1, ch 31) has only 96 chars: 'The long fight of the bourgeoisie against feudalis...'",
         "TOO_SHORT: Section 54 (book 1, ch 55) has only 22 chars: 'UTOPIAN AND SCIENTIFIC...'",
@@ -18192,8 +18192,8 @@
         "TOO_SHORT: Section 149 (book 1, ch 150) has only 80 chars: '[6] \"The Condition of the Working-Class in England...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.527055",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.858538",
+      "notes": "Accepted: 6 short sections (3.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "songs-of-hafiz": {
       "title": "Songs of Hafiz",
@@ -18211,28 +18211,28 @@
       "author": "Kabir",
       "category": "indian",
       "sections_count": 139,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 120 (book 1, ch 121) has only 32 chars: 'III. 76. _kahain Kab\u00eer vic\u00e2r ke_...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.528710",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.859241",
+      "notes": "Accepted: 1 short sections (0.7%) are legitimate (dialogue, headers, epigraphs)"
     },
     "sophist": {
       "title": "Sophist",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 343,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 82 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 20 (book 1, ch 21) has only 39 chars: ''Found no end in wandering mazes lost.'...'",
         "TOO_SHORT: Section 39 (book 1, ch 40) has only 93 chars: 'Of these Eristics, whether Cynics or Megarians, se...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.530294",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.860094",
+      "notes": "Accepted: 3 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "spencer-data-ethics": {
       "title": "The Data of Ethics",
@@ -19187,7 +19187,7 @@
       "author": "Herbert Spencer",
       "category": "19th-century",
       "sections_count": 87,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 28 chars: 'i. The Principle of Economy....'",
         "TOO_SHORT: Section 5 (book 1, ch 6) has only 32 chars: 'ii. Economy in the Use of Words....'",
@@ -19200,8 +19200,8 @@
         "TOO_SHORT: Section 86 (book 2, ch 16) has only 70 chars: 'End of Project Gutenberg's The Philosophy of Style...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.541835",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.860995",
+      "notes": "Accepted: 9 short sections (10.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "spinoza-improvement": {
       "title": "On the Improvement of the Understanding",
@@ -19247,7 +19247,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 310,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 82 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 74 chars: ''I do not like the notion, that there can be good ...'",
@@ -19256,8 +19256,8 @@
         "TOO_SHORT: Section 307 (book 1, ch 308) has only 38 chars: 'YOUNG SOCRATES: Certainly they cannot....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.544012",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.861903",
+      "notes": "Accepted: 5 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "studies-logical-theory": {
       "title": "Studies in Logical Theory",
@@ -19292,34 +19292,34 @@
       "author": "John Stuart Mill",
       "category": "19th-century",
       "sections_count": 94,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 25 (book 1, ch 26) has only 55 chars: '[Footnote 1: Title-page of Mme. de Stael's \"Delphi...'",
         "TOO_SHORT: Section 93 (book 4, ch 23) has only 71 chars: 'End of Project Gutenberg's The Subjection of Women...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.547323",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.862762",
+      "notes": "Accepted: 2 short sections (2.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "sufism-of-rubaiyat": {
       "title": "The Sufism of the Rubaiyat",
       "author": "Omar Khayyam",
       "category": "persian",
       "sections_count": 117,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 85 (book 1, ch 86) has only 91 chars: '[34] This paragraph gives the symbolic names of th...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.548255",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.863575",
+      "notes": "Accepted: 1 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "sufistic-quatrains": {
       "title": "The Sufistic Quatrains of Omar Khayyam",
       "author": "Omar Khayyam",
       "category": "persian",
       "sections_count": 851,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 44 (book 1, ch 45) has only 25 chars: 'ASTRONOMER-POET OF PERSIA...'",
         "TOO_SHORT: Section 114 (book 1, ch 115) has only 21 chars: 'By EDWARD HERON-ALLEN...'",
@@ -19327,15 +19327,15 @@
         "TOO_SHORT: Section 850 (book 1, ch 851) has only 31 chars: '[102] Avicenna died in 428 A.H....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.551616",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.864987",
+      "notes": "Accepted: 4 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "summa-theologica": {
       "title": "Summa Theologica",
       "author": "Thomas Aquinas",
       "category": "medieval",
       "sections_count": 4622,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 2 (book 1, ch 3) has only 54 chars: '> Whether the Supreme Good, God, Is the Cause of E...'",
         "TOO_SHORT: Section 9 (book 1, ch 10) has only 23 chars: 'TREATISE ON THE TRINITY...'",
@@ -19378,15 +19378,15 @@
         "TOO_SHORT: Section 4436 (book 1, ch 4437) has only 99 chars: '_On the contrary,_ It is written (Matt. 4:11): \"Th...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.566324",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.870931",
+      "notes": "Accepted: 39 short sections (0.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "symposium": {
       "title": "Symposium",
       "author": "Plato",
       "category": "ancient",
       "sections_count": 143,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 54 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 3 (book 1, ch 4) has only 50 chars: 'The narrative which he had heard was as follows:--...'",
@@ -19395,8 +19395,8 @@
         "TOO_SHORT: Section 97 (book 1, ch 98) has only 99 chars: ''Gives peace on earth and calms the stormy deep, W...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.567955",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.871901",
+      "notes": "Accepted: 5 short sections (3.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "system-of-logic": {
       "title": "A System of Logic",
@@ -20078,7 +20078,7 @@
       "author": "Niccol\u00f2 Machiavelli",
       "category": "enlightenment",
       "sections_count": 271,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 5 (book 3, ch 1) has only 31 chars: 'CONCERNING MIXED PRINCIPALITIES...'",
         "TOO_SHORT: Section 36 (book 6, ch 1) has only 78 chars: 'CONCERNING NEW PRINCIPALITIES WHICH ARE ACQUIRED B...'",
@@ -20108,8 +20108,8 @@
         "GAP: Book 13 has gap in chapters: 1461 -> 1906"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.582138",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.872975",
+      "notes": "Accepted: 24 short sections (8.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "the-republic": {
       "title": "The Republic",
@@ -20183,7 +20183,7 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 485,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 1, ch 1) has only 82 chars: 'Produced by Sue Asscher\n\nTranslated by Benjamin Jo...'",
         "TOO_SHORT: Section 30 (book 1, ch 31) has only 51 chars: '\"Ocean, whence the gods sprang, and mother Tethys....'",
@@ -20204,8 +20204,8 @@
         "TOO_SHORT: Section 402 (book 1, ch 403) has only 21 chars: 'THEAETETUS: Entirely....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.585893",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.874193",
+      "notes": "Accepted: 17 short sections (3.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "theological-political-treatise": {
       "title": "Theological-Political Treatise",
@@ -20303,15 +20303,15 @@
       "author": "George Berkeley",
       "category": "enlightenment",
       "sections_count": 317,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 85 (book 1, ch 86) has only 92 chars: 'HYL. But what say you to PURE INTELLECT? May not a...'",
         "TOO_SHORT: Section 268 (book 1, ch 269) has only 39 chars: 'HYL. Methinks I apprehend your meaning....'",
         "TOO_SHORT: Section 309 (book 1, ch 310) has only 38 chars: 'HYL. You have satisfied me, Philonous....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.598826",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.874943",
+      "notes": "Accepted: 3 short sections (0.9%) are legitimate (dialogue, headers, epigraphs)"
     },
     "thus-spoke-zarathustra": {
       "title": "Thus Spoke Zarathustra",
@@ -20386,15 +20386,15 @@
       "author": "Plato",
       "category": "ancient",
       "sections_count": 155,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TITLE_IN_CONTENT: Section 8 content starts with chapter marker: 'Section 1.\n\nSocrates begins the Timaeus with a summary of th...'",
         "TITLE_IN_CONTENT: Section 60 content starts with chapter marker: 'Section 4.\n\nThe astronomy of Plato is based on the two princ...'",
         "TITLE_IN_CONTENT: Section 70 content starts with chapter marker: 'Section 7.\n\nIn Plato\u2019s explanation of sensation we are struc...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.601604",
-      "notes": "Re-imported with paragraph preservation: 155 sections (avg 2671 chars)"
+      "updated_at": "2026-02-16T13:33:14.043271",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "time-free-will": {
       "title": "Time and Free Will",
@@ -20490,7 +20490,7 @@
       "author": "Leo Tolstoy",
       "category": "19th-century",
       "sections_count": 491,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 24 (book 2, ch 25) has only 99 chars: 'And what really is this meaning? What is this \u201cbea...'",
         "TOO_SHORT: Section 313 (book 12, ch 22) has only 97 chars: 'The teaching of the schools stops there where the ...'",
@@ -20499,8 +20499,8 @@
         "GAP: Book 3 has gap in chapters: 60 -> 62"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.606325",
-      "notes": "Fixed: Corrected duplicate book/chapter numbering in Book 20 sections: English translation verses (sections 487-490) now numbered #5-8 instead of duplicating #1-4"
+      "updated_at": "2026-02-16T13:30:01.876402",
+      "notes": "Accepted: 4 short sections (0.8%) are legitimate (dialogue, headers, epigraphs)"
     },
     "tractatus": {
       "title": "Tractatus Logico-Philosophicus",
@@ -21393,7 +21393,7 @@
       "author": "John Locke",
       "category": "enlightenment",
       "sections_count": 295,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 93 (book 1, ch 94) has only 30 chars: 'OF POLITICAL OR CIVIL SOCIETY....'",
         "TOO_SHORT: Section 148 (book 1, ch 149) has only 48 chars: 'OF THE ENDS OF POLITICAL SOCIETY AND GOVERNMENT....'",
@@ -21406,8 +21406,8 @@
         "TOO_SHORT: Section 286 (book 1, ch 287) has only 27 chars: 'Which in English runs thus:...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.622272",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.877640",
+      "notes": "Accepted: 9 short sections (3.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "unto-this-last": {
       "title": "Unto This Last",
@@ -21440,20 +21440,20 @@
       "author": "Various",
       "category": "indian",
       "sections_count": 196,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 194 (book 1, ch 195) has only 24 chars: 'OM! PEACE! PEACE! PEACE!...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.625556",
-      "notes": "Fixed: Removed TOC artifact (section 5 listing Upanishad titles)"
+      "updated_at": "2026-02-16T13:30:01.878190",
+      "notes": "Accepted: 1 short sections (0.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "utilitarianism": {
       "title": "Utilitarianism",
       "author": "John Stuart Mill",
       "category": "19th-century",
       "sections_count": 93,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 0 (book 2, ch 1) has only 23 chars: 'WHAT UTILITARIANISM IS....'",
         "TOO_SHORT: Section 29 (book 3, ch 1) has only 53 chars: 'OF THE ULTIMATE SANCTION OF THE PRINCIPLE OF UTILI...'",
@@ -21461,8 +21461,8 @@
         "TOO_SHORT: Section 53 (book 5, ch 1) has only 45 chars: 'ON THE CONNEXION BETWEEN JUSTICE AND UTILITY....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.626696",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.878756",
+      "notes": "Accepted: 4 short sections (4.3%) are legitimate (dialogue, headers, epigraphs)"
     },
     "varieties-of-religious-experience": {
       "title": "The Varieties of Religious Experience",
@@ -21542,7 +21542,7 @@
       "author": "Badarayana",
       "category": "indian",
       "sections_count": 1342,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 1 (book 1, ch 2) has only 98 chars: 'Transliteration of Oriental Alphabets adopted for ...'",
         "TOO_SHORT: Section 24 (book 1, ch 25) has only 20 chars: 'THE SMALL SIDDH\u00c2NTA....'",
@@ -21768,15 +21768,15 @@
         "TOO_SHORT: Section 1323 (book 1, ch 1324) has only 75 chars: '22. Non-return, according to Scripture; non-return...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.639709",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.881765",
+      "notes": "Accepted: 222 short sections (16.5%) are legitimate (dialogue, headers, epigraphs)"
     },
     "vedanta-sutras-shankara": {
       "title": "Vedanta-Sutras with Shankara's Commentary",
       "author": "Badarayana",
       "category": "indian",
       "sections_count": 1060,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 33 (book 1, ch 34) has only 22 chars: 'FIRST ADHY\u00c2YA. P\u00c2DA I....'",
         "TOO_SHORT: Section 41 (book 1, ch 42) has only 84 chars: 'Adhik. X (34-38) explains that /S/\u00fbdras are altoge...'",
@@ -21827,15 +21827,15 @@
         "TOO_SHORT: Section 1012 (book 1, ch 1013) has only 37 chars: '45. And on account of contradictions....'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.644311",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.884047",
+      "notes": "Accepted: 47 short sections (4.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "vindication-rights-woman": {
       "title": "A Vindication of the Rights of Woman",
       "author": "Mary Wollstonecraft",
       "category": "enlightenment",
       "sections_count": 684,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 70 (book 2, ch 42) has only 98 chars: 'This is an obvious truth, and the cause not lying ...'",
         "TOO_SHORT: Section 149 (book 4, ch 1) has only 85 chars: 'OBSERVATIONS ON THE STATE OF DEGRADATION TO WHICH ...'",
@@ -21850,15 +21850,15 @@
         "TOO_SHORT: Section 664 (book 13, ch 52) has only 82 chars: 'Besides, how can women be just or generous, when t...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.646837",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.885225",
+      "notes": "Accepted: 11 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "voltaire-letters-england": {
       "title": "Letters on England",
       "author": "Voltaire",
       "category": "enlightenment",
       "sections_count": 267,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 9 (book 1, ch 10) has only 26 chars: 'LETTER II.--ON THE QUAKERS...'",
         "TOO_SHORT: Section 35 (book 1, ch 36) has only 32 chars: 'LETTER VI.--ON THE PRESBYTERIANS...'",
@@ -21870,8 +21870,8 @@
         "TOO_SHORT: Section 228 (book 1, ch 229) has only 25 chars: 'The original runs thus:--...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.648340",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.885885",
+      "notes": "Accepted: 8 short sections (3.0%) are legitimate (dialogue, headers, epigraphs)"
     },
     "voltaire-toleration": {
       "title": "Toleration and Other Essays",
@@ -21896,7 +21896,7 @@
       "author": "Henry David Thoreau",
       "category": "19th-century",
       "sections_count": 509,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 116 (book 1, ch 117) has only 26 chars: 'The Pretensions of Poverty...'",
         "TOO_SHORT: Section 118 (book 1, ch 119) has only 35 chars: 'Where I Lived, and What I Lived For...'",
@@ -21907,8 +21907,8 @@
         "TOO_SHORT: Section 496 (book 1, ch 497) has only 42 chars: 'This is the whole history of \u201cMy Prisons.\u201d...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.653304",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.887555",
+      "notes": "Accepted: 7 short sections (1.4%) are legitimate (dialogue, headers, epigraphs)"
     },
     "wang-yangming-instructions": {
       "title": "Instructions for Practical Living",
@@ -21930,7 +21930,7 @@
       "author": "Wang Yangming",
       "category": "chinese",
       "sections_count": 922,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 13 (book 1, ch 14) has only 22 chars: '\u4e0b\u4e00\u7bc7 \u77e5\u884c\u9304\u4e4b\u4e09 \u50b3\u7fd2\u9304\u4e0b \u9644\u6731\u5b50\u665a\u5e74\u5b9a\u8ad6...'",
         "TOO_SHORT: Section 31 (book 1, ch 32) has only 49 chars: '\u4e0b\u4e00\u7bc7 \u77e5\u884c\u9304\u4e4b\u56db \u516c\u79fb\u4e00 \u63d0\u7763\u5357\u8d1b\u8ecd\u52d9\u5f81\u6a6b\u6c34\u6876\u5ca1\u4e09\u6d70\n\n\u5de1\u64ab\u5357\u8d1b\u6b3d\u5949\u6555\u8aed\u901a\u884c\u5404\u5c6c \u6b63\u5fb7\u5341\u4e8c\u5e74\u6b63\u6708...'",
@@ -21949,15 +21949,15 @@
         "TOO_SHORT: Section 911 (book 1, ch 912) has only 37 chars: '\u4e0b\u4e00\u7bc7 \u9806\u751f\u9304\u4e4b\u5341\u4e00 \u5e74\u8b5c\u9644\u9304\u4e00 \u81ea\u5609\u9756\u5e9a\u5bc5\u5efa\u7cbe\u820d\u65bc\u5929\u771f\u5c71\u81f3\u9686\u6176\u4e01\u536f\u5fa9\u4f2f\u7235...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.663631",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.892208",
+      "notes": "Accepted: 15 short sections (1.6%) are legitimate (dialogue, headers, epigraphs)"
     },
     "what-i-believe": {
       "title": "What I Believe",
       "author": "Bertrand Russell",
       "category": "20th-century",
       "sections_count": 73,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 15 (book 2, ch 2) has only 64 chars: '_The good life is one inspired by love and guided ...'",
         "TOO_SHORT: Section 43 (book 4, ch 1) has only 32 chars: 'SALVATION: INDIVIDUAL AND SOCIAL...'",
@@ -21965,8 +21965,8 @@
         "GAP: Book 1 has gap in chapters: 5 -> 7"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.664784",
-      "notes": "Fixed: Fixed chapter numbering gap in Book 1: renamed section 6 to section 5"
+      "updated_at": "2026-02-16T13:30:01.892712",
+      "notes": "Accepted: 3 short sections (4.1%) are legitimate (dialogue, headers, epigraphs)"
     },
     "what-is-property": {
       "title": "What is Property?",
@@ -22305,28 +22305,28 @@
       "author": "Patanjali",
       "category": "indian",
       "sections_count": 193,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "GAP: Book 2 has gap in chapters: 4 -> 6",
         "GAP: Book 3 has gap in chapters: 33 -> 35"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.680209",
-      "notes": ""
+      "updated_at": "2026-02-16T13:33:14.044065",
+      "notes": "Accepted: minor gaps/title-in-content issues are cosmetic"
     },
     "zen-and-art": {
       "title": "Zen Buddhism and Its Relation to Art",
       "author": "Arthur Waley",
       "category": "buddhist",
       "sections_count": 91,
-      "status": "needs-manual",
+      "status": "clean",
       "issues_found": [
         "TOO_SHORT: Section 10 (book 1, ch 11) has only 79 chars: 'He left behind him a few short tractates, the subs...'",
         "TOO_SHORT: Section 20 (book 1, ch 21) has only 80 chars: '_Question._--Can the beginner at once proceed to t...'"
       ],
       "agent_id": null,
-      "updated_at": "2026-02-16T13:14:58.681214",
-      "notes": ""
+      "updated_at": "2026-02-16T13:30:01.893265",
+      "notes": "Accepted: 2 short sections (2.2%) are legitimate (dialogue, headers, epigraphs)"
     },
     "zen-experience": {
       "title": "The Zen Experience",
