@@ -339,7 +339,7 @@
     {
       "book": 4,
       "number": 14,
-      "content": "Again, it is by no means a truism, and is in fact false, that we cannot know that anything exists which we do not know. The word 'know' is here used in two different senses. (1) In its first use it is applicable to the sort of knowledge which is opposed to error, the sense in which what we know is _true_, the sense which applies to our beliefs and convictions, i.e. to what are called _judgements_. In this sense of the word we know _that_ something is the case. This sort of knowledge may be described as knowledge of _truths_. (2) In the second use of the word 'know' above, the word applies to our knowledge of _things_, which we may call _acquaintance_. This is the sense in which we know sense-data. (The distinction involved is roughly that between _savoir_ and _connaître_ in French, or between _wissen_ and _kennen_ in German.)"
+      "content": "Again, it is by no means a truism, and is in fact false, that we cannot know that anything exists which we do not know. The word 'know' is here used in two different senses. (1) In its first use it is applicable to the sort of knowledge which is opposed to error, the sense in which what we know is _true_, the sense which applies to our beliefs and convictions, i.e. to what are called _judgements_. In this sense of the word we know _that_ something is the case. This sort of knowledge may be described as knowledge of _truths_. (2) In the second use of the word 'know' above, the word applies to our knowledge of _things_, which we may call _acquaintance_. This is the sense in which we know sense-data. (The distinction involved is roughly that between _savoir_ and _conna\u00eetre_ in French, or between _wissen_ and _kennen_ in German.)"
     },
     {
       "book": 4,
@@ -664,11 +664,6 @@
     {
       "book": 7,
       "number": 16,
-      "content": "(1) Cf. A. N. Whitehead, _Introduction to Mathematics_ (Home University Library)."
-    },
-    {
-      "book": 7,
-      "number": 17,
       "content": "The same thing is exemplified in geometry. If we want to prove some property of _all_ triangles, we draw some one triangle and reason about it; but we can avoid making use of any property which it does not share with all other triangles, and thus, from our particular case, we obtain a general result. We do not, in fact, feel our certainty that two and two are four increased by fresh instances, because, as soon as we have seen the truth of this proposition, our certainty becomes so great as to be incapable of growing greater. Moreover, we feel some quality of necessity about the proposition 'two and two are four', which is absent from even the best attested empirical generalizations. Such generalizations always remain mere facts: we feel that there might be a world in which they were false, though in the actual world they happen to be true. In any possible world, on the contrary, we feel that two and two would be four: this is not a mere fact, but a necessity to which everything actual and possible must conform."
     },
     {
@@ -699,7 +694,7 @@
     {
       "book": 8,
       "number": 1,
-      "content": "Immanuel Kant is generally regarded as the greatest of the modern philosophers. Though he lived through the Seven Years War and the French Revolution, he never interrupted his teaching of philosophy at Königsberg in East Prussia. His most distinctive contribution was the invention of what he called the 'critical' philosophy, which, assuming as a datum that there is knowledge of various kinds, inquired how such knowledge comes to be possible, and deduced, from the answer to this inquiry, many metaphysical results as to the nature of the world. Whether these results were valid may well be doubted. But Kant undoubtedly deserves credit for two things: first, for having perceived that we have _a priori_ knowledge which is not purely 'analytic', i.e. such that the opposite would be self-contradictory, and secondly, for having made evident the philosophical importance of the theory of knowledge."
+      "content": "Immanuel Kant is generally regarded as the greatest of the modern philosophers. Though he lived through the Seven Years War and the French Revolution, he never interrupted his teaching of philosophy at K\u00f6nigsberg in East Prussia. His most distinctive contribution was the invention of what he called the 'critical' philosophy, which, assuming as a datum that there is knowledge of various kinds, inquired how such knowledge comes to be possible, and deduced, from the answer to this inquiry, many metaphysical results as to the nature of the world. Whether these results were valid may well be doubted. But Kant undoubtedly deserves credit for two things: first, for having perceived that we have _a priori_ knowledge which is not purely 'analytic', i.e. such that the opposite would be self-contradictory, and secondly, for having made evident the philosophical importance of the theory of knowledge."
     },
     {
       "book": 8,
@@ -1173,12 +1168,12 @@
     },
     {
       "book": 13,
-      "number": 12,
+      "number": 11,
       "content": "We may say that a truth is self-evident, in the first and most absolute sense, when we have acquaintance with the fact which corresponds to the truth. When Othello believes that Desdemona loves Cassio, the corresponding fact, if his belief were true, would be 'Desdemona's love for Cassio'. This would be a fact with which no one could have acquaintance except Desdemona; hence in the sense of self-evidence that we are considering, the truth that Desdemona loves Cassio (if it were a truth) could only be self-evident to Desdemona. All mental facts, and all facts concerning sense-data, have this same privacy: there is only one person to whom they can be self-evident in our present sense, since there is only one person who can be acquainted with the mental things or the sense-data concerned. Thus no fact about any particular existing thing can be self-evident to more than one person. On the other hand, facts about universals do not have this privacy. Many minds may be acquainted with the same universals; hence a relation between universals may be known by acquaintance to many different people. In all cases where we know by acquaintance a complex fact consisting of certain terms in a certain relation, we say that the truth that these terms are so related has the first or absolute kind of self-evidence, and in these cases the judgement that the terms are so related _must_ be true. Thus this sort of self-evidence is an absolute guarantee of truth."
     },
     {
       "book": 13,
-      "number": 13,
+      "number": 12,
       "content": "But although this sort of self-evidence is an absolute guarantee of truth, it does not enable us to be _absolutely_ certain, in the case of any given judgement, that the judgement in question is true. Suppose we first perceive the sun shining, which is a complex fact, and thence proceed to make the judgement 'the sun is shining'. In passing from the perception to the judgement, it is necessary to analyse the given complex fact: we have to separate out 'the sun' and 'shining' as constituents of the fact. In this process it is possible to commit an error; hence even where a _fact_ has the first or absolute kind of self-evidence, a judgement believed to correspond to the fact is not absolutely infallible, because it may not really correspond to the fact. But if it does correspond (in the sense explained in the preceding chapter), then it _must_ be true."
     },
     {
