@@ -15,6 +15,7 @@ Philosophy Insight is a web app for reading philosophy texts with an AI companio
 cd backend
 source venv/bin/activate
 python main.py              # Runs on http://localhost:8000
+pytest tests/               # Run unit tests (31 tests)
 ```
 
 ### Frontend (React + Vite)
