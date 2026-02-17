@@ -28,7 +28,7 @@ npm run test:headed         # Run tests with browser visible
 ```
 
 ### Development
-Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`.
+Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Uses OpenAI's Responses API with GPT-5 mini (main chat) and GPT-5 nano (routing/titles).
 
 After adding/modifying text JSON files:
 ```bash
@@ -110,8 +110,8 @@ curl -X POST http://localhost:8000/reload-texts
 **API Endpoints:**
 - `GET /texts` - List all texts (metadata only)
 - `GET /texts/{id}` - Full text with sections
-- `POST /chat/stream` - SSE streaming chat response (accepts `mode`: `"tutor"` or `"socratic"`)
-- `POST /generate-title` - Generate conversation title from first exchange (uses gpt-4o-mini)
+- `POST /chat/stream` - SSE streaming chat response (accepts `mode`: `"tutor"` or `"socratic"`). Uses adaptive reasoning: GPT-5 nano classifies query complexity, then GPT-5 mini responds with appropriate reasoning effort (low for simple queries, high for complex).
+- `POST /generate-title` - Generate conversation title from first exchange (uses GPT-5 nano)
 - `DELETE /conversations/{id}` - Clear conversation
 
 **Frontend State:**

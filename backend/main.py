@@ -1,4 +1,6 @@
 import os
+import re
+from dataclasses import dataclass
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -29,6 +31,64 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # In-memory conversation storage (for MVP - would use DB in production)
 conversations: dict[str, list] = {}
+
+# Models
+MODEL_ROUTER = "gpt-5-nano"   # Fast/cheap router
+MODEL_BASIC = "gpt-5-mini"    # Quick responses for simple queries
+MODEL_DEEP = "gpt-5.2"        # Deep reasoning for complex queries
+
+# Conversation limits
+MAX_HISTORY_MESSAGES = 24
+
+
+# --- Structured output schema for router ---
+ROUTE_SCHEMA = {
+    "name": "route_decision",
+    "strict": True,
+    "schema": {
+        "type": "object",
+        "properties": {
+            "route": {
+                "type": "string",
+                "enum": ["basic", "deep"],
+                "description": "Whether to use basic (fast) or deep (reasoning) model"
+            },
+            "effort": {
+                "type": "string",
+                "enum": ["low", "high"],
+                "description": "Reasoning effort level"
+            },
+            "confidence": {
+                "type": "number",
+                "description": "Confidence in routing decision (0.0 to 1.0)"
+            },
+            "reason": {
+                "type": "string",
+                "description": "Brief explanation of routing decision"
+            }
+        },
+        "required": ["route", "effort", "confidence", "reason"],
+        "additionalProperties": False
+    }
+}
+
+
+@dataclass
+class ParsedUserMessage:
+    """Structured representation of a user message with embedded context."""
+    location: str | None      # e.g., "Book 2, Section 3"
+    paragraph: str | None     # The full paragraph being read
+    highlighted: str | None   # The specific phrase highlighted
+    question: str             # The user's actual question
+
+
+@dataclass
+class RouteDecision:
+    """Router's decision on how to handle a query."""
+    route: str      # "basic" or "deep"
+    effort: str     # "low" or "high"
+    confidence: float
+    reason: str
 
 
 class TextInfo(BaseModel):
@@ -72,18 +132,189 @@ def load_texts() -> dict[str, TextInfo]:
 TEXTS = load_texts()
 
 
+def parse_user_message(raw: str) -> ParsedUserMessage:
+    """
+    Parse a user message into structured components.
+    Best-effort parsing - never throws, falls back gracefully.
+    """
+    location = None
+    paragraph = None
+    highlighted = None
+    question_parts = []
+
+    lines = raw.strip().split('\n')
+
+    for line in lines:
+        line_stripped = line.strip()
+
+        # Check for location: [Book X, Section Y] or similar bracketed location
+        location_match = re.match(r'^\[([^\]]+)\]$', line_stripped)
+        if location_match and not line_stripped.startswith('[Highlighted'):
+            location = location_match.group(1)
+            continue
+
+        # Check for highlighted text: [Highlighted: "..."]
+        highlight_match = re.search(r'\[Highlighted:\s*["\'](.+?)["\']\]', line_stripped)
+        if highlight_match:
+            highlighted = highlight_match.group(1)
+            continue
+
+        # Check for paragraph lines (prefixed with >)
+        if line_stripped.startswith('>'):
+            para_line = line_stripped[1:].strip()
+            if paragraph is None:
+                paragraph = para_line
+            else:
+                paragraph += ' ' + para_line
+            continue
+
+        # Everything else is part of the question
+        if line_stripped:
+            question_parts.append(line_stripped)
+
+    question = ' '.join(question_parts) if question_parts else raw
+
+    return ParsedUserMessage(
+        location=location,
+        paragraph=paragraph,
+        highlighted=highlighted,
+        question=question
+    )
+
+
+def build_router_input(parsed: ParsedUserMessage, text_info: TextInfo | None) -> str:
+    """Build the input string for the router, emphasizing the highlighted text."""
+    parts = []
+
+    if text_info:
+        parts.append(f"Text: {text_info.title} by {text_info.author}")
+
+    if parsed.location:
+        parts.append(f"Location: {parsed.location}")
+
+    if parsed.highlighted:
+        parts.append(f"Highlighted text: \"{parsed.highlighted}\"")
+
+    if parsed.paragraph:
+        # Truncate long paragraphs for router
+        para_preview = parsed.paragraph[:300] + "..." if len(parsed.paragraph) > 300 else parsed.paragraph
+        parts.append(f"Paragraph context: {para_preview}")
+
+    parts.append(f"Question: {parsed.question}")
+
+    return '\n'.join(parts)
+
+
+def build_model_input(parsed: ParsedUserMessage) -> str:
+    """Build a clean, structured message for the model."""
+    parts = []
+
+    if parsed.location:
+        parts.append(f"[{parsed.location}]")
+
+    if parsed.paragraph:
+        # Format paragraph with > prefix for clarity
+        parts.append(f"> {parsed.paragraph}")
+
+    if parsed.highlighted:
+        parts.append(f'[Highlighted: "{parsed.highlighted}"]')
+
+    parts.append(parsed.question)
+
+    return '\n\n'.join(parts)
+
+
+def decide_route(parsed: ParsedUserMessage, text_info: TextInfo | None) -> RouteDecision:
+    """
+    Use the router model to decide how to handle this query.
+    Returns RouteDecision with model choice and reasoning effort.
+    """
+    router_input = build_router_input(parsed, text_info)
+
+    router_prompt = """You are a routing classifier for a philosophy tutoring app.
+
+Decide whether this query needs BASIC (fast, simple) or DEEP (reasoning, analysis) handling.
+
+ROUTE TO BASIC when:
+- Simple definitions ("What is X?")
+- Factual questions ("When did Y live?")
+- Straightforward clarifications
+- The highlighted text (if any) is simple/clear
+
+ROUTE TO DEEP when:
+- The highlighted text is dense, abstract, or ambiguous
+- Interpreting arguments or philosophical positions
+- Questions about why/how an argument works
+- Connecting ideas across the text
+- The user expresses confusion about meaning
+- Close reading of difficult passages
+
+IMPORTANT: Consider the HIGHLIGHTED TEXT complexity, not just the question.
+"What does this mean?" on a simple phrase = basic
+"What does this mean?" on a dense Hegelian sentence = deep
+
+Set confidence 0.0-1.0 based on how clear the routing decision is."""
+
+    try:
+        response = client.responses.create(
+            model=MODEL_ROUTER,
+            reasoning={"effort": "low"},
+            input=[
+                {"role": "system", "content": router_prompt},
+                {"role": "user", "content": router_input}
+            ],
+            text={"format": {"type": "json_schema", "json_schema": ROUTE_SCHEMA}}
+        )
+
+        result = json.loads(response.output_text)
+
+        route = result.get("route", "deep")
+        effort = result.get("effort", "high")
+        confidence = float(result.get("confidence", 0.5))
+        reason = result.get("reason", "")
+
+        # Fail-safe: if confidence is low, default to deep/high
+        if confidence < 0.65:
+            route = "deep"
+            effort = "high"
+            reason = f"Low confidence ({confidence:.2f}), defaulting to deep. Original: {reason}"
+
+        return RouteDecision(
+            route=route,
+            effort=effort,
+            confidence=confidence,
+            reason=reason
+        )
+
+    except Exception as e:
+        # On any error, fail safe to deep reasoning
+        return RouteDecision(
+            route="deep",
+            effort="high",
+            confidence=0.0,
+            reason=f"Router error, defaulting to deep: {str(e)}"
+        )
+
+
+def trim_conversation(conversation: list) -> list:
+    """Trim conversation to last N messages to prevent unbounded growth."""
+    if len(conversation) > MAX_HISTORY_MESSAGES:
+        return conversation[-MAX_HISTORY_MESSAGES:]
+    return conversation
+
+
 def get_system_prompt(text_id: str, mode: str = "tutor") -> str:
     """Build the system prompt for the AI tutor."""
     text_info = TEXTS.get(text_id)
     text_title = text_info.title if text_info else "this philosophical text"
     text_author = text_info.author if text_info else "the author"
 
-    context_instructions = """The reader's messages include context showing where they are in the text:
-- [Book X, Section Y] indicates their location
-- Quoted text (>) shows the full paragraph they're currently reading
-- [Highlighted: "..."] indicates the specific phrase they selected to discuss
+    context_instructions = """The reader's messages include structured context:
+- [Book X, Section Y] indicates their location in the text
+- Lines starting with > show the paragraph they're reading
+- [Highlighted: "..."] shows the specific phrase they selected
 
-When they refer to "this" or ask "what does this mean", focus on the highlighted text within its paragraph context. When context changes between messages (different book/section), they've moved to a new part of the text."""
+When they ask about "this" or want explanation, focus on the highlighted text within its paragraph context. Ground your response in the specific passage when one is provided."""
 
     if mode == "socratic":
         return f"""You are a Socratic guide to {text_title} by {text_author}.
@@ -91,14 +322,13 @@ When they refer to "this" or ask "what does this mean", focus on the highlighted
 {context_instructions}
 
 Your approach:
-- Instead of explaining, ask 1-2 thoughtful questions that help the reader discover insights themselves
-- Guide them toward understanding through inquiry, not instruction
-- Ask questions that illuminate the text's meaning, challenge assumptions, or draw connections
-- If they seem genuinely stuck after several exchanges, offer a gentle hint or reframe your question
-- Never lecture or provide direct answers unless they explicitly ask you to "just tell me"
-- Keep your questions focused and specific to what they're reading
+- Ask 1-2 thoughtful questions that help the reader discover insights themselves
+- Guide toward understanding through inquiry, not instruction
+- If they highlight text, ask questions that illuminate that specific passage
+- If they seem stuck after several exchanges, offer a gentle hint
+- Only give direct answers if they explicitly ask you to "just tell me"
 
-You embody Socrates' method: wisdom comes from self-discovery, not from being told."""
+You embody Socrates' method: wisdom comes from self-discovery."""
 
     # Default tutor mode
     return f"""You are an expert guide to {text_title} by {text_author}.
@@ -107,11 +337,12 @@ You embody Socrates' method: wisdom comes from self-discovery, not from being to
 
 Your approach:
 - Explain concepts and arguments with precision and depth
+- When text is highlighted, anchor your explanation to that specific passage
 - Connect ideas to the broader work and philosophical tradition
-- Be direct and substantive - engage as an intellectual equal, not a simplifier
-- Don't end every response with a question - let the conversation flow naturally
+- Be direct and substantive - engage as an intellectual equal
+- Let the conversation flow naturally
 
-You have comprehensive knowledge of this text, its historical context, and the philosophical tradition. Draw on this expertise naturally."""
+You have comprehensive knowledge of this text, its historical context, and the philosophical tradition."""
 
 
 @app.get("/")
@@ -145,8 +376,8 @@ def get_text(text_id: str):
 
 
 @app.post("/chat/stream")
-async def chat_stream(request: ChatRequest):
-    """Stream a chat response token by token."""
+def chat_stream(request: ChatRequest):
+    """Stream a chat response token by token. Sync endpoint to avoid blocking event loop."""
 
     # Get or create conversation
     if request.conversation_id not in conversations:
@@ -154,27 +385,44 @@ async def chat_stream(request: ChatRequest):
 
     conversation = conversations[request.conversation_id]
 
-    # Add user message to conversation
+    # Parse the user message into structured components
+    parsed = parse_user_message(request.user_message)
+
+    # Build clean model input from parsed message
+    model_input = build_model_input(parsed)
+
+    # Add to conversation history
     conversation.append({
         "role": "user",
-        "content": request.user_message
+        "content": model_input
     })
 
-    system_prompt = get_system_prompt(request.text_id, request.mode)
-    messages = [{"role": "system", "content": system_prompt}] + conversation
+    # Trim conversation to prevent unbounded growth
+    trimmed = trim_conversation(conversation)
 
-    async def generate():
+    # Route the query
+    text_info = TEXTS.get(request.text_id)
+    route_decision = decide_route(parsed, text_info)
+
+    # Select model based on routing
+    model = MODEL_DEEP if route_decision.route == "deep" else MODEL_BASIC
+
+    system_prompt = get_system_prompt(request.text_id, request.mode)
+    messages = [{"role": "system", "content": system_prompt}] + trimmed
+
+    def generate():
         full_response = ""
         try:
-            stream = client.chat.completions.create(
-                model="gpt-4o",
-                messages=messages,
+            stream = client.responses.create(
+                model=model,
+                input=messages,
+                reasoning={"effort": route_decision.effort},
                 stream=True
             )
 
-            for chunk in stream:
-                if chunk.choices[0].delta.content:
-                    content = chunk.choices[0].delta.content
+            for event in stream:
+                if event.type == "response.output_text.delta":
+                    content = event.delta
                     full_response += content
                     yield f"data: {json.dumps({'content': content})}\n\n"
 
@@ -209,22 +457,39 @@ def chat(request: ChatRequest):
 
     conversation = conversations[request.conversation_id]
 
-    # Add user message to conversation
+    # Parse the user message into structured components
+    parsed = parse_user_message(request.user_message)
+
+    # Build clean model input from parsed message
+    model_input = build_model_input(parsed)
+
+    # Add to conversation history
     conversation.append({
         "role": "user",
-        "content": request.user_message
+        "content": model_input
     })
 
+    # Trim conversation to prevent unbounded growth
+    trimmed = trim_conversation(conversation)
+
+    # Route the query
+    text_info = TEXTS.get(request.text_id)
+    route_decision = decide_route(parsed, text_info)
+
+    # Select model based on routing
+    model = MODEL_DEEP if route_decision.route == "deep" else MODEL_BASIC
+
     system_prompt = get_system_prompt(request.text_id, request.mode)
-    messages = [{"role": "system", "content": system_prompt}] + conversation
+    messages = [{"role": "system", "content": system_prompt}] + trimmed
 
     try:
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            messages=messages
+        response = client.responses.create(
+            model=model,
+            input=messages,
+            reasoning={"effort": route_decision.effort}
         )
 
-        assistant_message = response.choices[0].message.content
+        assistant_message = response.output_text
 
         # Add assistant response to conversation
         conversation.append({
@@ -260,10 +525,9 @@ class TitleRequest(BaseModel):
 def generate_title(request: TitleRequest):
     """Generate a short title for a conversation based on the first exchange."""
     try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",  # Use smaller model for speed/cost
-            max_tokens=20,
-            messages=[
+        response = client.responses.create(
+            model=MODEL_ROUTER,
+            input=[
                 {
                     "role": "system",
                     "content": "Generate a concise 3-5 word title for this philosophy discussion. No quotes, no punctuation. Just the title words."
@@ -274,7 +538,7 @@ def generate_title(request: TitleRequest):
                 }
             ]
         )
-        title = response.choices[0].message.content.strip()
+        title = response.output_text.strip()
         # Clean up any quotes or extra punctuation
         title = title.strip('"\'')
         return {"title": title}
