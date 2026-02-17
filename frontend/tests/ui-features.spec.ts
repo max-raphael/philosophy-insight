@@ -39,7 +39,7 @@ test.describe('Home Page', () => {
     await expect(page.locator('button', { hasText: 'Ancient' }).first()).toBeVisible()
     await expect(page.locator('button', { hasText: 'Medieval' }).first()).toBeVisible()
     await expect(page.locator('button', { hasText: 'Enlightenment' }).first()).toBeVisible()
-    await expect(page.locator('button', { hasText: 'Modern' }).first()).toBeVisible()
+    await expect(page.locator('button', { hasText: '19th Century' }).first()).toBeVisible()
   })
 
   test('displays Browse by Philosopher section', async ({ page }) => {
