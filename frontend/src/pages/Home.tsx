@@ -154,10 +154,9 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
       .filter(Boolean) as (TextInfo & { tagline: string })[]
   }, [texts])
 
-  // Get philosophers
-  const philosophers = useMemo(() => {
-    return getPhilosophersFromTexts(texts).slice(0, 16)
-  }, [texts])
+  // Get philosophers (full list for count, sliced for gallery)
+  const allPhilosophers = useMemo(() => getPhilosophersFromTexts(texts), [texts])
+  const philosophers = useMemo(() => allPhilosophers.slice(0, 16), [allPhilosophers])
 
   // Get texts by era
   const textsByEra = useMemo(() => {
@@ -981,7 +980,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                   <p className="text-xs text-[var(--text-muted)] font-ui">Texts</p>
                 </div>
                 <div>
-                  <p className="font-display text-3xl font-medium text-[var(--accent-primary)]">{philosophers.length}+</p>
+                  <p className="font-display text-3xl font-medium text-[var(--accent-primary)]">{allPhilosophers.length}+</p>
                   <p className="text-xs text-[var(--text-muted)] font-ui">Philosophers</p>
                 </div>
                 <div>
@@ -989,7 +988,7 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                   <p className="text-xs text-[var(--text-muted)] font-ui">Years of thought</p>
                 </div>
                 <div>
-                  <p className="font-display text-3xl font-medium text-[var(--accent-primary)]">8</p>
+                  <p className="font-display text-3xl font-medium text-[var(--accent-primary)]">{eras.length}</p>
                   <p className="text-xs text-[var(--text-muted)] font-ui">Traditions</p>
                 </div>
               </div>
