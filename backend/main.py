@@ -38,7 +38,9 @@ MODEL_BASIC = "gpt-5-mini"    # Quick responses for simple queries
 MODEL_DEEP = "gpt-5.2"        # Deep reasoning for complex queries
 
 # Conversation limits
-MAX_HISTORY_MESSAGES = 24
+MAX_HISTORY_MESSAGES = 50      # Keep up to 50 messages before summarizing
+MESSAGES_TO_SUMMARIZE = 20     # When limit hit, summarize oldest 20 messages
+MESSAGES_TO_KEEP = 30          # Keep most recent 30 messages at full fidelity
 
 
 # --- Structured output schema for router ---
@@ -296,11 +298,62 @@ Set confidence 0.0-1.0 based on how clear the routing decision is."""
         )
 
 
+def summarize_messages(messages: list) -> str:
+    """Summarize a list of messages into a concise context string."""
+    # Format messages for summarization
+    formatted = []
+    for msg in messages:
+        role = "User" if msg["role"] == "user" else "Tutor"
+        content = msg["content"][:500]  # Truncate long messages for summarization
+        formatted.append(f"{role}: {content}")
+
+    messages_text = "\n\n".join(formatted)
+
+    try:
+        response = client.responses.create(
+            model=MODEL_ROUTER,  # Use fast model for summarization
+            input=[{
+                "role": "user",
+                "content": f"""Summarize this philosophy discussion in 2-3 sentences.
+Capture the key concepts discussed, questions asked, and main points made.
+Be concise but preserve philosophical terminology and specific ideas.
+
+Discussion:
+{messages_text}
+
+Summary:"""
+            }]
+        )
+        return response.output_text.strip()
+    except Exception:
+        # Fallback: just note that earlier discussion occurred
+        return "Earlier discussion covered foundational concepts from this text."
+
+
 def trim_conversation(conversation: list) -> list:
-    """Trim conversation to last N messages to prevent unbounded growth."""
-    if len(conversation) > MAX_HISTORY_MESSAGES:
-        return conversation[-MAX_HISTORY_MESSAGES:]
-    return conversation
+    """
+    Manage conversation history with lazy summarization.
+    - Under 50 messages: keep everything
+    - Over 50 messages: summarize oldest 20, keep recent 30
+    """
+    if len(conversation) <= MAX_HISTORY_MESSAGES:
+        return conversation
+
+    # Split into old (to summarize) and recent (to keep)
+    old_messages = conversation[:MESSAGES_TO_SUMMARIZE]
+    recent_messages = conversation[-MESSAGES_TO_KEEP:]
+
+    # Summarize old messages
+    summary = summarize_messages(old_messages)
+
+    # Create a system-style context message with the summary
+    summary_message = {
+        "role": "user",
+        "content": f"[Earlier in our conversation: {summary}]"
+    }
+
+    # Return summary + recent messages
+    return [summary_message] + recent_messages
 
 
 def get_system_prompt(text_id: str, mode: str = "tutor") -> str:
