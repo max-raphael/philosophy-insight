@@ -411,6 +411,9 @@ def chat_stream(request: ChatRequest):
     messages = [{"role": "system", "content": system_prompt}] + trimmed
 
     def generate():
+        # Send routing info first so frontend can show appropriate loading state
+        yield f"data: {json.dumps({'routing': {'route': route_decision.route, 'effort': route_decision.effort}})}\n\n"
+
         full_response = ""
         try:
             stream = client.responses.create(
