@@ -28,7 +28,10 @@ npm run test:headed         # Run tests with browser visible
 ```
 
 ### Development
-Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Uses OpenAI's Responses API with GPT-5 mini (main chat) and GPT-5 nano (routing/titles).
+Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Uses OpenAI's Responses API with three models:
+- **GPT-5 nano** - Router (query classification) and title generation
+- **GPT-5 mini** - Basic/fast responses for simple queries
+- **GPT-5.2** - Deep reasoning for complex queries
 
 After adding/modifying text JSON files:
 ```bash
@@ -110,9 +113,48 @@ curl -X POST http://localhost:8000/reload-texts
 **API Endpoints:**
 - `GET /texts` - List all texts (metadata only)
 - `GET /texts/{id}` - Full text with sections
-- `POST /chat/stream` - SSE streaming chat response (accepts `mode`: `"tutor"` or `"socratic"`). Uses adaptive reasoning: GPT-5 nano classifies query complexity, then GPT-5 mini responds with appropriate reasoning effort (low for simple queries, high for complex).
+- `POST /chat/stream` - SSE streaming chat with highlight-aware adaptive routing (see below)
+- `POST /chat` - Non-streaming chat endpoint (same routing logic)
 - `POST /generate-title` - Generate conversation title from first exchange (uses GPT-5 nano)
 - `DELETE /conversations/{id}` - Clear conversation
+
+**Adaptive Routing System:**
+The chat endpoints use intelligent routing based on query complexity:
+
+1. **Message Parsing** - User messages are parsed into structured components:
+   - `location`: Book/section reference (e.g., "[Book 2, Section 3]")
+   - `paragraph`: Full paragraph being read (lines starting with ">")
+   - `highlighted`: Specific phrase selected (from "[Highlighted: '...']")
+   - `question`: The user's actual question
+
+2. **Router Decision** - GPT-5 nano classifies the query considering:
+   - The complexity of the highlighted text (not just the question)
+   - "What does this mean?" on a simple phrase → basic
+   - "What does this mean?" on dense Hegelian text → deep
+   - Returns: `{route, effort, confidence, reason}` via structured JSON output
+
+3. **Model Selection:**
+   - `route: "basic"` → GPT-5 mini with low reasoning effort
+   - `route: "deep"` → GPT-5.2 with high reasoning effort
+   - Confidence fail-safe: if `confidence < 0.65`, defaults to deep/high
+
+4. **SSE Stream Format:**
+   ```
+   data: {"routing": {"route": "deep", "effort": "high"}}  // First event
+   data: {"content": "In "}                                 // Content tokens
+   data: {"content": "*Republic*"}
+   ...
+   data: {"done": true}                                     // Final event
+   ```
+   Frontend can use the `routing` event to show appropriate loading state.
+
+**Conversation History Management:**
+- Keeps up to 50 messages at full fidelity
+- When exceeding 50: lazy summarization triggers
+  - Oldest 20 messages summarized into 2-3 sentences
+  - Recent 30 messages kept at full fidelity
+  - Summary prepended as context: "[Earlier in our conversation: ...]"
+- Uses GPT-5 nano for fast summarization (minimal latency impact)
 
 **Frontend State:**
 - Multiple conversations per text with localStorage persistence:
@@ -121,7 +163,7 @@ curl -X POST http://localhost:8000/reload-texts
 - Bookmarks stored globally: `philosophy-insight-bookmarks` (array of all bookmarks with text/location metadata)
 - Onboarding state: `philosophy-insight-onboarding` (tracks first visit, welcome modal seen)
 - `pendingQuote` state flows: Reader selection → App → DiscussionPanel → quote card above input
-- Streaming responses use SSE with `data: {content}` / `data: {done: true}` format
+- Streaming responses use SSE: `{routing}` (first) → `{content}` (tokens) → `{done: true}` (final)
 - Theme preference persists in localStorage (`philosophy-insight-theme`)
 - Reading settings persist in localStorage (`philosophy-insight-reading-settings`)
 - Reading position persists per text at section level (`reading-position-{textId}`) - auto-saves current section as you scroll, restores exact position on return
