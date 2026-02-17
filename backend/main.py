@@ -265,7 +265,7 @@ Set confidence 0.0-1.0 based on how clear the routing decision is."""
                 {"role": "system", "content": router_prompt},
                 {"role": "user", "content": router_input}
             ],
-            text={"format": {"type": "json_schema", "json_schema": ROUTE_SCHEMA}}
+            text={"format": {"type": "json_schema", "name": ROUTE_SCHEMA["name"], "schema": ROUTE_SCHEMA["schema"]}}
         )
 
         result = json.loads(response.output_text)
