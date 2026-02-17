@@ -139,6 +139,7 @@ export default function DiscussionPanel({
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [streamingContent, setStreamingContent] = useState('')
+  const [routingInfo, setRoutingInfo] = useState<{ route: string; effort: string } | null>(null)
   const [inputHeight, setInputHeight] = useState(120) // Default input area height
   const [isDragging, setIsDragging] = useState(false)
   const [activeQuote, setActiveQuote] = useState<string | null>(null)
@@ -262,6 +263,7 @@ export default function DiscussionPanel({
     setMessages(prev => [...prev, { role: 'user', content: formattedMessage }])
     setLoading(true)
     setStreamingContent('')
+    setRoutingInfo(null)
 
     try {
       const response = await fetch(`${API_URL}/chat/stream`, {
@@ -295,12 +297,16 @@ export default function DiscussionPanel({
             if (line.startsWith('data: ')) {
               try {
                 const data = JSON.parse(line.slice(6))
-                if (data.content) {
+                if (data.routing) {
+                  // Routing metadata received - update loading state
+                  setRoutingInfo(data.routing)
+                } else if (data.content) {
                   fullResponse += data.content
                   setStreamingContent(fullResponse)
                 } else if (data.done) {
                   setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
                   setStreamingContent('')
+                  setRoutingInfo(null)
                   // Generate title after first exchange
                   if (isFirstExchange) {
                     generateTitle(userText, fullResponse)
@@ -567,12 +573,17 @@ export default function DiscussionPanel({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
             >
-              <div className="p-4 rounded bg-[var(--bg-primary)] border border-[var(--border-primary)] inline-block">
+              <div className="p-4 rounded bg-[var(--bg-primary)] border border-[var(--border-primary)] inline-flex items-center gap-3">
                 <div className="flex space-x-1.5">
                   <div className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" />
                   <div className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
                   <div className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
                 </div>
+                {routingInfo && (
+                  <span className="text-xs text-[var(--text-muted)] font-ui">
+                    {routingInfo.route === 'deep' ? 'Thinking deeply…' : 'Responding…'}
+                  </span>
+                )}
               </div>
             </motion.div>
           )}
