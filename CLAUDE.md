@@ -29,7 +29,7 @@ npm run test:headed         # Run tests with browser visible
 ```
 
 ### Development
-Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Uses OpenAI's Responses API with three models:
+Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Optional: `GITHUB_TOKEN` enables the feedback form to create GitHub issues. Uses OpenAI's Responses API with three models:
 - **GPT-5 nano** - Router (query classification) and title generation
 - **GPT-5 mini** - Basic/fast responses for simple queries
 - **GPT-5.2** - Deep reasoning for complex queries
@@ -53,7 +53,7 @@ curl -X POST http://localhost:8000/reload-texts
     marxists_manifest.py  # Manifest of marxists.org texts
     batch_import.py       # Batch import script with progress tracking
     parse_*.py            # Legacy per-text parsers (no longer needed)
-  .env              # OPENAI_API_KEY
+  .env              # OPENAI_API_KEY, GITHUB_TOKEN (for feedback)
 
 /frontend
   src/
@@ -77,6 +77,7 @@ curl -X POST http://localhost:8000/reload-texts
       HowToUse.tsx        # Guide page for new users on using the app
       Philosophers.tsx    # Dedicated page showing all philosophers with portraits
       Privacy.tsx         # Privacy policy page
+      Feedback.tsx        # Anonymous feedback form (creates GitHub issues)
       Reader.tsx          # Reading view with TOC, controls, keyboard nav, reading mode
     components/
       Reader.tsx          # Text display with selection popup
@@ -120,11 +121,13 @@ curl -X POST http://localhost:8000/reload-texts
 - `POST /chat` - Non-streaming chat endpoint (same routing logic)
 - `POST /generate-title` - Generate conversation title from first exchange (uses GPT-5 nano)
 - `DELETE /conversations/{id}` - Clear conversation
+- `POST /feedback` - Submit feedback (creates GitHub issue). Accepts: category (bug/feature/text-request/general), message, optional name/email
 
 **Rate Limiting:**
 Chat endpoints are rate-limited using slowapi to protect API costs:
 - `/chat/stream` and `/chat`: 50 requests/hour, 200 requests/day per IP
 - `/generate-title`: 100 requests/hour per IP
+- `/feedback`: 10 requests/hour per IP
 - Returns 429 with friendly message when limit exceeded
 - Configuration in `backend/config.py` (`rate_limit_chat`, `rate_limit_title`)
 

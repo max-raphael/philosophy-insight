@@ -12,6 +12,10 @@ class Settings:
     # OpenAI API
     openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
 
+    # GitHub API (for feedback submission)
+    github_token: str = os.getenv("GITHUB_TOKEN", "")
+    github_repo: str = os.getenv("GITHUB_REPO", "max-raphael/philosophy-insight")
+
     # Models
     model_router: str = "gpt-5-nano"    # Fast/cheap router
     model_basic: str = "gpt-5-mini"     # Quick responses for simple queries

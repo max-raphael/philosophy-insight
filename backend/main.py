@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 from slowapi.errors import RateLimitExceeded
 
 from config import settings
-from routes import texts_router, chat_router, conversations_router
+from routes import texts_router, chat_router, conversations_router, feedback_router
 from rate_limit import limiter
 
 app = FastAPI(title="Philosophy Insight")
@@ -38,6 +38,7 @@ app.add_middleware(
 app.include_router(texts_router)
 app.include_router(chat_router)
 app.include_router(conversations_router)
+app.include_router(feedback_router)
 
 
 @app.get("/")
