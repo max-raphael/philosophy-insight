@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 import CommandPalette from './components/CommandPalette'
@@ -68,6 +69,7 @@ function App() {
   return (
     <ThemeProvider>
       <AppContent />
+      <Analytics />
     </ThemeProvider>
   )
 }
