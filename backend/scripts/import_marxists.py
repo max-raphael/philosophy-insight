@@ -677,7 +677,7 @@ def main():
 
     # Import manifest
     try:
-        from marxists_manifest import ALL_TEXTS, MARX, ENGELS, LENIN, GRAMSCI, LUKACS, BAKUNIN, KROPOTKIN, GOLDMAN, LUXEMBURG
+        from marxists_manifest import ALL_TEXTS, MARX, ENGELS, LENIN, GRAMSCI, LUKACS, BAKUNIN, KROPOTKIN, GOLDMAN, LUXEMBURG, SARTRE
     except ImportError:
         print("Error: marxists_manifest.py not found. Run from backend/scripts directory.")
         return
@@ -702,6 +702,7 @@ def main():
             'kropotkin': KROPOTKIN,
             'goldman': GOLDMAN,
             'luxemburg': LUXEMBURG,
+            'sartre': SARTRE,
         }
         if args.author.lower() not in author_map:
             print(f"Error: Unknown author '{args.author}'. Valid options: {', '.join(author_map.keys())}")

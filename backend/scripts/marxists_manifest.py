@@ -410,10 +410,158 @@ LUXEMBURG = [
 ]
 
 # =============================================================================
+# JEAN-PAUL SARTRE (13 texts)
+# =============================================================================
+
+SARTRE = [
+    MarxistTextConfig(
+        id='sartre-existentialism-humanism',
+        title='Existentialism is a Humanism',
+        author='Jean-Paul Sartre',
+        year='1946',
+        description="Sartre's famous lecture defending existentialism against its critics, articulating human freedom and responsibility.",
+        url='https://www.marxists.org/reference/archive/sartre/works/exist/sartre.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-critique-dialectical-reason',
+        title='Critique of Dialectical Reason (Selections)',
+        author='Jean-Paul Sartre',
+        year='1960',
+        description="Sartre's attempt to reconcile existentialism with Marxism, exploring dialectical reason and historical materialism.",
+        url='https://www.marxists.org/reference/archive/sartre/works/critic/',
+        chapter_urls=[
+            'https://www.marxists.org/reference/archive/sartre/works/critic/sartre1.htm',  # Marxism & Existentialism
+            'https://www.marxists.org/reference/archive/sartre/works/critic/sartre2.htm',  # Dogmatic & Critical Dialectic
+            'https://www.marxists.org/reference/archive/sartre/works/critic/sartre3.htm',  # Problem of Mediations
+            'https://www.marxists.org/reference/archive/sartre/works/critic/praxis.htm',   # Critique of Critical Investigation
+            'https://www.marxists.org/reference/archive/sartre/works/critic/collectives.htm',  # Collectives
+            'https://www.marxists.org/reference/archive/sartre/works/critic/fused-group.htm',  # The Fused Group
+            'https://www.marxists.org/reference/archive/sartre/works/critic/ussr.htm',     # Bureaucracy and Cult of Personality
+            'https://www.marxists.org/reference/archive/sartre/works/critic/racism-algeria.htm',  # Racism and Colonialism
+            'https://www.marxists.org/reference/archive/sartre/works/critic/sartre4.htm',  # Intelligibility of History
+        ],
+        translator='Hazel Barnes',
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-preface-wretched-earth',
+        title='Preface to The Wretched of the Earth',
+        author='Jean-Paul Sartre',
+        year='1961',
+        description="Sartre's incendiary preface to Fanon's anticolonial masterwork, confronting European complicity in colonial violence.",
+        url='https://www.marxists.org/reference/archive/sartre/1961/preface.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-time-of-assassins',
+        title='The Time of the Assassins',
+        author='Jean-Paul Sartre',
+        year='1946',
+        description="Sartre's essay on political violence and revolutionary action in the postwar period.",
+        url='https://www.marxists.org/reference/archive/sartre/1946/assassins.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-historical-process',
+        title='The Historical Process',
+        author='Jean-Paul Sartre',
+        year='1947',
+        description="Sartre's analysis of history, dialectics, and the role of human agency in historical change.",
+        url='https://www.marxists.org/reference/archive/sartre/1947/historical-process.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-birth-of-israel',
+        title='The Birth of Israel',
+        author='Jean-Paul Sartre',
+        year='1949',
+        description="Sartre's reflections on the founding of Israel and the Jewish question after the Holocaust.",
+        url='https://www.marxists.org/reference/archive/sartre/1949/israel.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-all-assassins',
+        title='We Are All Assassins',
+        author='Jean-Paul Sartre',
+        year='1958',
+        description="Sartre's essay on collective guilt, complicity, and moral responsibility during the Algerian War.",
+        url='https://www.marxists.org/reference/archive/sartre/1958/all-assassins.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-jeanson-network',
+        title='Letter in Support of the Jeanson Network',
+        author='Jean-Paul Sartre',
+        year='1960',
+        description="Sartre's public letter defending those who aided the Algerian independence movement.",
+        url='https://www.marxists.org/reference/archive/sartre/1960/jeanson.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-fellow-traveler',
+        title='A Fellow Traveler of the Communist Party',
+        author='Jean-Paul Sartre',
+        year='1972',
+        description="Sartre's reflections on his complex relationship with the French Communist Party.",
+        url='https://www.marxists.org/reference/archive/sartre/1972/compagnon.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-illegalism',
+        title='Illegalism and Ultra-Leftism',
+        author='Jean-Paul Sartre',
+        year='1972',
+        description="Sartre's analysis of revolutionary tactics, illegalism, and the limits of political action.",
+        url='https://www.marxists.org/reference/archive/sartre/1972/illegalisme.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-elections-trap',
+        title='Elections: A Trap for Fools',
+        author='Jean-Paul Sartre',
+        year='1973',
+        description="Sartre's radical critique of electoral politics and representative democracy.",
+        url='https://www.marxists.org/reference/archive/sartre/1973/elections.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-baader',
+        title='The Slow Death of Andreas Baader',
+        author='Jean-Paul Sartre',
+        year='1974',
+        description="Sartre's controversial essay on the Red Army Faction leader and prison conditions.",
+        url='https://www.marxists.org/reference/archive/sartre/1974/baader.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+    MarxistTextConfig(
+        id='sartre-right-to-rebel',
+        title='Introduction to "It is Right to Rebel"',
+        author='Jean-Paul Sartre',
+        year='1974',
+        description="Sartre's defense of rebellion and revolutionary violence as legitimate political action.",
+        url='https://www.marxists.org/reference/archive/sartre/1974/right-to-rebel.htm',
+        single_page=True,
+        category='20th-century',
+    ),
+]
+
+# =============================================================================
 # ALL TEXTS COMBINED
 # =============================================================================
 
-ALL_TEXTS = MARX + ENGELS + LENIN + GRAMSCI + LUKACS + BAKUNIN + KROPOTKIN + GOLDMAN + LUXEMBURG
+ALL_TEXTS = MARX + ENGELS + LENIN + GRAMSCI + LUKACS + BAKUNIN + KROPOTKIN + GOLDMAN + LUXEMBURG + SARTRE
 
 # Text count by author
 TEXT_COUNTS = {
@@ -426,6 +574,7 @@ TEXT_COUNTS = {
     'Kropotkin': len(KROPOTKIN),
     'Goldman': len(GOLDMAN),
     'Luxemburg': len(LUXEMBURG),
+    'Sartre': len(SARTRE),
 }
 
 
