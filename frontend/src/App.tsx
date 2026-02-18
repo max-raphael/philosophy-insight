@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Reader from './pages/Reader'
 import HowToUse from './pages/HowToUse'
 import Philosophers from './pages/Philosophers'
+import Privacy from './pages/Privacy'
 import { API_URL } from './config'
 
 interface TextInfo {
@@ -54,6 +55,7 @@ function AppContent() {
         <Route path="/texts/:textId" element={<Reader onOpenSearch={openCommandPalette} />} />
         <Route path="/how-to-use" element={<HowToUse />} />
         <Route path="/philosophers" element={<Philosophers texts={texts} onOpenSearch={openCommandPalette} />} />
+        <Route path="/privacy" element={<Privacy />} />
       </Routes>
       <CommandPalette
         isOpen={commandPaletteOpen}

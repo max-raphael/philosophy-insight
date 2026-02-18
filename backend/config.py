@@ -22,6 +22,10 @@ class Settings:
     messages_to_summarize: int = 20     # When limit hit, summarize oldest 20
     messages_to_keep: int = 30          # Keep most recent 30 at full fidelity
 
+    # Rate limiting
+    rate_limit_chat: str = "50/hour;200/day"   # Chat endpoints (expensive)
+    rate_limit_title: str = "100/hour"          # Title generation (cheap)
+
     # CORS
     cors_origins: list[str] = [
         origin.strip()

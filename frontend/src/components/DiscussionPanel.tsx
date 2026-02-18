@@ -143,6 +143,7 @@ export default function DiscussionPanel({
   const [inputHeight, setInputHeight] = useState(120) // Default input area height
   const [isDragging, setIsDragging] = useState(false)
   const [activeQuote, setActiveQuote] = useState<string | null>(null)
+  const [error, setError] = useState<{ message: string; isRateLimit: boolean } | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -278,6 +279,10 @@ export default function DiscussionPanel({
       })
 
       if (!response.ok) {
+        if (response.status === 429) {
+          const data = await response.json().catch(() => ({}))
+          throw new Error(data.message || 'rate_limit_exceeded')
+        }
         throw new Error('Failed to send message')
       }
 
@@ -323,7 +328,13 @@ export default function DiscussionPanel({
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-      setMessages(prev => [...prev, { role: 'assistant', content: `Error: ${errorMessage}` }])
+      const isRateLimit = errorMessage.includes('rate_limit') || errorMessage.includes('discussion limit')
+      setError({
+        message: isRateLimit
+          ? 'You\'ve reached your discussion limit. Take a moment to reflect—the philosophers will wait.'
+          : 'Something went wrong. Please try again.',
+        isRateLimit,
+      })
       setStreamingContent('')
     } finally {
       setLoading(false)
@@ -331,6 +342,7 @@ export default function DiscussionPanel({
   }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle, activeQuote, activeConversation?.mode])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (error) setError(null) // Clear error when user types
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       sendMessage()
@@ -584,6 +596,46 @@ export default function DiscussionPanel({
                     {routingInfo.route === 'deep' ? 'Thinking deeply…' : 'Responding…'}
                   </span>
                 )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Error display */}
+        <AnimatePresence>
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
+            >
+              <div className="flex items-start gap-3">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/40 flex items-center justify-center">
+                  {error.isRateLimit ? (
+                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-red-800 dark:text-red-200 font-ui">
+                    {error.isRateLimit ? 'Discussion Limit Reached' : 'Unable to Respond'}
+                  </p>
+                  <p className="text-sm text-red-600 dark:text-red-300 mt-1 font-body">{error.message}</p>
+                </div>
+                <button
+                  onClick={() => setError(null)}
+                  className="shrink-0 p-1 text-red-400 hover:text-red-600 transition-colors rounded hover:bg-red-100 dark:hover:bg-red-900/40"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
             </motion.div>
           )}

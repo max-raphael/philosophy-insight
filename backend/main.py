@@ -1,12 +1,29 @@
 """Philosophy Insight API - FastAPI application entry point."""
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from slowapi.errors import RateLimitExceeded
 
 from config import settings
 from routes import texts_router, chat_router, conversations_router
+from rate_limit import limiter
 
 app = FastAPI(title="Philosophy Insight")
+app.state.limiter = limiter
+
+
+@app.exception_handler(RateLimitExceeded)
+async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+    """Handle rate limit exceeded with a friendly message."""
+    return JSONResponse(
+        status_code=429,
+        content={
+            "error": "rate_limit_exceeded",
+            "message": "You've reached your discussion limit. Take a moment to reflect—the philosophers will wait.",
+            "retry_after": exc.detail,
+        }
+    )
 
 # CORS configuration
 app.add_middleware(
