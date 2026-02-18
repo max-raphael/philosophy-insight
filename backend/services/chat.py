@@ -119,7 +119,45 @@ class ChatService:
         Prepare all context needed for generating a response.
         Shared between streaming and non-streaming endpoints.
         """
-        # Parse user message
+        # For AI-initiated messages, we don't add a user message
+        if request.ai_initiate:
+            # Get existing conversation (likely empty for first message)
+            conversation = self._conversation.get_or_create(request.conversation_id)
+            trimmed = self._conversation.trim_for_context(conversation)
+
+            # Parse the context info (location, paragraph) even without a question
+            parsed = MessageParser.parse(request.user_message) if request.user_message else ParsedUserMessage(
+                location=None, paragraph=None, highlighted=None, question=""
+            )
+
+            # For AI-initiated, use deep routing to ensure thoughtful opening
+            route_decision = RouteDecision(route="deep", effort="medium", confidence=1.0, reason="AI-initiated Socratic opening")
+            model = self._router.get_model(route_decision)
+
+            # Build system prompt with AI initiate flag
+            system_prompt = build_system_prompt(text_info, request.mode, ai_initiate=True)
+
+            # If context was provided (location/paragraph), add it as a system message
+            context_parts = []
+            if parsed.location:
+                context_parts.append(f"The reader is at: [{parsed.location}]")
+            if parsed.paragraph:
+                context_parts.append(f"They are reading: \"{parsed.paragraph[:500]}{'...' if len(parsed.paragraph) > 500 else ''}\"")
+
+            messages = [{"role": "system", "content": system_prompt}]
+            if context_parts:
+                messages.append({"role": "system", "content": "\n".join(context_parts)})
+            messages.extend(trimmed)
+
+            return ChatContext(
+                parsed=parsed,
+                text_info=text_info,
+                route_decision=route_decision,
+                model=model,
+                messages=messages,
+            )
+
+        # Standard flow: parse user message and add to history
         parsed = MessageParser.parse(request.user_message)
         model_input = MessageParser.build_model_input(parsed)
 

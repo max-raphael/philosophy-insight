@@ -23,6 +23,7 @@ class ChatRequest(BaseModel):
     text_id: str
     user_message: str  # Contains embedded context (location + passage)
     mode: str = "tutor"  # "tutor" (default) or "socratic"
+    ai_initiate: bool = False  # If true, AI sends first message (Socratic mode)
 
 
 class ChatResponse(BaseModel):

@@ -3,7 +3,13 @@
 from models.api import TextInfo
 
 
-def build_system_prompt(text_info: TextInfo | None, mode: str = "tutor") -> str:
+SOCRATIC_OPENING = """The reader has just opened this conversation and wants you to begin the dialogue.
+Ask a thoughtful opening question about the passage or section they're currently reading.
+Your question should invite reflection and set the stage for philosophical inquiry.
+Keep it grounded in the specific text—don't be generic. One question is enough."""
+
+
+def build_system_prompt(text_info: TextInfo | None, mode: str = "tutor", ai_initiate: bool = False) -> str:
     """Build the system prompt for the AI tutor based on text and mode."""
     text_title = text_info.title if text_info else "this philosophical text"
     text_author = text_info.author if text_info else "the author"
@@ -16,7 +22,7 @@ def build_system_prompt(text_info: TextInfo | None, mode: str = "tutor") -> str:
 When they ask about "this" or want explanation, focus on the highlighted text within its paragraph context. Ground your response in the specific passage when one is provided."""
 
     if mode == "socratic":
-        return f"""You are a Socratic guide to {text_title} by {text_author}.
+        base_prompt = f"""You are a Socratic guide to {text_title} by {text_author}.
 
 {context_instructions}
 
@@ -28,6 +34,10 @@ Your approach:
 - Only give direct answers if they explicitly ask you to "just tell me"
 
 You embody Socrates' method: wisdom comes from self-discovery."""
+
+        if ai_initiate:
+            return base_prompt + "\n\n" + SOCRATIC_OPENING
+        return base_prompt
 
     # Default tutor mode
     return f"""You are an expert guide to {text_title} by {text_author}.

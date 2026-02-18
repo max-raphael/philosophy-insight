@@ -242,6 +242,93 @@ export default function DiscussionPanel({
     }
   }, [activeConversation, textTitle, textAuthor, renameConversation])
 
+  // Handle AI-initiated Socratic conversation
+  const handleSocraticInitiate = useCallback(async () => {
+    if (loading || messages.length > 0) return
+
+    setLoading(true)
+    setStreamingContent('')
+    setRoutingInfo(null)
+
+    // Build context from current reading position
+    let contextMessage = ''
+    if (activeParagraph) {
+      contextMessage = `[Book ${activeParagraph.book}, Section ${activeParagraph.section}]\n> ${activeParagraph.content}`
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/chat/stream`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          conversation_id: backendConversationId,
+          text_id: textId,
+          user_message: contextMessage,
+          mode: 'socratic',
+          ai_initiate: true,
+        }),
+      })
+
+      if (!response.ok) {
+        if (response.status === 429) {
+          const data = await response.json().catch(() => ({}))
+          throw new Error(data.message || 'rate_limit_exceeded')
+        }
+        throw new Error('Failed to initiate conversation')
+      }
+
+      const reader = response.body?.getReader()
+      const decoder = new TextDecoder()
+      let fullResponse = ''
+
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) break
+
+          const chunk = decoder.decode(value)
+          const lines = chunk.split('\n')
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              try {
+                const data = JSON.parse(line.slice(6))
+                if (data.routing) {
+                  setRoutingInfo(data.routing)
+                } else if (data.content) {
+                  fullResponse += data.content
+                  setStreamingContent(fullResponse)
+                } else if (data.done) {
+                  setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
+                  setStreamingContent('')
+                  setRoutingInfo(null)
+                  // Generate title based on the AI's opening question
+                  generateTitle(contextMessage || 'Socratic dialogue', fullResponse)
+                } else if (data.error) {
+                  throw new Error(data.error)
+                }
+              } catch (e) {
+                // Ignore JSON parse errors for incomplete chunks
+              }
+            }
+          }
+        }
+      }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      const isRateLimit = errorMessage.includes('rate_limit') || errorMessage.includes('discussion limit')
+      setError({
+        message: isRateLimit
+          ? 'You\'ve reached your discussion limit. Take a moment to reflect—the philosophers will wait.'
+          : 'Something went wrong. Please try again.',
+        isRateLimit,
+      })
+      setStreamingContent('')
+    } finally {
+      setLoading(false)
+    }
+  }, [loading, messages.length, activeParagraph, backendConversationId, textId, setMessages, generateTitle])
+
   const sendMessage = useCallback(async () => {
     if (!input.trim() || loading) return
 
@@ -501,17 +588,32 @@ export default function DiscussionPanel({
                   : 'Ask anything, or highlight a passage to discuss it'
                 }
               </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {generateSuggestions(textAuthor, textCategory).map((suggestion) => (
+              {activeConversation?.mode === 'socratic' ? (
+                <div className="flex flex-col items-center gap-4">
                   <button
-                    key={suggestion}
-                    onClick={() => setInput(suggestion)}
-                    className="px-4 py-2 text-sm bg-[var(--bg-tertiary)] hover:bg-[var(--bg-muted)] rounded text-[var(--text-secondary)] transition-all hover:shadow-sm active:scale-98 font-ui border border-[var(--border-primary)]"
+                    onClick={handleSocraticInitiate}
+                    disabled={loading}
+                    className="px-5 py-3 text-sm bg-[var(--bg-tertiary)] hover:bg-[var(--bg-muted)] rounded text-[var(--text-primary)] transition-all hover:shadow-sm active:scale-98 font-ui border border-[var(--border-primary)] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {suggestion}
+                    Begin with a question
                   </button>
-                ))}
-              </div>
+                  <p className="text-[var(--text-muted)] text-xs font-ui">
+                    Let your guide ask the first question — or type your own below
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {generateSuggestions(textAuthor, textCategory).map((suggestion) => (
+                    <button
+                      key={suggestion}
+                      onClick={() => setInput(suggestion)}
+                      className="px-4 py-2 text-sm bg-[var(--bg-tertiary)] hover:bg-[var(--bg-muted)] rounded text-[var(--text-secondary)] transition-all hover:shadow-sm active:scale-98 font-ui border border-[var(--border-primary)]"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              )}
               <p className="text-[var(--text-muted)] text-xs mt-8 font-ui">
                 Press <kbd className="px-1.5 py-0.5 bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded text-[10px]">⌘/</kbd> to focus
               </p>
