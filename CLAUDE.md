@@ -44,7 +44,8 @@ curl -X POST http://localhost:8000/reload-texts
 ```
 /backend
   main.py           # FastAPI app - all routes, OpenAI integration, conversation storage
-  texts/*.json      # Philosophy texts as JSON (400 texts currently)
+  rate_limit.py     # Rate limiting configuration (slowapi)
+  texts/*.json      # Philosophy texts as JSON (400+ texts)
   scripts/
     import_gutenberg.py   # Generic Gutenberg parser with auto-structure detection
     import_marxists.py    # Marxists.org HTML parser for Marxist/Anarchist texts
@@ -75,6 +76,7 @@ curl -X POST http://localhost:8000/reload-texts
       Home.tsx            # Curated discovery experience with sections
       HowToUse.tsx        # Guide page for new users on using the app
       Philosophers.tsx    # Dedicated page showing all philosophers with portraits
+      Privacy.tsx         # Privacy policy page
       Reader.tsx          # Reading view with TOC, controls, keyboard nav, reading mode
     components/
       Reader.tsx          # Text display with selection popup
@@ -118,6 +120,13 @@ curl -X POST http://localhost:8000/reload-texts
 - `POST /chat` - Non-streaming chat endpoint (same routing logic)
 - `POST /generate-title` - Generate conversation title from first exchange (uses GPT-5 nano)
 - `DELETE /conversations/{id}` - Clear conversation
+
+**Rate Limiting:**
+Chat endpoints are rate-limited using slowapi to protect API costs:
+- `/chat/stream` and `/chat`: 50 requests/hour, 200 requests/day per IP
+- `/generate-title`: 100 requests/hour per IP
+- Returns 429 with friendly message when limit exceeded
+- Configuration in `backend/config.py` (`rate_limit_chat`, `rate_limit_title`)
 
 **Adaptive Routing System:**
 The chat endpoints use intelligent routing based on query complexity:
@@ -350,6 +359,21 @@ curl -X POST http://localhost:8000/reload-texts
 - Falls back to paragraph chunking (~600 char sections) for unstructured texts
 - Filters out table-of-contents entries automatically
 - Some texts may need manual review if structure detection fails
+
+## Deployment & SEO
+
+**Hosting:** Vercel (frontend auto-deploys on push to main)
+
+**Analytics:** Vercel Analytics (configured in App.tsx)
+
+**Open Graph / Social Sharing:**
+- Meta tags in `frontend/index.html` (og:title, og:description, og:image, twitter:card)
+- OG image at `frontend/public/og-image.png` (1200x630)
+- Test with https://opengraph.xyz after deploying
+
+**Production URL:** https://www.philosophyinsight.com/
+
+**GitHub:** https://github.com/max-raphael/philosophy-insight
 
 ## Claude Code Slash Commands
 
