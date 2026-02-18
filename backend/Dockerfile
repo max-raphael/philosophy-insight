@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY main.py .
 COPY config.py .
 COPY dependencies.py .
+COPY rate_limit.py .
 COPY models/ models/
 COPY services/ services/
 COPY routes/ routes/
