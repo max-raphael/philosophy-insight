@@ -665,6 +665,20 @@ body.sheet-open {
   opacity: 0.5;
 }
 
+/* Clickable [Book X, Section Y] citations in tutor replies */
+.citation-link {
+  font-family: var(--font-ui);
+  font-size: 0.85em;
+  color: var(--accent-primary);
+  border-bottom: 1px dotted var(--accent-primary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.citation-link:hover {
+  border-bottom-style: solid;
+}
+
 /* ========================================
    Animations
    ======================================== */

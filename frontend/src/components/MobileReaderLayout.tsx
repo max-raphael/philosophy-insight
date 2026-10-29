@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import MobileHeader from './MobileHeader'
 import MobileBottomSheet, { type SnapPoint } from './MobileBottomSheet'
@@ -45,6 +45,7 @@ export default function MobileReaderLayout({
   const [readingProgress, setReadingProgress] = useState(0)
   const [currentBook, setCurrentBook] = useState(1)
   const [activeParagraph, setActiveParagraph] = useState<ParagraphLocation | null>(null)
+  const [readingIndex, setReadingIndex] = useState<number | null>(null)
   const [pendingQuote, setPendingQuote] = useState<string | null>(null)
 
   // UI state
@@ -187,6 +188,7 @@ export default function MobileReaderLayout({
   }, [])
 
   const handleSectionChange = useCallback((sectionIndex: number) => {
+    setReadingIndex(sectionIndex)
     // Save to localStorage whenever section changes
     if (textId && sections.length > 0) {
       const section = sections[sectionIndex]
@@ -199,6 +201,23 @@ export default function MobileReaderLayout({
       }
     }
   }, [textId, sections, readingProgress])
+
+  // Section currently in view, given to the tutor as context even without a highlight
+  // (defaults to the opening section until the reader scrolls)
+  const readingSection = sections[readingIndex ?? 0]
+  const readingParagraph = useMemo<ParagraphLocation | null>(() => (
+    readingSection
+      ? { book: readingSection.book, section: readingSection.number, content: readingSection.content, index: readingIndex ?? 0 }
+      : null
+  ), [readingSection, readingIndex])
+
+  // Jump to a passage cited by the tutor, lowering the sheet so the text is visible
+  const handleNavigateToSection = useCallback((book: number, section: number) => {
+    const index = sections.findIndex(s => s.book === book && s.number === section)
+    if (index < 0) return
+    setIsSheetOpen(false)
+    readerRef.current?.scrollToSection(index)
+  }, [sections])
 
   const handleBookSelect = useCallback((book: number) => {
     setShowTOC(false)
@@ -386,8 +405,10 @@ export default function MobileReaderLayout({
           textAuthor={author}
           textCategory={category}
           activeParagraph={activeParagraph}
+          readingParagraph={readingParagraph}
           pendingQuote={pendingQuote}
           onQuoteUsed={handleQuoteUsed}
+          onNavigate={handleNavigateToSection}
         />
       </MobileBottomSheet>
 

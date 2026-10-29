@@ -8,8 +8,8 @@ from openai import OpenAI
 
 from config import settings
 from models.domain import ParsedUserMessage, RouteDecision
-from models.api import TextInfo, ChatRequest
-from prompts.system import build_system_prompt
+from models.api import TextInfo, ChatRequest, ReadingContext
+from prompts.system import build_system_prompt, build_full_text_message
 from services.router import RouterService
 from services.conversation import ConversationService
 
@@ -85,6 +85,23 @@ class MessageParser:
 
         return '\n\n'.join(parts)
 
+    @staticmethod
+    def apply_reading_context(
+        parsed: ParsedUserMessage, reading_context: ReadingContext | None
+    ) -> ParsedUserMessage:
+        """
+        Fill in location and paragraph from where the reader is when the message
+        itself carries no passage (i.e. nothing was highlighted).
+        """
+        if reading_context is None or parsed.location or parsed.paragraph:
+            return parsed
+        return ParsedUserMessage(
+            location=f"Book {reading_context.book}, Section {reading_context.section}",
+            paragraph=reading_context.paragraph,
+            highlighted=parsed.highlighted,
+            question=parsed.question,
+        )
+
 
 @dataclass
 class ChatContext:
@@ -114,11 +131,25 @@ class ChatService:
         self,
         request: ChatRequest,
         text_info: TextInfo | None,
+        full_text: str | None = None,
     ) -> ChatContext:
         """
         Prepare all context needed for generating a response.
         Shared between streaming and non-streaming endpoints.
         """
+        if request.history is not None:
+            self._conversation.replace(
+                request.conversation_id,
+                [self._normalize_history_message(m.role, m.content) for m in request.history],
+            )
+
+        # The whole book (when enabled) goes first and is identical across requests,
+        # so it forms a cacheable prefix
+        prefix = []
+        if full_text and text_info:
+            prefix = [{"role": "system", "content": build_full_text_message(text_info, full_text)}]
+        has_full_text = bool(prefix)
+
         # For AI-initiated messages, we don't add a user message
         if request.ai_initiate:
             # Get existing conversation (likely empty for first message)
@@ -129,13 +160,16 @@ class ChatService:
             parsed = MessageParser.parse(request.user_message) if request.user_message else ParsedUserMessage(
                 location=None, paragraph=None, highlighted=None, question=""
             )
+            parsed = MessageParser.apply_reading_context(parsed, request.reading_context)
 
             # For AI-initiated, use deep routing to ensure thoughtful opening
             route_decision = RouteDecision(route="deep", effort="medium", confidence=1.0, reason="AI-initiated Socratic opening")
             model = self._router.get_model(route_decision)
 
             # Build system prompt with AI initiate flag
-            system_prompt = build_system_prompt(text_info, request.mode, ai_initiate=True)
+            system_prompt = build_system_prompt(
+                text_info, request.mode, ai_initiate=True, has_full_text=has_full_text
+            )
 
             # If context was provided (location/paragraph), add it as a system message
             context_parts = []
@@ -144,7 +178,7 @@ class ChatService:
             if parsed.paragraph:
                 context_parts.append(f"They are reading: \"{parsed.paragraph[:500]}{'...' if len(parsed.paragraph) > 500 else ''}\"")
 
-            messages = [{"role": "system", "content": system_prompt}]
+            messages = prefix + [{"role": "system", "content": system_prompt}]
             if context_parts:
                 messages.append({"role": "system", "content": "\n".join(context_parts)})
             messages.extend(trimmed)
@@ -159,6 +193,7 @@ class ChatService:
 
         # Standard flow: parse user message and add to history
         parsed = MessageParser.parse(request.user_message)
+        parsed = MessageParser.apply_reading_context(parsed, request.reading_context)
         model_input = MessageParser.build_model_input(parsed)
 
         # Add to conversation history
@@ -176,8 +211,8 @@ class ChatService:
         model = self._router.get_model(route_decision)
 
         # Build full message list
-        system_prompt = build_system_prompt(text_info, request.mode)
-        messages = [{"role": "system", "content": system_prompt}] + trimmed
+        system_prompt = build_system_prompt(text_info, request.mode, has_full_text=has_full_text)
+        messages = prefix + [{"role": "system", "content": system_prompt}] + trimmed
 
         return ChatContext(
             parsed=parsed,
@@ -186,6 +221,13 @@ class ChatService:
             model=model,
             messages=messages,
         )
+
+    @staticmethod
+    def _normalize_history_message(role: str, content: str) -> dict:
+        """Convert a client-stored message into the form the model sees."""
+        if role == "user":
+            content = MessageParser.build_model_input(MessageParser.parse(content))
+        return {"role": role, "content": content}
 
     def generate_response(self, ctx: ChatContext, conversation_id: str) -> str:
         """Generate a non-streaming response."""

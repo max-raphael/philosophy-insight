@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import ReactMarkdown from 'react-markdown'
-import { useConversations } from '../hooks/useConversations'
+import ReactMarkdown, { type Components } from 'react-markdown'
+import { useConversations, type Message } from '../hooks/useConversations'
 import ConversationSwitcher from './ConversationSwitcher'
 import { API_URL } from '../config'
+import { readSSE } from '../utils/sse'
 
 interface ParagraphLocation {
   book: number
@@ -18,8 +19,31 @@ interface DiscussionPanelProps {
   textAuthor: string
   textCategory?: string
   activeParagraph: ParagraphLocation | null
+  readingParagraph?: ParagraphLocation | null  // Section currently in view, sent as ambient context
   pendingQuote: string | null
   onQuoteUsed: () => void
+  onNavigate?: (book: number, section: number) => void  // Jump to a cited passage
+}
+
+// Turn [Book X, Section Y] citations in tutor replies into links the reader can click
+const CITATION_PATTERN = /\[Book (\d+), Sections? (\d+)(?:\s*[–-]\s*(\d+))?\]/g
+const CITATION_HREF_PREFIX = '#cite-'
+
+function linkCitations(content: string): string {
+  return content.replace(CITATION_PATTERN, (_match, book, section, sectionEnd) => {
+    const label = `Book ${book}, §${section}${sectionEnd ? `–${sectionEnd}` : ''}`
+    return `[${label}](${CITATION_HREF_PREFIX}${book}-${section})`
+  })
+}
+
+// Build the API payload fields shared by every chat request
+function buildChatContext(history: Message[], reading: ParagraphLocation | null) {
+  return {
+    history: history.map(({ role, content }) => ({ role, content })),
+    reading_context: reading
+      ? { book: reading.book, section: reading.section, paragraph: reading.content }
+      : null,
+  }
 }
 
 // Parse context from a formatted user message for display
@@ -93,7 +117,7 @@ function formatMessageWithContext(
       formatted += `> ${quote.split('\n').join('\n> ')}\n\n`
     }
   }
-  // No location or context when user hasn't highlighted anything - just send their message
+  // Without a highlight, the reader's current position is sent separately as reading_context
 
   formatted += userText
   return formatted
@@ -119,8 +143,10 @@ export default function DiscussionPanel({
   textAuthor,
   textCategory,
   activeParagraph,
+  readingParagraph = null,
   pendingQuote,
   onQuoteUsed,
+  onNavigate,
 }: DiscussionPanelProps) {
   const {
     index,
@@ -149,6 +175,25 @@ export default function DiscussionPanel({
   const containerRef = useRef<HTMLDivElement>(null)
   const dragStartY = useRef(0)
   const dragStartHeight = useRef(0)
+
+  const markdownComponents = useMemo<Components>(() => ({
+    a: ({ href, children, ...props }) => {
+      if (href?.startsWith(CITATION_HREF_PREFIX)) {
+        const [book, section] = href.slice(CITATION_HREF_PREFIX.length).split('-').map(Number)
+        return (
+          <button
+            type="button"
+            onClick={() => onNavigate?.(book, section)}
+            className="citation-link"
+            title="Go to this passage"
+          >
+            {children}
+          </button>
+        )
+      }
+      return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
+    },
+  }), [onNavigate])
 
   // Scroll to bottom
   useEffect(() => {
@@ -251,9 +296,10 @@ export default function DiscussionPanel({
     setRoutingInfo(null)
 
     // Build context from current reading position
+    const position = readingParagraph ?? activeParagraph
     let contextMessage = ''
-    if (activeParagraph) {
-      contextMessage = `[Book ${activeParagraph.book}, Section ${activeParagraph.section}]\n> ${activeParagraph.content}`
+    if (position) {
+      contextMessage = `[Book ${position.book}, Section ${position.section}]\n> ${position.content}`
     }
 
     try {
@@ -266,6 +312,7 @@ export default function DiscussionPanel({
           user_message: contextMessage,
           mode: 'socratic',
           ai_initiate: true,
+          ...buildChatContext(messages, null),
         }),
       })
 
@@ -277,43 +324,23 @@ export default function DiscussionPanel({
         throw new Error('Failed to initiate conversation')
       }
 
-      const reader = response.body?.getReader()
-      const decoder = new TextDecoder()
       let fullResponse = ''
-
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read()
-          if (done) break
-
-          const chunk = decoder.decode(value)
-          const lines = chunk.split('\n')
-
-          for (const line of lines) {
-            if (line.startsWith('data: ')) {
-              try {
-                const data = JSON.parse(line.slice(6))
-                if (data.routing) {
-                  setRoutingInfo(data.routing)
-                } else if (data.content) {
-                  fullResponse += data.content
-                  setStreamingContent(fullResponse)
-                } else if (data.done) {
-                  setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
-                  setStreamingContent('')
-                  setRoutingInfo(null)
-                  // Generate title based on the AI's opening question
-                  generateTitle(contextMessage || 'Socratic dialogue', fullResponse)
-                } else if (data.error) {
-                  throw new Error(data.error)
-                }
-              } catch (e) {
-                // Ignore JSON parse errors for incomplete chunks
-              }
-            }
-          }
+      await readSSE(response, (data) => {
+        if (data.routing) {
+          setRoutingInfo(data.routing as { route: string; effort: string })
+        } else if (data.content) {
+          fullResponse += data.content as string
+          setStreamingContent(fullResponse)
+        } else if (data.done) {
+          setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
+          setStreamingContent('')
+          setRoutingInfo(null)
+          // Generate title based on the AI's opening question
+          generateTitle(contextMessage || 'Socratic dialogue', fullResponse)
+        } else if (data.error) {
+          throw new Error(data.error as string)
         }
-      }
+      })
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error'
       const isRateLimit = errorMessage.includes('rate_limit') || errorMessage.includes('discussion limit')
@@ -327,7 +354,7 @@ export default function DiscussionPanel({
     } finally {
       setLoading(false)
     }
-  }, [loading, messages.length, activeParagraph, backendConversationId, textId, setMessages, generateTitle])
+  }, [loading, messages, activeParagraph, readingParagraph, backendConversationId, textId, setMessages, generateTitle])
 
   const sendMessage = useCallback(async () => {
     if (!input.trim() || loading) return
@@ -362,6 +389,7 @@ export default function DiscussionPanel({
           text_id: textId,
           user_message: formattedMessage,
           mode: activeConversation?.mode || 'tutor',
+          ...buildChatContext(messages, readingParagraph ?? activeParagraph),
         }),
       })
 
@@ -373,46 +401,26 @@ export default function DiscussionPanel({
         throw new Error('Failed to send message')
       }
 
-      const reader = response.body?.getReader()
-      const decoder = new TextDecoder()
       let fullResponse = ''
-
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read()
-          if (done) break
-
-          const chunk = decoder.decode(value)
-          const lines = chunk.split('\n')
-
-          for (const line of lines) {
-            if (line.startsWith('data: ')) {
-              try {
-                const data = JSON.parse(line.slice(6))
-                if (data.routing) {
-                  // Routing metadata received - update loading state
-                  setRoutingInfo(data.routing)
-                } else if (data.content) {
-                  fullResponse += data.content
-                  setStreamingContent(fullResponse)
-                } else if (data.done) {
-                  setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
-                  setStreamingContent('')
-                  setRoutingInfo(null)
-                  // Generate title after first exchange
-                  if (isFirstExchange) {
-                    generateTitle(userText, fullResponse)
-                  }
-                } else if (data.error) {
-                  throw new Error(data.error)
-                }
-              } catch (e) {
-                // Ignore JSON parse errors for incomplete chunks
-              }
-            }
+      await readSSE(response, (data) => {
+        if (data.routing) {
+          // Routing metadata received - update loading state
+          setRoutingInfo(data.routing as { route: string; effort: string })
+        } else if (data.content) {
+          fullResponse += data.content as string
+          setStreamingContent(fullResponse)
+        } else if (data.done) {
+          setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
+          setStreamingContent('')
+          setRoutingInfo(null)
+          // Generate title after first exchange
+          if (isFirstExchange) {
+            generateTitle(userText, fullResponse)
           }
+        } else if (data.error) {
+          throw new Error(data.error as string)
         }
-      }
+      })
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error'
       const isRateLimit = errorMessage.includes('rate_limit') || errorMessage.includes('discussion limit')
@@ -426,7 +434,7 @@ export default function DiscussionPanel({
     } finally {
       setLoading(false)
     }
-  }, [input, loading, backendConversationId, textId, activeParagraph, setMessages, messages.length, generateTitle, activeQuote, activeConversation?.mode])
+  }, [input, loading, backendConversationId, textId, activeParagraph, readingParagraph, setMessages, messages, generateTitle, activeQuote, activeConversation?.mode])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (error) setError(null) // Clear error when user types
@@ -654,7 +662,7 @@ export default function DiscussionPanel({
                 // Assistant message - styled as scholarly response
                 <div className="p-4 rounded bg-[var(--bg-primary)] border border-[var(--border-primary)]">
                   <div className="text-sm leading-relaxed prose-custom font-body text-[var(--text-primary)]">
-                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                    <ReactMarkdown components={markdownComponents}>{linkCitations(message.content)}</ReactMarkdown>
                   </div>
                 </div>
               )}
@@ -671,7 +679,7 @@ export default function DiscussionPanel({
             >
               <div className="p-4 rounded bg-[var(--bg-primary)] border border-[var(--border-primary)]">
                 <div className="text-sm leading-relaxed prose-custom font-body text-[var(--text-primary)]">
-                  <ReactMarkdown>{streamingContent}</ReactMarkdown>
+                  <ReactMarkdown components={markdownComponents}>{linkCitations(streamingContent)}</ReactMarkdown>
                   <span className="inline-block w-0.5 h-4 bg-[var(--accent-primary)] animate-pulse ml-0.5" />
                 </div>
               </div>

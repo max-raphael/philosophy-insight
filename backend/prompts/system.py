@@ -9,8 +9,40 @@ Your question should invite reflection and set the stage for philosophical inqui
 Keep it grounded in the specific text—don't be generic. One question is enough."""
 
 
-def build_system_prompt(text_info: TextInfo | None, mode: str = "tutor", ai_initiate: bool = False) -> str:
+FULL_TEXT_INSTRUCTIONS = """You have the complete text of the work in front of you (provided above). Use it:
+- Ground your answers in what the text actually says, in this translation, rather than general recollection
+- Quote short phrases when they matter, and cite locations exactly in the form [Book X, Section Y] — the reader can click these to jump there
+- Connect the passage under discussion to related passages elsewhere in the work when that genuinely helps
+- If the author addresses the reader's question later on, you may point them to where, rather than summarizing it for them"""
+
+
+def build_full_text_message(text_info: TextInfo, full_text: str) -> str:
+    """
+    Build the message containing the whole book. Sent first and kept identical
+    across requests and modes so it forms a cacheable prompt prefix.
+    """
+    translator = f", translated by {text_info.translator}" if text_info.translator else ""
+    return f"""The complete text of {text_info.title} by {text_info.author}{translator}. Each section is labelled with its location.
+
+<text>
+{full_text}
+</text>"""
+
+
+def build_system_prompt(
+    text_info: TextInfo | None,
+    mode: str = "tutor",
+    ai_initiate: bool = False,
+    has_full_text: bool = False,
+) -> str:
     """Build the system prompt for the AI tutor based on text and mode."""
+    prompt = _build_mode_prompt(text_info, mode, ai_initiate)
+    if has_full_text:
+        prompt += "\n\n" + FULL_TEXT_INSTRUCTIONS
+    return prompt
+
+
+def _build_mode_prompt(text_info: TextInfo | None, mode: str, ai_initiate: bool) -> str:
     text_title = text_info.title if text_info else "this philosophical text"
     text_author = text_info.author if text_info else "the author"
 

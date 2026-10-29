@@ -63,6 +63,10 @@ class ConversationService:
         self._store.save(conversation_id, messages)
         return messages
 
+    def replace(self, conversation_id: str, messages: list[dict]) -> None:
+        """Replace a conversation's history (e.g. with the client's copy)."""
+        self._store.save(conversation_id, list(messages))
+
     def delete(self, conversation_id: str) -> bool:
         """Delete a conversation."""
         return self._store.delete(conversation_id)

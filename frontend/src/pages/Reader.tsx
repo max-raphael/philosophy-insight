@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Panel, Group, Separator } from 'react-resizable-panels'
 import ReaderComponent, { type ParagraphLocation, type ReaderHandle } from '../components/Reader'
@@ -39,6 +39,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   const [text, setText] = useState<TextData | null>(null)
   const [pendingQuote, setPendingQuote] = useState<string | null>(null)
   const [activeParagraph, setActiveParagraph] = useState<ParagraphLocation | null>(null)
+  const [readingIndex, setReadingIndex] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [readingProgress, setReadingProgress] = useState(0)
@@ -148,6 +149,7 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
   }, [])
 
   const handleSectionChange = useCallback((sectionIndex: number) => {
+    setReadingIndex(sectionIndex)
     // Save to localStorage whenever section changes
     if (textId && text) {
       const section = text.sections[sectionIndex]
@@ -160,6 +162,21 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
       }
     }
   }, [textId, text, readingProgress])
+
+  // Section currently in view, given to the tutor as context even without a highlight
+  // (defaults to the opening section until the reader scrolls)
+  const readingSection = text?.sections[readingIndex ?? 0]
+  const readingParagraph = useMemo<ParagraphLocation | null>(() => (
+    readingSection
+      ? { book: readingSection.book, section: readingSection.number, content: readingSection.content, index: readingIndex ?? 0 }
+      : null
+  ), [readingSection, readingIndex])
+
+  // Jump to a passage cited by the tutor
+  const handleNavigateToSection = useCallback((book: number, section: number) => {
+    const index = text?.sections.findIndex(s => s.book === book && s.number === section) ?? -1
+    if (index >= 0) readerRef.current?.scrollToSection(index)
+  }, [text])
 
   const handleBookSelect = useCallback((book: number) => {
     setShowBookMenu(false)
@@ -484,8 +501,10 @@ export default function Reader({ onOpenSearch }: ReaderPageProps) {
                   textAuthor={text.author}
                   textCategory={text.category}
                   activeParagraph={activeParagraph}
+                  readingParagraph={readingParagraph}
                   pendingQuote={pendingQuote}
                   onQuoteUsed={handleQuoteUsed}
+                  onNavigate={handleNavigateToSection}
                 />
               </div>
             </Panel>

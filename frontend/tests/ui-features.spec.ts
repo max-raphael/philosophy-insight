@@ -961,3 +961,68 @@ test.describe('Onboarding', () => {
     await expect(footer.getByText('How to Use')).toBeVisible()
   })
 })
+
+test.describe('Tutor Context & Citations', () => {
+  // Mocked SSE reply that cites a passage elsewhere in Meditations
+  const mockReply = (route: import('@playwright/test').Route) => route.fulfill({
+    status: 200,
+    contentType: 'text/event-stream',
+    body: [
+      { routing: { route: 'basic', effort: 'low' } },
+      { content: 'He returns to this in ' },
+      { content: '[Book 4, Section 3].' },
+      { done: true },
+    ].map(event => `data: ${JSON.stringify(event)}\n\n`).join(''),
+  })
+
+  test.beforeEach(async ({ page }) => {
+    await skipOnboarding(page)
+    await page.goto('/texts/meditations')
+    await page.waitForSelector('.reader-page', { timeout: 15000 })
+  })
+
+  test('sends reading position and history with each message', async ({ page }) => {
+    const bodies: Record<string, unknown>[] = []
+    await page.route('**/chat/stream', route => {
+      bodies.push(route.request().postDataJSON())
+      return mockReply(route)
+    })
+    await page.route('**/generate-title', route => route.fulfill({ json: { title: 'Test' } }))
+
+    const chatInput = page.locator('textarea[placeholder*="Ask"]')
+    await chatInput.fill('What is he doing here?')
+    await chatInput.press('Enter')
+    await expect(page.locator('.citation-link')).toBeVisible()
+
+    await chatInput.fill('And why?')
+    await chatInput.press('Enter')
+    await expect(page.locator('.citation-link')).toHaveCount(2)
+
+    expect(bodies).toHaveLength(2)
+    // No highlight, but the tutor still knows where the reader is
+    expect(bodies[0].reading_context).toMatchObject({ book: 1 })
+    expect(bodies[0].history).toEqual([])
+    // Second request carries the first exchange, so it survives backend restarts
+    expect(bodies[1].history).toEqual([
+      { role: 'user', content: 'What is he doing here?' },
+      { role: 'assistant', content: 'He returns to this in [Book 4, Section 3].' },
+    ])
+  })
+
+  test('clicking a citation jumps to the cited passage', async ({ page }) => {
+    await page.route('**/chat/stream', mockReply)
+    await page.route('**/generate-title', route => route.fulfill({ json: { title: 'Test' } }))
+
+    const chatInput = page.locator('textarea[placeholder*="Ask"]')
+    await chatInput.fill('Where else?')
+    await chatInput.press('Enter')
+
+    const citation = page.locator('.citation-link')
+    await expect(citation).toHaveText('Book 4, §3')
+
+    const target = page.locator('[data-paragraph-index="52"]')
+    await expect(target).not.toBeInViewport()
+    await citation.click()
+    await expect(target).toBeInViewport({ timeout: 3000 })
+  })
+})

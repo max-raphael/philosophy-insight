@@ -26,6 +26,16 @@ class Settings:
     messages_to_summarize: int = 20     # When limit hit, summarize oldest 20
     messages_to_keep: int = 30          # Keep most recent 30 at full fidelity
 
+    # Full-text context: the whole book goes into the prompt (as a stable prefix,
+    # so OpenAI's automatic prompt caching applies) for these texts.
+    # Comma-separated ids, or "*" for every text under the token limit.
+    full_text_ids: list[str] = [
+        t.strip()
+        for t in os.getenv("FULL_TEXT_IDS", "meditations").split(",")
+        if t.strip()
+    ]
+    full_text_max_tokens: int = int(os.getenv("FULL_TEXT_MAX_TOKENS", "200000"))
+
     # Rate limiting
     rate_limit_chat: str = "50/hour;200/day"   # Chat endpoints (expensive)
     rate_limit_title: str = "100/hour"          # Title generation (cheap)

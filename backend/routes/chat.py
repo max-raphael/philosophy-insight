@@ -23,8 +23,9 @@ def chat_stream(
 ):
     """Stream a chat response token by token."""
     text_info = text_service.get(body.text_id)
+    full_text = text_service.full_text(body.text_id)
 
-    ctx = chat_service.prepare_context(body, text_info)
+    ctx = chat_service.prepare_context(body, text_info, full_text)
 
     return StreamingResponse(
         chat_service.stream_response(ctx, body.conversation_id),
@@ -46,8 +47,9 @@ def chat(
 ):
     """Send a message and get AI response (non-streaming)."""
     text_info = text_service.get(body.text_id)
+    full_text = text_service.full_text(body.text_id)
 
-    ctx = chat_service.prepare_context(body, text_info)
+    ctx = chat_service.prepare_context(body, text_info, full_text)
 
     try:
         response = chat_service.generate_response(ctx, body.conversation_id)

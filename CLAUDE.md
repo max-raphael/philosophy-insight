@@ -15,7 +15,7 @@ Philosophy Insight is a web app for reading philosophy texts with an AI companio
 cd backend
 source venv/bin/activate
 python main.py              # Runs on http://localhost:8000
-pytest tests/               # Run unit tests (31 tests)
+pytest tests/               # Run unit tests (42 tests)
 ```
 
 ### Frontend (React + Vite)
@@ -94,7 +94,7 @@ curl -X POST http://localhost:8000/reload-texts
       onboarding/
         WelcomeModal.tsx    # First-visit welcome modal with philosophical framing
   tests/
-    ui-features.spec.ts   # Playwright E2E tests (62 tests)
+    ui-features.spec.ts   # Playwright E2E tests (64 tests)
   playwright.config.ts    # Playwright configuration
 ```
 
@@ -160,6 +160,15 @@ The chat endpoints use intelligent routing based on query complexity:
    data: {"done": true}                                     // Final event
    ```
    Frontend can use the `routing` event to show appropriate loading state.
+
+**Full-Text Context:**
+- For texts listed in `FULL_TEXT_IDS` (env, comma-separated, `*` for all; default `meditations`) and under `FULL_TEXT_MAX_TOKENS` (default 200k, estimated at 4 chars/token), the entire book is sent as the first system message
+- Every section is labelled `[Book X, Section Y]`; the message is identical across requests and modes so OpenAI's automatic prompt caching applies
+- The tutor is instructed to cite as `[Book X, Section Y]`; `DiscussionPanel` renders these as `.citation-link` buttons that scroll the reader to the passage
+
+**Request Context:**
+- `history`: the client sends its localStorage conversation with every chat request; the backend replaces its in-memory copy with it, so conversations survive backend restarts/redeploys
+- `reading_context`: `{book, section, paragraph}` for the section currently in view (defaults to the first section). Used as location/paragraph when the message has no highlight
 
 **Conversation History Management:**
 - Keeps up to 50 messages at full fidelity
@@ -282,7 +291,7 @@ Mobile gets a completely different layout optimized for touch:
 Run Playwright E2E tests:
 ```bash
 cd frontend
-npm test              # Run all 62 tests headless
+npm test              # Run all 64 tests headless
 npm run test:headed   # Run with browser visible
 npm run test:ui       # Open Playwright UI
 ```
