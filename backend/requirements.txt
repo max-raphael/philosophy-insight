@@ -1,7 +1,10 @@
-fastapi>=0.109.0
-uvicorn>=0.27.0
-openai>=1.0.0
-python-dotenv>=1.0.0
-pydantic>=2.10.0
-pytest>=8.0.0
-slowapi>=0.1.9
+# Pinned to the versions tested locally. Unpinned installs pulled openai 3.x on
+# Railway, which no longer depends on httpx and crashed the feedback route.
+fastapi==0.128.5
+uvicorn==0.40.0
+openai==2.17.0
+httpx==0.28.1
+python-dotenv==1.2.1
+pydantic==2.12.5
+pytest==9.0.2
+slowapi==0.1.9
