@@ -1,0 +1,1539 @@
+[
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 0,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "In that sentence Marcus is packing two distinct Stoic claims together\u2014stronger and more specific than the vague slogan \u201ceverything happens for a reason.\u201d\n\n### 1) \u201cNecessity\u201d: the world runs by an inescapable causal order\nBy \u201cnecessity\u201d he means that events follow from prior causes in a continuous chain\u2014what the Stoics call *fate* (a rationally structured determinism). So even what we call \u201cchance\u201d isn\u2019t outside nature; it\u2019s just causes we don\u2019t see. That\u2019s why he says just before your highlight that \u201cchance\u201d is \u201cnot without connexion and intertexture with the designs of Providence\u201d ([Book 2, Section 3]).\n\nYou see the same thought elsewhere when he says \u201cConsequents follow antecedents by virtue of a special and necessary connexion\u201d ([Book 4, Section 45]) and that \u201cWhatever happens to you was prearranged\u2026 the concatenation of causes had\u2026 interwoven\u201d it ([Book 10, Section 5]).\n\nSo \u201cnecessity\u201d is not \u201cthis happened to teach me a lesson,\u201d but \u201cthis happened because the universe is a law-governed chain of causes.\u201d\n\n### 2) \u201cUtility of the Universe\u201d: events serve the functioning of the whole\nThe second claim is teleological: the universe is like one living system, and what happens is \u201cuseful\u201d relative to that whole system\u2019s preservation and order. Marcus immediately explains what he means:\n\n> \u201cto every part of a being, that is good which springs from the nature of the whole and tends to its preservation\u201d ([Book 2, Section 3])\n\nSo \u201cutility\u201d doesn\u2019t mean \u201cpleasant for you.\u201d It means \u201cfits the whole,\u201d the way fever, decay, pruning, predation, etc., can be intelligible within an ecosystem even if they\u2019re harsh locally. In Stoic terms, your job is to relocate your sense of \u201cgood\u201d from private comfort to alignment with the rational order of the whole.\n\nThis is why he keeps repeating that you are a *part* of something larger and should judge events as parts do: \u201cYou exist as part of a whole\u201d ([Book 4, Section 14]), and \u201cNothing is hurtful to the part which is profitable to the whole\u201d ([Book 10, Section 6]). And he uses the metaphor of a doctor\u2019s prescription: hard things are \u201cprescribed\u201d because they contribute to the \u201chealth of the Universe\u201d ([Book 5, Section 8]).\n\n### So is it \u201ceverything happens for a reason\u201d?\nOnly if you make that slogan precise:\n\n- **Yes**, in the sense of *necessity*: nothing happens outside the causal order of nature.  \n- **Yes**, in the sense of *utility*: events have a role within the universe\u2019s overall coherence.\n- **But no**, if you mean \u201ceverything happens for my benefit\u201d or \u201ceverything has a comforting personal message.\u201d Marcus\u2019 point is often the opposite: the comfort comes from accepting that the whole is ordered, not from insisting it be ordered around you.\n\nOne more nuance: later Marcus sometimes frames it as an either/or\u2014either providence or atoms\u2014and says you can still live rightly either way ([Book 6, Section 10]; [Book 12, Section 14]). But in [2.3] he\u2019s speaking in the full Stoic register: providence + necessity + the whole\u2019s good.\n\nIf you want, tell me what part of this feels hardest to accept\u2014\u201cnecessity\u201d (determinism) or \u201cutility\u201d (the whole\u2019s good)\u2014and we can unpack that with another passage.",
+    "usage": {
+      "input_tokens": 54441,
+      "cached_tokens": 0,
+      "output_tokens": 920,
+      "reasoning_tokens": 164
+    },
+    "cost": 0.10815175,
+    "seconds_to_first_token": 5.8,
+    "router_seconds": 2.4,
+    "total_seconds": 18.6,
+    "citations_valid": [
+      "[Book 2, Section 3]",
+      "[Book 4, Section 45]",
+      "[Book 10, Section 5]",
+      "[Book 2, Section 3]",
+      "[Book 4, Section 14]",
+      "[Book 10, Section 6]",
+      "[Book 5, Section 8]",
+      "[Book 6, Section 10]",
+      "[Book 12, Section 14]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 1,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "\u201cYou may retire into yourself\u201d in [Book 4, Section 3] isn\u2019t an invitation to *leave* your problems; it\u2019s an insistence that the only kind of \u201cretreat\u201d that actually helps is the one that restores your governing mind so you can go back and do the work in front of you.\n\nNotice how Marcus immediately defines what this inner retreat is **for**:\n\n- he says the point of having \u201cthoughts brief and fundamental\u201d is to \u201cshut out the discordant clamour of the world, **and to send you back without fretting at the task to which you return**.\u201d ([Book 4, Section 3])\n\nThat last clause is the anti-escapism clause. The retreat is not a new lifestyle or a hiding place; it\u2019s a *reset* that returns you to your duties without resentment, panic, or distraction.\n\n### How it differs from \u201crunning away\u201d\n**Escapism** (in the sense you mean) tries to solve distress by *changing externals*\u2014place, company, stimulation\u2014so you don\u2019t have to face what\u2019s hard.\n\nMarcus thinks that\u2019s \u201cgreat folly\u201d if your motive is relief, because you carry the real source of distress with you: your disordered judgments. Hence: \u201crest\u2026 is naught else but perfect order in the soul\u201d ([4.3]). If you don\u2019t regain that order, the sea-coast just becomes a different backdrop for the same agitation.\n\n**Inner retreat**, by contrast, targets the Stoic \u201cproblem\u201d at its root: not the event, but the *opinion* you add to it. He makes that explicit at the end:\n\n- \u201cthings external do not touch the soul\u2026 and **all trouble comes from what we think of them within**.\u201d ([Book 4, Section 3])\n\nSo the retreat is a brief withdrawal from noise and impulse so you can:\n1) inspect your impressions,  \n2) remove the extra, false claim (\u201cthis is unbearable,\u201d \u201cthis is an insult,\u201d \u201cthis must not be happening\u201d), and then  \n3) return to act well.\n\nThat\u2019s why similar passages keep duty front-and-center: \u201cHourly and earnestly strive\u2026 to do what falls to your hand\u2026\u201d ([Book 2, Section 5]); \u201cIn action be neither grudging\u2026 Let the God within direct you\u2026\u201d ([Book 3, Section 5]).\n\n### \u201cRetreat\u201d here is not avoidance, it\u2019s preparation for justice\nMarcus even lists the typical \u201cproblems\u201d that make us want to flee\u2014other people\u2019s bad behavior, bodily pain, and fame\u2014and for each he prescribes not escape but *reframing and response*:\n\n- With people: remember they \u201ccannot help their sin\u201d and that bearing with them is part of justice ([4.3]; see also [Book 2, Section 1]). That doesn\u2019t remove the social situation; it removes the futile demand that humans stop being human.\n- With the body: the mind \u201chas no concern with the motions\u2026 of the breathing body\u201d once it knows its power ([4.3])\u2014meaning: pain may be present, but it needn\u2019t become moral collapse or self-pity.\n- With fame: see how \u201cswiftly all things are forgotten\u201d ([4.3])\u2014not to quit public life, but to stop letting applause steer you.\n\nSo the \u201cretreat into yourself\u201d is closer to what we\u2019d call **regaining composure and clarity** than \u201cchecking out.\u201d\n\n### A good quick test\nIf your \u201cinner retreat\u201d ends with you *doing your duty more cleanly*\u2014more patiently, more justly, less performatively\u2014then you\u2019re doing what Marcus means.\n\nIf it ends with you *postponing*, *withdrawing from necessary relationships*, or building a private bubble where you don\u2019t have to face anything\u2014then yes, that would be escapism, and it\u2019s exactly what he\u2019s trying to cure when he says the retreat should \u201csend you back\u2026 to the task\u201d ([4.3]).\n\nIf you want, tell me what kind of \u201cproblem\u201d you had in mind (people, pain, work, anxiety about the future), and I can show how Marcus would apply the \u201cbrief and fundamental\u201d thoughts in this section to that specific case.",
+    "usage": {
+      "input_tokens": 54918,
+      "cached_tokens": 53888,
+      "output_tokens": 1506,
+      "reasoning_tokens": 612
+    },
+    "cost": 0.0323169,
+    "seconds_to_first_token": 13.8,
+    "router_seconds": 2.3,
+    "total_seconds": 29.1,
+    "citations_valid": [
+      "[Book 4, Section 3]",
+      "[Book 4, Section 3]",
+      "[Book 4, Section 3]",
+      "[Book 2, Section 5]",
+      "[Book 3, Section 5]",
+      "[Book 2, Section 1]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 2,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "In passages like [Book 6, Section 24], \u201catoms\u201d is Marcus\u2019s shorthand for the *anti-Stoic* picture of the world: Epicurean-style atomism\u2014no providence, no guiding Reason (Logos), just matter in motion and chance combinations. He keeps bringing it up because he\u2019s training himself to be steady **even if** the most comforting Stoic metaphysics were false.\n\nSo he repeatedly sets up a fork like this:\n\n- **Either** the universe is governed by an intelligent, purposive Nature/Providence (the Stoic view),\n- **or** it\u2019s a purely material process (atoms / chance / \u201cconfusion\u201d).\n\nAnd then he draws the same practical conclusion either way: *don\u2019t panic; live justly; death isn\u2019t a scandal; external rank (Alexander vs muleteer) collapses at the end.*\n\nIn [Book 6, Section 24] the point is: whatever becomes of us at death, Alexander\u2019s \u201cgreatness\u201d doesn\u2019t purchase him a different metaphysical outcome than his muleteer\u2019s. They\u2019re \u201cin a like condition.\u201d\n\n### Where else he does this (\u201catoms or providence\u201d)\nHe uses this \u201ceither providence or atoms\u201d formula in several places:\n\n- **[Book 4, Section 3]**: he tells himself to calm down by remembering the alternative:  \n  \u201cEither providence directs the world, **or there is nothing but unguided atoms**\u2026\u201d\n\n- **[Book 6, Section 10]**: same structure, more bluntly:  \n  \u201cThe Universe is either a confusion\u2026 **or else a unity**\u2026\u201d (this is the same contrast even when he doesn\u2019t say \u201catoms\u201d explicitly).\n\n- **[Book 7, Section 31]**: he explicitly brings \u201catoms\u201d back as the rival theory:  \n  \u201c...obey God. \u2018All things,\u2019 says someone, \u2018go by law and order.\u2019 **But what if there be naught beyond the atoms?** Even if that be so\u2026\u201d\n\n- **[Book 7, Section 32]**: he applies the fork specifically to death:  \n  \u201cIf the Universe be **a concourse of atoms**, death is a scattering of these\u2026\u201d\n\n- **[Book 7, Section 50]**: again, death as atomistic untying:  \n  \u201cThis imports either the loosing of **a knot of atoms**, or a similar dispersion\u2026\u201d\n\n- **[Book 9, Section 28]**: the same three-way framing (God / chain of consequence / atoms):  \n  \u201cEither the Universal Mind\u2026 or\u2026 all things go on\u2026 in a necessary chain\u2026 **or again atoms**\u2026\u201d\n\n- **[Book 9, Section 39]**: the fork again:  \n  \u201cEither all things proceed from one source of intelligence\u2026 **or all is atoms**\u2026\u201d\n\nAnd he sometimes gives a closely related version without the word \u201catoms\u201d:\n\n- **[Book 12, Section 14]**: \u201cProvidence\u201d vs \u201cblind confusion without a governor.\u201d\n\n### Why a Stoic emperor keeps saying \u201catoms\u201d\nTwo reasons, both very Stoic in spirit:\n\n1. **Therapeutic robustness:** he wants an attitude that survives metaphysical uncertainty. If providence is real, accept events as Nature\u2019s rational allotment. If not, then you still don\u2019t gain anything by complaint\u2014your body dissolves into matter anyway.\n\n2. **He\u2019s arguing himself out of status-anxiety and fear of death:** \u201catoms\u201d is especially useful when the point is levelling\u2014Alexander and muleteer; emperor and slave; famous and forgotten. Under atomism, death is literally just dispersal, so pride is absurd; under providence, pride is also absurd because you\u2019re only a part of the whole.\n\nIf you want, tell me what\u2019s bugging you about the move in [Book 6, Section 24] specifically\u2014whether it\u2019s the \u201ceither/or\u201d reasoning, or the way it\u2019s supposed to comfort him\u2014and I\u2019ll unpack that argument step by step.",
+    "usage": {
+      "input_tokens": 54308,
+      "cached_tokens": 53888,
+      "output_tokens": 1820,
+      "reasoning_tokens": 966
+    },
+    "cost": 0.0356454,
+    "seconds_to_first_token": 32.7,
+    "router_seconds": 3.7,
+    "total_seconds": 34.3,
+    "citations_valid": [
+      "[Book 6, Section 24]",
+      "[Book 6, Section 24]",
+      "[Book 4, Section 3]",
+      "[Book 6, Section 10]",
+      "[Book 7, Section 31]",
+      "[Book 7, Section 32]",
+      "[Book 7, Section 50]",
+      "[Book 9, Section 28]",
+      "[Book 9, Section 39]",
+      "[Book 12, Section 14]",
+      "[Book 6, Section 24]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 3,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "In this passage Marcus is using a very technical Stoic distinction.\n\n### \u201cIndifferent things\u201d = things that are **not** moral good or moral evil\nWhen he says \u201c**indifference to all things that lie between good and bad**\u201d [Book 7, Section 31], he means: train yourself not to treat *externals* as if they were what makes life good or bad.\n\nFor the Stoics:\n\n- **Good** (in the strict sense) = what makes you a good human being: virtue and virtuous activity (justice, truthfulness, self-command, courage, rationality).\n- **Bad** (in the strict sense) = what makes you a bad human being: vice and vicious activity (injustice, cowardice, dishonesty, intemperance).\n- Everything else\u2014health/illness, wealth/poverty, reputation/disgrace, pleasure/pain, even life/death\u2014is **\u201cindifferent\u201d** (*adiaphora*) **with respect to your moral worth and your happiness**.\n\nYou can see Marcus state this explicitly elsewhere: \u201cdeath and life, glory and reproach, pain and pleasure, riches and poverty\u2026 are therefore neither good nor evil\u201d [Book 2, Section 11].\n\n### \u201cIndifferent\u201d does *not* mean \u201cdon\u2019t care\u201d or \u201cmake no choices\u201d\nIt means: these things are not *the measure* of a good life, and they can\u2019t touch the only thing that is truly good in you\u2014your ruling reason and your character.\n\nMarcus is very clear on this broader point:\n- \u201cWhen you are grieved about anything external\u2026 it is your judgment about it\u201d [Book 8, Section 47].\n- \u201cThings stand motionless without; and it is we that form opinions about them within\u201d [Book 11, Section 16].\n\nSo \u201cindifference\u201d is mainly **a discipline of valuation**: don\u2019t upgrade externals into \u201cgoods\u201d or \u201cevils.\u201d\n\n### Preferred and dispreferred indifferents (the nuance)\nStoicism also says many indifferents have *natural* value:\n- health is naturally \u201cto be preferred,\u201d illness \u201cto be dispreferred\u201d\n- security preferred, danger dispreferred, etc.\n\nBut they\u2019re still not **good** or **bad** in the moral sense. They are *materials* on which virtue works. Marcus puts this in his \u201ccommonwealth/citizen\u201d language: what matters is that your actions remain \u201cjust and holy\u201d [Book 4, Section 18], even while circumstances change.\n\n### Why \u201cbetween good and bad\u201d?\nBecause once you reserve \u201cgood/bad\u201d for virtue/vice, most of what people fight over falls into a middle category: not good, not bad\u2014just *circumstances*. That\u2019s what he\u2019s calling \u201cbetween.\u201d\n\nIf you want a one-sentence paraphrase of the highlighted phrase:\n> Don\u2019t let your happiness or integrity rise and fall with externals; treat them as neither blessings nor disasters, but as occasions to practice virtue.\n\nIf you tell me what kind of \u201cindifferent\u201d you\u2019re thinking of (health, career, reputation, relationships), I can map this distinction onto that specific case in Marcus\u2019s terms.",
+    "usage": {
+      "input_tokens": 54353,
+      "cached_tokens": 53888,
+      "output_tokens": 917,
+      "reasoning_tokens": 247
+    },
+    "cost": 0.023082150000000003,
+    "seconds_to_first_token": 9.2,
+    "router_seconds": 3.5,
+    "total_seconds": 20.5,
+    "citations_valid": [
+      "[Book 7, Section 31]",
+      "[Book 2, Section 11]",
+      "[Book 8, Section 47]",
+      "[Book 11, Section 16]",
+      "[Book 4, Section 18]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 4,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "Not quite. The tone can sound cynical if you read it as \u201cmost people are terrible,\u201d but the aim is closer to *psychological preparation* and *moral self-defense* than contempt.\n\n### 1) It\u2019s a morning exercise against surprise and resentment, not a verdict on humanity\nHe\u2019s telling himself: *don\u2019t be shocked when you meet obstruction, rudeness, ingratitude, etc.* That shock is what turns into indignation, then anger, then (in Stoic terms) loss of self-command.\n\nYou can see the same strategy elsewhere: he repeatedly urges himself to stop being astonished that the world produces the kinds of people it produces ([Book 8, Section 15]) and to remember that the \u201cclass\u201d of shameless/crafty people is inevitable in any human world ([Book 9, Section 42]).\n\n### 2) He\u2019s not saying \u201ceveryone is awful,\u201d but \u201cthese are the predictable frictions of social life\u201d\nNotice he doesn\u2019t say *all people are meddlers\u2026* He says: \u201c**Today I shall have to do with** meddlers\u2026\u201d ([Book 2, Section 1]). In other words: you will run into *some* of these types; plan accordingly.\n\nThis is basically Stoic *premeditation of difficulties*: anticipate the likely obstacles so you can meet them without inner collapse.\n\n### 3) The core move is not cynicism but *compassionate explanation*: wrongdoing comes from ignorance\n\u201cAll these vices\u2026 because they **know not what is good and what is evil**\u201d ([Book 2, Section 1]). For Marcus, most harm people do is rooted in confused value-judgments\u2014mistaking pleasure, status, advantage, etc. for \u201cgood.\u201d That doesn\u2019t excuse the behavior, but it changes your stance from *outrage* to *diagnosis*.\n\nHe repeats this often: when someone offends you, look for the mistaken view of good/evil underneath it, and you\u2019ll feel pity rather than anger ([Book 7, Section 26]).\n\n### 4) \u201cI cannot be hurt\u201d means: they can\u2019t damage your character unless you cooperate\nWhen he says \u201c**I therefore cannot be hurt\u2026 since none of them can involve me in any baseness**\u201d ([Book 2, Section 1]), he\u2019s using a strict Stoic sense of harm: the only true damage is becoming worse\u2014unjust, dishonest, spiteful, cowardly. Other people\u2019s behavior can injure your body, block your plans, cost you money\u2014but it can\u2019t *force* you into \u201cbaseness\u201d unless you respond badly.\n\nThat\u2019s why the paragraph ends by treating anger itself as the real problem: \u201c**It is against nature for men to oppose each other; and what else is anger and aversion?**\u201d ([Book 2, Section 1]).\n\n### 5) The \u201cbrother\u201d claim is the opposite of contempt: it\u2019s a duty to cooperate\nHe calls even the \u201cevil-doer\u201d his \u201cbrother\u201d because both share reason\u2014\u201cthe same mind\u201d\u2014and belong to one community by nature ([Book 2, Section 1]). Hence the image of hands/feet/eyelids: you don\u2019t hate your own hand for getting in your way; you coordinate it.\n\nThis ties directly to his repeated view that humans are made for mutual assistance and that withdrawing into hostility is a kind of self-mutilation of the social organism (e.g., [Book 11, Section 8]).\n\n---\n\nSo the point isn\u2019t \u201cassume the worst of everyone.\u201d It\u2019s:\n\n- expect frictions as normal,\n- interpret wrongdoing as confused judgment rather than personal malice,\n- protect your own character from being pulled into anger,\n- and keep the stance of cooperation because that\u2019s what your nature is for.\n\nIf you want, tell me what line in the paragraph grates most\u2014\u201cmeddlers\u2026,\u201d \u201cthey know not\u2026,\u201d or \u201cI cannot be hurt\u201d\u2014and we can unpack that specific claim more closely.",
+    "usage": {
+      "input_tokens": 54498,
+      "cached_tokens": 53888,
+      "output_tokens": 1135,
+      "reasoning_tokens": 286
+    },
+    "cost": 0.026387900000000002,
+    "seconds_to_first_token": 10.1,
+    "router_seconds": 4.7,
+    "total_seconds": 25.4,
+    "citations_valid": [
+      "[Book 8, Section 15]",
+      "[Book 9, Section 42]",
+      "[Book 2, Section 1]",
+      "[Book 2, Section 1]",
+      "[Book 7, Section 26]",
+      "[Book 2, Section 1]",
+      "[Book 2, Section 1]",
+      "[Book 2, Section 1]",
+      "[Book 11, Section 8]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 5,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "In that passage [Book 4, Section 3], Marcus isn\u2019t saying \u201cretreat inward\u201d so you can *ignore* the mess. He\u2019s saying: retreat inward so you can *return to the task* \u201cwithout fretting,\u201d i.e., without losing your freedom and judgment to the mess.\n\nTwo questions to test what he means:\n\n1) When the world is \u201ca mess,\u201d what part of it is actually *yours to govern*\u2014the whole external situation, or (as he puts it) \u201cwhat we think of them within\u201d? If the only thing you can directly command is your own ruling part, what happens to your power to help when that part is disordered?\n\n2) When you are not calm\u2014when you\u2019re \u201cdistraught\u201d or \u201coverstrained\u201d\u2014do you usually act **more** justly and effectively toward others, or **less**? (Notice he ties calm to justice: \u201cto bear with them is a part of justice,\u201d and then, \u201csend you back without fretting at the task to which you return.\u201d)\n\nA small hint, staying close to his claims: in [Book 4, Section 3] he sets up two \u201creadiest principles\u201d:\n- \u201cthings external do not touch the soul\u2026 all trouble comes from what we think of them within\u201d\n- \u201call things visible change in a moment\u201d\n\nIf that\u2019s true, then inner calm matters not because it repairs the whole world by itself, but because it keeps *you* from being made worse by the world\u2014and that\u2019s the condition for doing your part in it. (He says similarly elsewhere: \u201cThat which makes not a man worse than he was, makes not his life worse\u201d [Book 4, Section 8].)\n\nIf you tell me what you mean by \u201cthe world is a mess\u201d (other people\u2019s behavior? politics? your own circumstances?), we can apply his \u201cretire into yourself\u2026 and go back to the task\u201d to that specific case.",
+    "usage": {
+      "input_tokens": 54916,
+      "cached_tokens": 52864,
+      "output_tokens": 920,
+      "reasoning_tokens": 505
+    },
+    "cost": 0.025722199999999997,
+    "seconds_to_first_token": 11.3,
+    "router_seconds": 2.3,
+    "total_seconds": 18.4,
+    "citations_valid": [
+      "[Book 4, Section 3]",
+      "[Book 4, Section 3]",
+      "[Book 4, Section 8]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 6,
+    "model": "gpt-5-mini",
+    "effort": "low",
+    "answer": "Short answer: primarily himself.\n\nMarcus wrote the Meditations as a private journal of philosophical practice \u2014 reminders, exercises, consolations and self\u2011exhortations addressed to his own mind. The book repeatedly reads like interior instruction: \u201cSay this to yourself in the morning\u2026\u201d [Book 2, \u00a71]; \u201cGo on, go on, O my soul\u2026\u201d [Book 2, \u00a76]; \u201cWilt thou ever, O my soul, be good and single\u2026\u201d [Book 10, \u00a71]. Those formul\u00e6 show the work\u2019s immediate addressee is Marcus\u2019s own ruling part (his \u201csoul,\u201d \u201cmind,\u201d or \u201cself\u201d).\n\nWhy we judge it private:\n- Tone and form: short aphorisms, questions to \u201cmy soul,\u201d practical reminders rather than systematic treatise \u2014 characteristic of a workbook for practice, not a polished text for students or the public. See examples above.\n- Opening book: Book 1 is a personal list of debts of gratitude to family and teachers ([Book 1, \u00a71\u201317]), another sign of a personal ledger rather than a public manifesto.\n- Historical context: Marcus wrote much of it while on military campaign (he calls out places such as Carnuntum, Aquileia), which fits the profile of a private notebook kept to steady himself in isolating circumstances.\n\nThat said, Meditations is also explicitly philosophical and pedagogical in character: Marcus rehearses Stoic doctrines he had learned and sometimes formulates maxims that would be useful to any reader. But the consistent \u201caddress to self\u201d and the episodic, fragmentary structure indicate the book\u2019s original purpose was self\u2011improvement and spiritual discipline, not composition for publication.\n\nIf you want, I can point out the most explicit self\u2011address passages and show how their language differs from a public treatise.",
+    "usage": {
+      "input_tokens": 54247,
+      "cached_tokens": 0,
+      "output_tokens": 537,
+      "reasoning_tokens": 128
+    },
+    "cost": 0.01463575,
+    "seconds_to_first_token": 5.2,
+    "router_seconds": 2.2,
+    "total_seconds": 9.1,
+    "citations_valid": [],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 7,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "Marcus is best read as a convinced Stoic who *mostly* assumes providence (a rational, law\u2011like ordering of nature), but who sometimes *brackets* that commitment by rehearsing the rival \u201catoms\u201d hypothesis as a kind of mental backstop. That can look like agnosticism, but it functions more like a therapeutic exercise: *even if* my physics were wrong, my ethical task stays the same.\n\n### 1) He repeatedly affirms providence, not merely as a possibility\nThere are places where he states providence straightforwardly, as something he takes to be true:\n\n- \u201c**Whatever the Gods ordain is full of wise forethought**\u2026 Providence is the source of all things\u201d [Book 2, Section 3].  \n- \u201c**But Gods there are, and assuredly they regard human affairs**\u201d [Book 2, Section 11].  \n- His long gratitude list is addressed to \u201c**the Gods**\u201d as real benefactors in his life, not as a literary fiction [Book 1, Section 17].  \n- He often speaks as if the world is governed by an \u201cintelligence\u201d or \u201cguiding Mind,\u201d i.e. Stoic *logos*: \u201c**The mind which governs it has in itself no source of evil-doing**\u2026\u201d [Book 6, Section 1].\n\nIf you collected *only* those passages, you\u2019d conclude: he believes the Stoic picture.\n\n### 2) Why, then, the \u201catoms\u201d lines? He uses an either/or refrain on purpose\nThe \u201ceither providence or atoms\u201d disjunction recurs in several places:\n\n- \u201cEither providence directs the world, or there is nothing but unguided atoms\u201d [Book 4, Section 3].  \n- \u201cThe Universe is either a confusion\u2026 or else a unity compact of order and forethought\u201d [Book 6, Section 10].  \n- \u201cEither the Universal Mind\u2026 or\u2026 atoms and indivisible particles\u201d [Book 9, Section 28].  \n- \u201cThere is either\u2026 Providence\u2026 or a blind confusion\u201d [Book 12, Section 14].\n\nIn your passage, he does the same: \u201cBut what if there be naught beyond the atoms?\u201d [Book 7, Section 31].\n\nThis doesn\u2019t have to mean \u201cI don\u2019t know.\u201d It\u2019s closer to: \u201cEven if the Epicureans were right about physics, don\u2019t let that collapse your character.\u201d It\u2019s a way of *removing the emotional dependency* of ethics on metaphysics.\n\n### 3) What he means by \u201claw\u201d even if there are atoms\nIn [Book 7, Section 31], he says that even if \u201cthere be naught beyond the atoms,\u201d still \u201call things, save very few, are swayed by law.\u201d\n\nThat\u2019s consistent with two thoughts at once:\n\n1) **Stoic view:** \u201claw\u201d is rational providence\u2014Nature as a coherent, purposive order.  \n2) **Minimal fallback:** even in a non-providential universe, events still mostly follow **regular causal patterns** (what we\u2019d call necessity, nature\u2019s regularities). So you still have to stop complaining that reality isn\u2019t arranged for your convenience; the world will do what it does.\n\nSo he can tell himself: whichever theory is true, *practice simplicity, modesty, social love, and obedience to what is higher than your private appetite.*\n\n### 4) Is he \u201cagnostic\u201d in a modern sense?\nNot quite. He shows **epistemic humility**\u2014he knows human certainty is hard (\u201cit is difficult to comprehend anything with certainty\u201d [Book 5, Section 10])\u2014but the dominant posture of the work is devotion to a providential Nature/Zeus and to the inner \u201cdivinity\u201d as a share of that order.\n\nA good way to phrase his stance is: **Stoic providentialism with a practiced contingency plan.** When his mind is steady, he speaks as a believer in providence; when he is shoring himself up against anger, grief, or disgust with people, he adds: *and even if the cosmos is just atoms, your duty doesn\u2019t change.*\n\nIf you want, point me to one or two other places where he \u201cgoes back and forth\u201d for you, and I can show how the immediate context is usually doing this same kind of psychological work.",
+    "usage": {
+      "input_tokens": 54351,
+      "cached_tokens": 53888,
+      "output_tokens": 1597,
+      "reasoning_tokens": 682
+    },
+    "cost": 0.03259865,
+    "seconds_to_first_token": 13.5,
+    "router_seconds": 2.5,
+    "total_seconds": 29.0,
+    "citations_valid": [
+      "[Book 2, Section 3]",
+      "[Book 2, Section 11]",
+      "[Book 1, Section 17]",
+      "[Book 6, Section 1]",
+      "[Book 4, Section 3]",
+      "[Book 6, Section 10]",
+      "[Book 9, Section 28]",
+      "[Book 12, Section 14]",
+      "[Book 7, Section 31]",
+      "[Book 7, Section 31]",
+      "[Book 5, Section 10]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 8,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "By \u201cgood **without qualification**\u201d Kant means: **good in an unconditional, exceptionless way**\u2014good *in itself*, not merely *good for* something, and not good only *provided that* certain further conditions obtain.\n\nIn the paragraph you quoted [Book 1, Section 16], he\u2019s contrasting two kinds of \u201cgoods\u201d:\n\n1. **Conditional (qualified) goods**: intelligence, courage, perseverance, power, wealth, health, even happiness.  \n   These are \u201cgood and desirable in many respects,\u201d but their goodness is **qualified**\u2014it depends on *how they\u2019re used* and *what kind of will directs them*. The very same traits can become \u201cextremely bad and mischievous\u201d if the will behind them is not good. So they\u2019re not good *without qualification*; they\u2019re good **under the condition** of a good character.\n\n2. **Unconditional (unqualified) good**: \u201cexcept a good will.\u201d  \n   A good will is supposed to be the one thing whose value doesn\u2019t flip or disappear when you vary circumstances and consequences.\n\nKant immediately clarifies what this unconditionality amounts to a bit later: a good will is good **\u201cnot because of what it performs or effects\u2026 but simply by virtue of the volition; that is, it is good in itself\u201d** [Book 1, Section 18]. So \u201cwithout qualification\u201d means: **its goodness does not depend on**:\n- success or failure,\n- usefulness,\n- producing happiness,\n- serving any further end,\n- or being combined with favorable traits or fortune.\n\nThat\u2019s also why, in the last sentence of your passage, he says a good will is \u201cthe indispensable condition even of being **worthy** of happiness\u201d [Book 1, Section 16]. Happiness is a \u201cgood,\u201d but not an unqualified one: it becomes morally fitting\u2014something one *deserves*\u2014only when joined to a good will.\n\nSo the core idea is: **most things we call \u201cgood\u201d are good only with an implicit \u201cif\u2026\u201d attached; the good will is good without any such \u201cif.\u201d**",
+    "usage": {
+      "input_tokens": 37691,
+      "cached_tokens": 0,
+      "output_tokens": 826,
+      "reasoning_tokens": 380
+    },
+    "cost": 0.07752325,
+    "seconds_to_first_token": 9.9,
+    "router_seconds": 2.5,
+    "total_seconds": 18.0,
+    "citations_valid": [
+      "[Book 1, Section 16]",
+      "[Book 1, Section 18]",
+      "[Book 1, Section 16]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 9,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "In this sentence Kant is trying to name the *specific kind of motive* that is present when an action is done **from duty** (not merely *in conformity* with duty).\n\n### 1) \u201cThe law\u201d here is the moral law\nWhen Kant says \u201cthe law\u201d in this context, he does **not** mean a civil/legal code. He means the **moral law as such**\u2014the requirement that your maxim be fit to hold universally (what he soon formulates as the categorical imperative). You can see the shape of that coming a few sections later: \u201c*I am never to act otherwise than so that I could also will that my maxim should become a universal law*\u201d [Book 1, Section 34].\n\n### 2) \u201cRespect\u201d is not admiration, liking, or fear\nKant\u2019s point in the paragraph is: you can be *inclined* toward an object (because it promises pleasure), but you don\u2019t \u201crespect\u201d it in the relevant moral sense. Likewise you don\u2019t \u201crespect\u201d an inclination as a motive; at most you *approve* it (if it\u2019s yours) or *love* it (if it suits you) [Book 1, Section 30].\n\nSo what *can* be respected? Only something that relates to the will **as a principle**\u2014something that claims authority over your choice *even when it conflicts with what you want*. That is why he says: \u201c*simply the law of itself \u2026 can be an object of respect*\u201d [Book 1, Section 30].\n\nKant explains \u201crespect\u201d more directly in the note immediately after: respect is \u201c*the consciousness that my will is subordinate to a law*\u201d [Book 1, Section 33]. It\u2019s a feeling, but not one you get from being affected by an attractive object; it is \u201c*self-wrought by a rational concept*\u201d [Book 1, Section 33]. In other words, it\u2019s the *felt impact on a finite human will* of recognizing a law as authoritative.\n\n### 3) Why duty = \u201cnecessity of acting\u201d from that respect\nBecause humans are not \u201choly wills\u201d whose desires automatically align with reason, the moral law shows up for us as something that *necessitates*\u2014it constrains or commands. So \u201cduty\u201d names the situation where:\n\n- **Objectively:** what determines the will is *the law* (not some desired outcome).\n- **Subjectively:** what moves you is *respect*\u2014your recognition of the law\u2019s authority over you, even against inclination.\n\nThat\u2019s why Kant can say: **Duty is the necessity of acting from respect for the law** [Book 1, Section 30]. It\u2019s \u201cnecessity\u201d because your inclinations pull one way and the law demands another; it\u2019s \u201cfrom respect\u201d because the law\u2019s authority, as grasped by reason, is what supplies the motive.\n\n### Quick example\nIf I keep a promise *because I\u2019m afraid of being caught*, the motive is still inclination (self-interest). If I keep it *even when breaking it would benefit me and I likely wouldn\u2019t be caught*, because I take \u201cpromise-keeping must be universalizable\u201d to be binding on me, then I act from **respect for the law**\u2014and that action has moral worth in Kant\u2019s sense (compare [Book 1, Sections 24\u201329]).\n\nIf you want, tell me what part feels most opaque: (a) how a *law* can motivate at all, (b) why Kant calls respect a *feeling*, or (c) why acting \u201cfrom duty\u201d requires excluding inclination.",
+    "usage": {
+      "input_tokens": 37720,
+      "cached_tokens": 36480,
+      "output_tokens": 902,
+      "reasoning_tokens": 138
+    },
+    "cost": 0.021182,
+    "seconds_to_first_token": 7.8,
+    "router_seconds": 4.1,
+    "total_seconds": 21.5,
+    "citations_valid": [
+      "[Book 1, Section 34]",
+      "[Book 1, Section 30]",
+      "[Book 1, Section 30]",
+      "[Book 1, Section 33]",
+      "[Book 1, Section 33]",
+      "[Book 1, Section 30]",
+      "[Book 1, Sections 24\u201329]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 10,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "Kant\u2019s formula in [Book 1, Section 78] can *sound* like the Golden Rule because both ask you to take a standpoint beyond your private case. But they differ in what that standpoint is and what it can justify.\n\n### 1) Universal law vs. \u201cwhat I would want\u201d\n- **Kant ([Book 1, Section 78])**: test your *maxim* by asking whether you can **will it as a universal law** (\u201cAct only on that maxim whereby thou canst at the same time will that it should become a universal law.\u201d). The question is about *legislation*: could everyone act on this rule, and could I rationally will that?\n- **Golden Rule** (in one common form): \u201cDo unto others as you would have them do unto you.\u201d The question is about *my preferences*: what would I like done to me?\n\nSo the Golden Rule ties morality to a person\u2019s contingent desires and tolerances; Kant ties it to whether a principle could hold as law for all rational agents.\n\n### 2) The Golden Rule is (for Kant) only a *derivative* and limited guide\nKant explicitly addresses this in the footnote at [Book 1, Section 100], where he mentions the familiar Latin version:\n\n> \u201cLet it not be thought that the common \u2018quod tibi non vis fieri, etc.\u2019 could serve here as the rule or principle. For it is only a deduction from the former, though with several limitations\u2026\u201d\n\nSo for Kant, the Golden Rule is at best an *imperfect* shortcut *derived from* the deeper universal-law idea\u2014but it cannot be the fundamental principle.\n\n### 3) Why it\u2019s limited: it misses whole classes of duties\nIn that same note [Book 1, Section 100], Kant lists three failures:\n\n1) **It doesn\u2019t capture duties to oneself**  \n   You can\u2019t derive \u201cdon\u2019t commit suicide\u201d or \u201cdevelop your talents\u201d from \u201cwhat I want others to do to me,\u201d because those aren\u2019t essentially *other-regarding* in the relevant way.\n\n2) **It can\u2019t ground duties of benevolence**  \n   Kant writes that \u201cmany a one would gladly consent that others should not benefit him, provided only that he might be excused from showing benevolence to them\u201d ([Book 1, Section 100]).  \n   Someone could say: \u201cI don\u2019t want help; therefore I owe no help.\u201d Golden Rule reasoning can let that pass. Kant\u2019s universalization test can still condemn a maxim of refusing aid (see the fourth example at [Book 1, Section 84]).\n\n3) **It can be abused against justice / strict right**  \n   Kant points out \u201cthe criminal might argue against the judge who punishes him\u201d ([Book 1, Section 100]). A thief could say: \u201cI wouldn\u2019t want to be punished, so you shouldn\u2019t punish me.\u201d That\u2019s obviously not how justice works. Universal law reasoning distinguishes **a rule for punishment/justice** from the criminal\u2019s self-serving preference.\n\n### 4) The deeper structural difference: contradictions in *willing*, not mere symmetry\nKant\u2019s test asks whether the maxim can be universal **without contradiction**\u2014either a contradiction in conception (the practice collapses, like false promising in [Book 1, Section 82]) or a contradiction in willing (you can\u2019t coherently will a world with that law, like refusing to help in [Book 1, Section 84]). The Golden Rule doesn\u2019t have that structure; it\u2019s a symmetry/reciprocity heuristic.\n\n**Bottom line:** For Kant, the categorical imperative in [Book 1, Section 78] is a principle of *universal legislation by reason*; the Golden Rule is at best a rough \u201crule of thumb\u201d and, as he says, \u201conly a deduction from the former\u201d with \u201climitations\u201d ([Book 1, Section 100]).",
+    "usage": {
+      "input_tokens": 37534,
+      "cached_tokens": 36480,
+      "output_tokens": 1025,
+      "reasoning_tokens": 202
+    },
+    "cost": 0.0225785,
+    "seconds_to_first_token": 6.9,
+    "router_seconds": 2.8,
+    "total_seconds": 20.7,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 78]",
+      "[Book 1, Section 100]",
+      "[Book 1, Section 100]",
+      "[Book 1, Section 100]",
+      "[Book 1, Section 84]",
+      "[Book 1, Section 100]",
+      "[Book 1, Section 82]",
+      "[Book 1, Section 84]",
+      "[Book 1, Section 78]",
+      "[Book 1, Section 100]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 11,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "No. Kant\u2019s claim in that paragraph is **not** \u201cnever use anyone as a means.\u201d It\u2019s \u201cnever use anyone *merely* as a means\u201d\u2014i.e., never in a way that bypasses or subordinates their status as a rational agent with their own ends.\n\nYou can see this built into the next formulation of the principle: **\u201ctreat humanity \u2026 always as an end withal, never as means only\u201d** [Book 1, Section 96]. The \u201conly\u201d matters.\n\n### What \u201cas an end in himself\u201d means here\nIn [Book 1, Section 95], Kant is saying that rational beings (\u201cpersons\u201d) have a kind of **absolute worth** (later he calls it \u201cdignity\u201d [Book 1, Section 117\u2013120]) because they can act on principles, set ends, and legislate for themselves. So morality requires that, in how you involve them in your plans, you **respect their rational agency**, not treat them like a disposable tool (\u201cthings\u201d).\n\n### So can you \u201cuse\u201d a cashier?\nYes\u2014in an ordinary transaction you are inevitably using people as means (the cashier helps you buy groceries). Kant\u2019s point is: you must do so **in a way consistent with their being an end in themselves**.\n\nA good rule of thumb, consistent with Kant\u2019s own examples:\n\n- **Wrong (using as means only):** involving someone in your plan by **deception or coercion**, so they *can\u2019t* meaningfully choose.  \n  Kant\u2019s lying-promise case makes this explicit: a deceitful promise uses the other person \u201cmerely as a mean,\u201d because they \u201ccannot possibly assent\u201d to the action as you are really doing it [Book 1, Section 99].\n\n- **Permissible (using as means and also as end):** engaging them through **truthful, non-coercive, mutually intelligible terms**, where they can consent and pursue their own ends too. Paying the price, not cheating them, not threatening them, not manipulating them\u2014these preserve their agency.\n\nSo buying something from a cashier (or hiring someone) is not automatically disrespectful. It becomes morally problematic when you treat the person as if they were *just* a mechanism for your benefit\u2014e.g., lying to them, exploiting them under conditions they could not reasonably accept, forcing them, humiliating them, denying their capacity to choose.\n\nIf you want, describe a specific cashier scenario (e.g., haggling, returns, using self-checkout to avoid them, \u201ccustomer is always right\u201d behavior), and I\u2019ll map it directly onto Kant\u2019s \u201cmeans only\u201d vs \u201calso as end\u201d distinction in [Book 1, Section 95\u2013102].",
+    "usage": {
+      "input_tokens": 37793,
+      "cached_tokens": 36480,
+      "output_tokens": 1037,
+      "reasoning_tokens": 468
+    },
+    "cost": 0.02319975,
+    "seconds_to_first_token": 13.0,
+    "router_seconds": 4.0,
+    "total_seconds": 23.6,
+    "citations_valid": [
+      "[Book 1, Section 96]",
+      "[Book 1, Section 95]",
+      "[Book 1, Section 117\u2013120]",
+      "[Book 1, Section 99]",
+      "[Book 1, Section 95\u2013102]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 12,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "The \u201ckingdom of ends\u201d is Kant\u2019s way of *re-presenting the very same categorical imperative* in a more concrete, social, and \u201csystematic\u201d form. It connects to the earlier formulas by *combining* what each of them contributes.\n\n### 1) From **universal law** to a **shared legislation**\nThe first formula gives the basic test of a maxim by its *form*:\n\n- **Formula of Universal Law:** \u201cAct only on that maxim whereby thou canst at the same time will that it should become a universal law.\u201d [Book 1, Section 78]  \n- And its \u201claw of nature\u201d variant [Book 1, Section 79].\n\nIf your maxim must be fit to hold as a law for *everyone*, you are already thinking of your willing as if it had a *legislative* reach. That prepares the shift to autonomy.\n\n### 2) From **humanity as end** to the **members** of that legislation\nThe second formula identifies the *matter* (the \u201cend\u201d) that any such legislation must respect:\n\n- **Formula of Humanity:** treat \u201chumanity \u2026 always \u2026 as an end withal, never as means only.\u201d [Book 1, Section 96]\n\nThis tells you *who* must be included in the scope of the law: all rational beings are not merely rule-followers, but beings with \u201cabsolute worth,\u201d i.e. \u201cpersons\u201d [Book 1, Section 95]. So universal law isn\u2019t universal over \u201cthings\u201d; it\u2019s universal over a community of persons who must never be reduced to mere instruments.\n\n### 3) From those two to **autonomy** (universal *self*-legislation)\nKant then makes explicit what was implicit in universalizability: if a maxim is to count as law, the will must regard itself not merely as *subject* to law but as *author* of law:\n\n- **Formula of Autonomy / Universal Legislation:** \u201cthe idea of the will of every rational being as a universally legislative will.\u201d [Book 1, Section 103]  \n- and: the will must be regarded as \u201citself giving the law.\u201d [Book 1, Section 104]\n\nSo the earlier formulas (universal law; humanity as end) now get unified as the standpoint of *legislation* that (i) is universal in form and (ii) has persons as ends in themselves as its limiting condition.\n\n### 4) The **kingdom of ends** is autonomy + humanity, viewed as a *system*\nNow [Book 1, Section 110] says this conception \u201cleads to\u2026 a kingdom of ends.\u201d The step is:\n\n- If each rational being must will only maxims fit for *universal legislation* [Book 1, Section 103\u2013104],  \n- and each rational being is an *end in itself* [Book 1, Section 95\u201396],  \n- then we can represent all rational beings as united under common self-given laws\u2014i.e. as a \u201ckingdom,\u201d \u201cthe union of different rational beings in a system by common laws.\u201d [Book 1, Section 111]\n\nThat\u2019s why it \u201cdepends on\u201d the autonomy formula: the kingdom of ends is what you get when you think of universal self-legislation not as an isolated test for *me*, but as the principle of a whole *order of agents*.\n\nKant himself later makes the equivalence explicit: the \u201cthree modes of presenting the principle of morality\u2026 are at bottom only so many formulae of the very same law\u201d [Book 1, Section 121], and the \u201ckingdom of ends\u201d formula is the \u201ccomplete characterization\u201d (totality/system) of maxims [Book 1, Section 123]. He even states the kingdom-of-ends imperative in a compressed form: act on maxims \u201cof a member of a merely possible kingdom of ends legislating in it universally.\u201d [Book 1, Section 127]\n\n**In short:**  \n- **Universal law** gives the *form* of moral law ([78\u201379]).  \n- **Humanity** gives the *status* of persons as ends ([95\u201396]).  \n- **Autonomy** says the will must see itself as *legislator* ([103\u2013104]).  \n- **Kingdom of ends** is these together, pictured as a coherent *community/system* of mutual lawgiving under which each is both lawgiver and protected end ([111\u2013112], [127]).",
+    "usage": {
+      "input_tokens": 37508,
+      "cached_tokens": 36480,
+      "output_tokens": 1693,
+      "reasoning_tokens": 753
+    },
+    "cost": 0.031885,
+    "seconds_to_first_token": 16.3,
+    "router_seconds": 2.9,
+    "total_seconds": 32.2,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 79]",
+      "[Book 1, Section 96]",
+      "[Book 1, Section 95]",
+      "[Book 1, Section 103]",
+      "[Book 1, Section 104]",
+      "[Book 1, Section 110]",
+      "[Book 1, Section 103\u2013104]",
+      "[Book 1, Section 95\u201396]",
+      "[Book 1, Section 111]",
+      "[Book 1, Section 121]",
+      "[Book 1, Section 123]",
+      "[Book 1, Section 127]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 13,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "Kant doesn\u2019t say *happiness is irrelevant*; he says it can\u2019t be the **ground of morality** (i.e., what makes an action morally worthy) and it isn\u2019t **good without qualification**.\n\n### 1) What Kant denies: happiness as the basis of morality\nEarlier he\u2019s explicit that things like \u201chappiness\u201d are not unconditionally good and need a good will to \u201ccorrect\u201d them; otherwise they \u201cinspire pride\u201d etc. ([Book 1, Section 16]). So happiness can\u2019t function as the *supreme* moral principle, because then morality would depend on contingent desires and circumstances rather than an a priori law.\n\nLater he will sharpen this into the distinction between:\n- **imperatives of prudence** (aiming at happiness; always hypothetical), and\n- **imperatives of morality** (categorical)  \n([Book 1, Sections 64\u201367]).\n\nSo: happiness doesn\u2019t *determine right and wrong*, and pursuing it doesn\u2019t automatically have **moral worth**.\n\n### 2) What Kant affirms here: a *duty* to promote one\u2019s happiness \u201cindirectly\u201d\nIn your highlighted line\u2014\u201c**To secure one's own happiness is a duty, at least indirectly**\u201d ([Book 1, Section 27])\u2014the key is *indirectly*.\n\nHe gives the reason immediately: misery and discontent \u201cmight easily become a great temptation to transgression of duty.\u201d So the thought is:\n\n- You have direct duties (e.g., not to lie, help others, etc.).\n- If you let yourself fall into extreme misery, chaos, self-neglect, you make it harder to keep those duties; you put yourself in situations where temptation is stronger.\n- Therefore, **reason can require you to take reasonable care of your happiness/well-being as a means to remaining capable of duty**.\n\nThat\u2019s \u201cindirect\u201d because happiness isn\u2019t the *ultimate* moral end; it\u2019s something you ought to secure **for the sake of morality** (to protect your steadiness, avoid desperation, preserve your agency).\n\n### 3) Why Kant can still say it has moral worth only when done *from duty*\nHe immediately adds that we already have a powerful *inclination* to happiness, so most \u201cpromoting my happiness\u201d is just self-love and has **no distinctive moral worth**. It becomes morally worthy only when the maxim is: *I maintain my well-being because I recognize I ought to, in order not to become morally vulnerable*, i.e. \u201c**not from inclination but from duty**\u201d ([Book 1, Section 27]).\n\nSo he\u2019s not smuggling in \u201chappiness is the moral criterion.\u201d He\u2019s keeping the criterion: **the motive must be respect for law/duty**, not inclination\u2014consistent with his earlier claim that moral worth comes from acting \u201cfrom duty,\u201d not merely \u201cin conformity with duty\u201d ([Book 1, Sections 24\u201326, 29\u201330]).\n\n### 4) A useful way to put it\n- **Happiness doesn\u2019t make actions right.**\n- **But you can have a duty not to undermine your own capacity to act rightly**, and that can include prudent self-care and securing a stable condition.\n\nIf you want, I can map this \u201cindirect duty to one\u2019s own happiness\u201d onto Kant\u2019s later framework of **hypothetical vs categorical imperatives** ([Book 1, Sections 59\u201370]) to show exactly how he keeps happiness from becoming a moral foundation while still letting duties of self-preservation/self-support make sense.",
+    "usage": {
+      "input_tokens": 37778,
+      "cached_tokens": 36480,
+      "output_tokens": 1349,
+      "reasoning_tokens": 602
+    },
+    "cost": 0.0275415,
+    "seconds_to_first_token": 18.1,
+    "router_seconds": 6.1,
+    "total_seconds": 30.8,
+    "citations_valid": [
+      "[Book 1, Section 16]",
+      "[Book 1, Sections 64\u201367]",
+      "[Book 1, Section 27]",
+      "[Book 1, Section 27]",
+      "[Book 1, Sections 59\u201370]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 14,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "He needs the presupposition of freedom here because he has reached a very specific bottleneck in the argument of the Third Section: he has shown a tight *conditional* connection between morality and freedom, but he has not yet shown that morality has **objective, universal authority** over any will that can be bound by an imperative.\n\n### 1) Where the argument stands just before \u00a7146\nKant has argued:\n\n- Freedom (as **autonomy**, self-legislation) and the moral law are internally connected: \u201ca free will and a will subject to moral laws are one and the same\u201d [Book 1, Section 144].\n- So **if** a will is free, the categorical imperative follows (morality \u201cfollows from it by mere analysis\u201d) [Book 1, Section 145].\n\nBut that still leaves an obvious gap: why are *we* (or any rational agent) entitled\u2014indeed required\u2014to take ourselves to be free in the first place?\n\nIf Kant cannot secure that step, then morality looks like it rests on a mere \u201cif\u201d: *if you are free, then you are under the moral law.* That would not yet yield the unconditional \u201cought\u201d of the categorical imperative.\n\n### 2) The problem he is solving in \u00a7146\u2013\u00a7148\nHe states the problem explicitly:\n\n> \u201cIt is not enough to predicate freedom of our own will\u2026 if we have not sufficient grounds for predicating the same of all rational beings.\u201d [Book 1, Section 147]\n\nWhy does he insist on \u201call rational beings\u201d?\n\nBecause morality, as he has framed it throughout, must be **universal and necessary**\u2014not a rule that happens to fit human psychology. He has already warned that duty cannot be grounded in \u201cthe particular natural characteristics of humanity\u201d [Book 1, Section 88]. So if the moral law is to bind *as a law*, it must be grounded in something that belongs to rational agency **as such**, not in contingent human features.\n\nAnd in his framework, the property that makes categorical legislation possible is **freedom/autonomy**. So he must show that freedom is not a parochial human add-on, but something any rational will must be thought to have *in the practical standpoint*.\n\n### 3) Why \u201cpresuppose\u201d rather than \u201cprove\u201d?\nKant is also solving a second problem: freedom cannot be established by theoretical proof in the way we prove empirical facts. He says we should not try to prove it from experience\u2014indeed that\u2019s \u201cquite impossible\u201d [Book 1, Section 147]. So he adopts a different strategy:\n\n> \u201cEvery being that cannot act except under the idea of freedom is just for that reason in a practical point of view really free\u2026\u201d [Book 1, Section 147]\n\nThe key move is: **to will at all (to deliberate, to take reasons as reasons for action), a rational being must take itself to be the source of its principles**, not as merely pushed around by impulses. If it saw its judgments as imposed from outside, it wouldn\u2019t be treating itself as *reasoning* but as *being caused*.\n\nSo he does not claim: \u201cwe can theoretically demonstrate freedom.\u201d He claims: \u201crational agency forces the practical self-conception of freedom.\u201d That is why he says freedom \u201cmust be presupposed\u201d [Book 1, Section 146].\n\n### 4) How this fits the larger aim: making the categorical imperative possible\nThis is the bridge to the later question \u201cHow is a categorical imperative possible?\u201d [Book 1, Section 160]. The structure is:\n\n1. Any rational agent must act under the **idea of freedom** [Book 1, Section 147].\n2. Freedom = **autonomy** (self-legislation) [Book 1, Section 144].\n3. Autonomy yields the **categorical imperative** as the form of law for such a will [Book 1, Sections 144\u2013145].\n4. Therefore, the categorical \u201cought\u201d is not imported from experience or from desire, but is grounded in what it is to be a rational will (developed further via the two-standpoints discussion in [Book 1, Sections 155\u2013163]).\n\nSo the presupposition of freedom is doing essential work: it is what allows Kant to move from \u201cmorality would follow *if* we were free\u201d to \u201cany rational will must regard itself as free in deliberation, hence must regard itself as bound by the moral law.\u201d\n\nIf you want, I can also spell out how \u00a7146\u2013\u00a7148 sets up the apparent \u201ccircle\u201d Kant admits in [Book 1, Section 153], and how the \u201ctwo standpoints\u201d strategy is designed to dissolve it in [Book 1, Sections 154\u2013160].",
+    "usage": {
+      "input_tokens": 37468,
+      "cached_tokens": 36480,
+      "output_tokens": 1426,
+      "reasoning_tokens": 430
+    },
+    "cost": 0.028077,
+    "seconds_to_first_token": 13.9,
+    "router_seconds": 4.8,
+    "total_seconds": 30.9,
+    "citations_valid": [
+      "[Book 1, Section 144]",
+      "[Book 1, Section 145]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 88]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 146]",
+      "[Book 1, Section 160]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 144]",
+      "[Book 1, Sections 144\u2013145]",
+      "[Book 1, Sections 155\u2013163]",
+      "[Book 1, Section 153]",
+      "[Book 1, Sections 154\u2013160]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "current (router: gpt-5-mini / gpt-5.2)",
+    "question": 15,
+    "model": "gpt-5.2",
+    "effort": "high",
+    "answer": "To use Kant\u2019s test in [Book 1, Section 78], you have to get very explicit about your *maxim* (the rule you\u2019d be acting on).\n\n1) What maxim do you think describes \u201clying to the murderer at the door\u201d?  \nIs it something like: **\u201cWhen telling the truth would lead to harm, I will lie to prevent harm\u201d**? Or more narrowly: **\u201cWhen someone asks me a question with the intention of murdering, I will lie to stop the murder\u201d**?\n\n2) Now ask Kant\u2019s question (he models it in the lying-promise case at [Book 1, Section 34]): **could you will that maxim \u201cshould become a universal law\u201d?**  \nIf *everyone* lied in those circumstances, would the practice of asking questions to locate someone still \u201cwork\u201d in the way your lie presupposes? (Kant\u2019s point in the false-promise example is: once universalized, the practice the lie relies on collapses\u2014\u201cthere would be no promises at all\u201d [Book 1, Section 34].)\n\nA further pressure point: are you relying on the *end* (saving someone) to justify the lie? Kant warns that the moral worth of an action \u201cdoes not depend on the realization of the object of the action, but merely on the principle of volition\u201d ([Book 1, Section 29]). So if your defense is basically \u201cit produces the best outcome,\u201d does that fit *this* test, or does it shift you back toward a conditional (\u201cif you want to prevent harm\u2026\u201d) kind of reasoning?\n\nIf you try running the same \u201cself-undermining when universalized\u201d move Kant uses at [Book 1, Section 34] on the murderer case, what do *you* get: does the maxim still seem willable as universal law, or does it defeat the very effectiveness your lie counts on?\n\n(If you want, tell me the exact maxim you\u2019d use, and we can test that specific formulation carefully.)",
+    "usage": {
+      "input_tokens": 37553,
+      "cached_tokens": 36480,
+      "output_tokens": 1741,
+      "reasoning_tokens": 1318
+    },
+    "cost": 0.03263575,
+    "seconds_to_first_token": 29.0,
+    "router_seconds": 3.7,
+    "total_seconds": 36.3,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 34]",
+      "[Book 1, Section 34]",
+      "[Book 1, Section 29]",
+      "[Book 1, Section 34]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 0,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Not quite\u2014not if \u201ceverything happens for a reason\u201d means that each event was arranged for a personal purpose, or that whatever happens is good for the person who suffers it.\n\nMarcus is making a more specifically Stoic claim about the **Universe as an interconnected whole**. \u201cNecessity\u201d is the causal order by which events follow from one another; \u201cthe utility of the Universe\u201d is the way those events and changes belong to, and sustain, the whole. What we call chance may be accidental from our limited point of view, but it is not outside Nature\u2019s web of causes. Earlier in the passage he says that even the changes of elements preserve Nature\u2019s order.\n\nSo when he says something is \u201cgood\u201d for a part if it \u201ctends to [the whole\u2019s] preservation,\u201d he is using \u201cgood\u201d at the level of the cosmos\u2014not promising that every event benefits its individual recipient, or that every painful event is morally good. His point is that loss, illness, and death can be part of the transformations through which the whole continues.\n\nThe practical conclusion is less \u201cI can explain why this happened to me\u201d than \u201cI belong to a larger order, and should not treat what I cannot control as an outrage against that order.\u201d He makes a similar argument when he asks us to receive what befalls us as part of Nature\u2019s purposes [Book 5, Section 8]. But this is a Stoic conviction about how the world is ordered, not a proof that every event has a discernible personal meaning.",
+    "usage": {
+      "input_tokens": 54441,
+      "cached_tokens": 54438,
+      "output_tokens": 506,
+      "reasoning_tokens": 190
+    },
+    "cost": 0.000797755,
+    "seconds_to_first_token": 3.4,
+    "router_seconds": 0.0,
+    "total_seconds": 7.0,
+    "citations_valid": [
+      "[Book 5, Section 8]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 1,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "It could become escapism if \u201cretire into yourself\u201d meant withdrawing from responsibilities or pretending that other people\u2019s suffering does not matter. But that is not what this passage recommends. Marcus says the inward retreat should \u201crenew you\u201d and \u201csend you back\u201d to the task at hand. It is a pause for regaining perspective, not a way of avoiding action.\n\nThe distinction is between **leaving the world** and **stepping back from the judgments that make it unmanageable**. Other people\u2019s conduct, public opinion, and bodily discomfort may be real; what remains yours to govern is how you judge and respond to them. The retreat restores that freedom so you can act with justice rather than be swept into anger, fear, or self-pity. Marcus explicitly says that bearing with other people is part of justice, and that the Universe is a kind of shared \u201cstate\u201d [Book 4, Section 3].\n\nSo the point is not, \u201cNothing outside me matters.\u201d It is closer to: \u201cI can\u2019t control everything outside me, but I can return to reason and choose my next action.\u201d Elsewhere he presses himself to rise and do the human work before him, rather than seek comfort in bed [Book 5, Section 1], and advises avoiding aimless scrutiny of other people so as to protect the \u201cguardianship of your own soul\u201d [Book 3, Section 4].\n\nYour concern is still a useful one: inward calm can be misused as an excuse for passivity. Marcus\u2019s test is whether it returns you to your duties\u2014more calmly and justly\u2014or helps you evade them.",
+    "usage": {
+      "input_tokens": 54918,
+      "cached_tokens": 54915,
+      "output_tokens": 518,
+      "reasoning_tokens": 181
+    },
+    "cost": 0.0008085249999999999,
+    "seconds_to_first_token": 2.9,
+    "router_seconds": 0.0,
+    "total_seconds": 6.3,
+    "citations_valid": [
+      "[Book 4, Section 3]",
+      "[Book 5, Section 1]",
+      "[Book 3, Section 4]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 2,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Marcus is a Stoic, and his own preferred picture is a cosmos ordered by a rational, providential principle. But he repeatedly considers the rival atomist picture: that reality consists of atoms moving without an overseeing providence. In [Book 6, Section 24], he leaves both possibilities open. Death means either returning to the universe\u2019s generative source or being dispersed into atoms. Either way, Alexander\u2019s status as conqueror gives him no special exemption: he and his muleteer meet the same kind of ending.\n\nThe point is less to settle the physics than to loosen our attachment to rank, fame, and individual survival. Marcus uses the same \u201ceither way\u201d reasoning elsewhere:\n\n- He asks whether the universe is ordered or merely a confusion, then considers how he should live under either possibility [Book 6, Section 10].\n- He says that even if \u201cthere be naught beyond the atoms,\u201d we should still live simply, love mankind, and obey God\u2014or, at least, observe whatever order there is [Book 7, Section 31]. (The wording is striking: he keeps the practical moral advice even while entertaining the alternative.)\n- He puts death in explicitly atomist terms as \u201ca scattering\u201d of atoms, contrasting that with extinction or transformation in an ordered universe [Book 7, Section 32].\n- He lists an intelligent universal nature, a necessary chain of causes, or atoms as competing accounts of how things happen [Book 9, Section 28]; he returns to the same alternatives in [Book 9, Section 39] and [Book 10, Section 6].\n\nThe contrast is between Stoic providence and ancient atomism\u2014not between two scientific theories in the modern sense. Marcus\u2019s recurring tactic is to ask what follows for conduct under either account. Whatever the universe\u2019s ultimate structure, he argues, it gives us no good reason to cling to prestige or to fear death.",
+    "usage": {
+      "input_tokens": 54308,
+      "cached_tokens": 54305,
+      "output_tokens": 819,
+      "reasoning_tokens": 423
+    },
+    "cost": 0.000952925,
+    "seconds_to_first_token": 5.2,
+    "router_seconds": 0.0,
+    "total_seconds": 9.5,
+    "citations_valid": [
+      "[Book 6, Section 24]",
+      "[Book 6, Section 10]",
+      "[Book 7, Section 31]",
+      "[Book 7, Section 32]",
+      "[Book 9, Section 28]",
+      "[Book 9, Section 39]",
+      "[Book 10, Section 6]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 3,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "\u201cIndifferent things\u201d are things that, by themselves, do not make a person morally good or bad. In Stoic terms, virtue\u2014such as justice, courage, and self-command\u2014is genuinely good; vice is genuinely bad. Things like health and illness, wealth and poverty, praise and blame, pleasure and pain, and even life and death fall \u201cbetween\u201d those moral categories. Marcus names several of them explicitly: they happen to good and bad people alike, so they are \u201cneither good nor evil\u201d in themselves [Book 2, Section 11].\n\n\u201cIndifferent\u201d doesn\u2019t mean that these things never matter or that you should make no choices about them. Health is generally preferable to illness, for example, and Marcus can sensibly care for his body or serve others. The point is that these things do not determine whether you live well: what matters morally is how you respond to them. He makes that distinction sharply when he says that external events do not touch the soul; our judgments about them are what trouble us [Book 4, Section 3].\n\nSo in this passage, he is urging you not to pin your happiness on getting or avoiding externals. Rejoice instead in simplicity and modesty, while treating other people justly and accepting what happens. His \u201cindifference\u201d is freedom from treating fortune as the measure of your worth\u2014not indifference to human beings or to doing your duty.",
+    "usage": {
+      "input_tokens": 54353,
+      "cached_tokens": 54350,
+      "output_tokens": 441,
+      "reasoning_tokens": 147
+    },
+    "cost": 0.000764375,
+    "seconds_to_first_token": 2.4,
+    "router_seconds": 0.0,
+    "total_seconds": 5.6,
+    "citations_valid": [
+      "[Book 2, Section 11]",
+      "[Book 4, Section 3]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 4,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Not quite. It is less a prediction that *everyone* will behave badly than a morning exercise in preparing for the ordinary friction of human life. Marcus names the kinds of conduct he may encounter so that he won\u2019t be surprised into anger when they appear.\n\nThe key is the explanation that follows: people act badly because they \u201cknow not what is good and what is evil.\u201d That does not make their actions harmless or excuse them from responsibility. It changes how Marcus is meant to respond: he should correct them if he can, but not treat them as alien enemies. He later advises, \u201cIf a man is going wrong, instruct him kindly\u201d [Book 10, Section 4].\n\nThere is a deliberately unsentimental edge to the passage: Marcus expects selfishness, envy, and insolence rather than trusting that people will behave well. But its aim is not distrust. The list ends in kinship: even the wrongdoer shares in rational nature, and human beings are made \u201cfor mutual assistance.\u201d Anger and aversion are dangerous because they make us act as though that bond could simply be severed.\n\nSo the passage is a kind of moral inoculation: expect that people may behave badly, so their behaviour won\u2019t dictate yours. Marcus is not saying, \u201cPeople are awful, therefore withdraw\u201d; he is saying, \u201cPeople will sometimes be difficult, therefore remember what you owe them\u2014and what you must preserve in yourself.\u201d",
+    "usage": {
+      "input_tokens": 54498,
+      "cached_tokens": 54495,
+      "output_tokens": 456,
+      "reasoning_tokens": 161
+    },
+    "cost": 0.000773325,
+    "seconds_to_first_token": 2.9,
+    "router_seconds": 0.0,
+    "total_seconds": 6.8,
+    "citations_valid": [
+      "[Book 10, Section 4]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 5,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "That\u2019s a real tension in the passage: if the world is still a mess, calm can sound like withdrawing from it. But Marcus describes the inner retreat as something that sends you \u201cback\u201d to your task\u2014not away from it. He also calls bearing with other people \u201cpart of justice\u201d [Book 4, Section 3].\n\nDoes that make calm seem less like accepting the mess, and more like keeping the mess from deciding how you act within it? What kind of response to the world might become possible when you\u2019re no longer acting from fretfulness?",
+    "usage": {
+      "input_tokens": 54916,
+      "cached_tokens": 54913,
+      "output_tokens": 220,
+      "reasoning_tokens": 101
+    },
+    "cost": 0.000659505,
+    "seconds_to_first_token": 2.7,
+    "router_seconds": 0.0,
+    "total_seconds": 4.0,
+    "citations_valid": [
+      "[Book 4, Section 3]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 6,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Primarily, **Marcus was writing to himself**. *Meditations* is not presented as a book for an audience but as private philosophical notes\u2014reminders and exercises meant to steady his own judgment and conduct. He often makes that purpose explicit: \u201cSay this to yourself in the morning\u201d [Book 2, Section 1], and repeatedly urges himself to act rather than merely discuss virtue: \u201cDiscourse no more of what a good man should be; but be one\u201d [Book 10, Section 16].\n\nWe can\u2019t know whether he imagined anyone else reading the notes. But their direct, repetitive, sometimes self-reproving style suggests they were chiefly a working practice for Marcus, not a polished public address. We read them now as later readers of a text that was, in the first instance, addressed inward.",
+    "usage": {
+      "input_tokens": 54247,
+      "cached_tokens": 54244,
+      "output_tokens": 319,
+      "reasoning_tokens": 145
+    },
+    "cost": 0.000702315,
+    "seconds_to_first_token": 2.5,
+    "router_seconds": 0.0,
+    "total_seconds": 4.3,
+    "citations_valid": [
+      "[Book 2, Section 1]",
+      "[Book 10, Section 16]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 7,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Marcus appears to **believe in providence, but he does not make his ethical practice depend on being able to prove it**. That is why he repeatedly tests an alternative.\n\nIn this passage, he gives the two possibilities: perhaps the universe is governed by divine law and order; perhaps, instead, there is \u201cnaught beyond the atoms.\u201d His point is that even the second possibility does not excuse living badly. We still have reason, social obligations, and patterns of order to reckon with. \u201cAll things, save very few, are swayed by law\u201d is a more modest fallback: even without cosmic providence, most events follow regular patterns.\n\nElsewhere, Marcus speaks more affirmatively of providence. He says that whatever the Gods ordain is guided by wise forethought [Book 2, Section 3], and that one should welcome what happens because it contributes to the health of the whole [Book 5, Section 8]. But he also frames the alternatives explicitly: \u201cThe Universe is either an ordered whole or a confusion\u201d [Book 4, Section 27]; if it is ordered, trust its ruler; if it is not, death and dissolution still give no reason for panic [Book 6, Section 10].\n\nSo the apparent back-and-forth is partly a **deliberate philosophical exercise**, not necessarily indecision. Marcus wants his conduct to hold under either account of the cosmos. His stronger personal inclination is Stoic and providential: he speaks of God, Nature, and the rational order as real. But he is willing to ask what follows if that picture is wrong\u2014and his answer is that simplicity, justice, and care for other people still make sense.",
+    "usage": {
+      "input_tokens": 54351,
+      "cached_tokens": 54348,
+      "output_tokens": 579,
+      "reasoning_tokens": 229
+    },
+    "cost": 0.000833355,
+    "seconds_to_first_token": 3.7,
+    "router_seconds": 0.0,
+    "total_seconds": 7.6,
+    "citations_valid": [
+      "[Book 2, Section 3]",
+      "[Book 5, Section 8]",
+      "[Book 4, Section 27]",
+      "[Book 6, Section 10]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 8,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "\u201cGood without qualification\u201d means **good in itself, not merely good under certain conditions or for some purpose**.\n\nKant\u2019s examples show the contrast. Intelligence, courage, wealth, health, and happiness can be valuable, but their value depends on how they are used and what kind of person has them. Intelligence can serve a villain; courage can make someone more dangerous; prosperity can foster arrogance. These things are good only *with a qualification*\u2014for example, when guided by a good will.\n\nA good will, by contrast, does not become bad because it fails to achieve its aim or produces no useful result. Its goodness lies in the will\u2019s principle, not in what it accomplishes. Kant makes this point in the next section: a good will is good \u201csimply by virtue of the volition,\u201d and its usefulness or failure \u201ccan neither add nor take away anything from this value\u201d [Book 1, Section 18].\n\nSo \u201cwithout qualification\u201d does not mean that every decision made by a well-intentioned person is correct. It means that the good will is the only thing Kant treats as **unconditionally valuable**: everything else is good only insofar as it is rightly directed by such a will.",
+    "usage": {
+      "input_tokens": 37691,
+      "cached_tokens": 37688,
+      "output_tokens": 341,
+      "reasoning_tokens": 86
+    },
+    "cost": 0.000547755,
+    "seconds_to_first_token": 2.3,
+    "router_seconds": 0.0,
+    "total_seconds": 4.2,
+    "citations_valid": [
+      "[Book 1, Section 18]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 9,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Here \u201crespect\u201d does **not** mean simply admiring a rule, feeling affection for it, or obeying because you fear punishment. Kant means the recognition that the moral law has authority over your choice\u2014even when your inclinations pull the other way.\n\nA **law** here is a principle that reason says should hold universally, not merely a rule made by a government. Kant has just given its basic test: act only on a maxim you could will as a universal law [Book 1, Section 34].\n\nSo the sentence means:\n\n> **Duty is the necessity of acting because reason recognizes the moral law as binding\u2014not merely acting in a way that happens to agree with it.**\n\nFor example, a shopkeeper might deal honestly because honesty is good for business. The action conforms to duty, but self-interest explains it. Acting **from respect for the law** would mean dealing honestly because one recognizes that honesty is required, even if dishonesty would be more profitable. Kant makes this distinction earlier with the shopkeeper [Book 1, Section 24].\n\n\u201cNecessity\u201d means **what one ought to do**, not that one is physically forced to do it. Human beings have inclinations that can resist reason, so the law presents itself to us as a demand. Respect is the way we experience that demand: the law\u2019s authority takes priority over what we happen to want.\n\nKant clarifies that respect is a feeling, but not one produced by some attractive object or inclination. It is \u201cself-wrought by a rational concept\u201d: the law\u2019s effect on our will, rather than the source of the law itself [Book 1, Section 33]. In short, **respect for the law is reason\u2019s recognition of the law\u2019s authority over one\u2019s choices.**",
+    "usage": {
+      "input_tokens": 37720,
+      "cached_tokens": 37717,
+      "output_tokens": 504,
+      "reasoning_tokens": 138
+    },
+    "cost": 0.0006295450000000001,
+    "seconds_to_first_token": 2.1,
+    "router_seconds": 0.0,
+    "total_seconds": 5.0,
+    "citations_valid": [
+      "[Book 1, Section 34]",
+      "[Book 1, Section 24]",
+      "[Book 1, Section 33]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 10,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "They are related, but they ask different questions.\n\nThe **Golden Rule** is usually framed as a reciprocity test: *Would I want someone to treat me this way?* Kant\u2019s formula asks whether I can **will the maxim of my action as a universal law**\u2014a rule that everyone could act on, not merely whether I would welcome the same treatment myself [Book 1, Section 78].\n\nThat difference matters in at least two ways:\n\n- **Kant\u2019s test is about the principle of the action, not my personal preferences.** I might not mind being lied to\u2014or might even welcome a particular lie\u2014but that does not make a maxim of lying promises fit to be universal law. Kant\u2019s example is that universalized false promising would undermine the practice of promising itself [Book 1, Section 82].\n- **The Golden Rule can leave duties out.** Someone might say, \u201cI don\u2019t want help from others, so I needn\u2019t help them.\u201d Kant argues that the universal law of refusing aid may be imaginable, but cannot be consistently *willed*: we may ourselves need others\u2019 help [Book 1, Section 84]. His note explicitly says the Golden Rule cannot supply the principle of duties of benevolence, duties to oneself, or strict duties between people [Book 1, Section 100].\n\nSo Kant is not asking us simply to swap places with another person. He is asking whether the **rule we act on** could be shared by rational agents universally, without contradiction. The Golden Rule may be a useful moral guide, but for Kant it is not a complete foundation for morality.",
+    "usage": {
+      "input_tokens": 37534,
+      "cached_tokens": 37531,
+      "output_tokens": 480,
+      "reasoning_tokens": 144
+    },
+    "cost": 0.0006156849999999999,
+    "seconds_to_first_token": 2.5,
+    "router_seconds": 0.0,
+    "total_seconds": 5.2,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 82]",
+      "[Book 1, Section 84]",
+      "[Book 1, Section 100]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 11,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "No. Kant\u2019s point is not that you must never **use** another person as a means. It is that you must never use them **merely** as a means\u2014treating them as a tool while disregarding their capacity to choose and set ends for themselves.\n\nBuying something from a cashier involves each of you helping the other achieve an end: you get the goods, and the cashier is paid for their work. That can respect both people\u2019s agency, provided the interaction is honest and fair. By contrast, deceiving or coercing someone to get what you want would bypass their ability to consent, treating them merely as a means.\n\nSo \u201cregarded \u2026 as an end\u201d does not mean you must make every person\u2019s goals your own in every interaction. It means their status as a rational person places limits on how you may pursue your goals. Kant\u2019s formulation is: treat humanity \u201calways at the same time as an end, never as means only\u201d [Book 1, Section 96]. His example of a false promise illustrates the violation: the other person cannot genuinely agree to the plan because they have been deceived about it [Book 1, Section 99].",
+    "usage": {
+      "input_tokens": 37793,
+      "cached_tokens": 37790,
+      "output_tokens": 438,
+      "reasoning_tokens": 192
+    },
+    "cost": 0.0005972750000000001,
+    "seconds_to_first_token": 2.8,
+    "router_seconds": 0.0,
+    "total_seconds": 4.9,
+    "citations_valid": [
+      "[Book 1, Section 96]",
+      "[Book 1, Section 99]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 12,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "The kingdom of ends is not a fourth formula; it is the **ideal social order implied by the earlier formulas**.\n\nThe first formula asks whether your maxim could be a universal law. The second asks whether you treat rational beings\u2014including yourself\u2014as ends, never merely as means. Section 110 adds the thought that a rational being is not merely subject to such laws: each must also regard their will as **giving** universal laws. When all rational beings are understood in this way, they form an ideal \u201ckingdom\u201d\u2014a community governed by laws that each could will and to which each is also subject [Book 1, Section 111\u2013112].\n\nThat is why Kant later presents the three formulas as different aspects of one principle: universality is its **form**, humanity as an end is its **matter**, and the kingdom of ends is the **whole system** in which rational beings legislate together [Book 1, Section 121\u2013123]. The kingdom makes vivid what it means to universalize a maxim: ask not only whether the maxim could be a law, but whether you could adopt it as a law alongside every other rational being, each respected as an end.\n\nIt is an ideal, not a description of society as it is. Kant calls it a \u201ckingdom of ends\u201d because its members are united by common laws, but says it is \u201conly an ideal\u201d [Book 1, Section 112]. Its point is to show the moral standpoint: act as a possible co-legislator in a community of equals, not as someone making a private exception or using others as instruments.",
+    "usage": {
+      "input_tokens": 37508,
+      "cached_tokens": 37505,
+      "output_tokens": 527,
+      "reasoning_tokens": 197
+    },
+    "cost": 0.0006389249999999999,
+    "seconds_to_first_token": 2.4,
+    "router_seconds": 0.0,
+    "total_seconds": 5.4,
+    "citations_valid": [
+      "[Book 1, Section 111\u2013112]",
+      "[Book 1, Section 121\u2013123]",
+      "[Book 1, Section 112]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 13,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Kant is not saying that happiness is the **basis** of morality or that actions aimed at happiness have moral worth just because they make us happy. He is making a narrower claim: securing your own happiness can be an **indirect duty**, because severe anxiety and unmet needs may make it harder to do what duty requires.\n\nThat is why he says \u201cat least indirectly.\u201d Happiness matters here as a possible support for dutiful conduct\u2014not as the standard by which we decide what is right. The gouty patient illustrates the distinction: he may choose immediate pleasure over health because he expects it to make him happier. That choice may be prudent or imprudent, but it does not acquire moral worth merely from serving his happiness. It would have moral worth, Kant says, if he promoted his happiness **from duty**.\n\nSo the contrast is:\n\n- **Happiness as morality\u2019s foundation:** no. Kant rejects that; happiness is too uncertain and depends on our inclinations.\n- **Happiness as something duty may sometimes require us to protect:** yes, indirectly, because it can help us resist temptations to violate duty.\n\nKant discusses the uncertainty of happiness more fully later: we cannot reliably specify what will make us happy, so rules for achieving it are generally \u201ccounsels\u201d rather than unconditional moral commands [Book 1, Section 70]. The point here is not \u201cbe happy at any cost,\u201d but \u201cdon\u2019t neglect your wellbeing when doing so may undermine your ability to meet your duties.\u201d",
+    "usage": {
+      "input_tokens": 37778,
+      "cached_tokens": 37775,
+      "output_tokens": 540,
+      "reasoning_tokens": 232
+    },
+    "cost": 0.000648125,
+    "seconds_to_first_token": 2.9,
+    "router_seconds": 0.0,
+    "total_seconds": 5.7,
+    "citations_valid": [
+      "[Book 1, Section 70]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 14,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "Kant has reached a gap in his argument. He has connected **freedom** with **autonomy**\u2014a free will is a law to itself\u2014and autonomy with the moral law. But that only gives him a conditional result: **if a will is free, it is subject to the moral law**. He still needs to show why this applies to every rational being, rather than merely describing a moral ideal for humans. That is the problem announced by the heading [Book 1, Section 146].\n\nThe universal scope matters because Kant treats morality as binding on *all* rational beings, not as a rule derived from distinctively human feelings or circumstances. If freedom were established only as a feature of human nature, the moral law would not yet have the universality he requires. So he asks whether freedom belongs to the will of every rational being [Book 1, Section 147].\n\nHis argument is not that he can **prove theoretically** that every rational being is free. Instead, he argues that any being capable of acting through reason and a will must **regard itself as free in deliberation**. If I take my action to be determined by my own reasoning, I cannot at the same time regard that reasoning as merely an effect of some external impulse; I must regard myself as author of the principles on which I act. In Kant\u2019s words, a rational being \u201ccannot act except under the idea of freedom\u201d [Book 1, Section 147].\n\n\u201cPresuppose\u201d is therefore important: freedom is necessary from the **practical standpoint** of agency, though Kant does not claim to know theoretically what freedom is or prove that it is a feature we can observe in the world. He explicitly says that assuming freedom as an idea is enough for his purpose, and avoids taking on the burden of a theoretical proof [Book 1, Section 148].\n\nSo the move is meant to secure the reach of the moral law: **whoever acts as a rational agent must regard their will as free; and a free will, Kant argues, is autonomous and therefore bound by moral law.** The harder question\u2014how freedom can coexist with the causal laws governing human beings as appearances\u2014is taken up later, especially in [Book 1, Sections 165\u2013170].",
+    "usage": {
+      "input_tokens": 37468,
+      "cached_tokens": 37465,
+      "output_tokens": 831,
+      "reasoning_tokens": 365
+    },
+    "cost": 0.000790525,
+    "seconds_to_first_token": 5.0,
+    "router_seconds": 0.0,
+    "total_seconds": 8.9,
+    "citations_valid": [
+      "[Book 1, Section 146]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 148]",
+      "[Book 1, Sections 165\u2013170]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6-luna",
+    "question": 15,
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "answer": "What maxim would you be testing: \u201cI may lie whenever telling the truth would cause harm,\u201d or \u201cI may deceive someone who is seeking to kill an innocent person\u201d? Would either maxim still work if everyone acted on it\u2014and what would happen to the murderer\u2019s ability to use your truthful answer? [Book 1, Section 78]\n\nKant tests maxims by asking whether we can will them as universal laws; his example of a false promise appears in [Book 1, Section 82]. Does that example settle this different case, or would you need to examine the more specific maxim?",
+    "usage": {
+      "input_tokens": 37553,
+      "cached_tokens": 37550,
+      "output_tokens": 298,
+      "reasoning_tokens": 172
+    },
+    "cost": 0.000524875,
+    "seconds_to_first_token": 2.6,
+    "router_seconds": 0.0,
+    "total_seconds": 3.9,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 82]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 0,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "It\u2019s close to \u201ceverything happens for a reason,\u201d but Marcus means something more specific\u2014and more demanding.\n\nBy **\u201cnecessity,\u201d** he means that events arise from the interconnected workings of nature: things happen as consequences of the order of the whole, not in isolation. By **\u201cthe utility of the Universe,\u201d** he means that these processes serve the preservation of the universe as a whole.\n\nHis comparison is organic: just as a body\u2019s parts belong to a larger living being, we are parts of nature. Change and dissolution can be hard on an individual, but, he argues, they also belong to the processes by which the whole continues.\n\nSo he is not simply saying, \u201cThis happened to teach *you* a lesson\u201d or \u201cEverything will work out as *you* want.\u201d His claim is that even what looks like chance is woven into a rational natural order, and that we should understand our fortunes from the perspective of that larger order. For Marcus, **what serves the whole ultimately gives the part reason to accept it**.\n\nThat\u2019s a substantial metaphysical belief, not merely advice about attitude. Elsewhere he also considers an alternative: perhaps the world is governed by chance rather than providence. Even then, he says, \u201cyou at least need not act by chance\u201d [Book 9, Section 28].",
+    "usage": {
+      "input_tokens": 54441,
+      "cached_tokens": 0,
+      "output_tokens": 274,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.06942125,
+    "seconds_to_first_token": 1.5,
+    "router_seconds": 0.0,
+    "total_seconds": 8.5,
+    "citations_valid": [
+      "[Book 9, Section 28]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 1,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "It could become escapism, but Marcus intends almost the opposite: a **brief withdrawal to regain perspective, so you can return to your responsibilities**.\n\nThe decisive phrase comes a few lines later. The thoughts he recommends should \u201csend you back without fretting at the task to which you return\u201d [Book 4, Section 3]. He is not proposing a private refuge where you ignore other people or pretend your circumstances do not exist. He is proposing a pause between what happens and how you respond.\n\nFor example, if someone behaves badly, retreating inward means examining your anger and remembering that you still have obligations toward that person. It need not mean tolerating every action: elsewhere Marcus says to \u201cteach them better\u201d where possible, or bear with them [Book 8, Section 59]. The aim is to respond constructively rather than let resentment dictate your conduct.\n\nThat distinction also reveals a tension in the passage. Marcus says \u201call trouble comes from what we think\u201d about external things [Book 4, Section 3]. That is a demanding Stoic claim, and you need not accept it literally to find the exercise useful. Poverty, illness, and injustice are not simply imaginary; changing your judgment does not by itself remove them. A more modest reading is that reflection can help you distinguish **the problem you must address** from the fear, pride, or anger that may make addressing it harder.\n\nSo the test is what happens *after* the retreat. If it helps you return with clearer judgment and greater concern for others, it is preparation for action. If it becomes a reason never to return, your charge of escapism fits.",
+    "usage": {
+      "input_tokens": 54918,
+      "cached_tokens": 54233,
+      "output_tokens": 336,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0052479,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 8.3,
+    "citations_valid": [
+      "[Book 4, Section 3]",
+      "[Book 8, Section 59]",
+      "[Book 4, Section 3]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 2,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "Marcus keeps returning to atoms because they represent a **rival explanation of the universe**\u2014and a test of whether his ethical conclusions depend on his own beliefs about divine order.\n\nAs a Stoic, Marcus generally favors the view that nature is an ordered whole governed by reason or providence. Atomism, associated especially with Epicurus, explains things through material particles moving and combining without a divine plan. Marcus often poses a choice between the two: **providence or atoms?** He then asks how one should live either way.\n\nIn your passage, the contrast concerns death. Alexander and his muleteer had radically different status in life. But whether death returns them to a universal generative source or disperses them among atoms, **they meet the same fate**. Alexander\u2019s power gives him no special exemption.\n\nSome particularly useful parallels:\n\n- [Book 4, Section 3] \u2014 Marcus sets out the alternative: \u201cEither providence directs the world, or there is nothing but unguided atoms.\u201d He uses it while considering how to regain inner composure.\n- [Book 7, Section 32] \u2014 He applies the alternatives directly to death: under atomism, death is a scattering; in an ordered universe, it is extinction or transition to another state.\n- [Book 9, Section 28] \u2014 Perhaps his sharpest practical formulation: **\u201cif there be only chance, you at least need not act by chance.\u201d** Even without cosmic providence, you can act deliberately.\n- [Book 10, Section 6] \u2014 Whether there are atoms or a universal law, he begins from two claims: he is part of a whole and is associated with other people. These ground his commitment to the common good.\n\nHis repeated \u201catoms\u201d references are therefore not necessarily signs that he believes atomism. They let him rehearse a question that matters throughout the book: **what remains of a good life if the universe is not arranged as the Stoics believe?** He presents Epicurean atomism rather starkly as \u201cunguided\u201d or \u201cchance\u201d; Epicureans themselves also held that nature operates according to regularities.",
+    "usage": {
+      "input_tokens": 54308,
+      "cached_tokens": 54233,
+      "output_tokens": 619,
+      "reasoning_tokens": 177
+    },
+    "cost": 0.005900399999999999,
+    "seconds_to_first_token": 5.2,
+    "router_seconds": 0.0,
+    "total_seconds": 14.8,
+    "citations_valid": [
+      "[Book 4, Section 3]",
+      "[Book 7, Section 32]",
+      "[Book 9, Section 28]",
+      "[Book 10, Section 6]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 3,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "For Marcus, **\u201cindifferent things\u201d are things that are neither morally good nor morally bad in themselves**. They include health and sickness, wealth and poverty, pleasure and pain, reputation and obscurity, and even life and death. They can happen to both good and bad people alike [Book 2, Section 11].\n\nThat does not mean they make no practical difference, or that you should feel nothing about them. Stoics generally regarded some indifferent things\u2014health, for example\u2014as *preferable* to their opposites. The point is that having them does not make you a good person, and losing them does not necessarily make you a bad one.\n\nWhat is genuinely good, for Marcus, is **virtue**: acting with justice, courage, self-command and wisdom. What is genuinely bad is the failure to act that way. So the question is not simply whether you have health or wealth, but how you respond to and use whatever circumstances you have.\n\nIn this passage, then, \u201cindifference\u201d means not treating external advantages or setbacks as the measure of a good life. It is compatible with the instruction immediately following it: **\u201cLove mankind.\u201d** Indeed, Marcus thinks our choices about indifferent things should be guided by care for other people [Book 3, Section 11].",
+    "usage": {
+      "input_tokens": 54353,
+      "cached_tokens": 54233,
+      "output_tokens": 267,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00419665,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 7.8,
+    "citations_valid": [
+      "[Book 2, Section 11]",
+      "[Book 3, Section 11]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 4,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "It can sound cynical, especially as a way to start the morning. But Marcus is not quite saying **everyone will be awful**. He\u2019s preparing himself for the fact that he *will encounter* difficult people\u2014and asking how to respond without becoming hostile himself.\n\nHis explanation is important: he says these people act badly because \u201cthey know not what is good and what is evil.\u201d That is a characteristically Stoic claim. Someone may think selfishness or manipulation will benefit them, but misunderstands what is truly good: a just and reasonable character. Marcus\u2019s description is harsh, but its purpose is to make their conduct less surprising and their persons less contemptible.\n\nNor does he claim to be immune to practical harm. When he says they \u201ccannot be hurt\u201d by them, he means they cannot force him into \u201cbaseness\u201d\u2014make him unjust or malicious. They can obstruct or mistreat him; what they cannot determine, on his view, is his moral response.\n\nThe passage ends in an oddly hopeful image: people are like hands and feet, made to work together. Marcus is rehearsing his worst expectations in order to preserve that sense of fellowship when it\u2019s tested.\n\nStill, your reaction catches a real tension. His list risks reducing difficult people to their faults, even as his argument urges him to see them as kin. Elsewhere he deliberately recommends the opposite exercise: noticing the virtues of those around you, \u201cthe activity of one, the modesty of another, the generosity of a third\u201d [Book 6, Section 48]. Together, the two exercises suggest preparation without despair.",
+    "usage": {
+      "input_tokens": 54498,
+      "cached_tokens": 54233,
+      "output_tokens": 325,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0046679,
+    "seconds_to_first_token": 1.2,
+    "router_seconds": 0.0,
+    "total_seconds": 11.8,
+    "citations_valid": [
+      "[Book 6, Section 48]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 5,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "Marcus says this inner retreat should \u201csend you back\u201d to your task, not keep you apart from the world [Book 4, Section 3].\n\nThink of a situation where someone else\u2019s behaviour made things difficult: how might your response differ if you approached it with a calmer mind? Would that change the mess itself, or perhaps what you\u2019re able to do about it?",
+    "usage": {
+      "input_tokens": 54916,
+      "cached_tokens": 0,
+      "output_tokens": 80,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.069045,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 2.8,
+    "citations_valid": [
+      "[Book 4, Section 3]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 6,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "Marcus was writing *Meditations* **primarily for himself**, not as a book addressed to an audience. He was a Roman emperor reminding himself how he wanted to think and act: with justice, self-command, kindness, and acceptance of what he could not control.\n\nThe frequent \u201cyou\u201d is usually Marcus speaking to himself. At times he even addresses his own soul directly: \u201cWilt thou ever, O my soul, be good and single\u2026?\u201d [Book 10, Section 1]. The work reads less like a systematic philosophy textbook than a series of personal exercises and reminders, which helps explain why its themes recur.\n\nThere is no evidence that he intended it for publication, although we cannot know exactly what he expected to happen to his notes after his death. The title *Meditations* was supplied later.",
+    "usage": {
+      "input_tokens": 54247,
+      "cached_tokens": 54233,
+      "output_tokens": 168,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00356915,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 5.2,
+    "citations_valid": [
+      "[Book 10, Section 1]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 7,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "Marcus appears to **believe in providence**, but he repeatedly tests whether his ethics would hold if that belief were mistaken. He is not simply agnostic, though he is willing to entertain uncertainty.\n\nIn your passage, he contrasts an ordered universe with one in which there is \u201cnaught beyond the atoms.\u201d This recalls the ancient dispute between Stoicism, which understood the cosmos as governed by divine reason, and Epicureanism, which explained it through atoms and void. Marcus\u2019s point is practical: even if the Stoic account is wrong, there is still enough regularity in experience to live thoughtfully rather than in confusion. The phrase \u201csave very few\u201d also keeps him from claiming that every event must be transparently ordered.\n\nElsewhere, his own commitment is unmistakable. In [Book 2, Section 11], after considering the possibility that there are no gods or that they disregard human affairs, he declares: \u201cBut Gods there are, and assuredly they regard human affairs.\u201d Yet in [Book 9, Section 28], he again considers providence, a fixed chain of causes, and atoms, concluding that \u201cif there be only chance, you at least need not act by chance.\u201d\n\nThose are two different moves: **affirming providence as his preferred view, and preparing himself to live well without certainty about it**. His providence is also not a promise that good people will enjoy health or prosperity. In [Book 2, Section 11], he observes that pain and pleasure, wealth and poverty happen to good and bad alike. What matters morally is how one responds.\n\nThere is a real tension here rather than a perfectly tidy system. Marcus often argues as a convinced Stoic; at other moments, writing to steady himself, he brackets that conviction and asks what remains dependable. In this section, what remains is the ethical core: simplicity, modesty, and love of mankind.",
+    "usage": {
+      "input_tokens": 54351,
+      "cached_tokens": 54233,
+      "output_tokens": 501,
+      "reasoning_tokens": 109
+    },
+    "cost": 0.00536415,
+    "seconds_to_first_token": 4.2,
+    "router_seconds": 0.0,
+    "total_seconds": 15.3,
+    "citations_valid": [
+      "[Book 2, Section 11]",
+      "[Book 9, Section 28]",
+      "[Book 2, Section 11]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 8,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "**\u201cGood without qualification\u201d means good in itself, not merely good under certain conditions.** Kant\u2019s claim is that a good will is the only thing whose goodness does not depend on how it is used or what it achieves.\n\nConsider intelligence. It is usually desirable, but intelligence in the service of a malicious person can make that person more dangerous. Its goodness is therefore **qualified**: it is good when governed by a good will. Kant makes the same point about courage, wealth, and even happiness. An evil person\u2019s prosperity can strike us not as an unqualified good, but as something undeserved [Book 1, Section 16].\n\nA **good will**, by contrast, is a will that chooses on the right moral principle. Kant says its value does not depend on success: even if someone makes every effort to do what is right but fails because of circumstances beyond their control, their good will retains its worth [Book 1, Section 18].\n\nHe is not saying intelligence or happiness are worthless. He is saying that their value is conditional, whereas a good will is good *in itself*. In the passages that follow, he begins to explain its moral principle through the idea of acting **from duty**, rather than merely doing the right thing for some other reason [Book 1, Section 23].",
+    "usage": {
+      "input_tokens": 37691,
+      "cached_tokens": 0,
+      "output_tokens": 270,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.04846375,
+    "seconds_to_first_token": 1.3,
+    "router_seconds": 0.0,
+    "total_seconds": 6.9,
+    "citations_valid": [
+      "[Book 1, Section 16]",
+      "[Book 1, Section 18]",
+      "[Book 1, Section 23]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 9,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "For Kant, **\u201crespect for the law\u201d means recognizing that a moral requirement has authority over your choice\u2014even when you would prefer to do something else.** It is not the same as liking the rule, fearing punishment, or admiring the people who follow it.\n\nSuppose you could escape a difficulty by making a promise you don\u2019t intend to keep. You might tell the truth because you fear being found out. Or you might tell the truth because you recognize that deceiving someone is wrong, even if lying would benefit you. In the second case, you act *from respect for the moral law*: the fact that you ought not deceive is itself your reason for acting.\n\nThat is what Kant means by **\u201cduty is the necessity of acting from respect for the law.\u201d** \u201cNecessity\u201d here doesn\u2019t mean that you are physically forced to act: you can still lie. It means that you recognize truthfulness as something you *ought* to do, regardless of what you happen to want.\n\nWhy call this \u201crespect\u201d? In the following footnote, Kant says it is the consciousness that **\u201cmy will is subordinate to a law\u201d** [Book 1, Section 33]. The law can check your self-interest, so it isn\u2019t merely another desire competing with your desires. Yet it is also a law you recognize through your own reason, not just an order imposed by someone else.\n\nFor Kant, then, the important distinction is between **doing what duty requires** and doing it **because duty requires it**. Someone who tells the truth only to protect their reputation does the right-looking thing, but their motive is self-interest. Kant develops this contrast in his example of a false promise [Book 1, Section 34].\n\nFinally, \u201cthe law\u201d here is not primarily a statute or a list of rules. Kant is asking what principle could bind the will regardless of its desires. His answer, in the next major step, is that one should act only on a principle one could also will everyone to follow [Book 1, Section 34].",
+    "usage": {
+      "input_tokens": 37720,
+      "cached_tokens": 37415,
+      "output_tokens": 424,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.004372,
+    "seconds_to_first_token": 1.2,
+    "router_seconds": 0.0,
+    "total_seconds": 11.4,
+    "citations_valid": [
+      "[Book 1, Section 33]",
+      "[Book 1, Section 34]",
+      "[Book 1, Section 34]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 10,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "The golden rule asks roughly: **How would I want others to treat me?** Kant\u2019s imperative asks: **Could I will the principle on which I am acting to be a universal law for everyone?**\n\nThat difference matters because my preferences may be unusual, or may change with my situation. For Kant, the standard is not what I happen to welcome, but whether the **maxim**\u2014the principle behind my action\u2014can be willed universally by a rational agent.\n\nTake a false promise. The question is not simply whether I would mind being lied to. Kant asks whether I could will a law permitting everyone to make deceitful promises when in need. He argues that universalizing this maxim would undermine the practice of promising itself: people would no longer believe such assurances [Book 1, Section 82].\n\nKant explicitly distinguishes his principle from the golden rule later in [Book 1, Section 100]. Among his objections:\n\n- It does not capture **duties to oneself**, such as developing one\u2019s capacities.\n- It does not adequately require **beneficence**: someone might gladly give up receiving help in exchange for never having to help anyone.\n- It can misjudge **strict duties**: a criminal could argue that a judge should not punish him, because the judge would not want to be punished.\n\nSo the golden rule encourages a useful imaginative reversal of positions. Kant\u2019s test is more demanding: it examines whether the rule governing an action could serve as a law for all, independently of anyone\u2019s particular preferences.",
+    "usage": {
+      "input_tokens": 37534,
+      "cached_tokens": 37415,
+      "output_tokens": 313,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0035845,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 7.5,
+    "citations_valid": [
+      "[Book 1, Section 82]",
+      "[Book 1, Section 100]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 11,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "No. Kant\u2019s distinction is between using someone **as a means** and using them **merely as a means**.\n\nA cashier helps you buy something, and you help provide their wages through the transaction. Each of you serves a purpose for the other, but that need not be disrespectful. You can also acknowledge the cashier as a person with purposes of their own\u2014for example, by dealing honestly, honoring the terms of the exchange, and respecting their ability to make choices.\n\nBy contrast, if you deceive the cashier to get what you want, you treat them merely as a means: you enlist them in a plan they cannot knowingly agree to. Kant uses this kind of reasoning in his example of a deceitful promise [Book 1, Section 99].\n\nSo \u201cas an end in himself\u201d does not mean that every interaction must be for the other person\u2019s benefit. It means their status as a person **limits what you may do in pursuit of your own ends**. Kant\u2019s next formulation makes the contrast explicit: treat humanity \u201cin every case as an end withal, never as means only\u201d [Book 1, Section 96].",
+    "usage": {
+      "input_tokens": 37793,
+      "cached_tokens": 37415,
+      "output_tokens": 236,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.00352325,
+    "seconds_to_first_token": 1.2,
+    "router_seconds": 0.0,
+    "total_seconds": 6.8,
+    "citations_valid": [
+      "[Book 1, Section 99]",
+      "[Book 1, Section 96]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 12,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "The kingdom of ends brings the earlier formulas together into a picture of **rational beings living under laws they give themselves in common**.\n\n- **Universal law:** The first formula asks whether I can will my maxim to be a universal law [Book 1, Section 78]. In the kingdom of ends, I ask this as a potential *legislator*: could my maxim serve as a law for a community of rational beings, myself included?\n- **Humanity as an end:** The second formula requires me to treat every rational being never merely as a means, but also as an end [Book 1, Section 96]. The kingdom imagines a systematic union in which everyone stands in this relation to everyone else [Book 1, Section 112].\n- **Autonomy:** Kant has just argued that a rational will must regard itself as giving universal law, not merely receiving commands from something external [Book 1, Section 104]. Each member of the kingdom is therefore both a legislator and subject to the laws they legislate [Book 1, Section 113].\n\nFor example, a deceitful promise fails the universal-law test because universalizing it would undermine promising. It also uses the person deceived merely as a means, since they cannot assent to what I am doing. From the kingdom-of-ends perspective, I am claiming an exception for myself that I could not legislate as a common law among persons who must respect one another as ends.\n\nKant regards these not as three independent moral tests, but as **different formulations of the same law** [Book 1, Section 121]. The kingdom-of-ends formula makes especially vivid the *social and reciprocal* character of autonomy: self-legislation is not permission to make up private rules, but participation in a law valid for all. The kingdom is an **ideal**, not a description of a community that already exists [Book 1, Section 112].",
+    "usage": {
+      "input_tokens": 37508,
+      "cached_tokens": 37415,
+      "output_tokens": 395,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.003962,
+    "seconds_to_first_token": 1.0,
+    "router_seconds": 0.0,
+    "total_seconds": 8.1,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 96]",
+      "[Book 1, Section 112]",
+      "[Book 1, Section 104]",
+      "[Book 1, Section 113]",
+      "[Book 1, Section 121]",
+      "[Book 1, Section 112]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 13,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "Not quite. Kant\u2019s claim is that **happiness is not the foundation of morality**, not that it has no moral importance.\n\nHere he calls promoting your own happiness an **indirect duty** because severe distress or unmet needs can tempt you to neglect other duties [Book 1, Section 27]. Caring for your well-being can therefore help you remain capable of acting as duty requires. The duty is indirect because the moral reason Kant gives is not simply \u201chappiness is good,\u201d but its connection to fulfilling other obligations.\n\nThis fits his earlier claim that a good will is the \u201csupreme good and the condition of every other, even of the desire of happiness\u201d [Book 1, Section 22]. Happiness is a legitimate end, but it does not override moral law or determine what that law is.\n\nKant also distinguishes **doing something that duty requires** from **doing it because duty requires it**. Most people naturally seek happiness, so their efforts may accord with this duty without having moral worth in his strict sense. His gout example imagines someone caring for their health even when immediate pleasure is more appealing, and doing so *from duty*. That is the kind of motivation he thinks gives the action moral worth.",
+    "usage": {
+      "input_tokens": 37778,
+      "cached_tokens": 37415,
+      "output_tokens": 250,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0035745,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 6.7,
+    "citations_valid": [
+      "[Book 1, Section 27]",
+      "[Book 1, Section 22]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 14,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "Kant needs freedom here to address a gap in his argument: **even if we know what the moral law would require, why should it bind us at all?**\n\nIn the preceding section, he argues that if a will is free\u2014independent of determination by outside causes\u2014it must nevertheless act according to a law. Since that law cannot be imposed on it from outside, the free will must give the law to itself: it is **autonomous**. Kant identifies that self-legislation with the moral law [Book 1, Section 144]. Freedom would thus connect morality to the nature of rational agency, rather than to a contingent desire for happiness or approval.\n\nBut that argument begins with an *if*: **if we are free**, the moral law follows. Kant cannot establish freedom by observing human behaviour; experience shows us actions as events in nature, but cannot reveal freedom as their ultimate cause. So he asks whether freedom must instead be **presupposed from the agent\u2019s practical point of view**.\n\nHis answer is that a rational being must regard its reason as the author of its own judgments and practical principles. If it regarded those judgments as wholly determined by an outside impulse, it would attribute them to that impulse rather than to reason itself. Accordingly, Kant claims, a rational agent must act *under the idea of freedom* [Book 1, Section 147]. He takes that practical assumption to be sufficient, without a theoretical proof that the will is free as a thing in itself [Book 1, Section 148].\n\nHe also needs the assumption to apply to **all rational beings**, not just humans: he has argued throughout that morality claims universal authority, not authority based on some particular feature of human nature.\n\nThere is still a difficulty. Does this argument establish moral obligation, or does it quietly assume what it is trying to prove? Kant explicitly raises that worry about a possible circle in [Book 1, Section 153]. So the appeal to freedom is not simply the end of his proof; it sets up the problem he next has to resolve.",
+    "usage": {
+      "input_tokens": 37468,
+      "cached_tokens": 37415,
+      "output_tokens": 420,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.004037,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 11.8,
+    "citations_valid": [
+      "[Book 1, Section 144]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 148]",
+      "[Book 1, Section 153]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-terra",
+    "question": 15,
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "answer": "What maxim would you test: \u201cI may lie whenever it benefits me,\u201d or \u201cI may lie to someone seeking to murder an innocent person\u201d?\n\nIf everyone acted on the second maxim, could you still *will* it as a universal law? How might that compare with Kant\u2019s claim that universally deceitful promises would undermine promising itself [Book 1, Section 82]?",
+    "usage": {
+      "input_tokens": 37553,
+      "cached_tokens": 0,
+      "output_tokens": 165,
+      "reasoning_tokens": 84
+    },
+    "cost": 0.04776625,
+    "seconds_to_first_token": 3.7,
+    "router_seconds": 0.0,
+    "total_seconds": 6.5,
+    "citations_valid": [
+      "[Book 1, Section 82]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 0,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Close\u2014but **\u201ceverything happens for a reason\u201d is too vague, and can be too personally reassuring**, for what Marcus means.\n\n\u201cNecessity\u201d and \u201cthe utility of the Universe\u201d name two aspects of the same natural order:\n\n- **Necessity:** events arise through an interconnected chain of causes, rather than occurring independently of everything else.\n- **The utility of the Universe:** those events contribute to the functioning and preservation of the whole\u2014not necessarily to your comfort or success.\n\nThe next sentence supplies his crucial premise: \u201cto every part of a being, that is good which springs from the nature of the whole and tends to its preservation.\u201d You are a part of nature; therefore, Marcus argues, you should understand your good in relation to the whole you belong to. The changes of elements and compound things\u2014including their dissolution\u2014keep that whole going. Preservation here means **continuing through transformation**, not keeping everything as it is. [Book 2, Section 3]\n\nSo he means something stronger than \u201cevery event has a cause\u201d: he believes the causal order is also providential and beneficial to the whole. But he does **not** mean \u201cthis setback happened so that something better could happen to me.\u201d His claim is closer to:\n\n> What happens to me belongs to the same natural order that produced me. Its significance need not be measured by whether I personally welcome it.\n\nThere is a real philosophical leap here: **being causally necessary does not, by itself, establish that something is good.** Marcus bridges that gap through the Stoic belief that nature is an intelligent, ordered whole, and that the good of its parts belongs within the good of that whole.\n\nThe practical aim becomes clear in the closing words: stop demanding that reality justify itself on your terms, so that you can meet it without \u201cmurmuring.\u201d He develops this very argument more fully through an analogy with a physician\u2019s sometimes unpleasant prescriptions in [Book 5, Section 8].",
+    "usage": {
+      "input_tokens": 54441,
+      "cached_tokens": 0,
+      "output_tokens": 402,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.1401225,
+    "seconds_to_first_token": 2.0,
+    "router_seconds": 0.0,
+    "total_seconds": 11.2,
+    "citations_valid": [
+      "[Book 2, Section 3]",
+      "[Book 5, Section 8]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 1,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "It could become escapism\u2014but Marcus builds a safeguard into the passage: the retreat should **\u201csend you back without fretting at the task to which you return.\u201d** Its purpose is not to replace engagement with the world, but to restore your ability to engage well. [Book 4, Section 3]\n\nThe distinction is between **withdrawing from your responsibilities** and **withdrawing briefly from the judgments that make those responsibilities overwhelming**. Suppose someone treats you unfairly. Retreating inward means examining the thoughts attached to the event: *Their contempt diminishes me; I must make them respect me; I cannot bear this.* Marcus wants you to question those judgments so that you can decide what justice requires\u2014rather than let resentment decide for you.\n\nThat is why his inner retreat is not simply a pleasant private fantasy. He defines rest as \u201cperfect order in the soul,\u201d then supplies reminders that can restore that order. Some are explicitly demanding: other people are your fellow human beings, and \u201cto bear with them is a part of justice.\u201d The retreat should return you to them with greater patience, not give you permission to abandon them. [Book 4, Section 3]\n\n**Acceptance, here, need not mean leaving a wrong uncorrected.** Elsewhere Marcus makes the two obligations strikingly explicit: persist in right action, and remain gentle toward those obstructing you. He calls both giving up and becoming hostile forms of desertion. [Book 11, Section 9]\n\nStill, your objection exposes a real risk in his language. \u201cAll trouble comes from what we think\u201d can become a way of minimizing suffering or avoiding practical change. Marcus\u2019s intended distinction is narrower: circumstances can damage your body or obstruct your plans, but they need not determine your moral response. Whether that degree of inner independence is achievable is a further question.\n\nThe practical test is: **Does the retreat help you return to the problem with clearer judgment and greater willingness to act\u2014or help you avoid returning at all?** The first is what Marcus is recommending; the second would defeat the passage\u2019s purpose.",
+    "usage": {
+      "input_tokens": 54918,
+      "cached_tokens": 54233,
+      "output_tokens": 426,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0113958,
+    "seconds_to_first_token": 1.8,
+    "router_seconds": 0.0,
+    "total_seconds": 11.6,
+    "citations_valid": [
+      "[Book 4, Section 3]",
+      "[Book 4, Section 3]",
+      "[Book 11, Section 9]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 2,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "\u201cAtoms\u201d is Marcus\u2019s shorthand for the main rival to the Stoic account of the universe: **the atomism of Democritus and Epicurus**, in which things arise from the movements and combinations of atoms in the void, rather than from a providential intelligence. These are ancient philosophical atoms, not atoms in the modern scientific sense.\n\nMarcus is a Stoic, but he repeatedly tests his convictions against this alternative: **even if the Stoic account of the cosmos were wrong, would that justify fear, resentment, or bad conduct?** His answer is generally no.\n\n### What it means here\n\nAlexander and his muleteer represent opposite ends of the social hierarchy. Marcus considers their deaths under both accounts:\n\n- **If the Stoics are right**, both return to the \u201cseminal source of all things\u201d\u2014the generative divine reason that shapes the world. \u201cSeminal\u201d here means *seed-like* or *productive*.\n- **If the atomists are right**, both dissolve into their constituent atoms.\n\nEither way, the conqueror has no privileged fate. **The physical outcome of death takes no account of worldly rank.** That is the point of the alternatives in [Book 6, Section 24], rather than an attempt to settle which physics is correct.\n\n### Where else he does this\n\nThe clearest related passages are:\n\n- **[Book 4, Section 3]** \u2014 He explicitly tells himself to remember the alternative: \u201cEither providence directs the world, or there is nothing but unguided atoms.\u201d It appears among remedies for resentment about one\u2019s allotted fate.\n\n- **[Book 6, Section 10]** \u2014 The universe is either an \u201caimless chaos and confusion\u201d or \u201ca unity compact of order and forethought.\u201d This gives you the same contrast without using the word *atoms*.\n\n- **[Book 7, Section 32]** \u2014 The closest parallel to your passage: \u201cIf the Universe be a concourse of atoms, death is a scattering of these; if it be an ordered unity, death is an extinction or a translation to another state.\u201d\n\n- **[Book 9, Section 28]** \u2014 Perhaps his sharpest statement of why he keeps returning to the possibility: **\u201cif there be only chance, you at least need not act by chance.\u201d** Whatever the universe\u2019s ultimate constitution, your conduct can still be deliberate and principled.\n\n- **[Book 10, Section 6]** \u2014 \u201cWhether all be atoms, or there be a universal Law of Nature,\u201d he begins from his membership in the whole and his association with other human beings. The discussion develops into an argument for public-spirited action.\n\n- **[Book 12, Section 14]** \u2014 He considers necessity, providence, and \u201ca blind confusion without a governor.\u201d Even in the last case, \u201cyou have within yourself a guiding intelligence.\u201d\n\nOther explicit mentions occur at [Book 7, Section 31], [Book 7, Section 50], [Book 8, Section 17], [Book 9, Section 39], and [Book 11, Section 18].\n\nOne qualification matters: Marcus is **not neutral between these worldviews**, and his descriptions of atomism as \u201cconfusion\u201d are hardly how an Epicurean would describe it. But he uses the rival view as a recurring exercise: *suppose there is no providential plan\u2014what excuse does that give me for failing to act well?* Here the exercise is narrower: *under either account, what becomes of Alexander\u2019s supposed superiority?*",
+    "usage": {
+      "input_tokens": 54308,
+      "cached_tokens": 54233,
+      "output_tokens": 844,
+      "reasoning_tokens": 102
+    },
+    "cost": 0.014050799999999999,
+    "seconds_to_first_token": 4.6,
+    "router_seconds": 0.0,
+    "total_seconds": 17.6,
+    "citations_valid": [
+      "[Book 6, Section 24]",
+      "[Book 4, Section 3]",
+      "[Book 6, Section 10]",
+      "[Book 7, Section 32]",
+      "[Book 9, Section 28]",
+      "[Book 10, Section 6]",
+      "[Book 12, Section 14]",
+      "[Book 7, Section 31]",
+      "[Book 7, Section 50]",
+      "[Book 8, Section 17]",
+      "[Book 9, Section 39]",
+      "[Book 11, Section 18]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 3,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "\u201cIndifferent things\u201d is a Stoic technical term: **things that are neither morally good nor morally bad in themselves.** They include health and sickness, wealth and poverty, pleasure and pain, reputation and disgrace\u2014even life and death.\n\nFor Marcus, *good* strictly means what makes us virtuous: just, truthful, courageous, and self-controlled. *Bad* means what makes us vicious. Everything else lies \u201cbetween good and bad\u201d because **having or losing it does not by itself determine the quality of our character.** Wealth can support generosity or corruption; sickness can be endured courageously or bitterly. Marcus explicitly lists these external conditions as \u201cneither good nor evil\u201d in [Book 2, Section 11].\n\nThis does **not** mean that all choices are equally sensible, or that we should stop caring for people. Stoics generally distinguish *preferred* indifferents, such as health, from *dispreferred* ones, such as illness. You can seek treatment, earn a living, or protect someone from danger. The moral question is *how* you pursue those things\u2014and whether you will sacrifice justice to obtain them.\n\nSo the \u201cindifference\u201d he recommends here is **freedom from treating external advantages as necessary for a good life, or external losses as necessarily ruining it.** Care about what happens, but don\u2019t make your integrity depend on getting your way.\n\nThe next instruction\u2014\u201cLove mankind\u201d\u2014helps prevent a mistaken reading: this is not emotional coldness. Elsewhere Marcus pairs practical assistance with precisely this distinction: help someone in need, without assuming that the loss of an indifferent thing has destroyed their true good [Book 5, Section 36].",
+    "usage": {
+      "input_tokens": 54353,
+      "cached_tokens": 54233,
+      "output_tokens": 347,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0091933,
+    "seconds_to_first_token": 2.8,
+    "router_seconds": 0.0,
+    "total_seconds": 10.4,
+    "citations_valid": [
+      "[Book 2, Section 11]",
+      "[Book 5, Section 36]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 4,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Not quite\u2014but the opening is deliberately severe. Read by itself, that list of faults sounds like a recipe for distrust. The rest of the passage is meant to prevent precisely that response.\n\nMarcus doesn\u2019t say *everyone will be awful*. He says he will encounter difficult people, and rehearses how to meet them **without surprise, resentment, or imitation**. The morning warning is preparation, not a verdict on humanity.\n\nNotice the movement of his argument:\n\n- **They act badly because they misunderstand good and evil.** In Stoic terms, they mistake wealth, status, pleasure, or getting their way for genuine goods, and behave badly to secure them. That explains their conduct without making it right.\n- **Their wrongdoing cannot force me to become bad.** \u201cNone of them can involve me in any baseness\u201d is the key to \u201cI therefore cannot be hurt.\u201d He isn\u2019t claiming that people cannot injure your body or damage your circumstances. He means they cannot, simply by acting against you, make you unjust or dishonest.\n- **They remain my kin.** The conclusion is not *keep clear of these awful people*, but \u201cwe are made by nature for mutual assistance.\u201d The image of hands and feet makes hostility a kind of conflict within one body. [Book 2, Section 1]\n\nSo the exercise is closer to: **\u201cExpect human failings, but don\u2019t let that expectation cancel your goodwill.\u201d** Its success would be measured by greater patience, not greater suspicion.\n\nThere is nevertheless a real tension in the tone: Marcus distinguishes his own understanding from other people\u2019s ignorance in a way that can sound self-righteous. Elsewhere he checks that tendency explicitly: you cannot endure sinners, he tells himself, \u201cthough you are one of the sinners yourself!\u201d [Book 7, Section 70]\n\nAnd his preparation is not exclusively negative. When he wants encouragement, he tells himself to consider the activity, modesty, and generosity of those around him: \u201cNothing rejoices the heart so much\u201d as their goodness. [Book 6, Section 48] The morning passage supplies one half of the discipline: don\u2019t be blindsided by vice. That later passage supplies the other: don\u2019t become blind to virtue.",
+    "usage": {
+      "input_tokens": 54498,
+      "cached_tokens": 54233,
+      "output_tokens": 458,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0106658,
+    "seconds_to_first_token": 1.9,
+    "router_seconds": 0.0,
+    "total_seconds": 11.8,
+    "citations_valid": [
+      "[Book 2, Section 1]",
+      "[Book 7, Section 70]",
+      "[Book 6, Section 48]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 5,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Marcus says this inward retreat should \u201csend you back without fretting at the task to which you return\u201d [Book 4, Section 3]. Notice that he expects you to **return**, not stay withdrawn.\n\n- When you face something wrong in the world, does being consumed by anger or anxiety make you better able to address it\u2014or can it sometimes get in the way?\n- If inner calm doesn\u2019t fix the mess itself, could it still matter by changing how you act within it?",
+    "usage": {
+      "input_tokens": 54916,
+      "cached_tokens": 0,
+      "output_tokens": 103,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.13832,
+    "seconds_to_first_token": 1.4,
+    "router_seconds": 0.0,
+    "total_seconds": 4.5,
+    "citations_valid": [
+      "[Book 4, Section 3]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 6,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "**Primarily for himself.** *Meditations* is generally understood as a collection of private philosophical notes, not a treatise written for a public audience. Its traditional Greek title, *Ta eis heauton*, means roughly \u201cTo Himself.\u201d We cannot be certain whether Marcus expected anyone else eventually to read it.\n\nThat explains its distinctive voice: when he says \u201cyou,\u201d he is usually addressing himself\u2014reminding, questioning, correcting, sometimes sharply rebuking himself. \u201cThink of your long procrastination,\u201d he writes [Book 2, Section 4]. Elsewhere: \u201cDiscourse no more of what a good man should be; but be one\u201d [Book 10, Section 16]. These are exercises in changing his conduct, not simply statements of doctrine.\n\nThe opening book has a different shape: it records what he owes to relatives, teachers, friends, and the Gods. But much of the rest reads like a working notebook: repeated principles, arguments against his own anxieties, and reminders of how to meet the demands of life as emperor.\n\nSo we are reading **a philosopher trying to keep himself faithful to his philosophy**, rather than an emperor telling his subjects how to live. His frequent insistence on patience and humility should not automatically be taken as evidence that those qualities came easily to him; they are often precisely what he is practising.",
+    "usage": {
+      "input_tokens": 54247,
+      "cached_tokens": 54233,
+      "output_tokens": 279,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0082483,
+    "seconds_to_first_token": 2.1,
+    "router_seconds": 0.0,
+    "total_seconds": 8.4,
+    "citations_valid": [
+      "[Book 2, Section 4]",
+      "[Book 10, Section 16]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 7,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Marcus is best read as **a believer in providence who repeatedly tests whether his ethics would survive without it**\u2014not as an agnostic equally undecided between providence and chance. But the uncertainty you notice is real: his confidence is not uniform, and he sometimes leaves fundamental questions open.\n\n### His usual conviction is providential\n\nFor a Stoic, providence means that the cosmos is governed from within by divine reason. It does not mean that every event serves *your personal comfort*: it serves the order of the whole, of which you are a part.\n\nMarcus often affirms this without qualification:\n\n> \u201cWhatever the Gods ordain is full of wise forethought.\u201d [Book 2, Section 3]\n\nHe also explicitly distinguishes divine concern for himself individually from concern for the universe. Even if the Gods have not planned his particular affairs, he says, he should accept what follows from their ordering of the whole [Book 6, Section 44]. So belief in providence need not mean believing that every setback is a personally addressed divine message.\n\n### Here he is testing the alternative\n\nThe structure of your passage matters. Marcus first commands:\n\n> \u201cLove mankind, and obey God.\u201d\n\nThen he asks:\n\n> \u201cBut what if there be naught beyond the atoms?\u201d\n\n\u201cAtoms\u201d invokes the rival Epicurean picture: a universe not governed by providential intelligence. **He is asking whether losing the theological foundation would also destroy his reasons for living well.** His answer is no. Even then, the world exhibits regularities; it is not a reason for you to abandon order in your own conduct.\n\nElsewhere he makes this fallback especially clear:\n\n> \u201cIf there be a God, all is well; and if there be only chance, you at least need not act by chance.\u201d [Book 9, Section 28]\n\nThat is the recurring practical purpose of the alternatives: *whatever the ultimate explanation of the universe, you can still act justly and rationally.*\n\n### But this is not merely rhetorical certainty\n\nMarcus acknowledges genuine limits to knowledge: \u201cThe Stoics themselves own that it is difficult to comprehend anything with certainty\u201d [Book 5, Section 10]. And he leaves questions such as survival after death unresolved [Book 12, Section 5].\n\nSo the distinction is between **religious commitment and metaphysical certainty**. Marcus generally possesses the first without consistently claiming the second. His \u201cprovidence or atoms\u201d exercises make his moral resolve less dependent on settling every question about the cosmos.",
+    "usage": {
+      "input_tokens": 54351,
+      "cached_tokens": 54233,
+      "output_tokens": 589,
+      "reasoning_tokens": 74
+    },
+    "cost": 0.011608299999999998,
+    "seconds_to_first_token": 2.8,
+    "router_seconds": 0.0,
+    "total_seconds": 12.6,
+    "citations_valid": [
+      "[Book 2, Section 3]",
+      "[Book 6, Section 44]",
+      "[Book 9, Section 28]",
+      "[Book 5, Section 10]",
+      "[Book 12, Section 5]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 8,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "\u201cGood without qualification\u201d means **good without needing to add \u201cprovided that\u2026\u201d** Its goodness does not depend on further conditions\u2014such as who possesses it, how it is used, or what it achieves.\n\nKant\u2019s examples make the contrast clear. Intelligence is good *provided it is used well*: an intelligent fraudster may do more harm than a foolish one. Courage and perseverance can make someone a more effective criminal. Even happiness is not unconditionally good: the unbroken prosperity of a thoroughly wicked person is not something an \u201cimpartial rational spectator\u201d could simply approve of [Book 1, Section 16].\n\nA **good will**, by contrast, does not need some further condition to make it good. It is not merely a useful capacity; it concerns the principles by which someone chooses and acts. Kant will develop this into the idea of acting from respect for moral law, rather than merely from self-interest or inclination.\n\nImportantly, he does **not** mean that a good will guarantees good results. In the next few paragraphs, he says that even if its greatest efforts accomplish nothing, it would still, \u201clike a jewel,\u201d possess its value in itself [Book 1, Section 18]. Nor does he mean that a mere well-intentioned wish is enough: that passage explicitly requires \u201cthe summoning of all means in our power.\u201d\n\nSo the opening claim is: **everything else we ordinarily call good can become bad under certain conditions; a genuinely good will is good in itself.**",
+    "usage": {
+      "input_tokens": 37691,
+      "cached_tokens": 0,
+      "output_tokens": 308,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0973075,
+    "seconds_to_first_token": 1.4,
+    "router_seconds": 0.0,
+    "total_seconds": 9.6,
+    "citations_valid": [
+      "[Book 1, Section 16]",
+      "[Book 1, Section 18]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 9,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Here \u201crespect for the law\u201d means **recognizing that a moral requirement has authority over what you do, whether or not you feel like obeying it**. \u201cLaw\u201d does not mean the law of the state; it means a principle that holds for every rational being.\n\nSuppose you have promised to help someone, but when the time comes you would rather stay home. You might keep your promise because:\n- you fear damaging your reputation;\n- you enjoy helping this person;\n- you recognize that you ought to keep your promise, even if neither fear nor enjoyment motivates you.\n\nThe third is what Kant means by acting **from respect for the law**. The requirement to keep your promise itself supplies your reason for acting\u2014not some benefit you expect from keeping it.\n\n\u201cRespect\u201d here is therefore not admiration, affection, or fear. It is your recognition that **\u201cI would prefer otherwise\u201d does not cancel \u201cI ought to do this.\u201d** Kant clarifies shortly afterward that respect signifies \u201cthe consciousness that my will is subordinate to a law, without the intervention of other influences on my sense\u201d [Book 1, Section 33].\n\nThat also helps explain the strange word **\u201cnecessity.\u201d** Kant does not mean that you are physically forced to act morally: you can break your promise. He means that the action is *required*, rather than optional, from the standpoint of reason.\n\nSo the sentence can be paraphrased:\n\n> **To act from duty is to act because you recognize that morality requires it, and to let that requirement\u2014not your preferences\u2014determine your choice.**\n\nYou need not dislike doing it. The crucial question is whether the moral requirement governs your decision, rather than your willingness to comply depending on how you happen to feel.",
+    "usage": {
+      "input_tokens": 37720,
+      "cached_tokens": 37415,
+      "output_tokens": 359,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.008094,
+    "seconds_to_first_token": 2.4,
+    "router_seconds": 0.0,
+    "total_seconds": 11.9,
+    "citations_valid": [
+      "[Book 1, Section 33]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 10,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "The resemblance is real: both ask you to move beyond your own privileged standpoint. But **the Golden Rule asks about how you would be treated; Kant asks whether your principle of action could be a law for everyone.**\n\nThe Golden Rule is usually expressed as \u201cDo unto others as you would have them do unto you.\u201d Kant\u2019s imperative instead asks you to identify your **maxim**\u2014the principle on which you propose to act\u2014and ask whether you could consistently will everyone to act on it [Book 1, Section 78]. The difference matters in several ways.\n\n**1. Your preferences do not set the moral standard.**  \nSuppose you say: \u201cI\u2019m happy to receive no help from anyone, provided I never have to help others.\u201d That arrangement might satisfy the Golden Rule: you accept the treatment you give. Kant explicitly raises this objection later, noting that someone might gladly forgo others\u2019 benevolence in exchange for being excused from showing any himself [Book 1, Section 100].\n\nFor Kant, the question is not whether you currently like that bargain, but whether you can rationally will a universal principle of non-assistance. He argues that you cannot: you may need others\u2019 help in pursuing your ends, yet your own proposed law would rule that help out [Book 1, Section 84].\n\n**2. Universalization is not imagining yourself on the receiving end.**  \nConsider making a promise you intend to break. The Golden Rule might ask, \u201cWould I want someone to deceive me?\u201d Kant asks, \u201cCould the principle of obtaining what I want through lying promises operate as a universal law?\u201d\n\nHis answer is that universal lying promises would undermine the trust that makes promising possible. The maxim would defeat the very practice it relies on\u2014not merely produce treatment you dislike [Book 1, Section 82].\n\n**3. Kant\u2019s principle also covers duties to yourself.**  \nThe Golden Rule ordinarily governs how you treat other people. Kant\u2019s principle is meant to govern all your maxims, including neglecting your own capacities. His example of refusing to develop one\u2019s talents is therefore a moral question even without an obvious exchange of treatment between people [Book 1, Section 83].\n\nKant himself explicitly rejects the Golden Rule as the fundamental principle of morality, although he thinks a suitably qualified version can be derived from his own principle [Book 1, Section 100].\n\nIn short: **\u201cWould I accept being treated this way?\u201d is not the same question as \u201cCan I consistently will the principle of my action as a law for every rational being?\u201d**",
+    "usage": {
+      "input_tokens": 37534,
+      "cached_tokens": 37415,
+      "output_tokens": 528,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.009319,
+    "seconds_to_first_token": 1.1,
+    "router_seconds": 0.0,
+    "total_seconds": 14.3,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 100]",
+      "[Book 1, Section 84]",
+      "[Book 1, Section 82]",
+      "[Book 1, Section 83]",
+      "[Book 1, Section 100]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 11,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "No. The crucial distinction is between treating someone **as a means** and treating them **merely as a means**. Kant explicitly says that a person must be regarded \u201cat the same time as an end\u201d\u2014not that they can never help you accomplish your purposes. [Book 1, Section 95]\n\nA cashier serves as a means to your buying groceries, just as you serve as a means to the store\u2019s earning revenue. That need not be objectionable. You can participate in that exchange while recognizing the cashier as a person with their own purposes and capacity to choose\u2014not simply as an instrument available for whatever you want.\n\n**\u201cAs an end in himself\u201d means that the person\u2019s worth does not depend on their usefulness to you.** Their humanity places limits on how you may pursue your goals. Deceiving, coercing, or exploiting them can violate those limits even if doing so gets you what you want.\n\nKant\u2019s own example is a deceitful promise: the deceived person \u201ccannot possibly assent to my mode of acting towards him.\u201d By concealing your real intention, you prevent them from making your actual proposal their own choice, and instead enlist them in your plan through deception. [Book 1, Section 99]\n\nSo an ordinary, honest transaction with a cashier is compatible with the principle. **The problem is not that they serve your purpose; it is treating your purpose as though their own agency and worth impose no constraints on it.**",
+    "usage": {
+      "input_tokens": 37793,
+      "cached_tokens": 37415,
+      "output_tokens": 301,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.0076965,
+    "seconds_to_first_token": 2.4,
+    "router_seconds": 0.0,
+    "total_seconds": 10.5,
+    "citations_valid": [
+      "[Book 1, Section 95]",
+      "[Book 1, Section 99]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 12,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "The **kingdom of ends brings the earlier formulas together into the idea of a moral community**: rational beings jointly living under laws that each can regard as giving.\n\nThe connection develops in three steps:\n\n1. **Universal law supplies the form of shared legislation.**  \n   The first formula asks whether you can will your maxim as a universal law [Book 1, Section 78]. The kingdom of ends makes explicit what such universality involves: your principle must fit into a common system of laws for rational beings, rather than function as a private exception for you.\n\n2. **Humanity as an end identifies who belongs to that community and what its laws must respect.**  \n   The second formula requires treating humanity, in yourself and others, \u201cas an end withal, never as means only\u201d [Book 1, Section 96]. Consequently, the kingdom is not merely an orderly system of agents pursuing goals. Its members themselves have unconditional standing as ends. It also includes their particular ends, insofar as these can coexist under common laws [Book 1, Section 111]. Respecting others therefore involves more than not exploiting them; it also calls for advancing their permissible ends where possible [Book 1, Section 102].\n\n3. **Autonomy makes each member a legislator, not merely a subject.**  \n   Immediately before your passage, Kant argues that the will must regard itself as giving universal laws, not simply obeying laws imposed from elsewhere [Book 1, Sections 103\u2013109]. The kingdom of ends extends this standpoint to **every** rational being: each legislates, but each is also subject to the same legislation. That is precisely how Kant defines membership [Book 1, Section 113].\n\nSo the guiding question becomes:\n\n> Could I act on this maxim as a legislating member of a community in which everyone is respected as an end?\n\nThis is **not an additional requirement to produce good social consequences**, nor does it make morality depend on everyone else cooperating. It is a standpoint for judging your own maxims\u2014even when others fail to act morally [Book 1, Section 127].\n\nKant later explicitly says these are \u201cformulae of the very same law\u201d [Book 1, Section 121]. His summary is useful: **universal law gives the form; rational beings as ends give the matter; the kingdom of ends gives their systematic unity** [Book 1, Sections 122\u2013123].",
+    "usage": {
+      "input_tokens": 37508,
+      "cached_tokens": 37415,
+      "output_tokens": 501,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.008984,
+    "seconds_to_first_token": 1.5,
+    "router_seconds": 0.0,
+    "total_seconds": 14.3,
+    "citations_valid": [
+      "[Book 1, Section 78]",
+      "[Book 1, Section 96]",
+      "[Book 1, Section 111]",
+      "[Book 1, Section 102]",
+      "[Book 1, Sections 103\u2013109]",
+      "[Book 1, Section 113]",
+      "[Book 1, Section 127]",
+      "[Book 1, Section 121]",
+      "[Book 1, Sections 122\u2013123]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 13,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Kant\u2019s claim is not that happiness doesn\u2019t matter, but that **happiness is neither the foundation of moral obligation nor what gives an action its moral worth**. Here he gives it a different role: it can help us remain faithful to duty.\n\nThe key qualification is **\u201cat least indirectly.\u201d** His reasoning is:\n\n- Anxiety, deprivation, and discontent can become powerful temptations to violate duty.\n- Taking care of your own well-being can reduce those temptations.\n- So you have a moral reason to secure your happiness **as a support for doing your duty**, not as the supreme purpose that determines what your duties are. [Book 1, Section 27]\n\nFor example, getting adequate rest or maintaining financial stability may help you resist becoming dishonest or neglectful under pressure. The moral point is not \u201cwhatever makes me happier is right,\u201d but \u201cI should not needlessly undermine my capacity to act rightly.\u201d\n\nThis also preserves the distinction running through the preceding examples: **doing something that accords with duty is not the same as doing it from duty**. Caring for yourself simply because you enjoy being comfortable does not, on that account alone, have moral worth. Caring for yourself because you recognize a duty to sustain the conditions of responsible conduct can have moral worth. The action\u2019s purpose concerns happiness; its determining motive is respect for duty.\n\nKant had already made room for this distinction when he called a good will \u201cnot indeed the sole and complete good,\u201d but the **\u201csupreme good and the condition of every other,\u201d** including happiness. [Book 1, Section 22] Happiness is a genuine good\u2014but a good whose pursuit is subordinate to morality, not morality\u2019s measuring stick.",
+    "usage": {
+      "input_tokens": 37778,
+      "cached_tokens": 37415,
+      "output_tokens": 348,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.008129,
+    "seconds_to_first_token": 2.5,
+    "router_seconds": 0.0,
+    "total_seconds": 12.2,
+    "citations_valid": [
+      "[Book 1, Section 27]",
+      "[Book 1, Section 22]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 14,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Kant needs to presuppose freedom because he is moving from **identifying what morality requires to justifying its authority over us**.\n\nSo far, he has argued that morality, if it is real, must consist in **autonomy**: the will giving itself universal laws, rather than being governed by desires, rewards, or threats. But he explicitly admits that this has not yet proved that morality actually binds us [Book 1, Section 141].\n\n### Why freedom is the key\n\nImmediately before your passage, Kant argues that a free will and an autonomous will are the same thing. Freedom cannot mean acting without any law\u2014that would make the will\u2019s causality unintelligible. It means independence from determination by \u201cforeign causes,\u201d together with determination by laws the will gives itself. That, he claims, is precisely autonomy, whose principle is the categorical imperative [Book 1, Section 144].\n\nThis offers a route to morality\u2019s authority:\n\n**If a rational will must regard itself as free, it must also regard itself as subject to the moral law.**\n\nThe task under your heading is therefore to justify that first step\u2014and to do so for **all rational beings**, since morality is supposed to bind us as rational beings, not because of some peculiarity of human psychology.\n\n### Why *presuppose*, rather than prove?\n\nKant is not claiming that observation establishes freedom, or that theoretical reasoning has demonstrated a will operating outside natural causation. His argument concerns what a rational agent must assume **in exercising reason**.\n\nIn the next paragraph, he argues that reason must regard itself as \u201cthe author of its principles independent of foreign influences.\u201d If I consciously regard my judgment as dictated by an external impulse rather than by reasons, I cannot simultaneously regard that impulse\u2019s authority as the authority of my own reason. Accordingly, insofar as reason directs action\u2014as a will\u2014it must act \u201cunder the idea of freedom\u201d [Book 1, Section 147].\n\nThus freedom is a **necessary practical presupposition**, not an established fact about an observable object. Kant says explicitly that this strategy avoids having to prove freedom \u201cin its theoretical aspect\u201d: a being that cannot act except under the idea of freedom is bound by the laws inseparable from freedom [Book 1, Section 148].\n\n### The problem still ahead\n\nThis is not yet the whole justification. Kant will immediately confront a possible circle: are we assuming freedom to establish morality, while really believing ourselves free only because we already accept morality? He states that difficulty openly in [Book 1, Section 153].\n\nAt your present location, then, the central question is: **Can Kant ground morality in a conception of rational agency that we cannot avoid adopting, without simply assuming morality itself?** Freedom is meant to supply that grounding.",
+    "usage": {
+      "input_tokens": 37468,
+      "cached_tokens": 37415,
+      "output_tokens": 568,
+      "reasoning_tokens": 0
+    },
+    "cost": 0.009554,
+    "seconds_to_first_token": 1.7,
+    "router_seconds": 0.0,
+    "total_seconds": 16.7,
+    "citations_valid": [
+      "[Book 1, Section 141]",
+      "[Book 1, Section 144]",
+      "[Book 1, Section 147]",
+      "[Book 1, Section 148]",
+      "[Book 1, Section 153]"
+    ],
+    "citations_invalid": []
+  },
+  {
+    "config": "gpt-6.1-sol",
+    "question": 15,
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "answer": "Kant\u2019s nearby example concerns a **lying promise**: universalizing it would make promising itself impossible [Book 1, Section 82]. Does lying to a murderer involve the same kind of contradiction?\n\nTo test your case against the rule, consider two questions:\n\n- What exactly is the maxim: \u201cI may lie whenever truth is inconvenient,\u201d or \u201cI will deceive someone seeking information to murder another person\u201d? What makes the narrower maxim a principled rule rather than an exception invented for this occasion?\n- Could you consistently **will everyone to follow** that narrower maxim\u2014including when you yourself seek information\u2014or would doing so undermine the very possibility of the deception you intend?\n\nThe pressure point in Kant\u2019s wording is \u201ccanst \u2026 will that it should become a universal law,\u201d not simply whether this particular lie would have good consequences [Book 1, Section 78].",
+    "usage": {
+      "input_tokens": 37553,
+      "cached_tokens": 0,
+      "output_tokens": 205,
+      "reasoning_tokens": 26
+    },
+    "cost": 0.0959325,
+    "seconds_to_first_token": 2.3,
+    "router_seconds": 0.0,
+    "total_seconds": 7.6,
+    "citations_valid": [
+      "[Book 1, Section 82]",
+      "[Book 1, Section 78]"
+    ],
+    "citations_invalid": []
+  }
+]

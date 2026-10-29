@@ -107,7 +107,8 @@ class ConversationService:
 
         try:
             response = self._client.responses.create(
-                model=settings.model_router,
+                model=settings.model_utility,
+                reasoning={"effort": "low"},
                 input=[{
                     "role": "user",
                     "content": f"""Summarize this philosophy discussion in 2-3 sentences.

@@ -968,7 +968,6 @@ test.describe('Tutor Context & Citations', () => {
     status: 200,
     contentType: 'text/event-stream',
     body: [
-      { routing: { route: 'basic', effort: 'low' } },
       { content: 'He returns to this in ' },
       { content: '[Book 4, Section 3].' },
       { done: true },

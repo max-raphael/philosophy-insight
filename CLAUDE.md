@@ -15,7 +15,8 @@ Philosophy Insight is a web app for reading philosophy texts with an AI companio
 cd backend
 source venv/bin/activate
 python main.py              # Runs on http://localhost:8000
-pytest tests/               # Run unit tests (42 tests)
+pytest tests/               # Run unit tests (38 tests)
+python scripts/model_eval.py  # Compare tutor models side by side (real API calls, ~$1.50)
 ```
 
 ### Frontend (React + Vite)
@@ -29,10 +30,11 @@ npm run test:headed         # Run tests with browser visible
 ```
 
 ### Development
-Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Optional: `GITHUB_TOKEN` enables the feedback form to create GitHub issues. Uses OpenAI's Responses API with three models:
-- **GPT-5 nano** - Router (query classification) and title generation
-- **GPT-5 mini** - Basic/fast responses for simple queries
-- **GPT-5.2** - Deep reasoning for complex queries
+Run both servers simultaneously (two terminals). Backend requires `OPENAI_API_KEY` in `backend/.env`. Optional: `GITHUB_TOKEN` enables the feedback form to create GitHub issues. Uses OpenAI's Responses API with two models (overridable via env):
+- **GPT-6.1 Terra** (`MODEL_TUTOR`, effort `TUTOR_EFFORT=medium`) - Answers every reader question
+- **GPT-6 Luna** (`MODEL_UTILITY`) - Conversation titles and history summaries
+
+Chosen on 2026-10-29 with `backend/scripts/model_eval.py` (16 reader questions on Meditations and Kant's Groundwork; report in `backend/evals/`). Terra was ~7x faster to first token (1.8s vs 13.5s) and ~1/3 the cost of the previous GPT-5.2/mini router setup, with equally accurate citations and better tutor-style writing. Luna was close in quality at ~1/50 the cost; switch `MODEL_TUTOR` to `gpt-6-luna` if cost matters.
 
 After adding/modifying text JSON files:
 ```bash
@@ -117,9 +119,9 @@ curl -X POST http://localhost:8000/reload-texts
 **API Endpoints:**
 - `GET /texts` - List all texts (metadata only)
 - `GET /texts/{id}` - Full text with sections
-- `POST /chat/stream` - SSE streaming chat with highlight-aware adaptive routing (see below)
-- `POST /chat` - Non-streaming chat endpoint (same routing logic)
-- `POST /generate-title` - Generate conversation title from first exchange (uses GPT-5 nano)
+- `POST /chat/stream` - SSE streaming chat (see below)
+- `POST /chat` - Non-streaming chat endpoint (same context building)
+- `POST /generate-title` - Generate conversation title from first exchange (uses the utility model)
 - `DELETE /conversations/{id}` - Clear conversation
 - `POST /feedback` - Submit feedback (creates GitHub issue). Accepts: category (bug/feature/text-request/general), message, optional name/email
 
@@ -131,39 +133,27 @@ Chat endpoints are rate-limited using slowapi to protect API costs:
 - Returns 429 with friendly message when limit exceeded
 - Configuration in `backend/config.py` (`rate_limit_chat`, `rate_limit_title`)
 
-**Adaptive Routing System:**
-The chat endpoints use intelligent routing based on query complexity:
-
+**Chat Pipeline:**
 1. **Message Parsing** - User messages are parsed into structured components:
    - `location`: Book/section reference (e.g., "[Book 2, Section 3]")
    - `paragraph`: Full paragraph being read (lines starting with ">")
    - `highlighted`: Specific phrase selected (from "[Highlighted: '...']")
    - `question`: The user's actual question
 
-2. **Router Decision** - GPT-5 nano classifies the query considering:
-   - The complexity of the highlighted text (not just the question)
-   - "What does this mean?" on a simple phrase → basic
-   - "What does this mean?" on dense Hegelian text → deep
-   - Returns: `{route, effort, confidence, reason}` via structured JSON output
+2. **Model Call** - Every question goes to the tutor model (no routing; a GPT-5-nano router was removed 2026-10-29 because it added latency and sent nearly everything to the expensive model anyway). `PROMPT_CACHE_TTL` (default `30m`) keeps the cached book alive while the reader reads between questions; cache writes cost 1.25x input.
 
-3. **Model Selection:**
-   - `route: "basic"` → GPT-5 mini with low reasoning effort
-   - `route: "deep"` → GPT-5.2 with high reasoning effort
-   - Confidence fail-safe: if `confidence < 0.65`, defaults to deep/high
-
-4. **SSE Stream Format:**
+3. **SSE Stream Format:**
    ```
-   data: {"routing": {"route": "deep", "effort": "high"}}  // First event
    data: {"content": "In "}                                 // Content tokens
    data: {"content": "*Republic*"}
    ...
    data: {"done": true}                                     // Final event
+   data: {"error": "..."}                                   // On failure
    ```
-   Frontend can use the `routing` event to show appropriate loading state.
 
 **Full-Text Context:**
-- For texts listed in `FULL_TEXT_IDS` (env, comma-separated, `*` for all; default `meditations`) and under `FULL_TEXT_MAX_TOKENS` (default 200k, estimated at 4 chars/token), the entire book is sent as the first system message
-- Every section is labelled `[Book X, Section Y]`; the message is identical across requests and modes so OpenAI's automatic prompt caching applies
+- For texts listed in `FULL_TEXT_IDS` (env, comma-separated, `*` for all; default `*`) and under `FULL_TEXT_MAX_TOKENS` (default 200k, estimated at 4 chars/token), the entire book is sent as the first system message
+- Every section is labelled `[Book X, Section Y]`; the message is identical across requests so OpenAI's automatic prompt caching applies. Caching is effectively per (book, mode): OpenAI merges consecutive system messages, so Tutor and Socratic don't share a cache entry (tested 2026-10-29)
 - The tutor is instructed to cite as `[Book X, Section Y]`; `DiscussionPanel` renders these as `.citation-link` buttons that scroll the reader to the passage
 
 **Request Context:**
@@ -176,7 +166,7 @@ The chat endpoints use intelligent routing based on query complexity:
   - Oldest 20 messages summarized into 2-3 sentences
   - Recent 30 messages kept at full fidelity
   - Summary prepended as context: "[Earlier in our conversation: ...]"
-- Uses GPT-5 nano for fast summarization (minimal latency impact)
+- Uses the utility model (GPT-6 Luna) for fast summarization
 
 **Frontend State:**
 - Multiple conversations per text with localStorage persistence:
@@ -185,7 +175,7 @@ The chat endpoints use intelligent routing based on query complexity:
 - Bookmarks stored globally: `philosophy-insight-bookmarks` (array of all bookmarks with text/location metadata)
 - Onboarding state: `philosophy-insight-onboarding` (tracks first visit, welcome modal seen)
 - `pendingQuote` state flows: Reader selection → App → DiscussionPanel → quote card above input
-- Streaming responses use SSE: `{routing}` (first) → `{content}` (tokens) → `{done: true}` (final)
+- Streaming responses use SSE: `{content}` (tokens) → `{done: true}` (final), parsed by `utils/sse.ts`
 - Theme preference persists in localStorage (`philosophy-insight-theme`)
 - Reading settings persist in localStorage (`philosophy-insight-reading-settings`)
 - Reading position persists per text at section level (`reading-position-{textId}`) - auto-saves current section as you scroll, restores exact position on return

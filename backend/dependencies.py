@@ -6,7 +6,6 @@ from openai import OpenAI
 from config import settings
 from services.text import TextService
 from services.conversation import InMemoryConversationStore, ConversationService
-from services.router import RouterService
 from services.chat import ChatService, TitleService
 
 
@@ -36,16 +35,10 @@ def get_conversation_service() -> ConversationService:
     )
 
 
-def get_router_service() -> RouterService:
-    """Get router service with dependencies."""
-    return RouterService(client=get_openai_client())
-
-
 def get_chat_service() -> ChatService:
     """Get chat service with all dependencies."""
     return ChatService(
         client=get_openai_client(),
-        router=get_router_service(),
         conversation_service=get_conversation_service(),
     )
 

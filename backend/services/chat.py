@@ -7,10 +7,9 @@ from typing import Iterator
 from openai import OpenAI
 
 from config import settings
-from models.domain import ParsedUserMessage, RouteDecision
+from models.domain import ParsedUserMessage
 from models.api import TextInfo, ChatRequest, ReadingContext
 from prompts.system import build_system_prompt, build_full_text_message
-from services.router import RouterService
 from services.conversation import ConversationService
 
 
@@ -109,8 +108,6 @@ class ChatContext:
 
     parsed: ParsedUserMessage
     text_info: TextInfo | None
-    route_decision: RouteDecision
-    model: str
     messages: list[dict]  # Full message list including system prompt
 
 
@@ -120,12 +117,16 @@ class ChatService:
     def __init__(
         self,
         client: OpenAI,
-        router: RouterService,
         conversation_service: ConversationService,
+        model: str | None = None,
+        effort: str | None = None,
+        cache_ttl: str | None = None,
     ):
         self._client = client
-        self._router = router
         self._conversation = conversation_service
+        self._model = model or settings.model_tutor
+        self._effort = effort or settings.tutor_effort
+        self._cache_ttl = cache_ttl if cache_ttl is not None else settings.prompt_cache_ttl
 
     def prepare_context(
         self,
@@ -162,10 +163,6 @@ class ChatService:
             )
             parsed = MessageParser.apply_reading_context(parsed, request.reading_context)
 
-            # For AI-initiated, use deep routing to ensure thoughtful opening
-            route_decision = RouteDecision(route="deep", effort="medium", confidence=1.0, reason="AI-initiated Socratic opening")
-            model = self._router.get_model(route_decision)
-
             # Build system prompt with AI initiate flag
             system_prompt = build_system_prompt(
                 text_info, request.mode, ai_initiate=True, has_full_text=has_full_text
@@ -183,13 +180,7 @@ class ChatService:
                 messages.append({"role": "system", "content": "\n".join(context_parts)})
             messages.extend(trimmed)
 
-            return ChatContext(
-                parsed=parsed,
-                text_info=text_info,
-                route_decision=route_decision,
-                model=model,
-                messages=messages,
-            )
+            return ChatContext(parsed=parsed, text_info=text_info, messages=messages)
 
         # Standard flow: parse user message and add to history
         parsed = MessageParser.parse(request.user_message)
@@ -206,21 +197,11 @@ class ChatService:
         # Trim conversation for context window
         trimmed = self._conversation.trim_for_context(conversation)
 
-        # Route the query
-        route_decision = self._router.decide(parsed, text_info)
-        model = self._router.get_model(route_decision)
-
         # Build full message list
         system_prompt = build_system_prompt(text_info, request.mode, has_full_text=has_full_text)
         messages = prefix + [{"role": "system", "content": system_prompt}] + trimmed
 
-        return ChatContext(
-            parsed=parsed,
-            text_info=text_info,
-            route_decision=route_decision,
-            model=model,
-            messages=messages,
-        )
+        return ChatContext(parsed=parsed, text_info=text_info, messages=messages)
 
     @staticmethod
     def _normalize_history_message(role: str, content: str) -> dict:
@@ -229,13 +210,17 @@ class ChatService:
             content = MessageParser.build_model_input(MessageParser.parse(content))
         return {"role": role, "content": content}
 
+    def _request_options(self, ctx: ChatContext) -> dict:
+        """Model call options shared by the streaming and non-streaming paths."""
+        options = {"model": self._model, "input": ctx.messages, "reasoning": {"effort": self._effort}}
+        if self._cache_ttl:
+            # Keep the cached book alive while the reader reads between questions
+            options["extra_body"] = {"prompt_cache_options": {"ttl": self._cache_ttl}}
+        return options
+
     def generate_response(self, ctx: ChatContext, conversation_id: str) -> str:
         """Generate a non-streaming response."""
-        response = self._client.responses.create(
-            model=ctx.model,
-            input=ctx.messages,
-            reasoning={"effort": ctx.route_decision.effort}
-        )
+        response = self._client.responses.create(**self._request_options(ctx))
 
         assistant_message = response.output_text
 
@@ -249,17 +234,9 @@ class ChatService:
         Generate a streaming SSE response.
         Yields SSE-formatted strings: 'data: {...}\n\n'
         """
-        # Send routing info first
-        yield f"data: {json.dumps({'routing': {'route': ctx.route_decision.route, 'effort': ctx.route_decision.effort}})}\n\n"
-
         full_response = ""
         try:
-            stream = self._client.responses.create(
-                model=ctx.model,
-                input=ctx.messages,
-                reasoning={"effort": ctx.route_decision.effort},
-                stream=True
-            )
+            stream = self._client.responses.create(**self._request_options(ctx), stream=True)
 
             for event in stream:
                 if event.type == "response.output_text.delta":
@@ -292,7 +269,8 @@ class TitleService:
         """Generate a short title for a conversation based on the first exchange."""
         try:
             response = self._client.responses.create(
-                model=settings.model_router,
+                model=settings.model_utility,
+                reasoning={"effort": "low"},
                 input=[
                     {
                         "role": "system",

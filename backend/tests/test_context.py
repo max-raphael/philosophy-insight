@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 
 from config import settings
 from models.api import ChatRequest, HistoryMessage, ReadingContext
-from models.domain import ParsedUserMessage, RouteDecision
+from models.domain import ParsedUserMessage
 from services.chat import ChatService, MessageParser
 from services.conversation import ConversationService, InMemoryConversationStore
 from services.text import TextService
@@ -22,11 +22,8 @@ def make_text_dir(tmp_path, text_id="sample", sections=None):
 
 
 def make_chat_service(store=None):
-    router = Mock()
-    router.decide.return_value = RouteDecision(route="basic", effort="low", confidence=1.0, reason="")
-    router.get_model.return_value = "model"
     conversation = ConversationService(store or InMemoryConversationStore(), Mock())
-    return ChatService(client=Mock(), router=router, conversation_service=conversation)
+    return ChatService(client=Mock(), conversation_service=conversation)
 
 
 class TestApplyReadingContext:
@@ -141,7 +138,50 @@ class TestFullText:
         tutor_ctx = chat.prepare_context(tutor, text_info, full_text)
         socratic_ctx = chat.prepare_context(socratic, text_info, full_text)
 
-        # Identical first message across modes = shared cacheable prefix
+        # Identical first message across modes, so the book text never varies
         assert tutor_ctx.messages[0] == socratic_ctx.messages[0]
         assert "First thought." in tutor_ctx.messages[0]["content"]
         assert "[Book X, Section Y]" in tutor_ctx.messages[1]["content"]
+
+
+class TestModelCall:
+
+    def _stream_events(self, *deltas):
+        return [Mock(type="response.output_text.delta", delta=d) for d in deltas]
+
+    def test_stream_uses_tutor_model_effort_and_cache_ttl(self):
+        client = Mock()
+        client.responses.create.return_value = self._stream_events("Hello", " there")
+        conversation = ConversationService(InMemoryConversationStore(), Mock())
+        chat = ChatService(client, conversation, model="tutor-model", effort="medium", cache_ttl="30m")
+        ctx = chat.prepare_context(ChatRequest(conversation_id="c", text_id="t", user_message="Hi"), None)
+
+        events = [json.loads(e[6:]) for e in chat.stream_response(ctx, "c")]
+
+        kwargs = client.responses.create.call_args.kwargs
+        assert kwargs["model"] == "tutor-model"
+        assert kwargs["reasoning"] == {"effort": "medium"}
+        assert kwargs["extra_body"] == {"prompt_cache_options": {"ttl": "30m"}}
+        assert kwargs["stream"] is True
+        # No routing event any more: just content, then done
+        assert events == [{"content": "Hello"}, {"content": " there"}, {"done": True}]
+        assert conversation.get_or_create("c")[-1] == {"role": "assistant", "content": "Hello there"}
+
+    def test_empty_cache_ttl_uses_default_caching(self):
+        client = Mock()
+        client.responses.create.return_value = Mock(output_text="Answer")
+        chat = ChatService(client, ConversationService(InMemoryConversationStore(), Mock()), cache_ttl="")
+        ctx = chat.prepare_context(ChatRequest(conversation_id="c", text_id="t", user_message="Hi"), None)
+
+        assert chat.generate_response(ctx, "c") == "Answer"
+        assert "extra_body" not in client.responses.create.call_args.kwargs
+
+    def test_defaults_come_from_settings(self):
+        client = Mock()
+        client.responses.create.return_value = Mock(output_text="Answer")
+        chat = ChatService(client, ConversationService(InMemoryConversationStore(), Mock()))
+        ctx = chat.prepare_context(ChatRequest(conversation_id="c", text_id="t", user_message="Hi"), None)
+
+        chat.generate_response(ctx, "c")
+
+        assert client.responses.create.call_args.kwargs["model"] == settings.model_tutor

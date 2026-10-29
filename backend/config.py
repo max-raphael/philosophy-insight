@@ -16,10 +16,13 @@ class Settings:
     github_token: str = os.getenv("GITHUB_TOKEN", "")
     github_repo: str = os.getenv("GITHUB_REPO", "max-raphael/philosophy-insight")
 
-    # Models
-    model_router: str = "gpt-5-nano"    # Fast/cheap router
-    model_basic: str = "gpt-5-mini"     # Quick responses for simple queries
-    model_deep: str = "gpt-5.2"         # Deep reasoning for complex queries
+    # Models (chosen by comparing candidates with scripts/model_eval.py, 2026-10-29)
+    model_tutor: str = os.getenv("MODEL_TUTOR", "gpt-6.1-terra")     # Answers every reader question
+    tutor_effort: str = os.getenv("TUTOR_EFFORT", "medium")          # Reasoning effort for tutor answers
+    model_utility: str = os.getenv("MODEL_UTILITY", "gpt-6-luna")    # Titles and history summaries
+    # How long OpenAI keeps the cached prompt (the book) alive: "30m" or "12h" on GPT-5.6+,
+    # empty for the default. Cache writes cost 1.25x input for 30m.
+    prompt_cache_ttl: str = os.getenv("PROMPT_CACHE_TTL", "30m")
 
     # Conversation limits
     max_history_messages: int = 50      # Keep up to 50 messages before summarizing
@@ -31,7 +34,7 @@ class Settings:
     # Comma-separated ids, or "*" for every text under the token limit.
     full_text_ids: list[str] = [
         t.strip()
-        for t in os.getenv("FULL_TEXT_IDS", "meditations").split(",")
+        for t in os.getenv("FULL_TEXT_IDS", "*").split(",")
         if t.strip()
     ]
     full_text_max_tokens: int = int(os.getenv("FULL_TEXT_MAX_TOKENS", "200000"))
@@ -52,34 +55,3 @@ class Settings:
 
 settings = Settings()
 
-
-# Structured output schema for router
-ROUTE_SCHEMA = {
-    "name": "route_decision",
-    "strict": True,
-    "schema": {
-        "type": "object",
-        "properties": {
-            "route": {
-                "type": "string",
-                "enum": ["basic", "deep"],
-                "description": "Whether to use basic (fast) or deep (reasoning) model"
-            },
-            "effort": {
-                "type": "string",
-                "enum": ["low", "high"],
-                "description": "Reasoning effort level"
-            },
-            "confidence": {
-                "type": "number",
-                "description": "Confidence in routing decision (0.0 to 1.0)"
-            },
-            "reason": {
-                "type": "string",
-                "description": "Brief explanation of routing decision"
-            }
-        },
-        "required": ["route", "effort", "confidence", "reason"],
-        "additionalProperties": False
-    }
-}

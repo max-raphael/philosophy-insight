@@ -19,7 +19,8 @@ FULL_TEXT_INSTRUCTIONS = """You have the complete text of the work in front of y
 def build_full_text_message(text_info: TextInfo, full_text: str) -> str:
     """
     Build the message containing the whole book. Sent first and kept identical
-    across requests and modes so it forms a cacheable prompt prefix.
+    across requests so it forms a cacheable prompt prefix. (OpenAI merges it with
+    the following system message when caching, so each mode gets its own cache.)
     """
     translator = f", translated by {text_info.translator}" if text_info.translator else ""
     return f"""The complete text of {text_info.title} by {text_info.author}{translator}. Each section is labelled with its location.

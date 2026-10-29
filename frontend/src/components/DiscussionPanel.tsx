@@ -165,7 +165,6 @@ export default function DiscussionPanel({
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [streamingContent, setStreamingContent] = useState('')
-  const [routingInfo, setRoutingInfo] = useState<{ route: string; effort: string } | null>(null)
   const [inputHeight, setInputHeight] = useState(120) // Default input area height
   const [isDragging, setIsDragging] = useState(false)
   const [activeQuote, setActiveQuote] = useState<string | null>(null)
@@ -293,7 +292,6 @@ export default function DiscussionPanel({
 
     setLoading(true)
     setStreamingContent('')
-    setRoutingInfo(null)
 
     // Build context from current reading position
     const position = readingParagraph ?? activeParagraph
@@ -326,15 +324,12 @@ export default function DiscussionPanel({
 
       let fullResponse = ''
       await readSSE(response, (data) => {
-        if (data.routing) {
-          setRoutingInfo(data.routing as { route: string; effort: string })
-        } else if (data.content) {
+        if (data.content) {
           fullResponse += data.content as string
           setStreamingContent(fullResponse)
         } else if (data.done) {
           setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
           setStreamingContent('')
-          setRoutingInfo(null)
           // Generate title based on the AI's opening question
           generateTitle(contextMessage || 'Socratic dialogue', fullResponse)
         } else if (data.error) {
@@ -378,7 +373,6 @@ export default function DiscussionPanel({
     setMessages(prev => [...prev, { role: 'user', content: formattedMessage }])
     setLoading(true)
     setStreamingContent('')
-    setRoutingInfo(null)
 
     try {
       const response = await fetch(`${API_URL}/chat/stream`, {
@@ -403,16 +397,12 @@ export default function DiscussionPanel({
 
       let fullResponse = ''
       await readSSE(response, (data) => {
-        if (data.routing) {
-          // Routing metadata received - update loading state
-          setRoutingInfo(data.routing as { route: string; effort: string })
-        } else if (data.content) {
+        if (data.content) {
           fullResponse += data.content as string
           setStreamingContent(fullResponse)
         } else if (data.done) {
           setMessages(prev => [...prev, { role: 'assistant', content: fullResponse }])
           setStreamingContent('')
-          setRoutingInfo(null)
           // Generate title after first exchange
           if (isFirstExchange) {
             generateTitle(userText, fullResponse)
@@ -701,11 +691,6 @@ export default function DiscussionPanel({
                   <div className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
                   <div className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
                 </div>
-                {routingInfo && (
-                  <span className="text-xs text-[var(--text-muted)] font-ui">
-                    {routingInfo.route === 'deep' ? 'Thinking deeply…' : 'Responding…'}
-                  </span>
-                )}
               </div>
             </motion.div>
           )}
