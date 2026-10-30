@@ -222,11 +222,13 @@ CSS custom properties enable dark mode theming.
 2. **Continue Reading** - Texts with saved reading progress (shown only if progress exists)
 3. **Start Here** - Curated essential texts in uniform 3-column grid
 4. **Philosophical Traditions** - Two-column layout (Western | Eastern) with clickable era cards
-5. **Philosophers Gallery** - Horizontal scroll with portraits sourced from Wikipedia API
+5. **Philosophers Gallery** - Horizontal scroll with self-hosted portraits (see below)
 6. **The Library** - Filterable/sortable grid with pill-style era filters
 
 ### Philosophers Page (`/philosophers`)
-- Grid of all philosophers with portraits from Wikipedia
+- Grid of all philosophers with portraits
+- Portraits come from Wikimedia Commons but are self-hosted as 400px WebP in `frontend/public/philosophers/` (hotlinking broke in 2026: Commons rejects non-standard thumbnail sizes and rate-limits bulk loads). Mapping in `src/data/philosopherImages.ts`; sources and licenses in `public/philosophers/credits.json`. To add one, put its Commons URL in the mapping and run `python3 scripts/fetch_philosopher_images.py` from `frontend/`
+- Category badge colors/labels are shared via `src/data/categoryStyles.ts` (keyed by the era ids in `collections.ts`)
 - Filter by tradition (Ancient, Medieval, Enlightenment, Modern, Eastern, Revolutionary)
 - Click a philosopher to expand and see their available works
 - Links directly to each text's reader page

@@ -6,6 +6,7 @@ import WelcomeModal from '../components/onboarding/WelcomeModal'
 import { useOnboarding } from '../hooks/useOnboarding'
 import { startHereTexts, eras, getPhilosophersFromTexts, type EraId } from '../data/collections'
 import { philosopherImages } from '../data/philosopherImages'
+import { getCategoryStyle } from '../data/categoryStyles'
 
 interface TextInfo {
   id: string
@@ -32,22 +33,9 @@ const heroQuotes = [
   { text: "The unexamined life is not worth living.", author: "Socrates", work: "Apology" },
   { text: "He who has a why to live can bear almost any how.", author: "Nietzsche", work: "Twilight of the Idols" },
   { text: "Waste no more time arguing about what a good man should be. Be one.", author: "Marcus Aurelius", work: "Meditations" },
-  { text: "To be is to be perceived.", author: "George Berkeley", work: "A Treatise Concerning Human Nature" },
+  { text: "To be is to be perceived.", author: "George Berkeley", work: "A Treatise Concerning the Principles of Human Knowledge" },
   { text: "Man is condemned to be free.", author: "Jean-Paul Sartre", work: "Existentialism is a Humanism" },
 ]
-
-// Category color mapping using CSS variables for proper light/dark mode support
-const categoryStyles: Record<string, { bg: string; text: string; accent: string }> = {
-  ancient: { bg: 'bg-[var(--category-ancient-bg)]', text: 'text-[var(--category-ancient-text)]', accent: 'border-[var(--category-ancient-text)]/40' },
-  medieval: { bg: 'bg-[var(--category-medieval-bg)]', text: 'text-[var(--category-medieval-text)]', accent: 'border-[var(--category-medieval-text)]/40' },
-  enlightenment: { bg: 'bg-[var(--category-enlightenment-bg)]', text: 'text-[var(--category-enlightenment-text)]', accent: 'border-[var(--category-enlightenment-text)]/40' },
-  modern: { bg: 'bg-[var(--category-modern-bg)]', text: 'text-[var(--category-modern-text)]', accent: 'border-[var(--category-modern-text)]/40' },
-  chinese: { bg: 'bg-[var(--category-chinese-bg)]', text: 'text-[var(--category-chinese-text)]', accent: 'border-[var(--category-chinese-text)]/40' },
-  indian: { bg: 'bg-[var(--category-indian-bg)]', text: 'text-[var(--category-indian-text)]', accent: 'border-[var(--category-indian-text)]/40' },
-  buddhist: { bg: 'bg-[var(--category-buddhist-bg)]', text: 'text-[var(--category-buddhist-text)]', accent: 'border-[var(--category-buddhist-text)]/40' },
-  sufi: { bg: 'bg-[var(--category-sufi-bg)]', text: 'text-[var(--category-sufi-text)]', accent: 'border-[var(--category-sufi-text)]/40' },
-  marxist: { bg: 'bg-[var(--category-marxist-bg)]', text: 'text-[var(--category-marxist-text)]', accent: 'border-[var(--category-marxist-text)]/40' },
-}
 
 type SortOption = 'title' | 'author' | 'era'
 type FilterEra = EraId | 'all'
@@ -452,8 +440,8 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                         {/* Category badge */}
                         <div className="flex items-center justify-between mb-4">
                           <span className={`text-[10px] font-ui tracking-widest uppercase px-2 py-1 rounded-full ${
-                            categoryStyles[text.category || 'ancient']?.bg || 'bg-[var(--bg-tertiary)]'
-                          } ${categoryStyles[text.category || 'ancient']?.text || 'text-[var(--text-muted)]'}`}>
+                            getCategoryStyle(text.category || 'ancient')?.bg || 'bg-[var(--bg-tertiary)]'
+                          } ${getCategoryStyle(text.category || 'ancient')?.text || 'text-[var(--text-muted)]'}`}>
                             {text.category}
                           </span>
                           <svg className="w-5 h-5 text-[var(--text-muted)] group-hover:text-[var(--accent-primary)] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -842,8 +830,8 @@ export default function Home({ texts, onOpenSearch }: HomeProps) {
                       </h3>
                       {text.category && (
                         <span className={`text-[10px] font-ui tracking-wider uppercase px-2 py-1 rounded-full shrink-0 ${
-                          categoryStyles[text.category]?.bg || 'bg-[var(--bg-tertiary)]'
-                        } ${categoryStyles[text.category]?.text || 'text-[var(--text-muted)]'}`}>
+                          getCategoryStyle(text.category)?.bg || 'bg-[var(--bg-tertiary)]'
+                        } ${getCategoryStyle(text.category)?.text || 'text-[var(--text-muted)]'}`}>
                           {text.category}
                         </span>
                       )}

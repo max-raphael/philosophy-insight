@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from '../components/ThemeToggle'
 import { getPhilosophersFromTexts, eras, type EraId } from '../data/collections'
 import { philosopherImages } from '../data/philosopherImages'
+import { getCategoryLabel, getCategoryStyle, categoryStyles } from '../data/categoryStyles'
 
 interface TextInfo {
   id: string
@@ -17,32 +18,6 @@ interface TextInfo {
 interface PhilosophersProps {
   texts: TextInfo[]
   onOpenSearch: (author?: string) => void
-}
-
-// Category labels
-const categoryLabels: Record<string, string> = {
-  ancient: 'Ancient',
-  medieval: 'Medieval',
-  enlightenment: 'Enlightenment',
-  modern: 'Modern',
-  chinese: 'Chinese',
-  indian: 'Indian',
-  buddhist: 'Buddhist',
-  sufi: 'Sufi & Persian',
-  marxist: 'Revolutionary',
-}
-
-// Category color mapping
-const categoryStyles: Record<string, { bg: string; text: string }> = {
-  ancient: { bg: 'bg-[var(--category-ancient-bg)]', text: 'text-[var(--category-ancient-text)]' },
-  medieval: { bg: 'bg-[var(--category-medieval-bg)]', text: 'text-[var(--category-medieval-text)]' },
-  enlightenment: { bg: 'bg-[var(--category-enlightenment-bg)]', text: 'text-[var(--category-enlightenment-text)]' },
-  modern: { bg: 'bg-[var(--category-modern-bg)]', text: 'text-[var(--category-modern-text)]' },
-  chinese: { bg: 'bg-[var(--category-chinese-bg)]', text: 'text-[var(--category-chinese-text)]' },
-  indian: { bg: 'bg-[var(--category-indian-bg)]', text: 'text-[var(--category-indian-text)]' },
-  buddhist: { bg: 'bg-[var(--category-buddhist-bg)]', text: 'text-[var(--category-buddhist-text)]' },
-  sufi: { bg: 'bg-[var(--category-sufi-bg)]', text: 'text-[var(--category-sufi-text)]' },
-  marxist: { bg: 'bg-[var(--category-marxist-bg)]', text: 'text-[var(--category-marxist-text)]' },
 }
 
 type FilterCategory = EraId | 'all'
@@ -194,7 +169,7 @@ export default function Philosophers({ texts, onOpenSearch }: PhilosophersProps)
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
             {filteredPhilosophers.map((philosopher, i) => {
               const imageUrl = philosopherImages[philosopher.name]
-              const style = categoryStyles[philosopher.category] || categoryStyles.ancient
+              const style = getCategoryStyle(philosopher.category) || categoryStyles.ancient
 
               return (
                 <motion.button
@@ -225,7 +200,7 @@ export default function Philosophers({ texts, onOpenSearch }: PhilosophersProps)
 
                     {/* Category badge */}
                     <div className={`absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-ui ${style.bg} ${style.text}`}>
-                      {categoryLabels[philosopher.category] || 'Unknown'}
+                      {getCategoryLabel(philosopher.category) || 'Unknown'}
                     </div>
 
                     {/* Work count badge */}
@@ -326,8 +301,8 @@ export default function Philosophers({ texts, onOpenSearch }: PhilosophersProps)
                         {selectedPhilosopher.name}
                       </h2>
                       <div className="flex items-center gap-3 flex-wrap">
-                        <span className={`px-3 py-1 rounded-full text-xs font-ui ${categoryStyles[selectedPhilosopher.category]?.bg || ''} ${categoryStyles[selectedPhilosopher.category]?.text || ''}`}>
-                          {categoryLabels[selectedPhilosopher.category] || 'Unknown'}
+                        <span className={`px-3 py-1 rounded-full text-xs font-ui ${getCategoryStyle(selectedPhilosopher.category)?.bg || ''} ${getCategoryStyle(selectedPhilosopher.category)?.text || ''}`}>
+                          {getCategoryLabel(selectedPhilosopher.category) || 'Unknown'}
                         </span>
                         <span className="text-sm text-[var(--text-secondary)] font-ui">
                           {selectedPhilosopher.textIds.length} {selectedPhilosopher.textIds.length === 1 ? 'work' : 'works'} available
